@@ -1,0 +1,26 @@
+<p class="lead">"Bundle" means two related things in Solana trading: a technical feature (Jito bundles) and a launch pattern ("bundled" buys at token creation). This guide explains both from public documentation.</p>
+
+<h2>Jito bundles: the technical feature</h2>
+<p>Jito's documentation describes bundles as follows:</p>
+<ul>
+<li>A bundle is a group of <strong>up to 5 transactions</strong>.</li>
+<li>They execute <strong>sequentially</strong> (in the listed order) and <strong>atomically</strong>: all succeed together in the same slot, or none are committed.</li>
+<li>Bundles are sent to Jito's block engine, compete in an auction on <strong>tips</strong>, and winning bundles go to validators running the Jito-Solana client. The docs list a minimum tip of 1,000 lamports.</li>
+</ul>
+<p>Trading terminals use this machinery for "MEV protection" or "MEV-only" modes. For example, BullX's docs say its MEV-only mode routes transactions only through Jito and may add 0.002 SOL on top of your bribe, and Trojan's FAQ describes MEV protection as bundling your transaction privately with a small tip. The tip/bribe goes to the network, not to the terminal.</p>
+<p>Jito's docs also note a caveat: if a block containing a bundle is skipped ("uncled"), its transactions can be rebroadcast outside the bundle rules, so all-or-nothing is not absolute.</p>
+
+<h2>"Bundled launches": the pattern</h2>
+<p>In memecoin slang, a token is often called "bundled" when its creator (or wallets linked to the creator) buy a large share of supply across many wallets <em>at the moment of launch</em>, for example in the same bundle or block as the creation transaction. Because the buys land together, they can get early prices, and the supply looks spread across many independent holders.</p>
+<h3>Why it matters for risk</h3>
+<ul>
+<li>Supply that looks distributed may be controlled by one actor, who can sell from many wallets at once.</li>
+<li>Holder-count and "top 10 %" figures can look healthier than reality.</li>
+</ul>
+<h3>How people look for it</h3>
+<ul>
+<li>Many buys from fresh wallets in the very first slot or block after creation (visible on explorers like <a href="/tools/solscan/">Solscan</a> or in scanner trade lists).</li>
+<li>Wallets funded from the same source shown as connected in <a href="/tools/bubblemaps/">Bubblemaps</a>.</li>
+<li>Insider flags and insider networks in <a href="/tools/rugcheck/">RugCheck</a> reports.</li>
+</ul>
+<p>None of these signals is proof. Snipers and bots also buy in the first block. Treat them as reasons to look closer, and see the <a href="/guides/spotting-rugs/">spotting rugs</a> guide.</p>

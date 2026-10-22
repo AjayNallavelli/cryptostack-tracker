@@ -1,0 +1,43 @@
+{% extends "base.html" %}{% from "_macros.html" import outlink, status, fee_table, fee_line %}
+{% block content %}
+<nav class="crumbs small"><a href="/">Home</a> / <a href="/category/{{ t.cat_slug }}/">{{ t.category }}</a> / {{ t.name }}</nav>
+<section class="tool-hero">
+  <div>
+    <h1>{{ t.name }}: fees &amp; features</h1>
+    <p class="answer"><strong>{{ fee_line(t) }}</strong></p>
+    <p class="lead">{{ t.description }}</p>
+    <p>{{ status(t) }} <a class="tag" href="/category/{{ t.cat_slug }}/">{{ t.category }}</a> <span class="small muted">Date checked {{ t.date_checked|nicedate }}</span></p>
+  </div>
+  <div class="tool-cta card">
+    <p class="small muted">Official site</p>
+    {{ outlink(t) }}
+    <p class="small">Fee source: <a href="{{ t.source_url }}" rel="nofollow noopener" target="_blank">official page ↗</a></p>
+    <p class="small muted">No affiliate or referral link.</p>
+  </div>
+</section>
+<dl class="glance">
+  <div><dt>Category</dt><dd>{{ t.category }}</dd></div>
+  <div><dt>Chains</dt><dd>{{ t.chains|join(', ') }}</dd></div>
+  <div><dt>Verification</dt><dd>{{ t.status_label }}</dd></div>
+  <div><dt>Date checked</dt><dd>{{ t.date_checked|nicedate }}</dd></div>
+</dl>
+<p class="small muted">{{ t.status_help }}</p>
+
+<h2 id="fees">{{ t.name }} fees</h2>
+{{ fee_table(t) }}
+{% if t.verification_note %}<p class="small note">Note: {{ t.verification_note }}</p>{% endif %}
+
+<h2>Key features</h2>
+<ul>{% for f in t.key_features %}<li>{{ f }}</li>{% endfor %}</ul>
+
+<h2>Best for (learning)</h2>
+<p>{{ t.best_for }}</p>
+
+{% if t.pairs %}
+<h2>Compare {{ t.name }}</h2>
+<ul class="links">{% for p in t.pairs %}<li><a href="/compare/{{ p.slug }}/">{{ p.a.name }} vs {{ p.b.name }}</a></li>{% endfor %}</ul>
+{% endif %}
+<h2>Other {{ t.category|lower }}</h2>
+<ul class="links cols">{% for c in cats if c.slug == t.cat_slug %}{% for x in c.tools if x.id != t.id %}<li><a href="/tools/{{ x.slug }}/">{{ x.name }}</a></li>{% endfor %}{% endfor %}</ul>
+<p class="risk">Education only, not financial advice. A tool appearing here is not an endorsement; check the vendor's current terms before use.</p>
+{% endblock %}

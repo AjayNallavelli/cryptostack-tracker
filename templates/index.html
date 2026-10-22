@@ -1,0 +1,73 @@
+{% extends "base.html" %}{% from "_macros.html" import card %}
+{% block content %}
+<section class="hero">
+  <p class="eyebrow">Checked {{ stats.last|nicedate }} · {{ stats.tools }} tools · education only</p>
+  <h1>Learn the crypto tool stack: <em>what each tool does and what it costs</em>.</h1>
+  <p class="lead">A plain-language field guide to Solana trading terminals, scanners, wallets and safety checkers. Fees come from each vendor's own docs with a source link and the date checked. If a fee could not be read from an official source, we leave it blank.</p>
+  <p class="risk"><strong>Education only. Not financial advice.</strong> Crypto is high risk. This site never names coins to buy or tells you to trade.</p>
+  <div class="stats">
+    <div><strong>{{ stats.tools }}</strong><span>tools</span></div>
+    <div><strong>{{ stats.verified }}</strong><span>fees fully verified</span></div>
+    <div><strong>{{ stats.partial }}</strong><span>partly verified</span></div>
+    <div><strong>{{ stats.unverified }}</strong><span>unverified (blank)</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Categories</h2>
+  <div class="grid">
+  {% for c in cats %}<div class="card"><h3><a href="/category/{{ c.slug }}/">{{ c.name }}</a></h3><p class="small">{{ c.blurb }}</p><p class="small muted">{% for t in c.tools %}<a href="/tools/{{ t.slug }}/">{{ t.name }}</a>{{ " · " if not loop.last }}{% endfor %}</p></div>{% endfor %}
+  </div>
+</section>
+
+<section id="tools">
+  <div class="filters" role="search">
+    <input id="q" type="search" placeholder="Search tools (e.g. wallet, Telegram, holders)…" aria-label="Search tools">
+    <div class="chips" id="cat-chips">
+      <button class="chip on" data-cat="">All</button>
+      {% for c in cats %}<button class="chip" data-cat="{{ c.slug }}">{{ c.name }}</button>{% endfor %}
+    </div>
+    <div class="row">
+      <label class="small">Fee status <select id="status">
+        <option value="">Any</option><option value="verified">Fees verified</option><option value="partial">Partly verified</option><option value="unverified">Unverified</option>
+      </select></label>
+      <span class="small muted" id="count"></span>
+    </div>
+  </div>
+  <div class="grid" id="grid">
+    {% for t in tools %}{{ card(t) }}{% endfor %}
+  </div>
+  <p id="empty" class="muted" hidden>No tools match those filters.</p>
+</section>
+
+<section class="split">
+  <div class="card">
+    <h2>Strategies (risk-management concepts)</h2>
+    <ul class="links">{% for a in pages.strategies %}<li><a href="/strategies/{{ a.slug }}/">{{ a.title }}</a> <span class="small muted">{{ a.summary }}</span></li>{% endfor %}</ul>
+    <h2>Guides</h2>
+    <ul class="links">{% for a in pages.guides %}<li><a href="/guides/{{ a.slug }}/">{{ a.title }}</a></li>{% endfor %}</ul>
+  </div>
+  <div class="card accent">
+    <h2>What's new</h2>
+    <ul class="feed">{% for c in log %}<li><span class="date">{{ c.date|nicedate }}</span> <strong>{{ c.title }}</strong>: {{ c.summary }}</li>{% endfor %}</ul>
+    <a href="/changes/">Full change log →</a>
+    <p class="small"><a href="/compare/">Browse all comparisons →</a></p>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+(function(){
+  var q=document.getElementById('q'),st=document.getElementById('status'),grid=document.getElementById('grid'),cat='';
+  var cards=[].slice.call(grid.children);
+  function apply(){
+    var s=q.value.trim().toLowerCase(),v=st.value,n=0;
+    cards.forEach(function(c){var ok=(!cat||c.dataset.cat===cat)&&(!s||c.dataset.name.indexOf(s)>-1)&&(!v||c.dataset.status===v);c.hidden=!ok;if(ok)n++;});
+    document.getElementById('count').textContent=n+' tools';document.getElementById('empty').hidden=n>0;
+  }
+  document.querySelectorAll('#cat-chips .chip').forEach(function(ch){ch.addEventListener('click',function(){
+    document.querySelectorAll('#cat-chips .chip').forEach(function(x){x.classList.remove('on');});ch.classList.add('on');cat=ch.dataset.cat;apply();});});
+  q.addEventListener('input',apply);st.addEventListener('change',apply);apply();
+})();
+</script>
+{% endblock %}

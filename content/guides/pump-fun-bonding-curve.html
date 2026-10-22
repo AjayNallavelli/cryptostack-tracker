@@ -1,0 +1,36 @@
+<p class="lead">Every coin launched on pump.fun starts on a bonding curve. pump.fun's docs describe it as a deterministic pricing function, with no order book or market makers. Here is how to read it, based on pump.fun's own documentation.</p>
+
+<h2>How the price is set</h2>
+<ul>
+<li>The curve is a <strong>constant-product</strong> formula (the same family of maths used by Uniswap-style AMMs) over two <em>virtual</em> reserves: SOL and the coin's supply.</li>
+<li><strong>Every buy moves the price up; every sell moves it down.</strong></li>
+<li>Price impact grows with trade size: a large buy gets a worse average price than a small one.</li>
+<li>So the price you see is a function of how many tokens have been bought from the curve, not of a quote from a market maker.</li>
+</ul>
+
+<h2>Reading "bonding curve progress"</h2>
+<p>Interfaces often show a progress bar towards graduation. pump.fun's docs say that once a coin's market cap on the curve hits the <strong>graduation threshold</strong>, the curve closes. pump.fun's public program docs describe the curve as complete when its real token reserves run out. Progress therefore measures how much of the curve's sellable supply has been bought. It says nothing about quality: fast progress can come from a few large or linked buyers.</p>
+
+<h2>Graduation to PumpSwap</h2>
+<ul>
+<li>At graduation the liquidity is migrated <strong>atomically</strong> to a PumpSwap pool. pump.fun calls this the <em>canonical pool</em>; the docs say graduation is automatic and irreversible.</li>
+<li>pump.fun's docs say the migrated SOL and tokens become the canonical pool, the pool is owned by the protocol, and pump.fun does not seed or remove that liquidity afterwards.</li>
+<li>pump.fun's fees page lists a <strong>0.015 SOL</strong> graduation fee.</li>
+</ul>
+
+<h2>Fees you pay (from pump.fun's fees page, updated Oct 17, 2026)</h2>
+<div class="table-wrap"><table class="ptable compact"><thead><tr><th>Where</th><th>Fee</th></tr></thead><tbody>
+<tr><td>Bonding curve trades (SOL- or USDC-paired)</td><td>1.25% total: 0.30% creator, 0.95% protocol, 0% LP</td></tr>
+<tr><td>PumpSwap canonical pool (SOL-paired)</td><td>Tiered by market cap: 1.25% at the lowest tier, falling to 0.30% at the top tier</td></tr>
+<tr><td>Non-canonical PumpSwap pools</td><td>0.30% (0.05% protocol, 0.25% LP)</td></tr>
+<tr><td>Platform fee on pump.fun web/mobile app trades (from Oct 17, 2026)</td><td>0.45%, or 0.40% with a referral code; not charged via Terminal or third-party interfaces</td></tr>
+<tr><td>Creating a coin</td><td>No platform fee (network costs only)</td></tr>
+</tbody></table></div>
+<p class="small muted">If you trade through a third-party terminal, that terminal's own fee (often 1%) is added on top of the pool/curve fee. BullX's docs, for example, list the pump.fun protocol fee separately from its 1% platform fee.</p>
+
+<h2>Practical reading tips</h2>
+<ul>
+<li>Small market caps on the curve mean small liquidity: a modest sell can move the price a lot.</li>
+<li>Count the full round-trip cost: curve fee + interface fee on the buy, and again on the sell.</li>
+<li>Look at who is buying (holder concentration, linked wallets) alongside the progress bar. See <a href="/guides/spotting-rugs/">spotting rugs</a> and <a href="/guides/how-bundles-work/">how bundles work</a>.</li>
+</ul>

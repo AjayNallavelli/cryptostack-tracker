@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="crumbs small"><a href="/">Home</a> / <a href="/{{ kind }}/">{{ kind_label }}</a> / {{ a.title }}</nav>
+<article class="article">
+<h1>{{ a.title }}</h1>
+{% if kind == "strategies" %}<p class="risk"><strong>A risk-management concept, not advice.</strong> Nothing here tells you what to buy or when. Example numbers are illustrations.</p>{% else %}<p class="risk"><strong>Education only.</strong> Researched from public documentation; claims are hedged where the docs are. Not financial advice.</p>{% endif %}
+{{ body }}
+<h2>Sources</h2>
+<ul class="sources">{% for s in a.sources %}<li><a href="{{ s.url }}" rel="nofollow noopener" target="_blank">{{ s.label }}</a></li>{% endfor %}</ul>
+<p class="small muted">Sources checked {{ a.date_checked|nicedate }}.</p>
+</article>
+<h2>More {{ kind_label|lower }}</h2>
+<ul class="links">{% for x in pages[kind] if x.slug != a.slug %}<li><a href="/{{ kind }}/{{ x.slug }}/">{{ x.title }}</a></li>{% endfor %}</ul>
+{% endblock %}

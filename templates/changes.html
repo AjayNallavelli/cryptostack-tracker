@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>What's new</h1>
+<p class="lead">A dated log of changes to the tool data and pages. <strong>This log is maintained by hand</strong>: there is no automated scraping. When a fee or feature is re-checked and changes, it is noted here with the date.</p>
+{% for c in log %}
+<h2 class="day">{{ c.date|nicedate }}</h2>
+<div class="log-entry"><strong>{{ c.title }}</strong><p class="small">{{ c.summary }}</p></div>
+{% endfor %}
+{% endblock %}

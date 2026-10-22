@@ -1,0 +1,138 @@
+{
+ "strategies": [
+  {
+   "slug": "five-minute-survival-hold",
+   "title": "The 5-minute survival hold",
+   "summary": "Waiting a few minutes before acting on a brand-new launch, and what that wait can and cannot tell you.",
+   "sources": [
+    {
+     "label": "pump.fun bonding curve docs",
+     "url": "https://pump.fun/docs/bonding-curve"
+    }
+   ],
+   "date_checked": "2026-10-22"
+  },
+  {
+   "slug": "private-wallet-lists-vs-public-leaderboards",
+   "title": "Private smart-wallet lists vs public leaderboards",
+   "summary": "Why a wallet that tops a public leaderboard is a different signal from a list you built and checked yourself.",
+   "sources": [
+    {
+     "label": "Trojan FAQ (copy trading)",
+     "url": "https://docs.trojan.com/faqs"
+    }
+   ],
+   "date_checked": "2026-10-22"
+  },
+  {
+   "slug": "exit-lines",
+   "title": "Exit lines: deciding your exits before you enter",
+   "summary": "Writing down a stop and a take-profit rule in advance, using '-30% stop, take half at 2x' as a worked example.",
+   "sources": [
+    {
+     "label": "pump.fun fees",
+     "url": "https://pump.fun/docs/fees"
+    },
+    {
+     "label": "Photon settings (auto-sell)",
+     "url": "https://pies-organization.gitbook.io/photon-trading/photon-on-sol/settings"
+    },
+    {
+     "label": "Trojan FAQ",
+     "url": "https://docs.trojan.com/faqs"
+    }
+   ],
+   "date_checked": "2026-10-22"
+  },
+  {
+   "slug": "daily-loss-brake",
+   "title": "The daily loss brake",
+   "summary": "A fixed daily loss limit that ends the session, and why it protects you from tilt.",
+   "sources": [
+    {
+     "label": "Photon fees",
+     "url": "https://pies-organization.gitbook.io/photon-trading/photon-on-sol/photon-fees-sol"
+    }
+   ],
+   "date_checked": "2026-10-22"
+  }
+ ],
+ "guides": [
+  {
+   "slug": "spotting-rugs",
+   "title": "Spotting rugs: authorities, liquidity and holders",
+   "summary": "Mint and freeze authority, LP status, holder concentration, and how to use RugCheck, Solsniffer and Bubblemaps together.",
+   "sources": [
+    {
+     "label": "Solana docs: Set Authority",
+     "url": "https://solana.com/docs/tokens/basics/set-authority"
+    },
+    {
+     "label": "RugCheck token report API reference",
+     "url": "https://fluxrpc.com/docs/rugcheck/getTokenReport"
+    },
+    {
+     "label": "Phantom help: swaps and frozen tokens",
+     "url": "https://help.phantom.com/articles/swap-crypto-in-phantom-5985106844435"
+    },
+    {
+     "label": "pump.fun bonding curve docs",
+     "url": "https://pump.fun/docs/bonding-curve"
+    },
+    {
+     "label": "Bubblemaps wiki",
+     "url": "https://wiki.bubblemaps.io/bubblemaps-v2/premium"
+    }
+   ],
+   "date_checked": "2026-10-22"
+  },
+  {
+   "slug": "how-bundles-work",
+   "title": "How bundles work (and what 'bundled launch' means)",
+   "summary": "Jito bundles explained from the docs, and why many wallets buying in the same block matters when you read holder data.",
+   "sources": [
+    {
+     "label": "Jito docs: Low Latency Transaction Send (bundles)",
+     "url": "https://docs.jito.wtf/lowlatencytxnsend/"
+    },
+    {
+     "label": "BullX fees and gas (MEV-only mode)",
+     "url": "https://bullx.gitbook.io/bullx-neo-docs/fees-and-gas"
+    },
+    {
+     "label": "Trojan FAQ (MEV)",
+     "url": "https://docs.trojan.com/faqs"
+    },
+    {
+     "label": "RugCheck token report API reference",
+     "url": "https://fluxrpc.com/docs/rugcheck/getTokenReport"
+    }
+   ],
+   "date_checked": "2026-10-22"
+  },
+  {
+   "slug": "pump-fun-bonding-curve",
+   "title": "Reading a pump.fun bonding curve",
+   "summary": "How the curve sets prices, what graduation to PumpSwap means, and the fees you pay along the way.",
+   "sources": [
+    {
+     "label": "pump.fun bonding curve docs",
+     "url": "https://pump.fun/docs/bonding-curve"
+    },
+    {
+     "label": "pump.fun fees",
+     "url": "https://pump.fun/docs/fees"
+    },
+    {
+     "label": "pump.fun public program docs (GitHub)",
+     "url": "https://github.com/pump-fun/pump-public-docs"
+    },
+    {
+     "label": "BullX fees and gas",
+     "url": "https://bullx.gitbook.io/bullx-neo-docs/fees-and-gas"
+    }
+   ],
+   "date_checked": "2026-10-22"
+  }
+ ]
+}

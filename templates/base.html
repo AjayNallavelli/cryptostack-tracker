@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ site.base_url }}{{ path }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ site.base_url }}{{ path }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:image" content="{{ site.base_url }}/static/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="{{ site.base_url }}/static/og.png">
+<link rel="icon" href="/static/logo.png">
+<link rel="stylesheet" href="/static/style.css">
+{% block head %}{% endblock %}
+</head>
+<body>
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="/"><span class="logo-mark">◆</span> CryptoStack<span class="muted">Tracker</span></a>
+    <nav>
+      <a href="/#tools">Tools</a>
+      <a href="/compare/">Compare</a>
+      <a href="/strategies/">Strategies</a>
+      <a href="/guides/">Guides</a>
+      <a href="/changes/">What's new</a>
+      <a class="btn btn-sm" href="/methodology/">Methodology</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+{% block content %}{% endblock %}
+</main>
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div>
+      <a class="logo" href="/"><span class="logo-mark">◆</span> CryptoStack<span class="muted">Tracker</span></a>
+      <p class="muted small">{{ site.tagline }}. Fees are copied from each vendor's official pages with the date checked. Fees we could not read from an official source are left blank and marked unverified.</p>
+      <p class="foot-risk"><strong>Not financial advice. Crypto is high risk.</strong> This site is for education only. It does not recommend any coin, token or trade, and nothing here is a signal to buy or sell. You can lose all the money you put into crypto. Always check the vendor's own site before using a tool.</p>
+    </div>
+    <div>
+      <h4>Categories</h4>
+      {% for c in cats %}<a href="/category/{{ c.slug }}/">{{ c.name }}</a>{% endfor %}
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/strategies/">Strategies</a>{% for a in pages.strategies %}<a href="/strategies/{{ a.slug }}/">{{ a.title }}</a>{% endfor %}
+    </div>
+    <div>
+      <h4>Site</h4>
+      <a href="/guides/">Guides</a><a href="/compare/">Comparisons</a><a href="/changes/">What's new</a><a href="/methodology/">Methodology &amp; disclaimer</a><a href="/data/tools.json">Dataset (JSON)</a>
+    </div>
+  </div>
+  <div class="wrap small muted copy">© {{ year }} {{ site.name }}. Not affiliated with any vendor listed. No affiliate links, no sponsors. Trademarks belong to their owners.</div>
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>

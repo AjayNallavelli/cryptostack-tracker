@@ -1,0 +1,17 @@
+<p class="lead">An "exit line" is a rule you write down <em>before</em> entering a position: the point where you will cut a loss and the point(s) where you will take some profit. Deciding in advance removes in-the-moment guessing.</p>
+<h2>A worked example rule</h2>
+<p>The following is an <strong>example of how such a rule is written</strong>, not a recommended setting:</p>
+<ul>
+<li><strong>Stop:</strong> exit the whole position if it is down 30% from the entry price.</li>
+<li><strong>Take half at 2x:</strong> if the price doubles, sell half the position. Selling half at 2x roughly returns the original amount you put in (before fees and slippage), and the rest is left to the rest of your plan.</li>
+</ul>
+<h2>Things the example leaves out (and you should not)</h2>
+<ul>
+<li><strong>Fees and slippage.</strong> Terminal fees (often 1% each way, see <a href="/tools/photon/">Photon</a> or <a href="/tools/bullx/">BullX</a>), launchpad fees (pump.fun's bonding curve lists 1.25% total) and slippage mean a "-30%" stop can fill worse than -30%.</li>
+<li><strong>Gaps.</strong> Thin tokens can drop straight through your level. Automatic sell orders on terminals execute when they can, not at a guaranteed price.</li>
+<li><strong>The rest of the position.</strong> Decide in advance what happens after the first take-profit: a trailing stop, a time limit, or a second level.</li>
+<li><strong>Position size.</strong> An exit line only limits loss per trade if the position is small relative to your total balance.</li>
+</ul>
+<h2>How tools implement exit lines</h2>
+<p>Many terminals offer auto-sell or limit orders (for example Photon's auto-sell by market-cap change, or Trojan's limit orders). They are conveniences: always check how each tool defines the trigger and what fees apply when it fires.</p>
+<blockquote>Example numbers are illustrations only. Crypto is high risk and you can lose everything you put in.</blockquote>

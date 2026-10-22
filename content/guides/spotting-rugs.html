@@ -1,0 +1,46 @@
+<p class="lead">A "rug" is when the people behind a token take value out and leave holders with something they cannot sell or that is worth far less. No checker can rule this out, but a few on-chain facts make some kinds of rug easier or harder. This guide explains what those facts mean and where to read them.</p>
+
+<h2>1. Mint authority</h2>
+<p>A Solana token's mint account stores a <strong>mint authority</strong>: the address allowed to create more tokens. Solana's docs explain that the authority can be changed with the Token Program's <code>SetAuthority</code> instruction, and that setting it to <code>None</code> <em>permanently</em> removes that role.</p>
+<ul>
+<li><strong>Revoked (none):</strong> nobody can mint more supply.</li>
+<li><strong>Still set:</strong> someone can increase supply and dilute holders. RugCheck's API docs say a non-null mint authority "triggers warning and raises risk score substantially".</li>
+</ul>
+
+<h2>2. Freeze authority</h2>
+<p>The mint can also store a <strong>freeze authority</strong>, which can freeze token accounts. Phantom's help centre notes that a frozen Solana token "cannot be sent, sold, or swapped". An active freeze authority therefore means someone could stop holders from selling. RugCheck flags a non-null freeze authority as a substantial risk.</p>
+
+<h2>3. Token-2022 extensions</h2>
+<p>Tokens built on the Token Extension Program (Token-2022) can carry extra features. RugCheck's report documentation lists several that raise its risk score: a <strong>transfer fee</strong> config, a <strong>permanent delegate</strong>, <strong>non-transferable</strong> tokens, and a <strong>default frozen</strong> account state. Mutable metadata is a minor warning.</p>
+
+<h2>4. Liquidity (LP) status</h2>
+<ul>
+<li>A token trades against a liquidity pool. If whoever controls the LP tokens can withdraw that liquidity, they can drain the pool's SOL/USDC side.</li>
+<li>RugCheck reports how much LP is <strong>locked</strong> (<code>lpLockedPct</code>) and lists lockers with unlock dates.</li>
+<li>For pump.fun coins that have graduated, pump.fun's docs say the migrated liquidity becomes the canonical PumpSwap pool, which is owned by the protocol, and pump.fun "does not seed or remove this liquidity after graduation". That addresses pool withdrawal, not holders selling.</li>
+<li>Locked liquidity does not stop large holders from selling into the pool. A "rug" can also be a coordinated dump.</li>
+</ul>
+
+<h2>5. Holder concentration and linked wallets</h2>
+<ul>
+<li>Check what share of supply the top holders own. RugCheck's report gives a percentage per top holder and flags accounts that look tied to the creator ("insider").</li>
+<li>RugCheck also detects <strong>insider networks</strong>: groups of accounts it judges very likely to be one person or bot, used for wash trading or to fake a wide holder base.</li>
+<li><a href="/tools/bubblemaps/">Bubblemaps</a> draws top holders as bubbles and links wallets that transacted with each other, which can reveal one actor spread across many wallets.</li>
+<li>Pool and locker accounts often appear as large holders; checkers label known AMM and locker accounts so you can tell them apart.</li>
+</ul>
+
+<h2>6. The creator's history</h2>
+<p>RugCheck lists other tokens created by the same address; its docs note this "may affect the RugCheck score heavily" if earlier tokens were rugs.</p>
+
+<h2>Using the safety checkers together</h2>
+<div class="table-wrap"><table class="ptable compact"><thead><tr><th>Question</th><th>Where to look</th></tr></thead><tbody>
+<tr><td>Can supply be increased or accounts frozen?</td><td><a href="/tools/rugcheck/">RugCheck</a>, <a href="/tools/solsniffer/">Solsniffer</a>, <a href="/tools/goplus/">GoPlus</a> (API), or the mint on <a href="/tools/solscan/">Solscan</a></td></tr>
+<tr><td>Is liquidity locked, and until when?</td><td>RugCheck markets / lockers section</td></tr>
+<tr><td>Who holds the supply? Are holders linked?</td><td>RugCheck top holders and insider networks; Bubblemaps clusters</td></tr>
+<tr><td>Second opinion score</td><td>Solsniffer Snifscore; Token Sniffer for EVM tokens</td></tr>
+</tbody></table></div>
+<ul>
+<li>Read the individual flags, not just the headline score. Scores use different scales (RugCheck: higher = riskier).</li>
+<li>Re-check later. Authorities, LP locks and holder positions can change after your first look.</li>
+<li>A clean report is not a guarantee. These tools read on-chain data and apply heuristics; they cannot see intentions or off-chain coordination.</li>
+</ul>

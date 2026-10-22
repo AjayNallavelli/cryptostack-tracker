@@ -1,0 +1,85 @@
+{
+ "_note": "Hand-picked comparison pairs. 'notes' are plain facts taken from each tool's official source (see tool pages).",
+ "pairs": [
+  {
+   "a": "axiom",
+   "b": "photon",
+   "notes": [
+    "Axiom publishes a tiered net fee (0.95% down to 0.75%) through SOL cashback; Photon publishes a flat 1% per buy and per sell.",
+    "Axiom documents a 10% fee discount for referred sign-ups; Photon's fee page lists no discount."
+   ]
+  },
+  {
+   "a": "photon",
+   "b": "bullx",
+   "notes": [
+    "Both publish 1% per buy and per sell, collected in SOL.",
+    "BullX's docs also spell out protocol fees (0.15%–5%) and a possible 0.002 SOL add-on in MEV-only mode."
+   ]
+  },
+  {
+   "a": "axiom",
+   "b": "bullx",
+   "notes": [
+    "Axiom's net fee falls with volume tier (0.95% → 0.75%); BullX lists a flat 1%.",
+    "BullX logs in through a Telegram bot; both are web terminals."
+   ]
+  },
+  {
+   "a": "trojan",
+   "b": "bonkbot",
+   "notes": [
+    "Both publish 1% per successful trade or swap.",
+    "Both return part of fees as rewards (Trojan by Arena rank, BONKbot via Telemetry by volume); neither fee page lists the exact percentages."
+   ]
+  },
+  {
+   "a": "gmgn",
+   "b": "birdeye",
+   "notes": [
+    "GMGN charges 1% only when you trade through it; Birdeye's published prices are for its Data API (from $0 to $499+/mo).",
+    "GMGN mixes analytics with trading; Birdeye is mainly analytics and data."
+   ]
+  },
+  {
+   "a": "dexscreener",
+   "b": "birdeye",
+   "notes": [
+    "DEX Screener's published prices target token projects (Enhanced Token Info $299, Boosts); Birdeye publishes Data API plans.",
+    "DEX Screener's Trending score can be raised by paid Boosts, per its own docs."
+   ]
+  },
+  {
+   "a": "gmgn",
+   "b": "dexscreener",
+   "notes": [
+    "GMGN has built-in trading (1% fee); DEX Screener is a screener without a published user fee.",
+    "Both cover many chains."
+   ]
+  },
+  {
+   "a": "phantom",
+   "b": "backpack",
+   "notes": [
+    "Phantom charges 0.85% on most swaps; Backpack announced 0% Backpack fees on swaps and bridges (March 10, 2026).",
+    "Network and pool costs apply in both."
+   ]
+  },
+  {
+   "a": "phantom",
+   "b": "solflare",
+   "notes": [
+    "Phantom publishes a 0.85% swap fee; Solflare's guide does not publish a Solflare fee percentage (unverified).",
+    "Solflare is Solana-focused; Phantom covers several networks."
+   ]
+  },
+  {
+   "a": "rugcheck",
+   "b": "solsniffer",
+   "notes": [
+    "RugCheck's API docs say its score is 'higher = more risk'. Solsniffer's Snifscore is a 0–100 security score built from 20+ indicators; read the legend on its site before comparing the two numbers.",
+    "Neither score is a guarantee; both read on-chain data that can change after you check."
+   ]
+  }
+ ]
+}

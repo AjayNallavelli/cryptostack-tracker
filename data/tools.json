@@ -1,0 +1,890 @@
+{
+ "tools": [
+  {
+   "id": "axiom",
+   "name": "Axiom",
+   "category": "Trading terminals & bots",
+   "website": "https://axiom.trade",
+   "source_url": "https://docs.axiom.trade/getting-started/fees/axiom-fees",
+   "extra_sources": [
+    {
+     "label": "Axiom referral program (docs)",
+     "url": "https://docs.axiom.trade/getting-started/referral-program"
+    },
+    {
+     "label": "Axiom Solana fees (docs)",
+     "url": "https://docs.axiom.trade/getting-started/fees/solana-fees"
+    }
+   ],
+   "verification": "verified",
+   "fees_summary": "Net trading fee 0.95% (Wood tier) down to 0.75% (Champion tier) via volume-based SOL cashback; referred sign-ups get a 10% trading-fee discount.",
+   "fee_items": [
+    {
+     "item": "Base trading fee",
+     "value": "1%",
+     "note": "Referral docs describe Axiom's net fee as 'starting at 1%'."
+    },
+    {
+     "item": "Net fee by cashback tier",
+     "value": "0.95% (Wood) → 0.90% → 0.875% → 0.85% → 0.825% → 0.80% → 0.75% (Champion)",
+     "note": "Cashback 0.05%–0.25%, paid in SOL; tier rises with your trading volume."
+    },
+    {
+     "item": "Referral discount",
+     "value": "10% off trading fees",
+     "note": "For users who sign up through a referral link."
+    },
+    {
+     "item": "Solana network costs",
+     "value": "Set by you",
+     "note": "Priority fee (docs default PRIO 0.001) and any bribe/tip go to the network, not Axiom."
+    }
+   ],
+   "description": "Web-based Solana trading terminal with token discovery, cashback tiers by volume and a referral program.",
+   "key_features": [
+    "Fee cashback in SOL that grows with a volume-based multiplier tier",
+    "Configurable priority-fee presets",
+    "Perpetuals via Hyperliquid (per its docs)",
+    "3-level referral program"
+   ],
+   "best_for": "Learning how a fast web terminal works and how volume-based fee tiers change your round-trip cost.",
+   "chains": [
+    "Solana"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": ""
+  },
+  {
+   "id": "photon",
+   "name": "Photon",
+   "category": "Trading terminals & bots",
+   "website": "https://photon-sol.tinyastro.io",
+   "source_url": "https://pies-organization.gitbook.io/photon-trading/photon-on-sol/photon-fees-sol",
+   "extra_sources": [
+    {
+     "label": "Photon settings (docs)",
+     "url": "https://pies-organization.gitbook.io/photon-trading/photon-on-sol/settings"
+    }
+   ],
+   "verification": "verified",
+   "fees_summary": "1% of the SOL amount on every buy and every sell.",
+   "fee_items": [
+    {
+     "item": "Trading fee",
+     "value": "1% per buy and per sell",
+     "note": "Collected in SOL. Docs example: a 5 SOL buy pays 0.05 SOL."
+    },
+    {
+     "item": "Network costs",
+     "value": "Set by you",
+     "note": "Priority fee and Jito bribe are configured in Settings and go to validators."
+    }
+   ],
+   "description": "Web trading terminal for Solana (Tiny Astro) with a new-pairs feed, trading presets and MEV-protection settings.",
+   "key_features": [
+    "Three trading presets (S1/S2/S3) for slippage, priority fee, bribe and MEV protection",
+    "Auto-buy / auto-sell by market-cap change",
+    "Limit orders and a new-launch feed (Memescope)",
+    "Smart-MEV protection setting"
+   ],
+   "best_for": "Learning a simple flat-fee terminal and how presets for slippage and priority fees work.",
+   "chains": [
+    "Solana"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": "Source is Photon's GitBook documentation; the fee page carried an old 'last updated' stamp when checked."
+  },
+  {
+   "id": "bullx",
+   "name": "BullX Neo",
+   "category": "Trading terminals & bots",
+   "website": "https://neo.bullx.io",
+   "source_url": "https://bullx.gitbook.io/bullx-neo-docs/fees-and-gas",
+   "extra_sources": [
+    {
+     "label": "BullX trading settings (docs)",
+     "url": "https://bullx.gitbook.io/bullx-neo-docs/trading-terminal/trading"
+    }
+   ],
+   "verification": "verified",
+   "fees_summary": "1% of the initial amount on every buy and sell, collected in SOL; launchpad/DEX protocol fees (0.15%–5%) are extra.",
+   "fee_items": [
+    {
+     "item": "Platform fee",
+     "value": "1% per buy and per sell",
+     "note": "Docs example: 5 SOL buy → 0.05 SOL fee."
+    },
+    {
+     "item": "Protocol fees (not BullX)",
+     "value": "0.15% to 5% depending on pool",
+     "note": "Docs cite Pump.fun at 1% and migrated Raydium pools typically at 0.25% (check current launchpad fees)."
+    },
+    {
+     "item": "MEV-only mode",
+     "value": "May add a static 0.002 SOL",
+     "note": "Added on top of your bribe for broadcasting reliability, per docs."
+    },
+    {
+     "item": "Default priority fee / bribe",
+     "value": "0.01 SOL each (defaults, adjustable)",
+     "note": ""
+    }
+   ],
+   "description": "Multi-chain trading terminal logged in through a Telegram bot, with wallet manager, presets and MEV-only routing.",
+   "key_features": [
+    "Telegram login flow",
+    "Up to five buy and five sell setting presets",
+    "MEV-only mode routing via Jito",
+    "Funding on Solana plus several EVM chains (per docs)"
+   ],
+   "best_for": "Learning how platform fees, protocol fees and priority fees stack on one trade.",
+   "chains": [
+    "Solana",
+    "Ethereum",
+    "Base",
+    "Blast",
+    "Arbitrum",
+    "Tron"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": ""
+  },
+  {
+   "id": "trojan",
+   "name": "Trojan",
+   "category": "Trading terminals & bots",
+   "website": "https://trojan.com",
+   "source_url": "https://docs.trojan.com/faqs",
+   "extra_sources": [
+    {
+     "label": "Older Trojan on Solana FAQ",
+     "url": "https://docs.trojanonsolana.com/overview/trojan-on-solana-faq"
+    }
+   ],
+   "verification": "verified",
+   "fees_summary": "1% per successful trade; SOL cashback that rises with Arena rank.",
+   "fee_items": [
+    {
+     "item": "Trading fee",
+     "value": "1% per successful trade",
+     "note": "Only successful trades are charged."
+    },
+    {
+     "item": "Cashback",
+     "value": "Varies by Arena rank",
+     "note": "Docs say cashback rises with rank; exact rates per rank not on the FAQ page."
+    },
+    {
+     "item": "Token account rent",
+     "value": "About 0.002 SOL (refundable after selling)",
+     "note": "A Solana network deposit, not a Trojan fee."
+    }
+   ],
+   "description": "Non-custodial Solana terminal and Telegram bot with limit/DCA orders, copy trading and a ranked rewards program.",
+   "key_features": [
+    "Web terminal plus Telegram bot",
+    "Limit and DCA orders (with a Trojan or imported wallet)",
+    "Copy trading",
+    "Arena ranks, cashback and referral tiers"
+   ],
+   "best_for": "Learning how terminals bundle order types (limit, DCA, copy) and how rank-based cashback works.",
+   "chains": [
+    "Solana"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": "An older Trojan-on-Solana site advertised 0.9% with a referral; current official docs state 1% per successful trade, which is what we show."
+  },
+  {
+   "id": "bonkbot",
+   "name": "BONKbot",
+   "category": "Trading terminals & bots",
+   "website": "https://bonkbot.io",
+   "source_url": "https://docs.bonkbot.io/fee-structure",
+   "extra_sources": [],
+   "verification": "verified",
+   "fees_summary": "1% on each successful swap; free to set up.",
+   "fee_items": [
+    {
+     "item": "Swap fee",
+     "value": "1% per successful swap",
+     "note": "Setup and use are free; the fee applies only when you trade."
+    },
+    {
+     "item": "Telemetry rewards",
+     "value": "A share of fees back, by volume",
+     "note": "Percentages not stated on the fee page."
+    }
+   ],
+   "description": "Telegram trading bot for Solana tokens with a companion Telemetry interface.",
+   "key_features": [
+    "Trade from Telegram",
+    "Telemetry interface with fee rewards",
+    "Safety guide in the docs ('How to trade safely')"
+   ],
+   "best_for": "Learning how Telegram trading bots work and what a 1% per-swap fee means for many small trades.",
+   "chains": [
+    "Solana"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": ""
+  },
+  {
+   "id": "maestro",
+   "name": "Maestro",
+   "category": "Trading terminals & bots",
+   "website": "https://www.maestrobots.com",
+   "source_url": "https://docs.maestrobots.com/sniper/monetization",
+   "extra_sources": [
+    {
+     "label": "Maestro cashback (docs)",
+     "url": "https://docs.maestrobots.com/sniper/cashback"
+    }
+   ],
+   "verification": "verified",
+   "fees_summary": "1% on every successful buy and sell (manual or automatic); simple transfers are not charged.",
+   "fee_items": [
+    {
+     "item": "Trading fee",
+     "value": "1% per buy and per sell",
+     "note": "On Solana the fee is taken in the same transaction."
+    },
+    {
+     "item": "Other chains",
+     "value": "1%, accumulated then collected",
+     "note": "Collected once unpaid fees pass a chain-specific minimum (e.g. 0.5 TON, 10 TRX)."
+    },
+    {
+     "item": "Transfers",
+     "value": "Not charged",
+     "note": ""
+    }
+   ],
+   "description": "Multi-chain Telegram sniper/trading bot covering Solana, many EVM chains, Tron and TON.",
+   "key_features": [
+    "Telegram bot with manual and automatic trading",
+    "Published fee wallet addresses per chain",
+    "Cashback program (see docs)"
+   ],
+   "best_for": "Learning how a multi-chain Telegram bot charges fees and how to verify fee transfers on an explorer.",
+   "chains": [
+    "Solana",
+    "EVM chains",
+    "Tron",
+    "TON"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": ""
+  },
+  {
+   "id": "gmgn",
+   "name": "GMGN",
+   "category": "Scanners & analytics",
+   "website": "https://gmgn.ai",
+   "source_url": "https://docs.gmgn.ai/index/gmgn-fees-settings",
+   "extra_sources": [
+    {
+     "label": "GMGN referral program (docs)",
+     "url": "https://docs.gmgn.ai/index/cooperation-referral-refer-friends-to-earn-rebate-30-rebates-easily-earn-over-usd8000-monthly"
+    }
+   ],
+   "verification": "verified",
+   "fees_summary": "1% handling fee per transaction when you trade through GMGN; launchpad fees (e.g. Pump.fun) are separate.",
+   "fee_items": [
+    {
+     "item": "Trading fee",
+     "value": "1% per transaction",
+     "note": "Docs example: 1 SOL trade → 0.01 SOL GMGN fee."
+    },
+    {
+     "item": "Priority / tip fee",
+     "value": "Set by you (max 2 SOL)",
+     "note": "Not collected by GMGN; minimums 0.0001 SOL each per docs."
+    },
+    {
+     "item": "Anti-MEV mode",
+     "value": "Needs priority fee ≥ 0.002 SOL",
+     "note": "Per docs."
+    }
+   ],
+   "description": "Token discovery and wallet-analytics site with built-in trading on the web and through Telegram bots.",
+   "key_features": [
+    "New-token and trending feeds across several chains",
+    "Wallet tracking and wallet analytics pages",
+    "Trading via web or Telegram bot with anti-MEV modes",
+    "Referral program (10%–30% to referrers)"
+   ],
+   "best_for": "Learning how scanners tie token data, wallet analytics and one-click trading together.",
+   "chains": [
+    "Solana",
+    "Ethereum",
+    "Base",
+    "BSC",
+    "Tron"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": ""
+  },
+  {
+   "id": "dexscreener",
+   "name": "DEX Screener",
+   "category": "Scanners & analytics",
+   "website": "https://dexscreener.com",
+   "source_url": "https://marketplace.dexscreener.com/product/token-info",
+   "extra_sources": [
+    {
+     "label": "DEX Screener Boosting (docs)",
+     "url": "https://docs.dexscreener.com/boosting"
+    },
+    {
+     "label": "DEX Screener Trending (docs)",
+     "url": "https://docs.dexscreener.com/trending"
+    }
+   ],
+   "verification": "partial",
+   "fees_summary": "No user plan price found. Paid products are aimed at token projects: Enhanced Token Info listed at $299 (shown discounted from $499); Boost packs priced on the token page.",
+   "fee_items": [
+    {
+     "item": "Enhanced Token Info (for token projects)",
+     "value": "$299 (shown discounted from $499)",
+     "note": "Logo, socials, description and locked-supply wallets on the token page."
+    },
+    {
+     "item": "Boosts (for token promoters)",
+     "value": "",
+     "note": "Price not captured: sold per pack on each token's page. Boosts temporarily multiply a token's Trending Score for 12–24 hours."
+    }
+   ],
+   "description": "Multi-chain DEX pair screener with charts, trending lists and token info pages.",
+   "key_features": [
+    "Charts and pair pages across many chains and DEXes",
+    "Trending ranking (paid Boosts can raise a token's score)",
+    "Token info pages (projects can pay to enhance)",
+    "Public API"
+   ],
+   "best_for": "Learning to read pair charts and to understand that 'trending' can be influenced by paid Boosts.",
+   "chains": [
+    "Multi-chain"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": "We could not find a published subscription price for regular users. Boost pack prices were not captured, so they are left blank."
+  },
+  {
+   "id": "birdeye",
+   "name": "Birdeye",
+   "category": "Scanners & analytics",
+   "website": "https://birdeye.so",
+   "source_url": "https://data.birdeye.so/docs/guides/payment/pricing",
+   "extra_sources": [],
+   "verification": "partial",
+   "fees_summary": "Data API: Standard $0 (30,000 compute units), Lite $39/mo, Starter $99/mo, Premium $199/mo, Business from $499/mo.",
+   "fee_items": [
+    {
+     "item": "Standard (API)",
+     "value": "$0",
+     "note": "30,000 CUs/month, 1 rps, limited data."
+    },
+    {
+     "item": "Lite (API)",
+     "value": "$39/mo",
+     "note": "2.5M CUs, 15 rps; $23 per extra 1M CUs."
+    },
+    {
+     "item": "Starter (API)",
+     "value": "$99/mo",
+     "note": "8M CUs, 15 rps; $19.9 per extra 1M CUs."
+    },
+    {
+     "item": "Premium (API)",
+     "value": "$199/mo",
+     "note": "20M CUs, 50 rps, websockets; $9.9 per extra 1M CUs."
+    },
+    {
+     "item": "Business (API)",
+     "value": "$499/mo and up",
+     "note": "60M+ CUs; Enterprise is custom."
+    },
+    {
+     "item": "Birdeye web app",
+     "value": "",
+     "note": "No consumer subscription price captured."
+    }
+   ],
+   "description": "Token analytics site and data API with charts and token data across several chains.",
+   "key_features": [
+    "Token charts and market data",
+    "Data API with compute-unit plans",
+    "Websocket feeds on Premium and above",
+    "Multi-chain coverage"
+   ],
+   "best_for": "Learning token analytics, and later how a data API meters usage (compute units).",
+   "chains": [
+    "Solana",
+    "Multi-chain"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": "Prices are for the Birdeye Data API. We did not find a published price for using the consumer web app, so that row is blank."
+  },
+  {
+   "id": "dextools",
+   "name": "DEXTools",
+   "category": "Scanners & analytics",
+   "website": "https://www.dextools.io",
+   "source_url": "https://info.dextools.io/discover-all-our-plans-full-defi-power-at-your-fingertips/",
+   "extra_sources": [],
+   "verification": "partial",
+   "fees_summary": "Free plan available. Standard and Premium are unlocked by holding the DEXT token (1,000 and 100,000 DEXT) rather than a listed USD price.",
+   "fee_items": [
+    {
+     "item": "Free plan",
+     "value": "$0",
+     "note": "Live New Pairs, Pair Explorer, Big Swap Explorer, Multichart, alerts, 10 hot pairs."
+    },
+    {
+     "item": "Standard",
+     "value": "Hold 1,000+ DEXT",
+     "note": "No ads, wallet tracker (up to 500 wallets), limit orders/trading bot, 12 hot pairs."
+    },
+    {
+     "item": "Premium",
+     "value": "Hold 100,000+ DEXT",
+     "note": "15 hot pairs, investor group, faster updates."
+    },
+    {
+     "item": "USD subscription price",
+     "value": "",
+     "note": "Not captured from an official page on the check date."
+    }
+   ],
+   "description": "Long-running multi-chain DEX analytics platform with pair explorers, swap trackers and token-holding-based tiers.",
+   "key_features": [
+    "Live New Pairs and Pair Explorer",
+    "Big Swap Explorer and Multichart",
+    "Price alerts and favorites",
+    "Wallet tracker on Standard tier"
+   ],
+   "best_for": "Learning pair explorers and big-swap feeds on several chains.",
+   "chains": [
+    "Multi-chain"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": "Tier access is defined by DEXT holdings; the USD value of those holdings changes with the token price, so no USD figure is shown."
+  },
+  {
+   "id": "solscan",
+   "name": "Solscan",
+   "category": "Scanners & analytics",
+   "website": "https://solscan.io",
+   "source_url": "https://docs.solscan.io/solscan-api/solscan-pro-api-endpoints",
+   "extra_sources": [
+    {
+     "label": "Solscan API Lite plan (docs)",
+     "url": "https://docs.solscan.io/solscan-api/solscan-api-lite-plan"
+    }
+   ],
+   "verification": "partial",
+   "fees_summary": "Explorer is browsable for free; Pro API: Lite $49/mo, Level 2 $199/mo, Level 3 $399/mo, Level 4 $1,099/mo.",
+   "fee_items": [
+    {
+     "item": "Pro API Lite",
+     "value": "$49/mo",
+     "note": "20M CUs, 1,000 requests / 60 s."
+    },
+    {
+     "item": "Pro API Level 2",
+     "value": "$199/mo",
+     "note": "150M CUs, 1,000 requests / 60 s."
+    },
+    {
+     "item": "Pro API Level 3",
+     "value": "$399/mo",
+     "note": "500M CUs, 2,000 requests / 60 s."
+    },
+    {
+     "item": "Pro API Level 4",
+     "value": "$1,099/mo",
+     "note": "1.5B CUs, 3,000 requests / 60 s."
+    },
+    {
+     "item": "Explorer website",
+     "value": "",
+     "note": "No price published; the Lite plan page refers to a 'standard Free tier'."
+    }
+   ],
+   "description": "Solana block explorer: look up any wallet, token, transaction or program, plus a paid Pro API.",
+   "key_features": [
+    "Wallet, token and transaction lookups",
+    "Token holders and transfers",
+    "DeFi activity decoding",
+    "Pro API with compute-unit plans"
+   ],
+   "best_for": "Learning to verify anything on-chain yourself: fees paid, token authorities, transfers.",
+   "chains": [
+    "Solana"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": ""
+  },
+  {
+   "id": "phantom",
+   "name": "Phantom",
+   "category": "Wallets",
+   "website": "https://phantom.com",
+   "source_url": "https://help.phantom.com/articles/swap-crypto-in-phantom-5985106844435",
+   "extra_sources": [],
+   "verification": "verified",
+   "fees_summary": "0.85% Phantom fee on most swaps, plus network fees (some swaps are gasless).",
+   "fee_items": [
+    {
+     "item": "Swap fee",
+     "value": "0.85%",
+     "note": "Applies to most swaps; some flows (e.g. perps-balance deposits, stablecoin swaps into Cash) are exempt."
+    },
+    {
+     "item": "Network fee",
+     "value": "Varies",
+     "note": "May be sponsored on gasless swaps; cross-chain swaps include the bridge provider's charge."
+    },
+    {
+     "item": "Minimum (cross-chain / Robinhood Chain)",
+     "value": "$2 USD value",
+     "note": ""
+    }
+   ],
+   "description": "Self-custody wallet (mobile and browser extension) for Solana and other networks with built-in swaps.",
+   "key_features": [
+    "Same-network and cross-chain swaps",
+    "Gasless swaps on some networks",
+    "Spam/malicious-token warnings",
+    "Mobile app and browser extension"
+   ],
+   "best_for": "Learning self-custody basics and what an in-wallet swap fee costs compared with other routes.",
+   "chains": [
+    "Solana",
+    "Ethereum",
+    "Base",
+    "Polygon",
+    "Bitcoin",
+    "more"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": ""
+  },
+  {
+   "id": "backpack",
+   "name": "Backpack",
+   "category": "Wallets",
+   "website": "https://backpack.app",
+   "source_url": "https://learn.backpack.exchange/blog/backpack-wallet-zero-fees-swaps-bridges",
+   "extra_sources": [],
+   "verification": "verified",
+   "fees_summary": "Backpack charges zero fees on swaps and bridges in Backpack Wallet (announced March 10, 2026); network and underlying DEX costs still apply.",
+   "fee_items": [
+    {
+     "item": "Backpack swap / bridge fee",
+     "value": "0%",
+     "note": "Announced March 10, 2026 for every supported network."
+    },
+    {
+     "item": "Network / pool costs",
+     "value": "Varies",
+     "note": "Not Backpack fees; shown in the quote."
+    }
+   ],
+   "description": "Self-custody multi-chain wallet from the team behind Backpack Exchange.",
+   "key_features": [
+    "15+ networks in one wallet",
+    "Hardware wallet support (Ledger, Trezor, Keystone)",
+    "NFT lock and scam-detection alerts",
+    "Link to Backpack Exchange"
+   ],
+   "best_for": "Learning a multi-chain self-custody wallet with no wallet-level swap markup.",
+   "chains": [
+    "Solana",
+    "Ethereum",
+    "Base",
+    "Sui",
+    "Aptos",
+    "more"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": ""
+  },
+  {
+   "id": "solflare",
+   "name": "Solflare",
+   "category": "Wallets",
+   "website": "https://www.solflare.com",
+   "source_url": "https://www.solflare.com/guides/how-to-swap-tokens-using-solflare/",
+   "extra_sources": [],
+   "verification": "unverified",
+   "fees_summary": "",
+   "fee_items": [
+    {
+     "item": "Solflare swap fee",
+     "value": "",
+     "note": "Not stated as a percentage in the official swap guide we read; check the swap preview."
+    },
+    {
+     "item": "Network fee",
+     "value": "Usually under $0.01 in SOL (per Solflare's guide)",
+     "note": ""
+    }
+   ],
+   "description": "Solana-focused self-custody wallet with built-in swaps, staking and a fiat on-ramp.",
+   "key_features": [
+    "Any-to-any Solana token swaps",
+    "Staking from the wallet",
+    "Fiat on-ramp",
+    "Built-in transaction security checks"
+   ],
+   "best_for": "Learning a Solana-native wallet with staking built in.",
+   "chains": [
+    "Solana"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": "Solflare's own guide describes swap costs but does not publish a Solflare fee percentage, so the fee is left blank."
+  },
+  {
+   "id": "metamask",
+   "name": "MetaMask",
+   "category": "Wallets",
+   "website": "https://metamask.io",
+   "source_url": "https://support.metamask.io/trade/swap/user-guide-swaps/",
+   "extra_sources": [],
+   "verification": "verified",
+   "fees_summary": "0.875% MetaMask fee on Swaps, plus the network (gas) fee.",
+   "fee_items": [
+    {
+     "item": "MetaMask Swaps fee",
+     "value": "0.875%",
+     "note": "Included in each quote."
+    },
+    {
+     "item": "Network fee",
+     "value": "Varies",
+     "note": "Gasless swaps on some networks bundle gas into the quote."
+    }
+   ],
+   "description": "Widely used self-custody wallet, now with Solana support, and a swap/bridge aggregator.",
+   "key_features": [
+    "Swap and bridge aggregator across many networks (incl. Solana)",
+    "Gasless swaps on selected networks",
+    "Browser extension and mobile app"
+   ],
+   "best_for": "Learning EVM wallets and how aggregator fees compare with Solana-native wallets.",
+   "chains": [
+    "Ethereum",
+    "Solana",
+    "Base",
+    "BNB Chain",
+    "Arbitrum",
+    "more"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": ""
+  },
+  {
+   "id": "rugcheck",
+   "name": "RugCheck",
+   "category": "Safety checkers",
+   "website": "https://rugcheck.xyz",
+   "source_url": "https://rugcheck.xyz",
+   "extra_sources": [
+    {
+     "label": "RugCheck token report API reference (FluxRPC docs)",
+     "url": "https://fluxrpc.com/docs/rugcheck/getTokenReport"
+    }
+   ],
+   "verification": "unverified",
+   "fees_summary": "",
+   "fee_items": [
+    {
+     "item": "Web reports",
+     "value": "",
+     "note": "No published price list found on the official site."
+    },
+    {
+     "item": "API",
+     "value": "",
+     "note": "API docs mention paid keys (e.g. forced report refresh) but no price was published that we could read."
+    }
+   ],
+   "description": "Solana token risk reports: authorities, holder concentration, LP locks, insider networks and a risk score.",
+   "key_features": [
+    "Risk score (raw and 0–100 normalised; higher = riskier)",
+    "Mint / freeze authority and Token-2022 extension checks",
+    "Top holders, insider flags and insider networks",
+    "LP locked % and creator's other tokens"
+   ],
+   "best_for": "Learning what a token risk report checks and why a 'good score' is not a guarantee.",
+   "chains": [
+    "Solana"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": "No fee schedule was published on the official site when checked."
+  },
+  {
+   "id": "solsniffer",
+   "name": "Solsniffer",
+   "category": "Safety checkers",
+   "website": "https://www.solsniffer.com",
+   "source_url": "https://www.solsniffer.com/api-service",
+   "extra_sources": [
+    {
+     "label": "Solsniffer user guide",
+     "url": "https://solsniffer.gitbook.io/solsniffer-user-guide/product-snif-tokens/token-sniffer"
+    }
+   ],
+   "verification": "partial",
+   "fees_summary": "API: Starter $47/mo (100 calls), Pro $997/mo (230,000 calls); Boost tier price not shown. Web app price not published.",
+   "fee_items": [
+    {
+     "item": "API Starter",
+     "value": "$47/mo ($525/yr)",
+     "note": "100 API calls/month."
+    },
+    {
+     "item": "API Boost",
+     "value": "",
+     "note": "Listed without a visible price when checked."
+    },
+    {
+     "item": "API Pro",
+     "value": "$997/mo ($11,127/yr)",
+     "note": "230,000 API calls/month."
+    },
+    {
+     "item": "Web app",
+     "value": "",
+     "note": "No price published that we found."
+    }
+   ],
+   "description": "Solana token audit tool that produces a 0–100 'Snifscore' from 20+ security indicators.",
+   "key_features": [
+    "Snifscore (0–100) from 20+ indicators",
+    "Top-50 holder distribution, liquidity and deployer info",
+    "Batch API (up to 100 tokens per request)"
+   ],
+   "best_for": "Learning to cross-check a second risk score against RugCheck.",
+   "chains": [
+    "Solana"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": ""
+  },
+  {
+   "id": "bubblemaps",
+   "name": "Bubblemaps",
+   "category": "Safety checkers",
+   "website": "https://bubblemaps.io",
+   "source_url": "https://wiki.bubblemaps.io/bubblemaps-v2/premium",
+   "extra_sources": [],
+   "verification": "partial",
+   "fees_summary": "Bubblemaps V2 is free; some advanced features require holding the BMT token (amount not stated on the page we read).",
+   "fee_items": [
+    {
+     "item": "Bubblemaps V2",
+     "value": "$0",
+     "note": "Magic Nodes, Time Travel and real-time data open to all users."
+    },
+    {
+     "item": "Advanced features",
+     "value": "",
+     "note": "P&L, cross-chain analytics, AI cluster reading, top-1,000-holder maps need BMT holdings; amount not stated."
+    }
+   ],
+   "description": "Visual holder-map tool: shows top holders as bubbles and links wallets that transferred to each other.",
+   "key_features": [
+    "Bubble map of top holders",
+    "Linked-wallet clusters (Magic Nodes)",
+    "Time Travel to see past holder maps",
+    "Multi-chain"
+   ],
+   "best_for": "Learning to spot clustered or connected wallets that a holder table can hide.",
+   "chains": [
+    "Multi-chain (see site)"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": ""
+  },
+  {
+   "id": "tokensniffer",
+   "name": "Token Sniffer",
+   "category": "Safety checkers",
+   "website": "https://tokensniffer.com",
+   "source_url": "https://tokensniffer.readme.io/reference/pricing",
+   "extra_sources": [],
+   "verification": "partial",
+   "fees_summary": "API: Sniffer Pack Pro $99/mo (500 tokens/day); Enterprise on request; 14-day free trial on request. Website price not published.",
+   "fee_items": [
+    {
+     "item": "API Sniffer Pack Pro",
+     "value": "$99/mo",
+     "note": "500 unique token/address requests per day."
+    },
+    {
+     "item": "API Enterprise",
+     "value": "",
+     "note": "Contact for pricing."
+    },
+    {
+     "item": "Website",
+     "value": "",
+     "note": "No price published on the pricing page we read."
+    }
+   ],
+   "description": "Token scam-detection site (Solidus Labs) with a score, scam status and automated 'smell tests'.",
+   "key_features": [
+    "Token score and scam status",
+    "Automated smell tests",
+    "API with daily token limits"
+   ],
+   "best_for": "Learning another score-based scam check and comparing it with Solana-focused tools.",
+   "chains": [
+    "Multi-chain (see site)"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": ""
+  },
+  {
+   "id": "goplus",
+   "name": "GoPlus Security",
+   "category": "Safety checkers",
+   "website": "https://gopluslabs.io",
+   "source_url": "https://docs.gopluslabs.io/reference/support",
+   "extra_sources": [
+    {
+     "label": "GoPlus Solana token security API (beta)",
+     "url": "https://docs.gopluslabs.io/reference/token-security-api-for-solana-beta"
+    }
+   ],
+   "verification": "verified",
+   "fees_summary": "Security API is free at 30 calls/minute; higher limits on request.",
+   "fee_items": [
+    {
+     "item": "Security API",
+     "value": "$0",
+     "note": "Rate limit 30 calls/minute."
+    },
+    {
+     "item": "Higher limits",
+     "value": "",
+     "note": "Contact GoPlus."
+    }
+   ],
+   "description": "Security data API used by many wallets and tools, including a beta Solana token-security endpoint.",
+   "key_features": [
+    "Token security API (EVM and Solana beta)",
+    "Checks SPL and Token-2022 tokens",
+    "Free tier with rate limit"
+   ],
+   "best_for": "Learning what data many wallet warnings are built on.",
+   "chains": [
+    "Solana (beta)",
+    "EVM chains"
+   ],
+   "date_checked": "2026-10-22",
+   "verification_note": ""
+  }
+ ]
+}

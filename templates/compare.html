@@ -1,0 +1,25 @@
+{% extends "base.html" %}{% from "_macros.html" import outlink, status, fee_table, fee_line %}
+{% block content %}
+<nav class="crumbs small"><a href="/">Home</a> / <a href="/compare/">Compare</a> / {{ p.a.name }} vs {{ p.b.name }}</nav>
+<h1>{{ p.a.name }} vs {{ p.b.name }}: fees &amp; features</h1>
+<p class="lead">{{ p.category }}. Side by side, using only what each vendor publishes on its own pages. Education only: this is not a recommendation of either tool.</p>
+<div class="table-wrap"><table class="ptable vs">
+<thead><tr><th></th><th>{{ p.a.name }}</th><th>{{ p.b.name }}</th></tr></thead>
+<tbody>
+<tr><td>Fees</td><td>{{ fee_line(p.a) }}</td><td>{{ fee_line(p.b) }}</td></tr>
+<tr><td>Fee verification</td><td>{{ status(p.a) }}</td><td>{{ status(p.b) }}</td></tr>
+<tr><td>Category</td><td>{{ p.a.category }}</td><td>{{ p.b.category }}</td></tr>
+<tr><td>Chains</td><td>{{ p.a.chains|join(', ') }}</td><td>{{ p.b.chains|join(', ') }}</td></tr>
+<tr><td>Key features</td><td><ul class="feelist">{% for f in p.a.key_features %}<li>{{ f }}</li>{% endfor %}</ul></td><td><ul class="feelist">{% for f in p.b.key_features %}<li>{{ f }}</li>{% endfor %}</ul></td></tr>
+<tr><td>Best for (learning)</td><td>{{ p.a.best_for }}</td><td>{{ p.b.best_for }}</td></tr>
+<tr><td>Date checked</td><td>{{ p.a.date_checked|nicedate }}</td><td>{{ p.b.date_checked|nicedate }}</td></tr>
+<tr><td>Source</td><td><a href="{{ p.a.source_url }}" rel="nofollow noopener" target="_blank">{{ p.a.name }} official page ↗</a></td><td><a href="{{ p.b.source_url }}" rel="nofollow noopener" target="_blank">{{ p.b.name }} official page ↗</a></td></tr>
+</tbody></table></div>
+<h2>Key differences</h2>
+<ul>{% for x in p.notes %}<li>{{ x }}</li>{% endfor %}</ul>
+<div class="two">
+  <div><h2>{{ p.a.name }} fees</h2>{{ fee_table(p.a) }}<p><a href="/tools/{{ p.a.slug }}/">{{ p.a.name }} page →</a></p></div>
+  <div><h2>{{ p.b.name }} fees</h2>{{ fee_table(p.b) }}<p><a href="/tools/{{ p.b.slug }}/">{{ p.b.name }} page →</a></p></div>
+</div>
+<p class="risk">Fees are only one part of cost: network priority fees, launchpad/pool fees and slippage apply too. Not financial advice.</p>
+{% endblock %}

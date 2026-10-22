@@ -1,0 +1,40 @@
+{% macro status(t) -%}
+<span class="tag tag-{{ t.verification }}" title="{{ t.status_help }}">{{ t.status_label }}</span>
+{%- endmacro %}
+
+{% macro outlink(t, label=None, cls="btn") -%}
+<a class="{{ cls }}" href="{{ t.website }}" rel="noopener nofollow" target="_blank">{{ label or ("Visit " ~ t.name) }} ↗</a>
+{%- endmacro %}
+
+{% macro fee_line(t) -%}
+{% if t.fees_summary %}{{ t.fees_summary }}{% else %}<span class="muted">Fee not verified from an official source (left blank).</span>{% endif %}
+{%- endmacro %}
+
+{% macro fee_table(t) -%}
+<div class="table-wrap">
+<table class="ptable fees">
+  <thead><tr><th>Fee item</th><th>Amount</th><th>Notes</th></tr></thead>
+  <tbody>
+  {% for f in t.fee_items %}
+  <tr><td><strong>{{ f.item }}</strong></td><td>{% if f.value %}{{ f.value }}{% else %}<span class="tag tag-unverified">unverified</span>{% endif %}</td><td class="small">{{ f.note }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<p class="small muted">Source: <a href="{{ t.source_url }}" rel="nofollow noopener" target="_blank">{{ t.source_url }}</a>, checked {{ t.date_checked|nicedate }}.{% for s in t.extra_sources %} Also: <a href="{{ s.url }}" rel="nofollow noopener" target="_blank">{{ s.label }}</a>.{% endfor %} Blank = could not be read from an official source; we never estimate.</p>
+{%- endmacro %}
+
+{% macro card(t) -%}
+<article class="card tool-card" data-cat="{{ t.cat_slug }}" data-status="{{ t.verification }}" data-name="{{ (t.name ~ ' ' ~ t.description ~ ' ' ~ t.category ~ ' ' ~ t.chains|join(' '))|lower }}">
+  <div class="card-head">
+    <h3><a href="/tools/{{ t.slug }}/">{{ t.name }}</a></h3>
+    {{ status(t) }}
+  </div>
+  <p class="small muted">{{ t.category }}</p>
+  <p class="desc">{{ t.description }}</p>
+  <div class="card-foot">
+    <span class="small">{% if t.fees_summary %}{{ t.fees_summary|truncate(90) }}{% else %}<span class="muted">Fees unverified</span>{% endif %}</span>
+  </div>
+  <div class="card-visit small"><a href="/tools/{{ t.slug }}/">Fees &amp; features →</a></div>
+</article>
+{%- endmacro %}

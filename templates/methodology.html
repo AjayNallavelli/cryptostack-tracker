@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="article">
+<h1>Methodology &amp; disclaimer</h1>
+<h2>Purpose</h2>
+<p>CryptoStack Tracker is an education-only site built to help its owner learn the crypto tool stack: what trading terminals, scanners, wallets and safety checkers do, and what they charge. It does not pick coins, name tokens to buy, or give trading signals.</p>
+<h2>How fees are researched</h2>
+<ol>
+<li><strong>Official sources only.</strong> Each fee is read from the vendor's own website, docs or help centre. The exact page is linked on every tool page with the <em>date checked</em>.</li>
+<li><strong>No estimates.</strong> If a fee could not be read from an official source, the field is left blank. We never fill gaps from reviews, affiliate sites or memory.</li>
+<li><strong>Verification labels.</strong>
+<ul>
+<li><span class="tag tag-verified">Fees verified</span>: every fee figure shown was read from an official page on the date checked.</li>
+<li><span class="tag tag-partial">Partly verified</span>: some figures were read from an official page; others (e.g. a consumer plan or a tier with no visible price) could not be, and are blank.</li>
+<li><span class="tag tag-unverified">Unverified</span>: no fee figure could be read from an official source, so the fee is blank.</li>
+</ul></li>
+<li><strong>Manual updates.</strong> Data is re-checked by hand; changes are listed on <a href="/changes/">What's new</a>. There is no automated scraping, and fees can change after the date checked.</li>
+<li><strong>Costs not shown.</strong> Network priority fees, Jito tips, launchpad/pool fees (for example pump.fun's bonding-curve fee) and slippage are separate from the tool's own fee. See the <a href="/guides/pump-fun-bonding-curve/">bonding curve guide</a>.</li>
+</ol>
+<h2>No commercial links</h2>
+<p>There are no affiliate links, referral codes, sponsored listings or paid placements on this site. Outbound links go to each vendor's official site.</p>
+<h2>Disclaimer</h2>
+<p class="risk"><strong>Not financial advice. Crypto is high risk.</strong> Everything here is general education. Nothing is a recommendation to buy, sell or hold any asset, or to use any tool. Most newly launched tokens lose most or all of their value; scams and rugs are common. Safety checkers reduce some risks but cannot guarantee anything. Only use money you can afford to lose entirely, and verify everything on the vendor's own site.</p>
+<p class="small muted">Strategy pages describe risk-management concepts traders talk about, with example numbers used only as illustrations.</p>
+</article>
+{% endblock %}
