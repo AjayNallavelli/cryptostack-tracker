@@ -101,14 +101,20 @@ def main():
                description=f"{p['a']['name']} vs {p['b']['name']}: published fees, verification status, key features and sources, side by side. Education only.")
     render("compare_index.html", "/compare/", lastmod=last, pairs=pairs, title=f"Tool comparisons | {site['name']}",
            description="Side-by-side comparisons of crypto trading terminals, scanners, wallets and safety checkers.")
-    for kind, label in (("strategies", "Strategies"), ("guides", "Guides")):
+    for kind, label in (("strategies", "Strategies"), ("guides", "Guides"), ("case-studies", "Case studies")):
         for a in pages[kind]:
             body = Markup((ROOT / "content" / kind / f"{a['slug']}.html").read_text())
             render("article.html", f"/{kind}/{a['slug']}/", lastmod=a["date_checked"], a=a, kind=kind, kind_label=label, body=body,
                    title=f"{a['title']} | {site['name']}", description=a["summary"])
         render("article_index.html", f"/{kind}/", lastmod=last, kind=kind, kind_label=label, items=pages[kind],
                title=f"{label} | {site['name']}",
-               description=("Plain-language risk-management concepts. Not advice." if kind == "strategies" else "How-to guides researched from public docs: rugs, bundles and pump.fun bonding curves."))
+               description={"strategies": "Plain-language risk-management concepts. Not advice.",
+                            "guides": "How-to guides researched from public docs: rugs, bundles and pump.fun bonding curves.",
+                            "case-studies": "Dated post-mortems of paper calls: what happened and which rule would have caught it. Not advice."}[kind])
+    for a in pages["standalone"]:  # one-off pages: paper scoreboard, learning log
+        render("standalone.html", f"/{a['slug']}/", lastmod=a["date_checked"], a=a,
+               body=Markup((ROOT / "content" / f"{a['slug']}.html").read_text()),
+               title=f"{a['title']} | {site['name']}", description=a["summary"])
     render("changes.html", "/changes/", lastmod=log[0]["date"], log=log, title=f"What's new | {site['name']}",
            description="A hand-maintained log of changes to the CryptoStack Tracker data and pages.")
     render("methodology.html", "/methodology/", lastmod=last, title=f"Methodology & disclaimer | {site['name']}",
@@ -125,7 +131,7 @@ def main():
     (out / "robots.txt").write_text(robots_txt(site))
     (out / ".nojekyll").write_text("")
     print(f"Built {len(sitemap)} sitemap pages ({len(tools)} tools, {len(pairs)} comparisons, "
-          f"{len(pages['strategies'])} strategies, {len(pages['guides'])} guides) -> {out}")
+          f"{len(pages['strategies'])} strategies, {len(pages['guides'])} guides, {len(pages['case-studies'])} case studies, {len(pages['standalone'])} standalone pages) -> {out}")
 
 
 if __name__ == "__main__":

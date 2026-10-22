@@ -1,0 +1,46 @@
+<p class="lead">A "desk rulebook" is a short, fixed set of rules that every call must pass before it is named, written down in advance so decisions aren't made in the moment. This page explains, in plain language, the rulebook used for the paper calls on this site (confirmed Oct 22, 2026), and the reasoning behind each rule. It is an example of how such rules are structured, not a system to copy.</p>
+
+<h2>The four hard gates (all must pass)</h2>
+<ol>
+<li><strong>Safety.</strong> Mint and freeze authority revoked, liquidity safe, and dev and bundle wallet clusters within limits.<br><em>Why:</em> if the creator can still mint more supply or freeze holders' tokens, or a handful of linked wallets hold most of the supply, nothing else on the chart matters. See <a href="/guides/spotting-rugs/">spotting rugs</a> and <a href="/guides/how-bundles-work/">how bundles work</a>.</li>
+<li><strong>A 5-minute hold after the safety checks pass.</strong> Nothing is named for five minutes.<br><em>Why:</em> the first minutes of a launch are dominated by bots and the creator's own wallets. Waiting gives up a little upside in exchange for seeing whether the coin survives once they leave. More in <a href="/strategies/five-minute-survival-hold/">the 5-minute survival hold</a>.</li>
+<li><strong>Survival at the end of the hold.</strong> All three must be true at minute 5:
+<ul>
+<li>price is at least 60% of its high so far,</li>
+<li>unique buyers are ahead of sellers,</li>
+<li>holder count is higher at minute 5 than at minute 3.</li>
+</ul>
+<em>Why:</em> a coin that has already given back more than 40% of its spike, has more sellers than buyers, or is losing holders is usually being sold into, not discovered. These three checks are a simple way to tell the difference.</li>
+<li><strong>Kill it if the dev or a dev-funded wallet sells.</strong> If the deployer, or any wallet the deployer funded, sells during the hold, the coin is out.<br><em>Why:</em> the creator selling early is one of the clearest warnings there is. Dev-funded wallets are included because creators often sell from a second wallet they topped up.</li>
+</ol>
+
+<h2>The target band: about $15k–$40k market cap</h2>
+<p>Calls are only named in roughly this market-cap range. <em>Why:</em> below it, a coin is usually still in its bot-and-creator phase; above it, much of the early move has already happened. The aim is early coins without rugs; the hold deliberately trades a little upside for survival.</p>
+
+<h2>The exit line (written before the call)</h2>
+<ul>
+<li><strong>Stop:</strong> exit at -30% from the naming price, or immediately on any dev or dev-funded sell.</li>
+<li><strong>Take half at 2x</strong>, and ride the rest with the same stop.</li>
+</ul>
+<p><em>Why:</em> deciding exits in advance removes in-the-moment hoping. Taking half at 2x roughly returns the original stake (before costs), so the remainder can't turn a winner into a loss. Worked example and caveats in <a href="/strategies/exit-lines/">exit lines</a>.</p>
+
+<h2>The PAPER CALL label</h2>
+<p>Every call carries the label <strong>PAPER CALL - not a buy signal</strong>, and keeps it until the <a href="/scoreboard/">paper scoreboard</a> shows a positive net result after costs over at least 30 calls. <em>Why:</em> a handful of lucky calls proves nothing. Thirty calls, counted honestly with costs, is a minimum sample before drawing any conclusion. As of Oct 22, 2026 the scoreboard is far from that.</p>
+
+<h2>The daily brake</h2>
+<p>After 2 calls in one day go to zero or hit their stop, nothing else is named that day. <em>Why:</em> two dead calls in a day usually means the market, or the reading of it, is off, and that is exactly when the urge to "win it back" is strongest. See <a href="/strategies/daily-loss-brake/">the daily loss brake</a>.</p>
+
+<h2>The X signal: logged, never a gate</h2>
+<p>Each call logs yes/no for one X signal: a post that is <strong>not</strong> from the dev or the project, includes the <strong>exact contract</strong>, and has <strong>50+ likes or 5k+ views</strong> within the window. <strong>Follower count alone never counts.</strong></p>
+<p><em>Why:</em> it is worth testing whether real outside attention helps, but not trusting it enough to gate on yet. Follower counts can be bought and say nothing about whether anyone cared about a specific post; in the <a href="/case-studies/php-dead-in-minutes/">php case study</a> the creator had about 12.4k followers and the coin still died in minutes.</p>
+
+<h2>The size cap</h2>
+<p>Position size is the <strong>smaller of 0.04 SOL or 1% of the pool's liquidity</strong>; if that works out under 0.02 SOL, the call is skipped. <em>Why:</em> thin pools can't absorb even a small exit without a big price hit, so tying size to liquidity keeps a position from moving the price on its own, and the hard cap keeps every mistake small.</p>
+
+<h2>Wallet signals and honesty</h2>
+<ul>
+<li>Two or more wallets from a private list buying early is a score booster, never a trigger. Mostly famous public wallets early is a crowding warning. Why in <a href="/strategies/public-leaderboards-vs-private-wallet-list/">public leaderboards vs a private wallet list</a>.</li>
+<li>No invented numbers: anything that can't be read is marked unverified, and every call goes in the paper log. If it isn't logged, it didn't happen.</li>
+<li>After 30 calls, each rule is tested: if coins that passed a rule didn't beat coins that failed it, the rule is a candidate for deletion.</li>
+</ul>
+<blockquote>Rules for paper calls, explained for education. Not advice. Crypto is high risk and most new tokens lose most of their value.</blockquote>

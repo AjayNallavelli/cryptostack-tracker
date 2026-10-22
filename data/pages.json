@@ -1,6 +1,46 @@
 {
  "strategies": [
   {
+   "slug": "desk-rulebook",
+   "title": "The desk rulebook (Oct 22, 2026)",
+   "summary": "An example rulebook for paper calls, explained rule by rule: four hard gates, a target band, an exit line, a paper label, a daily brake, a logged-but-not-gated X signal and a size cap, each with the reasoning behind it.",
+   "sources": [
+    {
+     "label": "Crypto desk rules (the site owner's paper-call rulebook, confirmed Oct 22, 2026; not published)",
+     "url": ""
+    },
+    {
+     "label": "pump.fun bonding curve docs",
+     "url": "https://pump.fun/docs/bonding-curve"
+    },
+    {
+     "label": "pump.fun fees",
+     "url": "https://pump.fun/docs/fees"
+    }
+   ],
+   "date_checked": "2026-10-22"
+  },
+  {
+   "slug": "public-leaderboards-vs-private-wallet-list",
+   "title": "Public leaderboards vs a private wallet list",
+   "summary": "Why wallets on public leaderboards tend to make copiers exit liquidity, and what a wallet list built backwards from 30 pump.fun winners did and didn't show.",
+   "sources": [
+    {
+     "label": "Winners list used for this study (30 pump.fun coins, built Oct 22, 2026 from pump.fun and DexScreener data)",
+     "url": ""
+    },
+    {
+     "label": "Public-wallet check (Solana Tracker wallet trades, read Oct 22, 2026)",
+     "url": ""
+    },
+    {
+     "label": "Trojan FAQ (copy trading)",
+     "url": "https://docs.trojan.com/faqs"
+    }
+   ],
+   "date_checked": "2026-10-22"
+  },
+  {
    "slug": "five-minute-survival-hold",
    "title": "The 5-minute survival hold",
    "summary": "Waiting a few minutes before acting on a brand-new launch, and what that wait can and cannot tell you.",
@@ -130,6 +170,42 @@
     {
      "label": "BullX fees and gas",
      "url": "https://bullx.gitbook.io/bullx-neo-docs/fees-and-gas"
+    }
+   ],
+   "date_checked": "2026-10-22"
+  }
+ ],
+ "case-studies": [
+  {
+   "slug": "php-dead-in-minutes",
+   "title": "Case study: php, dead in minutes",
+   "summary": "A paper call at about $13.2k market cap that was down about 80% net 14 minutes later, and the three lessons it illustrates: the 5-minute hold, the dev-sell kill, and engagement over followers.",
+   "sources": [
+    {
+     "label": "Sol Finder call notes and the site's paper log (Oct 22, 2026)",
+     "url": ""
+    },
+    {
+     "label": "DexScreener",
+     "url": "https://dexscreener.com"
+    },
+    {
+     "label": "pump.fun bonding curve docs",
+     "url": "https://pump.fun/docs/bonding-curve"
+    }
+   ],
+   "date_checked": "2026-10-22"
+  }
+ ],
+ "standalone": [
+  {
+   "slug": "scoreboard",
+   "title": "Paper scoreboard",
+   "summary": "A dated snapshot of the paper calls logged on this site: wins, losses, open marks and net result after an estimated 2.5% round-trip cost. Paper only, not advice.",
+   "sources": [
+    {
+     "label": "Paper log and tally (QA Desk), last updated Oct 22, 2026, 11:04 AM IST",
+     "url": ""
     }
    ],
    "date_checked": "2026-10-22"

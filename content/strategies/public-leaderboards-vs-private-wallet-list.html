@@ -1,0 +1,107 @@
+<p class="lead">Copying wallets from public "smart money" leaderboards is a popular idea. This page looks at why that tends to make copiers the exit liquidity, and at a small study (Oct 22, 2026) that built a private wallet list the other way round: backwards from coins that already won. For the general concepts, see <a href="/strategies/private-wallet-lists-vs-public-leaderboards/">private smart-wallet lists vs public leaderboards</a>.</p>
+
+<h2>Why public leaderboards make you exit liquidity</h2>
+<ul>
+<li><strong>They are watched by copy bots.</strong> When a famous wallet buys, bots that follow it buy within seconds. Anyone copying by hand arrives after the wallet <em>and</em> after the bots.</li>
+<li><strong>The copiers push the price up for the original wallet.</strong> That gives the famous wallet a better price to sell into, and the late buyers are the ones it sells to: the exit liquidity.</li>
+<li><strong>So use them as a crowding warning.</strong> If the early buyers on a new coin are mostly famous public wallets, that says the trade is crowded, not that it is good.</li>
+</ul>
+
+<h2>The study: a wallet list built backwards from winners</h2>
+<h3>Method</h3>
+<ol>
+<li>Start from <strong>30 recent pump.fun winners</strong>: coins that went from about 22x to about 1,450x from their market cap at roughly 5 minutes old (list below).</li>
+<li>Find wallets that bought <strong>early in 3 or more</strong> of those winners.</li>
+<li>Remove wallets linked to a coin's dev or to launch bundles (for example, funded by the same wallet as a deployer or a same-slot buyer).</li>
+<li>Apply a full "smart" bar to the rest: <strong>20+ closed trades, net green over the last 25, win rate at least 40%, best coin under 50% of profit, median hold at least 5 minutes.</strong></li>
+</ol>
+<h3>Result</h3>
+<ul>
+<li><strong>139</strong> repeat early wallets were found.</li>
+<li><strong>3</strong> were removed as dev- or bundle-linked.</li>
+<li>Only <strong>2</strong> passed the full smart bar. They are called <strong>wallet A</strong> and <strong>wallet B</strong> here; their addresses are deliberately not published, because a list that gets published becomes another public leaderboard and loses whatever edge it had.</li>
+</ul>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Wallet</th><th>Early in winners</th><th>Closed trades</th><th>Net over last 25 trades</th><th>Win rate</th><th>Median hold</th><th>Best coin share of profit</th></tr></thead>
+<tbody>
+<tr><td>Wallet A</td><td>6 of 30</td><td>47</td><td>+13.87 SOL</td><td>55%</td><td>21 min</td><td>22%</td></tr>
+<tr><td>Wallet B</td><td>3 of 30</td><td>52</td><td>+0.74 SOL</td><td>40%</td><td>13 min</td><td>40%</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Caveats</h3>
+<ul>
+<li><strong>The stats cover only a few hours of history</strong> (roughly 6 to 9 hours of each wallet's trades on Oct 22, 2026). That is far too short to call either wallet proven; a full week of history is a sensible minimum.</li>
+<li><strong>One of the two trades seconds apart, so it may be a bot.</strong> Bot-like wallets are usually dropped from a list like this.</li>
+<li>Wallet B only just clears the win-rate bar (40%).</li>
+</ul>
+
+<h2>The public wallet check</h2>
+<p>For contrast, 11 well-known public leaderboard wallets were checked on Oct 22, 2026. Net SOL over each wallet's last 25 closed trades, from the Solana Tracker wallet-trades data, with how many of the 30 winners each bought early:</p>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Public wallet</th><th>Net SOL, last 25 trades</th><th>Closed trades read</th><th>Early in winners</th></tr></thead>
+<tbody>
+<tr><td>Casino</td><td>+254.95</td><td>108</td><td>0</td></tr>
+<tr><td>Cented</td><td>+80.67</td><td>92</td><td>3</td></tr>
+<tr><td>Jijo</td><td>+30.07</td><td>30</td><td>0</td></tr>
+<tr><td>Theo</td><td>+23.06</td><td>78</td><td>0</td></tr>
+<tr><td>Decu</td><td>+12.77</td><td>185</td><td>1</td></tr>
+<tr><td>Clukz</td><td>-0.01</td><td>174</td><td>0</td></tr>
+<tr><td>72NW… (unnamed)</td><td>-0.34</td><td>219</td><td>1</td></tr>
+<tr><td>Makenfn</td><td>-3.13</td><td>315</td><td>0</td></tr>
+<tr><td>Putrickk</td><td>-7.37</td><td>200</td><td>1</td></tr>
+<tr><td>Cupsey</td><td>-9.57</td><td>129</td><td>2</td></tr>
+<tr><td>daumen</td><td><span class="tag tag-unverified">unverified</span></td><td>0</td><td>0</td></tr>
+</tbody>
+</table>
+</div>
+<p class="small muted">daumen had no closed round trips in its latest 1,000 swaps, so its net could not be calculated. Most of these wallets have median holds under three minutes, which is hard for a copier to match after fees.</p>
+
+<h2>The lesson</h2>
+<ul>
+<li><strong>Public leaderboard wallets: a crowding warning.</strong> They are watched by copy bots, which tends to make copiers the exit liquidity. Five of the eleven were net negative over their last 25 trades anyway.</li>
+<li><strong>A private list built backwards from winners: a confirmation signal, never a trigger.</strong> Two such wallets buying a coin early can add confidence to a call that has already passed its other checks. It should never be the reason for a call on its own, especially with only a few hours of history behind it.</li>
+</ul>
+
+<h2>The 30 winners used</h2>
+<p class="small muted">Multiple = all-time-high market cap divided by market cap about 5 minutes after creation (about 90 seconds for some), from pump.fun data read in October 2026. Listed for method transparency only; these are past results, not picks.</p>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Name</th><th>Mint</th><th>Multiple</th></tr></thead>
+<tbody>
+<tr><td>Agency</td><td><code>7VertkgF9KLhxxJXHX6uaWuoYZTP9LdGj2bWmVXVpump</code></td><td>473.8x</td></tr>
+<tr><td>Dacity</td><td><code>nxPqZ4F7ux8Vph5NFu25rEP6Kx9Gr1U6Fmj36Rjpump</code></td><td>257.7x</td></tr>
+<tr><td>CRAWL</td><td><code>BXoHJddsWJLHtAopeiSbKUSELsu8hSFMs8baGMDkpump</code></td><td>45.1x</td></tr>
+<tr><td>DOPE</td><td><code>33jENUQnjoitkMFpvNJcSHyLAHFWJuHwT6E3E8CNpump</code></td><td>1390.2x</td></tr>
+<tr><td>EXFIL</td><td><code>6FhVPctYg363pQbs4iSvqyHe2cJzfsvFD96gePy6pump</code></td><td>1448.0x</td></tr>
+<tr><td>swordcat</td><td><code>5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump</code></td><td>314.5x</td></tr>
+<tr><td>Altai</td><td><code>Gyk9Z93Ri2JUjqES9HTpc7pxCJTLD7vhBhEjBhyApump</code></td><td>1412.7x</td></tr>
+<tr><td>1</td><td><code>2bCCHQadi4QeHWPKG3w13siCyWWQPgkFtniouTqVpump</code></td><td>53.8x</td></tr>
+<tr><td>GOMO</td><td><code>9XKzy4KahcZaGJPJtz1PtqGPB3CiseoBrx7TcQhEpump</code></td><td>90.1x</td></tr>
+<tr><td>GLITCH</td><td><code>8Xg89xT8Ve34sKiYqYuMs46mycREsCA2F362UscRpump</code></td><td>193.5x</td></tr>
+<tr><td>HELL</td><td><code>A75Xx6SeftAmWduv9KGwb2GCjXUAhxozcCUCys9jpump</code></td><td>819.6x</td></tr>
+<tr><td>SI276</td><td><code>HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump</code></td><td>252.2x</td></tr>
+<tr><td>$2</td><td><code>BtDRC9cHgYMae3fGMEdcs4UYDmLgZoi9Ho2kcwsvpump</code></td><td>543.6x</td></tr>
+<tr><td>Macca</td><td><code>AKotzk1dhcNangAJBtvNKtT9bhbSVZc2mMhRFgkFpump</code></td><td>373.8x</td></tr>
+<tr><td>SM</td><td><code>Aqv8Gj8MesSzuEsgigq4kEDWVRFHgPUZq4Po4Q1Mpump</code></td><td>75.1x</td></tr>
+<tr><td>DacityCoin</td><td><code>DKYcjobF7HPtL9RyQBRdeRQ2iWvizpfbgWwPWNXdpump</code></td><td>22.0x</td></tr>
+<tr><td>LUKE</td><td><code>Ez7eEs53hQiXgCGmcbhdX5i1jgg2gC3F6MoeosuVpump</code></td><td>163.0x</td></tr>
+<tr><td>WORM</td><td><code>82wf4j3PBW4oqq6BwEEf7S9zCQS6mZCmPBLLnQsbpump</code></td><td>414.0x</td></tr>
+<tr><td>onboard</td><td><code>5ubruMYpgKqw9ip5J1qrXbVGmMdn2VCsMg421B4bpump</code></td><td>72.8x</td></tr>
+<tr><td>TANG</td><td><code>GKboyzRdB93iEpfr6Gjs8A2wXe7Tp4kVD5WwkNfepump</code></td><td>36.2x</td></tr>
+<tr><td>CyberAxe</td><td><code>2Srf6mhufzWJKZ5nniVXgwamLmDJWXPQBmddJ1MMpump</code></td><td>227.2x</td></tr>
+<tr><td>TSI</td><td><code>AcV6CcpMGFrA1dhRFiCKNiVNje8QE6ZXR9ep9jh7pump</code></td><td>91.0x</td></tr>
+<tr><td>Cartridge</td><td><code>ArenDYANqFNkp8ZqAXt69vT5Dz7WD4zDfSpVw6oPpump</code></td><td>32.7x</td></tr>
+<tr><td>SUPERCORE</td><td><code>3ZAnpeVBHAvZsySNMXp4g9nYaE1jsx6khgh29VYKpump</code></td><td>262.2x</td></tr>
+<tr><td>ACUTE</td><td><code>JBpKMKtkK6CVggM81qNKCVkdsNbQJniXe4q2zjBnpump</code></td><td>286.6x</td></tr>
+<tr><td>COMPUTE</td><td><code>GWe3TNg1UPxeaSazxK8U49PDAqXCaX9Jc8zbttFLpump</code></td><td>42.1x</td></tr>
+<tr><td>TIPTOE</td><td><code>gL9Q3xjXM1BdopmHn1R7Kb3Eim5NAQ1eWGNaTj3pump</code></td><td>216.1x</td></tr>
+<tr><td>Mimi</td><td><code>8CYyivwMZPg6Edaofxo3eHiveZkDrU6TtUDwtMjTpump</code></td><td>30.2x</td></tr>
+<tr><td>XBT</td><td><code>8NfX91yvHXyHKn8cnMjg9Q4bCeRLKFDoVtEomXstpump</code></td><td>48.9x</td></tr>
+<tr><td>godspeed</td><td><code>ArpPsesHXKbGeJsHdquM6acT3uNs7BChyetJjiNYpump</code></td><td>65.9x</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>Education only. Wallet lists, public or private, describe past behaviour, not future results. Not advice.</blockquote>

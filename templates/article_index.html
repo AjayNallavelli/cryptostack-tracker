@@ -2,6 +2,7 @@
 {% block content %}
 <h1>{{ kind_label }}</h1>
 {% if kind == "strategies" %}<p class="lead">Plain-language explainers of risk-management concepts traders talk about. They describe ideas and their limits; they are not advice and never point to specific coins.</p>
+{% elif kind == "case-studies" %}<p class="lead">Dated post-mortems of paper calls: what happened, the lesson, and which rule is designed to catch it. Never a pick or a signal.</p>
 {% else %}<p class="lead">How-to guides researched from public documentation (pump.fun, Jito, Solana, RugCheck and others).</p>{% endif %}
 <div class="grid">{% for a in items %}<div class="card"><h3><a href="/{{ kind }}/{{ a.slug }}/">{{ a.title }}</a></h3><p class="small">{{ a.summary }}</p></div>{% endfor %}</div>
 <p class="risk">Not financial advice. Crypto is high risk.</p>

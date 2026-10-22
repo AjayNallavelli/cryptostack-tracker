@@ -1,6 +1,11 @@
 [
  {
   "date": "2026-10-22",
+  "title": "New: desk rulebook, php case study, wallet-list study, paper scoreboard; fee re-check",
+  "summary": "Added The desk rulebook (Oct 22, 2026), Public leaderboards vs a private wallet list, a new Case studies section with Case study: php, dead in minutes, and a Paper scoreboard (snapshot as of 11:04 AM IST), all linked from the home page and the top navigation. Re-checked fees for Solflare, RugCheck, DEX Screener, Birdeye, DEXTools, Solscan, Solsniffer, Bubblemaps and Token Sniffer against each vendor's own pages: RugCheck API prices added (now partly verified), Solsniffer API tiers corrected and its Boost price added, Birdeye's larger Business tiers added. Solflare's swap fee and the other blanks are still unverified."
+ },
+ {
+  "date": "2026-10-22",
   "title": "Tracking started",
   "summary": "CryptoStack Tracker launched with 20 tools across 4 categories, 10 comparisons, 4 strategy explainers and 3 guides. All fees were read from each vendor's official pages on this date; fees we could not read from an official source are blank and marked unverified."
  }

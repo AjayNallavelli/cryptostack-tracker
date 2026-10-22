@@ -46,6 +46,10 @@
     <ul class="links">{% for a in pages.strategies %}<li><a href="/strategies/{{ a.slug }}/">{{ a.title }}</a> <span class="small muted">{{ a.summary }}</span></li>{% endfor %}</ul>
     <h2>Guides</h2>
     <ul class="links">{% for a in pages.guides %}<li><a href="/guides/{{ a.slug }}/">{{ a.title }}</a></li>{% endfor %}</ul>
+    <h2>Case studies</h2>
+    <ul class="links">{% for a in pages["case-studies"] %}<li><a href="/case-studies/{{ a.slug }}/">{{ a.title }}</a> <span class="small muted">{{ a.summary }}</span></li>{% endfor %}</ul>
+    <h2>Paper results</h2>
+    <ul class="links">{% for a in pages.standalone %}<li><a href="/{{ a.slug }}/">{{ a.title }}</a> <span class="small muted">{{ a.summary }}</span></li>{% endfor %}</ul>
   </div>
   <div class="card accent">
     <h2>What's new</h2>

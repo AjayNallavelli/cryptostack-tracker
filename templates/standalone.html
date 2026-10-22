@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="crumbs small"><a href="/">Home</a> / {{ a.title }}</nav>
+<article class="article">
+<h1>{{ a.title }}</h1>
+<p class="risk"><strong>Education only, not advice.</strong> Nothing here tells you what to buy or when. Every call listed is a paper call.</p>
+{{ body }}
+{% if a.sources %}<h2>Sources</h2>
+<ul class="sources">{% for s in a.sources %}<li>{% if s.url %}<a href="{{ s.url }}" rel="nofollow noopener" target="_blank">{{ s.label }}</a>{% else %}{{ s.label }}{% endif %}</li>{% endfor %}</ul>{% endif %}
+<p class="small muted">Last updated {{ a.date_checked|nicedate }}.</p>
+</article>
+{% endblock %}

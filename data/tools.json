@@ -374,9 +374,14 @@
    "category": "Scanners & analytics",
    "website": "https://birdeye.so",
    "source_url": "https://data.birdeye.so/docs/guides/payment/pricing",
-   "extra_sources": [],
+   "extra_sources": [
+    {
+     "label": "Birdeye Data pricing page",
+     "url": "https://bds.birdeye.so/pricing"
+    }
+   ],
    "verification": "partial",
-   "fees_summary": "Data API: Standard $0 (30,000 compute units), Lite $39/mo, Starter $99/mo, Premium $199/mo, Business from $499/mo.",
+   "fees_summary": "Data API: Standard $0 (30,000 compute units), Lite $39/mo, Starter $99/mo, Premium $199/mo, Business from $499/mo (up to $2,050/mo for B-50).",
    "fee_items": [
     {
      "item": "Standard (API)",
@@ -386,12 +391,12 @@
     {
      "item": "Lite (API)",
      "value": "$39/mo",
-     "note": "2.5M CUs, 15 rps; $23 per extra 1M CUs."
+     "note": "2.5M CUs, 15 rps. Overage: docs say $23 per extra 1M CUs, the pricing page says $15."
     },
     {
      "item": "Starter (API)",
      "value": "$99/mo",
-     "note": "8M CUs, 15 rps; $19.9 per extra 1M CUs."
+     "note": "8M CUs, 15 rps. Overage: docs say $19.9 per extra 1M CUs, the pricing page says $12."
     },
     {
      "item": "Premium (API)",
@@ -400,8 +405,13 @@
     },
     {
      "item": "Business (API)",
-     "value": "$499/mo and up",
-     "note": "60M+ CUs; Enterprise is custom."
+     "value": "$499/mo",
+     "note": "60M CUs, 100 rps; $6.9 per extra 1M CUs."
+    },
+    {
+     "item": "Business B-15 / B-30 / B-50 (API)",
+     "value": "$899 / $1,350 / $2,050 per month",
+     "note": "150M / 300M / 500M CUs. Growth AutoScale starts at $699/mo; Enterprise is custom."
     },
     {
      "item": "Birdeye web app",
@@ -422,7 +432,7 @@
     "Multi-chain"
    ],
    "date_checked": "2026-10-22",
-   "verification_note": "Prices are for the Birdeye Data API. We did not find a published price for using the consumer web app, so that row is blank."
+   "verification_note": "Prices are for the Birdeye Data API (docs pricing page and bds.birdeye.so/pricing). The two official pages disagree on Lite and Starter overage rates, so both are shown. We did not find a published price for the consumer web app, so that row is blank."
   },
   {
    "id": "dextools",
@@ -615,7 +625,16 @@
    "category": "Wallets",
    "website": "https://www.solflare.com",
    "source_url": "https://www.solflare.com/guides/how-to-swap-tokens-using-solflare/",
-   "extra_sources": [],
+   "extra_sources": [
+    {
+     "label": "Solflare help: swapping tokens (desktop)",
+     "url": "https://help.solflare.com/en/articles/6134622-how-to-swap-tokens-within-solflare-desktop"
+    },
+    {
+     "label": "Solflare help: transaction fees on Solana",
+     "url": "https://help.solflare.com/en/articles/9271735-understanding-transaction-fees-on-solana"
+    }
+   ],
    "verification": "unverified",
    "fees_summary": "",
    "fee_items": [
@@ -642,7 +661,7 @@
     "Solana"
    ],
    "date_checked": "2026-10-22",
-   "verification_note": "Solflare's own guide describes swap costs but does not publish a Solflare fee percentage, so the fee is left blank."
+   "verification_note": "Re-checked Oct 22, 2026: Solflare's swap guide and help-centre articles describe network fees and slippage (default 0.5%, which is not a fee) but publish no Solflare swap-fee percentage, so the fee stays blank."
   },
   {
    "id": "metamask",
@@ -688,25 +707,40 @@
    "name": "RugCheck",
    "category": "Safety checkers",
    "website": "https://rugcheck.xyz",
-   "source_url": "https://rugcheck.xyz",
+   "source_url": "https://fluxrpc.com/rugcheck",
    "extra_sources": [
     {
      "label": "RugCheck token report API reference (FluxRPC docs)",
      "url": "https://fluxrpc.com/docs/rugcheck/getTokenReport"
     }
    ],
-   "verification": "unverified",
-   "fees_summary": "",
+   "verification": "partial",
+   "fees_summary": "API: Free $0 (3 requests/sec, cached single reports), Basic $40/mo, Business $100/mo, Pro $500/mo. Web report price not published.",
    "fee_items": [
     {
      "item": "Web reports",
      "value": "",
-     "note": "No published price list found on the official site."
+     "note": "No price published on rugcheck.xyz that we could read."
     },
     {
-     "item": "API",
-     "value": "",
-     "note": "API docs mention paid keys (e.g. forced report refresh) but no price was published that we could read."
+     "item": "API Free",
+     "value": "$0",
+     "note": "3 requests/sec, single reports only, cached results."
+    },
+    {
+     "item": "API Basic",
+     "value": "$40/mo ($360/yr)",
+     "note": "10 requests/sec, bulk and fresh reports, WebSocket. $12/mo if bundled with a paid FluxRPC plan."
+    },
+    {
+     "item": "API Business",
+     "value": "$100/mo ($900/yr)",
+     "note": "100 requests/sec, adds the insider-detection WebSocket."
+    },
+    {
+     "item": "API Pro",
+     "value": "$500/mo ($4,500/yr)",
+     "note": "500 requests/sec."
     }
    ],
    "description": "Solana token risk reports: authorities, holder concentration, LP locks, insider networks and a risk score.",
@@ -721,7 +755,7 @@
     "Solana"
    ],
    "date_checked": "2026-10-22",
-   "verification_note": "No fee schedule was published on the official site when checked."
+   "verification_note": "RugCheck's paid API is sold through FluxRPC accounts (rugcheck.xyz links to FluxRPC for its API); API prices are from the RugCheck page on fluxrpc.com. No price for the rugcheck.xyz web reports was published, so that row is blank."
   },
   {
    "id": "solsniffer",
@@ -736,22 +770,32 @@
     }
    ],
    "verification": "partial",
-   "fees_summary": "API: Starter $47/mo (100 calls), Pro $997/mo (230,000 calls); Boost tier price not shown. Web app price not published.",
+   "fees_summary": "API: Free (100 calls/mo), Starter $47/mo (5,000 calls), Boost $197/mo (30,000 calls), Pro $997/mo (230,000 calls), Enterprise on request. Web app price not published.",
    "fee_items": [
     {
-     "item": "API Starter",
-     "value": "$47/mo ($525/yr)",
+     "item": "API Free",
+     "value": "$0",
      "note": "100 API calls/month."
     },
     {
+     "item": "API Starter",
+     "value": "$47/mo ($525/yr)",
+     "note": "5,000 API calls/month."
+    },
+    {
      "item": "API Boost",
-     "value": "",
-     "note": "Listed without a visible price when checked."
+     "value": "$197/mo ($2,199/yr)",
+     "note": "30,000 API calls/month."
     },
     {
      "item": "API Pro",
      "value": "$997/mo ($11,127/yr)",
      "note": "230,000 API calls/month."
+    },
+    {
+     "item": "API Enterprise",
+     "value": "",
+     "note": "On request (contact sales)."
     },
     {
      "item": "Web app",
