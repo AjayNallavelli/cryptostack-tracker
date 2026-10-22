@@ -1,6 +1,11 @@
 [
  {
   "date": "2026-10-22",
+  "title": "New: first 10 paper calls case study, rug patterns guide; scoreboard and desk rulebook updated",
+  "summary": "Added Case study: the first 10 paper calls (2 wins, 7 losses, 1 open; an out-of-sample test of the 30% launch-slot rule; stop speed and payoff math) and Rug patterns: what to check and with which free tool. The paper scoreboard now covers 10 calls (snapshot as of 10:49 PM IST) and renders from the new /data/paper_calls.json. The desk rulebook is updated: a dev sell alone is no longer a kill, survival must hold after the dev exits, bundles and extraction are kills, and dev graduation history is a score. Rule status and evidence are published in /data/rules.json. The php case study has an update note."
+ },
+ {
+  "date": "2026-10-22",
   "title": "New: desk rulebook, php case study, wallet-list study, paper scoreboard; fee re-check",
   "summary": "Added The desk rulebook (Oct 22, 2026), Public leaderboards vs a private wallet list, a new Case studies section with Case study: php, dead in minutes, and a Paper scoreboard (snapshot as of 11:04 AM IST), all linked from the home page and the top navigation. Re-checked fees for Solflare, RugCheck, DEX Screener, Birdeye, DEXTools, Solscan, Solsniffer, Bubblemaps and Token Sniffer against each vendor's own pages: RugCheck API prices added (now partly verified), Solsniffer API tiers corrected and its Boost price added, Birdeye's larger Business tiers added. Solflare's swap fee and the other blanks are still unverified."
  },

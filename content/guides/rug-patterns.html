@@ -1,0 +1,50 @@
+<p class="lead">Most new pump.fun coins don't end in a dramatic contract trick. They end in a few ordinary patterns that repeat across thousands of launches. This guide covers five of them: launch-slot pile-ups, creator extraction in seconds, curves priced in another token, launchpad-token saturation, and stops that hit within minutes. For each one it explains what to check and which free tool checks it. The examples come from the <a href="/case-studies/first-10-paper-calls/">first 10 paper calls</a> logged on this site.</p>
+
+<h2>1. Launch-slot pile-ups</h2>
+<p><strong>What it is.</strong> A large share of the supply is bought in the very first slot (block), the one that also holds the creation transaction, or in the next one or two. Some of those buyers are sniper bots; some are the creator's own wallets, packed into a bundle so the supply looks spread out. Either way, a few wallets sit on cheap tokens and can sell into anyone who buys later.</p>
+<p><strong>How common.</strong> Bitquery checked 8.2 million new pump.fun coins and found that someone other than the dev bought in block 0 on 38% of them, and that on 21% the dev's own wallets were part of that launch bundle.</p>
+<p><strong>Example.</strong> In the paper calls, every coin where outside wallets took 30% or more of supply in the launch slot lost. On EKO, buyers in the first three slots held about 82.7% of supply and had all sold within seconds.</p>
+<p><strong>What to check.</strong> Find the creation transaction and the slot it landed in, then add up what other wallets bought in that slot and the next two. Compare it with the current top holders: a wallet that bought 1% on the curve but holds 15% received tokens from somewhere.</p>
+<p><strong>Free tools.</strong> <a href="/tools/solscan/">Solscan</a> (browse the token's first transactions and their slots), <a href="/tools/bubblemaps/">Bubblemaps</a> (see clusters of wallets that sent tokens to each other) and <a href="/tools/rugcheck/">RugCheck</a> (holder and insider summary). More background in <a href="/guides/how-bundles-work/">how bundles work</a>.</p>
+
+<h2>2. Creator extraction in seconds</h2>
+<p><strong>What it is.</strong> The creator buys at launch and sells within seconds or minutes, taking out more SOL than they put in. A creator sale is not proof of a rug, but repeated full exits are the business model of "launch farms."</p>
+<p><strong>How common.</strong> Bitquery found the dev's first sale came within a minute of launch on 65% of the launches it checked, and within a day on nine in ten. MemeSwap's 1,616 timed creator sells had a median of 141 seconds; where the size was recorded, full exits outnumbered partial sells about 20 to 1. MemeSwap also stresses that a creator sell is not the same as a rug.</p>
+<p><strong>Example.</strong> In the paper calls, the creators of Pumuckel and ship sold 14 and 3 seconds after launch, each taking out roughly double what they put in. But a winner (Arnaud) also had a creator who sold, and a winner (DIF) had a dev who never sold. That is why the <a href="/strategies/desk-rulebook/">desk rulebook</a> no longer kills on a dev sell alone; it asks whether the coin still survives once the dev is gone.</p>
+<p><strong>What to check.</strong> The creator's buys and sells on this coin, SOL in vs SOL out, and how many other coins the same wallet has launched and graduated. Don't count the coin's own graduation as "history."</p>
+<p><strong>Free tools.</strong> The pump.fun coin page (trade list, with the creator marked), <a href="/tools/solscan/">Solscan</a> (the creator wallet's history) and <a href="/tools/rugcheck/">RugCheck</a> (creator and insider flags).</p>
+
+<h2>3. Curves priced in another token</h2>
+<p><strong>What it is.</strong> Most pump.fun coins trade against SOL. Some newer launches trade against a platform's own token instead. The market cap shown in dollars then depends on that second token's price and liquidity too, and getting in and out can mean extra swaps, each with its own cost and slippage, that the chart doesn't show.</p>
+<p><strong>Example.</strong> Three of the ten paper calls (GRAIL, YAI, EKO) had curves priced in another token. All three lost. That is a tiny sample, so treat it as a warning sign, not a rule.</p>
+<p><strong>What to check.</strong> The quote token of the pool or curve: is the pair COIN/SOL or COIN/something else? If it is something else, check that token's own liquidity and add the cost of the extra swap to your estimate.</p>
+<p><strong>Free tools.</strong> <a href="/tools/dexscreener/">DEX Screener</a> (the pair name shows the quote token), <a href="/tools/solscan/">Solscan</a> (the token accounts in a swap) and the pump.fun coin page. See also <a href="/guides/pump-fun-bonding-curve/">how the pump.fun bonding curve works</a>.</p>
+
+<h2>4. Launchpad-token saturation</h2>
+<p><strong>What it is.</strong> A wave of coins whose story is "a launchpad," "a platform token," "fee buybacks" or "your token can do X." When dozens launch in the same week, each one competes for the same buyers, and the story itself costs nothing to copy.</p>
+<p><strong>How common.</strong> Launches are cheap and plentiful: Alphalumina counts about 3.9 million pump.fun launches with 2.36% ever graduating, and CoinGecko found 68.67% of pump.fun tokens recorded their last bonding-curve trade on launch day.</p>
+<p><strong>Example.</strong> Four of the ten paper calls had a launchpad or platform story (php, GRAIL, MINE, FORM). All four lost. Story labels are subjective, so this is a pattern to watch, not a proven filter.</p>
+<p><strong>What to check.</strong> Search the ticker and the story: how many near-identical launches are there in the last day? Does the "platform" exist anywhere outside its own coin page?</p>
+<p><strong>Free tools.</strong> <a href="/tools/dexscreener/">DEX Screener</a> and <a href="/tools/birdeye/">Birdeye</a> (search a name and see how many copies launched), plus the project's own links.</p>
+
+<h2>5. Stops hit in minutes</h2>
+<p><strong>What it is.</strong> Even with a fixed stop, most losing calls end very quickly, and the price can jump straight past the stop in a single trade.</p>
+<p><strong>Example.</strong> In the paper calls, every stop that hit did so 6 to 21 minutes after the call (median about 8). Pumuckel fell from about $50k to about $16k in one trade, so a planned -30% exit was really about -67%.</p>
+<p><strong>What to check.</strong> Before entering, look at the pool's liquidity and the biggest recent sells. If one wallet could sell enough to move the price 30%+ in one trade, assume the stop will slip. Decide the exit in advance, as in <a href="/strategies/exit-lines/">exit lines</a>, and size small enough that a gap doesn't matter.</p>
+<p><strong>Free tools.</strong> <a href="/tools/dexscreener/">DEX Screener</a> (liquidity and recent trades), the pump.fun coin page (curve progress and trades) and <a href="/tools/bubblemaps/">Bubblemaps</a> (who holds enough to move the price).</p>
+
+<h2>A quick checklist</h2>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Pattern</th><th>Check</th><th>Free tool</th></tr></thead>
+<tbody>
+<tr><td>Launch-slot pile-up</td><td>Share of supply bought in the first 1-3 slots</td><td>Solscan, Bubblemaps, RugCheck</td></tr>
+<tr><td>Creator extraction</td><td>Creator SOL in vs out, and when</td><td>pump.fun page, Solscan, RugCheck</td></tr>
+<tr><td>Token-quoted curve</td><td>Is the quote token SOL?</td><td>DEX Screener, Solscan</td></tr>
+<tr><td>Launchpad saturation</td><td>How many copies of the story launched today</td><td>DEX Screener, Birdeye</td></tr>
+<tr><td>Fast stops and gaps</td><td>Liquidity vs the largest recent sells</td><td>DEX Screener, Bubblemaps</td></tr>
+</tbody>
+</table>
+</div>
+<p>Free tiers and features change; each tool's page on this site shows what was checked and when. The rules these patterns feed into, with their current status and evidence, are in <a href="/data/rules.json">rules.json</a>.</p>
+<blockquote>Education only, not advice. Passing every check above does not make a coin safe. Most new tokens lose most of their value.</blockquote>

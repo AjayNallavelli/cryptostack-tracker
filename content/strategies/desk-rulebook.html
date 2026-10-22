@@ -1,4 +1,6 @@
-<p class="lead">A "desk rulebook" is a short, fixed set of rules that every call must pass before it is named, written down in advance so decisions aren't made in the moment. This page explains, in plain language, the rulebook used for the paper calls on this site (confirmed Oct 22, 2026), and the reasoning behind each rule. It is an example of how such rules are structured, not a system to copy.</p>
+<p class="lead">A "desk rulebook" is a short, fixed set of rules that every call must pass before it is named, written down in advance so decisions aren't made in the moment. This page explains, in plain language, the rulebook used for the paper calls on this site (confirmed Oct 22, 2026, and updated that evening), and the reasoning behind each rule. It is an example of how such rules are structured, not a system to copy.</p>
+
+<p class="small muted">Updated Oct 22, 2026 (evening): a dev sell alone is no longer a kill; bundles and extraction are; dev graduation history is now a score. The status and evidence for every rule are in <a href="/data/rules.json">rules.json</a>.</p>
 
 <h2>The four hard gates (all must pass)</h2>
 <ol>
@@ -11,15 +13,18 @@
 <li>holder count is higher at minute 5 than at minute 3.</li>
 </ul>
 <em>Why:</em> a coin that has already given back more than 40% of its spike, has more sellers than buyers, or is losing holders is usually being sold into, not discovered. These three checks are a simple way to tell the difference.</li>
-<li><strong>Kill it if the dev or a dev-funded wallet sells.</strong> If the deployer, or any wallet the deployer funded, sells during the hold, the coin is out.<br><em>Why:</em> the creator selling early is one of the clearest warnings there is. Dev-funded wallets are included because creators often sell from a second wallet they topped up.</li>
+<li><strong>Kill it on a bundle or on extraction, not on a dev sell alone.</strong> The coin is out if linked wallets that bought at launch start dumping (a bundle or "consolidation" dump, where one wallet sells far more than it bought because tokens were gathered from other wallets), or if the creator is extracting, taking out more SOL than they put in. A dev sell on its own is logged, not a kill, and the survival checks in gate 3 must still pass <em>after</em> the dev has exited.<br><em>Why:</em> this gate used to kill on any dev or dev-funded sell. In the <a href="/case-studies/first-10-paper-calls/">first 10 paper calls</a> that would have killed one of the two winners (its creator sold early) while missing the dump that actually stopped the other. Wider data points the same way: most creators sell, usually within minutes, and a creator sale is not the same as a rug. What hurts holders is coordinated supply hitting the market at once, or a creator pulling out much more than they put in. The extraction kill is new and its record so far is mixed, so it is being watched. More in <a href="/guides/rug-patterns/">rug patterns</a>.</li>
 </ol>
+
+<h2>Dev history: a score, not a gate</h2>
+<p>The creator wallet's past launches are scored: earlier coins that graduated the bonding curve count in its favour, and a long list of launches with none graduating counts against it. The coin being checked never counts towards its own creator's history. <em>Why:</em> one large out-of-sample study (Alphalumina) found that devs with at least one prior graduation completed later launches far more often than devs with none, about 2.1% vs 0.3%. But graduation is not profit, a dev can buy their own graduation, and in the first 10 paper calls dev history did not separate winners from losers. So it adjusts a score and never decides a call by itself.</p>
 
 <h2>The target band: about $15k–$40k market cap</h2>
 <p>Calls are only named in roughly this market-cap range. <em>Why:</em> below it, a coin is usually still in its bot-and-creator phase; above it, much of the early move has already happened. The aim is early coins without rugs; the hold deliberately trades a little upside for survival.</p>
 
 <h2>The exit line (written before the call)</h2>
 <ul>
-<li><strong>Stop:</strong> exit at -30% from the naming price, or immediately on any dev or dev-funded sell.</li>
+<li><strong>Exit:</strong> at -30% from the naming price, on a bundle dump, or as soon as the survival checks fail. A dev sell on its own does not trigger an exit.</li>
 <li><strong>Take half at 2x</strong>, and ride the rest with the same stop.</li>
 </ul>
 <p><em>Why:</em> deciding exits in advance removes in-the-moment hoping. Taking half at 2x roughly returns the original stake (before costs), so the remainder can't turn a winner into a loss. Worked example and caveats in <a href="/strategies/exit-lines/">exit lines</a>.</p>

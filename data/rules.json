@@ -1,0 +1,135 @@
+{
+ "title": "Desk rules and their evidence (education only, not advice)",
+ "as_of": "2026-10-22",
+ "sample": "10 paper calls; any result here is promising or not supported, never proven",
+ "rules": [
+  {
+   "id": "stop-30",
+   "rule": "Exit at -30% from the naming price",
+   "type": "exit",
+   "threshold": "-30%",
+   "status": "adopted",
+   "evidence": "Hit on 5 of 9 closed calls, 6-21 minutes after the call. The two calls named without a stop (php, YAI) lost about 80-86% net. Fast crashes gap through: Pumuckel's realistic fill was near -67% gross."
+  },
+  {
+   "id": "half-at-2x",
+   "rule": "Take half at 2x; the rest rides the same stop",
+   "type": "exit",
+   "threshold": "2x entry",
+   "status": "adopted",
+   "evidence": "Both wins (Arnaud, DIF) came from the 2x half. DIF's runner was stopped 2 minutes after the 2x, so the half-off locked in the win."
+  },
+  {
+   "id": "dev-sell-not-kill",
+   "rule": "A dev sell on its own is no longer a kill",
+   "type": "gate change",
+   "threshold": "n/a",
+   "status": "adopted",
+   "evidence": "Approved Oct 22, 2026. Winner Arnaud had a flagged creator sell; winner DIF's dev never sold but a bundle-style dump still hit it. MemeSwap: 'a creator sell is not the same as a rug'; Alphalumina makes the same point."
+  },
+  {
+   "id": "survival-after-dev-exit",
+   "rule": "Survival checks must still pass after the dev has exited",
+   "type": "gate",
+   "threshold": "price >= 60% of high, buyers > sellers, holders rising (minute 3 to 5)",
+   "status": "adopted",
+   "evidence": "Replaces the dev-sell kill. Not yet tested on a call named under the new wording."
+  },
+  {
+   "id": "bundle-dump-kill",
+   "rule": "Kill (or exit) on a bundle or consolidation dump",
+   "type": "gate + exit",
+   "threshold": "any linked-wallet dump",
+   "status": "adopted",
+   "evidence": "The stops on DIF's runner and on Pumuckel both began with one wallet selling far more than it bought on the curve. Bitquery: 21% of launches had dev wallets in the launch bundle; bundled wallets often pass tokens to other wallets that sell."
+  },
+  {
+   "id": "extraction-kill",
+   "rule": "Kill when the creator is extracting (taking out more SOL than they put in)",
+   "type": "gate",
+   "threshold": "SOL out > SOL in",
+   "status": "adopted",
+   "evidence": "Adopted Oct 22, 2026 with the dev-sell change. Record so far is mixed: the launch checker flagged Arnaud (a win), Pumuckel (a loss) and ship (open), so 1 of 2 resolved flags was a loser. Not measurable on the three token-quoted curves. Under review at 30 calls."
+  },
+  {
+   "id": "same-slot-30",
+   "rule": "Kill if non-creator wallets bought 30%+ of supply in the launch slot",
+   "type": "gate",
+   "threshold": "30% of supply",
+   "status": "testing",
+   "evidence": "Cutoff set after calls 1-6 (all four at 30%+ lost). Out of sample (calls 7-9): 1 loser caught (EKO 37.8%), 1 loser missed (Pumuckel 25.8%), 0 winners killed (DIF 7.8%). ship (24.1%) is open. Promising, not proven."
+  },
+  {
+   "id": "launch-window-share",
+   "rule": "Score the share bought in the launch slot plus the next two",
+   "type": "score",
+   "threshold": "high share = worse",
+   "status": "testing",
+   "evidence": "EKO 82.7%, FORM 64.9%, php 59.5% all lost; DIF won at 31.7%. Overlaps heavily with same-slot share."
+  },
+  {
+   "id": "token-quoted-curve",
+   "rule": "Avoid curves priced in a platform token instead of SOL",
+   "type": "gate",
+   "threshold": "quote is not SOL",
+   "status": "testing",
+   "evidence": "3 of 3 token-quoted calls lost (GRAIL, YAI, EKO). Tiny sample."
+  },
+  {
+   "id": "launchpad-story",
+   "rule": "Score down launchpad / platform-token stories",
+   "type": "score",
+   "threshold": "story type",
+   "status": "testing",
+   "evidence": "4 of 4 launchpad or platform stories lost (php, GRAIL, MINE, FORM). Story labels are subjective."
+  },
+  {
+   "id": "dev-graduation-history",
+   "rule": "Score the dev's past graduations, excluding the coin itself",
+   "type": "score",
+   "threshold": "prior graduations >= 1",
+   "status": "testing",
+   "evidence": "Alphalumina out-of-sample: devs with a prior graduation completed later launches at 2.139% vs 0.307%. In these 10 calls it did not separate winners from losers, and two coins' only 'graduation' was themselves."
+  },
+  {
+   "id": "post-call-buyer-growth",
+   "rule": "Score new buyers in the 5 minutes after the call",
+   "type": "score",
+   "threshold": "more = better",
+   "status": "testing",
+   "evidence": "Not supported: Pumuckel added 1,130 new buyers and lost; ship added 3 and is up at its mark."
+  },
+  {
+   "id": "mcap-band",
+   "rule": "Name calls only at about $15k-$40k market cap",
+   "type": "gate",
+   "threshold": "$15k-$40k",
+   "status": "testing",
+   "evidence": "Not supported as a separator: the two winners were named at $25.9k (inside the band) and $14.3k (just below it), and four of the ten calls were named outside the band. Candidate for deletion at 30 calls."
+  },
+  {
+   "id": "am-vs-pm",
+   "rule": "Filter by time of day",
+   "type": "filter",
+   "threshold": "AM vs PM IST",
+   "status": "rejected",
+   "evidence": "1 win in 4 AM calls, 1 win in 5 resolved PM calls. No separation."
+  },
+  {
+   "id": "dev-funded-1hop",
+   "rule": "Treat direct dev-to-wallet SOL funding as the bundle test",
+   "type": "gate",
+   "threshold": "any dev-funded buyer",
+   "status": "rejected",
+   "evidence": "Found 0 dev-funded buyers on all 10 calls, including the ones with probable bundle dumps. Too narrow to rely on alone; kept as one input."
+  },
+  {
+   "id": "daily-brake",
+   "rule": "Stop naming calls after 2 stops or zeros in a day",
+   "type": "risk",
+   "threshold": "2 per day",
+   "status": "adopted",
+   "evidence": "Would have tripped by about 10:22 IST, and again by 20:30 IST if counted per session, before calls 7-10."
+  }
+ ]
+}

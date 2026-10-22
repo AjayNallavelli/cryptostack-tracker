@@ -1,0 +1,94 @@
+<p class="lead">On Oct 22, 2026, ten pump.fun coins were logged as paper calls and scored against a written exit line. Two won, seven lost and one was still open at the last check. This case study looks at what separated the winners from the losers, which rules would have caught the losers, how fast the stops hit, and the payoff math that decides whether a rulebook like this can ever work. Ten calls is a tiny sample, so every finding below is labelled <strong>promising</strong> or <strong>not supported</strong>, never proven.</p>
+
+<h2>The ten calls at a glance</h2>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>#</th><th>Ticker</th><th>Called (IST)</th><th>Mcap at call</th><th>Same-slot share</th><th>Story type</th><th>Outcome</th><th>Net</th></tr></thead>
+<tbody>
+{% for c in paper.calls %}<tr><td>{{ c.call_no }}</td><td>{{ c.ticker }}</td><td>{{ c.call_time[11:16] }}</td><td>${{ "%.1f"|format(c.mcap_at_call_usd / 1000) }}k</td><td>{{ "%.1f"|format(c.same_slot_share_pct) }}%</td><td>{{ c.story_type }}{% if c.curve_quote != "SOL" %} (token-quoted curve){% endif %}</td><td>{% if c.outcome == "OPEN" %}Open (mark){% elif c.outcome == "WIN" %}Win{% else %}Loss{% endif %}</td><td>{{ "%+.1f"|format(c.net_pct) }}%</td></tr>
+{% endfor %}</tbody>
+</table>
+</div>
+<p class="small muted">"Same-slot share" is the share of supply bought by wallets other than the creator in the creator's own launch slot. Story types are a subjective label. Full records, including mint addresses, are in <a href="/data/paper_calls.json">paper_calls.json</a>; the running totals are on the <a href="/scoreboard/">paper scoreboard</a>.</p>
+
+<h2>Result: -29.3% per closed call</h2>
+<ul>
+<li>Nine closed calls averaged <strong>-29.3% net</strong> after an estimated 2.5% round-trip cost (about -8.8R in total). Counting the open call at its mark, the average over ten is -23.1%.</li>
+<li>Calls 1-6 averaged -38.6%. Calls 7-10 averaged about +0.1%, but only because the open call (ship) was up at its mark; the three closed ones averaged -10.8%.</li>
+<li>Two of the morning calls (php and YAI) were named before any stop existed and were marked to the floor at about -80% and -86%. Re-reading their full trade history shows php briefly touched 2x before collapsing, and YAI would have been stopped about 2 minutes after its call. With today's exit rules, calls 1-6 would have averaged about -10.8%. The exit line, not the entry, made most of the difference.</li>
+</ul>
+
+<h2>Testing the 30% same-slot rule out of sample</h2>
+<p>After the first six calls, a rule was drafted: kill any coin where outside wallets bought 30% or more of the supply in the launch slot. All four coins at 30%+ had lost. But a cutoff chosen after looking at the data will always fit that data, so it was frozen and tested on the next calls without changes.</p>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Call</th><th>Same-slot share</th><th>Rule says</th><th>What happened</th><th>Scored as</th></tr></thead>
+<tbody>
+<tr><td>DIF</td><td>7.8%</td><td>Pass</td><td>Win</td><td>Correct pass</td></tr>
+<tr><td>Pumuckel</td><td>25.8%</td><td>Pass</td><td>Loss</td><td>Missed loser</td></tr>
+<tr><td>EKO</td><td>37.8%</td><td>Kill</td><td>Loss</td><td>Caught</td></tr>
+<tr><td>ship</td><td>24.1%</td><td>Pass</td><td>Open</td><td>Unresolved</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Out of sample: 1 loser caught, 1 loser missed, 0 winners wrongly killed.</strong> Across all ten calls, the two winners had the two lowest same-slot shares (7.8% and 16.9%), but three losers were also under 30%. Verdict: <strong>promising, kept in testing</strong>. It is not a complete filter. The wider window (the launch slot plus the next two) told a similar story: EKO's launch-window buyers held about 82.7% of supply and sold within seconds.</p>
+<p>This lines up with Bitquery's wider study: across 8.2 million new pump.fun coins it could check, someone other than the dev bought in block 0 on 38%, and on 21% of all coins the dev's own wallets were packed into the launch bundle.</p>
+
+<h2>What separated winners from losers (and what didn't)</h2>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Candidate separator</th><th>What the 10 calls show</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td>Same-slot share</td><td>Both winners lowest; every call at 30%+ lost; three losers under 30%</td><td>Promising</td></tr>
+<tr><td>Launchpad / platform-token story</td><td>4 of 4 lost (php, GRAIL, MINE, FORM)</td><td>Promising, subjective label</td></tr>
+<tr><td>Curve priced in a platform token instead of SOL</td><td>3 of 3 lost (GRAIL, YAI, EKO)</td><td>Promising, tiny sample</td></tr>
+<tr><td>Time to stop</td><td>Every stop that hit did so 6-21 minutes after the call</td><td>Describes the risk; not a filter</td></tr>
+<tr><td>Market cap at call</td><td>Winners named at $25.9k and $14.3k; losers from $12.5k to $47.6k</td><td>Not supported</td></tr>
+<tr><td>Holder growth after the call</td><td>Pumuckel added about 1,130 new buyers in 5 minutes and lost; ship added 3 and was up at its mark</td><td>Not supported</td></tr>
+<tr><td>Dev history (past graduations)</td><td>No separation here; two coins' only "graduation" was the coin itself, which must not count</td><td>Not supported in this sample; see below</td></tr>
+<tr><td>Dev sold</td><td>Winner Arnaud's creator took out more than they put in; winner DIF's dev never sold</td><td>Not supported as a kill</td></tr>
+<tr><td>AM vs PM (IST)</td><td>1 win in 4 morning calls, 1 win in 5 resolved evening calls</td><td>Not supported</td></tr>
+</tbody>
+</table>
+</div>
+<p>Dev history deserves a second look despite the null result here. Alphalumina, measuring about 3.9 million pump.fun launches with an out-of-sample split, found that devs with at least one prior graduation completed later launches at 2.139%, against 0.307% for devs who had never graduated a coin. It also warns that graduation measures completion, not anyone's profit, and that a dev can buy their own graduation. Ten calls are far too few to confirm or reject that, so it stays a score under test, never a gate.</p>
+
+<h2>Which rules would have caught the losers</h2>
+<ul>
+<li><strong>The -30% stop</strong> capped five losses at -32.5% net. The two calls with no stop lost 80-86%.</li>
+<li><strong>The same-slot rule</strong> would have skipped php, GRAIL, FORM and EKO.</li>
+<li><strong>A bundle or consolidation-dump exit</strong> describes the two crashes in the evening calls: in both DIF's runner and Pumuckel, the fall began with one wallet selling far more tokens than it had bought on the curve, a sign that tokens were gathered from linked wallets first. Bitquery describes the same habit: bundled wallets often pass tokens to other wallets that then sell. Funding links were not traced here, so these are <span class="tag tag-unverified">probable, unverified</span> bundles.</li>
+<li><strong>The dev-sell kill would have hurt.</strong> It would have killed Arnaud, one of only two winners, while doing nothing about DIF's dump. This is why the <a href="/strategies/desk-rulebook/">desk rulebook</a> dropped "a dev sell alone is a kill" on Oct 22, 2026. MemeSwap's data makes the same point: across 1,616 timed creator sells the median came 141 seconds after launch, full exits outnumbered partial sells by about 20 to 1, and "a creator sell is not the same as a rug."</li>
+</ul>
+
+<h2>Stops hit in minutes</h2>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Call</th><th>Minutes from call to stop</th></tr></thead>
+<tbody>
+<tr><td>Pumuckel</td><td>about 6 (gapped from about $50k to about $16k in one trade)</td></tr>
+<tr><td>GRAIL</td><td>7</td></tr>
+<tr><td>EKO</td><td>about 8</td></tr>
+<tr><td>FORM</td><td>9</td></tr>
+<tr><td>DIF (runner half, after taking half at 2x)</td><td>about 9</td></tr>
+<tr><td>MINE</td><td>21</td></tr>
+<tr><td>YAI (no stop set; when it would have hit)</td><td>about 2</td></tr>
+</tbody>
+</table>
+</div>
+<p>The median stop came about 8 minutes after the call. Anyone following a rule like this has to be watching, or have an order working, from the first minute. A stop is also a price you hope to get, not a price you are promised: Pumuckel's first trade through its stop was about -67%, more than twice the planned loss. This fits the wider picture: CoinGecko found 68.67% of pump.fun tokens recorded their last bonding-curve trade on launch day.</p>
+
+<h2>The payoff math</h2>
+<p>With these exit rules, a typical winner (half sold at 2x, the rest stopped) nets about +32.5%, and a typical loser nets about -32.5%. When wins and losses are the same size, the break-even win rate is:</p>
+<p><code>loss ÷ (win + loss) = 32.5 ÷ (32.5 + 32.5) = 50%</code></p>
+<p>The ten calls won 2 of 9 closed, or 22%. At a 22% win rate, the average winner would need to net about +114% (32.5 × 7 ÷ 2) just to break even, before any gap-through fills like Pumuckel's. So either the win rate has to more than double, or the winners have to run much further, for example by letting the second half ride on a trailing stop instead of the original one. Both are untested ideas, not conclusions.</p>
+
+<h2>What changes next</h2>
+<ul>
+<li>The <a href="/strategies/desk-rulebook/">desk rulebook</a> now treats a dev sell as information rather than a kill, requires survival to hold after the dev exits, and kills on bundles or consolidation dumps.</li>
+<li>The 30% same-slot rule, the token-quoted-curve avoid, the launchpad-story penalty and dev graduation history stay in <strong>testing</strong>, each with its evidence in <a href="/data/rules.json">rules.json</a>.</li>
+<li>Market-cap band, time of day and post-call buyer growth showed nothing here. They are candidates to delete if they still show nothing at 30 calls.</li>
+<li>The PAPER CALL label stays: the target is 30+ calls with a positive net result after costs, and the current record is a long way from that.</li>
+</ul>
+<p>The patterns behind these losses, and the free tools that check each one, are collected in <a href="/guides/rug-patterns/">rug patterns: what to check and with which free tool</a>.</p>
+<blockquote>A post-mortem of paper calls, not a recommendation about any coin named here. Ten calls cannot prove a rule works. Most new tokens lose most of their value.</blockquote>

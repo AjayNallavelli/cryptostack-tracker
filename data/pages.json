@@ -3,7 +3,7 @@
   {
    "slug": "desk-rulebook",
    "title": "The desk rulebook (Oct 22, 2026)",
-   "summary": "An example rulebook for paper calls, explained rule by rule: four hard gates, a target band, an exit line, a paper label, a daily brake, a logged-but-not-gated X signal and a size cap, each with the reasoning behind it.",
+   "summary": "An example rulebook for paper calls, explained rule by rule: four hard gates, a target band, an exit line, a paper label, a daily brake, dev history as a score, a logged-but-not-gated X signal and a size cap. Updated Oct 22, 2026: a dev sell alone is no longer a kill; bundles and extraction are.",
    "sources": [
     {
      "label": "Crypto desk rules (the site owner's paper-call rulebook, confirmed Oct 22, 2026; not published)",
@@ -16,6 +16,18 @@
     {
      "label": "pump.fun fees",
      "url": "https://pump.fun/docs/fees"
+    },
+    {
+     "label": "MemeSwap: dev sell timing",
+     "url": "https://memeswap.fun/learn/dev-sell-timing.html"
+    },
+    {
+     "label": "Alphalumina: pump.fun dev graduation data",
+     "url": "https://alphalumina.com/devs"
+    },
+    {
+     "label": "Rule status and evidence: /data/rules.json",
+     "url": ""
     }
    ],
    "date_checked": "2026-10-22"
@@ -173,9 +185,69 @@
     }
    ],
    "date_checked": "2026-10-22"
+  },
+  {
+   "slug": "rug-patterns",
+   "title": "Rug patterns: what to check and with which free tool",
+   "summary": "Five patterns behind most pump.fun losses (launch-slot pile-ups, creator extraction in seconds, curves priced in another token, launchpad-token saturation and stops hit in minutes), with what to check and the free tool that checks it.",
+   "sources": [
+    {
+     "label": "Bitquery: pump.fun snipers and bundles investigation (Oct 10, 2026)",
+     "url": "https://bitquery.io/investigations/pump-fun-snipers-bundles"
+    },
+    {
+     "label": "MemeSwap: dev sell timing",
+     "url": "https://memeswap.fun/learn/dev-sell-timing.html"
+    },
+    {
+     "label": "CoinGecko: average lifespan of pump.fun tokens (updated June 23, 2026)",
+     "url": "https://www.coingecko.com/research/publications/average-lifespan-of-pumpfun-tokens"
+    },
+    {
+     "label": "Alphalumina: pump.fun dev graduation data",
+     "url": "https://alphalumina.com/devs"
+    },
+    {
+     "label": "Examples from the site's paper log (Oct 22, 2026)",
+     "url": ""
+    }
+   ],
+   "date_checked": "2026-10-22"
   }
  ],
  "case-studies": [
+  {
+   "slug": "first-10-paper-calls",
+   "title": "Case study: the first 10 paper calls",
+   "summary": "Ten paper calls on new pump.fun coins: 2 wins, 7 losses, 1 open. What separated winners from losers, an out-of-sample test of a 30% launch-slot rule, how fast stops hit, and the payoff math. n=10, so findings are promising or not supported, never proven.",
+   "sources": [
+    {
+     "label": "Paper log and tally (QA Desk), snapshot Oct 22, 2026, 10:49 PM IST; summary data in /data/paper_calls.json",
+     "url": ""
+    },
+    {
+     "label": "Bitquery: pump.fun snipers and bundles investigation (Oct 10, 2026)",
+     "url": "https://bitquery.io/investigations/pump-fun-snipers-bundles"
+    },
+    {
+     "label": "MemeSwap: dev sell timing",
+     "url": "https://memeswap.fun/learn/dev-sell-timing.html"
+    },
+    {
+     "label": "CoinGecko: average lifespan of pump.fun tokens (updated June 23, 2026)",
+     "url": "https://www.coingecko.com/research/publications/average-lifespan-of-pumpfun-tokens"
+    },
+    {
+     "label": "Alphalumina: pump.fun dev graduation data",
+     "url": "https://alphalumina.com/devs"
+    },
+    {
+     "label": "pump.fun public coin and trade data (read Oct 22, 2026)",
+     "url": "https://pump.fun"
+    }
+   ],
+   "date_checked": "2026-10-22"
+  },
   {
    "slug": "php-dead-in-minutes",
    "title": "Case study: php, dead in minutes",
@@ -204,7 +276,7 @@
    "summary": "A dated snapshot of the paper calls logged on this site: wins, losses, open marks and net result after an estimated 2.5% round-trip cost. Paper only, not advice.",
    "sources": [
     {
-     "label": "Paper log and tally (QA Desk), last updated Oct 22, 2026, 11:04 AM IST",
+     "label": "Paper log and tally (QA Desk), last updated Oct 22, 2026, 10:49 PM IST; data in /data/paper_calls.json",
      "url": ""
     }
    ],

@@ -43,7 +43,9 @@ def load():
         t["pairs"] = [p for p in pairs if t in (p["a"], p["b"])]
     pages = json.loads((DATA / "pages.json").read_text())
     log = sorted(json.loads((DATA / "changelog.json").read_text()), key=lambda c: c["date"], reverse=True)
-    return site, tools, pairs, pages, log
+    paper = json.loads((DATA / "paper_calls.json").read_text())
+    rules = json.loads((DATA / "rules.json").read_text())
+    return site, tools, pairs, pages, log, paper, rules
 
 
 ROOT_REL = re.compile(r'((?:href|src|action)=")/(?!/)')
@@ -65,7 +67,7 @@ def main():
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
-    site, tools, pairs, pages, log = load()
+    site, tools, pairs, pages, log, paper, rules = load()
     env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=select_autoescape(["html", "xml"]))
     env.filters["nicedate"] = lambda d: dt.date.fromisoformat(d).strftime("%b %-d, %Y")
     cats = [{"name": n, "slug": s, "blurb": b, "tools": sorted([t for t in tools if t["category"] == n], key=lambda t: t["name"].lower())}
@@ -76,6 +78,9 @@ def main():
              "unverified": sum(t["verification"] == "unverified" for t in tools), "last": last}
     common = dict(site=site, cats=cats, stats=stats, year=dt.date.today().year, pages=pages)
     sitemap = []
+
+    def content(path):  # page bodies may loop over the machine-readable data files
+        return Markup(env.from_string(path.read_text()).render(paper=paper, rules=rules))
 
     def render(tpl, path, sitemap_on=True, lastmod=None, **ctx):
         p = out / path.strip("/") / "index.html" if not path.endswith((".html", ".xml", ".txt")) else out / path.strip("/")
@@ -103,7 +108,7 @@ def main():
            description="Side-by-side comparisons of crypto trading terminals, scanners, wallets and safety checkers.")
     for kind, label in (("strategies", "Strategies"), ("guides", "Guides"), ("case-studies", "Case studies")):
         for a in pages[kind]:
-            body = Markup((ROOT / "content" / kind / f"{a['slug']}.html").read_text())
+            body = content(ROOT / "content" / kind / f"{a['slug']}.html")
             render("article.html", f"/{kind}/{a['slug']}/", lastmod=a["date_checked"], a=a, kind=kind, kind_label=label, body=body,
                    title=f"{a['title']} | {site['name']}", description=a["summary"])
         render("article_index.html", f"/{kind}/", lastmod=last, kind=kind, kind_label=label, items=pages[kind],
@@ -113,7 +118,7 @@ def main():
                             "case-studies": "Dated post-mortems of paper calls: what happened and which rule would have caught it. Not advice."}[kind])
     for a in pages["standalone"]:  # one-off pages: paper scoreboard, learning log
         render("standalone.html", f"/{a['slug']}/", lastmod=a["date_checked"], a=a,
-               body=Markup((ROOT / "content" / f"{a['slug']}.html").read_text()),
+               body=content(ROOT / "content" / f"{a['slug']}.html"),
                title=f"{a['title']} | {site['name']}", description=a["summary"])
     render("changes.html", "/changes/", lastmod=log[0]["date"], log=log, title=f"What's new | {site['name']}",
            description="A hand-maintained log of changes to the CryptoStack Tracker data and pages.")
@@ -122,7 +127,8 @@ def main():
     render("404.html", "404.html", title="Page not found", description="Page not found")
     shutil.copytree(ROOT / "static", out / "static")
     (out / "data").mkdir()
-    shutil.copy(DATA / "tools.json", out / "data" / "tools.json")
+    for name in ("tools.json", "paper_calls.json", "rules.json"):
+        shutil.copy(DATA / name, out / "data" / name)
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for p, lm in sitemap:
         sm.append(f"  <url><loc>{html.escape(site['base_url'] + p)}</loc>" + (f"<lastmod>{lm}</lastmod>" if lm else "") + "</url>")
