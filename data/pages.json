@@ -2,8 +2,8 @@
  "strategies": [
   {
    "slug": "desk-rulebook",
-   "title": "The desk rulebook (Oct 22, 2026)",
-   "summary": "An example rulebook for paper calls, explained rule by rule: four hard gates, a target band, an exit line, a paper label, a daily brake, dev history as a score, a logged-but-not-gated X signal and a size cap. Updated Oct 22, 2026: a dev sell alone is no longer a kill; bundles and extraction are.",
+   "title": "The desk rulebook (updated Oct 23, 2026)",
+   "summary": "An example rulebook for paper calls, explained rule by rule, with every rule's status. Updated Oct 23, 2026 after the exit study: entry is the first real trade after the call, rules are judged on average R, extraction is log-only, a 15-minute time stop and shadow skips are in testing, and the trailing stop was rejected.",
    "sources": [
     {
      "label": "Crypto desk rules (the site owner's paper-call rulebook, confirmed Oct 22, 2026; not published)",
@@ -26,11 +26,15 @@
      "url": "https://alphalumina.com/devs"
     },
     {
+     "label": "Exit study of the first 10 paper calls (QA Desk, Oct 23, 2026)",
+     "url": "/case-studies/exit-study-first-10-calls/"
+    },
+    {
      "label": "Rule status and evidence: /data/rules.json",
      "url": ""
     }
    ],
-   "date_checked": "2026-10-22"
+   "date_checked": "2026-10-23"
   },
   {
    "slug": "public-leaderboards-vs-private-wallet-list",
@@ -110,6 +114,66 @@
   }
  ],
  "guides": [
+  {
+   "slug": "solana-memecoin-trading-costs-small-size",
+   "title": "Solana memecoin trading costs at small size",
+   "summary": "What pump.fun, Jupiter, Backpack, Phantom, Axiom, GMGN, Photon, Trojan and BONKbot charge, cheapest first, and the full round-trip cost at 0.04 SOL: from about 3% to about 15%, mostly down to priority fees and tips.",
+   "sources": [
+    {
+     "label": "pump.fun fees",
+     "url": "https://pump.fun/docs/fees"
+    },
+    {
+     "label": "Jupiter Manual mode",
+     "url": "https://docs.jup.ag/user-docs/trade/spot/manual-mode.md"
+    },
+    {
+     "label": "Jupiter fees",
+     "url": "https://docs.jup.ag/user-docs/trade/spot/fees.md"
+    },
+    {
+     "label": "Backpack: zero fees on swaps and bridges",
+     "url": "https://learn.backpack.exchange/blog/backpack-wallet-zero-fees-swaps-bridges"
+    },
+    {
+     "label": "Phantom: swap crypto in Phantom",
+     "url": "https://help.phantom.com/articles/swap-crypto-in-phantom-5985106844435"
+    },
+    {
+     "label": "Axiom fees",
+     "url": "https://docs.axiom.trade/getting-started/fees/axiom-fees"
+    },
+    {
+     "label": "GMGN fees settings",
+     "url": "https://docs.gmgn.ai/index/gmgn-fees-settings"
+    },
+    {
+     "label": "Photon fees (SOL)",
+     "url": "https://pies-organization.gitbook.io/photon-trading/photon-on-sol/photon-fees-sol"
+    },
+    {
+     "label": "Trojan FAQ",
+     "url": "https://docs.trojan.com/faqs"
+    },
+    {
+     "label": "BONKbot fee structure",
+     "url": "https://docs.bonkbot.io/fee-structure"
+    },
+    {
+     "label": "PANews: BullX suspends trading from June 1, 2026",
+     "url": "https://www.panews.io/articles/019e80dd-8bad-722a-b9b8-cbee2cba8e5f"
+    },
+    {
+     "label": "crypto.news: BullX pauses meme trading tool",
+     "url": "https://crypto.news/bullx-pauses-meme-trading-tool-but-keeps-wallet-access-open/"
+    },
+    {
+     "label": "Cost data: /data/trading_costs.json",
+     "url": ""
+    }
+   ],
+   "date_checked": "2026-10-23"
+  },
   {
    "slug": "spotting-rugs",
    "title": "Spotting rugs: authorities, liquidity and holders",
@@ -217,13 +281,61 @@
  ],
  "case-studies": [
   {
-   "slug": "first-10-paper-calls",
-   "title": "Case study: the first 10 paper calls",
-   "summary": "Ten paper calls on new pump.fun coins: 2 wins, 7 losses, 1 open. What separated winners from losers, an out-of-sample test of a 30% launch-slot rule, how fast stops hit, and the payoff math. n=10, so findings are promising or not supported, never proven.",
+   "slug": "exit-study-first-10-calls",
+   "title": "Exit study: three exit rules on the first 10 paper calls",
+   "summary": "All ten calls re-run at real trade prices: the current exits vs a 40% trailing stop vs a 15-minute time stop, why the logged entry was wrong on three calls, how far stops gapped, and three kinds of coin.",
    "sources": [
     {
-     "label": "Paper log and tally (QA Desk), snapshot Oct 22, 2026, 10:49 PM IST; summary data in /data/paper_calls.json",
+     "label": "QA Desk exit study of the 10 paper calls (from pump.fun trade data, Oct 23, 2026; not published)",
      "url": ""
+    },
+    {
+     "label": "Paper call data: /data/paper_calls.json",
+     "url": ""
+    },
+    {
+     "label": "Rule status and evidence: /data/rules.json",
+     "url": ""
+    }
+   ],
+   "date_checked": "2026-10-23"
+  },
+  {
+   "slug": "free-rug-check-tools-10-calls",
+   "title": "Testing free rug-check tools on 10 paper calls",
+   "summary": "RugCheck's free API against 3 winners and 7 losers: the score didn't separate them, a 10%+ insider network was a weak lead, and the extraction check flagged every winner. Honest about the after-the-fact snapshot.",
+   "sources": [
+    {
+     "label": "Tool test notes (RugCheck free API, read Oct 23, 2026 05:16-05:18 IST; not published)",
+     "url": ""
+    },
+    {
+     "label": "RugCheck",
+     "url": "https://rugcheck.xyz"
+    },
+    {
+     "label": "Bubblemaps API plans",
+     "url": "https://pro.bubblemaps.io/api/plans"
+    },
+    {
+     "label": "Tool test data: /data/tool_eval.json",
+     "url": ""
+    }
+   ],
+   "date_checked": "2026-10-23"
+  },
+  {
+   "slug": "first-10-paper-calls",
+   "title": "Case study: the first 10 paper calls",
+   "summary": "Ten pump.fun paper calls, final record 3 wins and 7 losses (-24.0% per call after estimated costs): what separated winners from losers, which rules would have caught the losers, how fast stops hit, and the payoff math. Updated Oct 23, 2026: ship closed as a win.",
+   "sources": [
+    {
+     "label": "Paper log and tally (QA Desk), snapshot Oct 22, 2026, 10:49 PM IST, final results Oct 23, 2026, 2:10 AM IST; summary data in /data/paper_calls.json",
+     "url": ""
+    },
+    {
+     "label": "Exit study of the first 10 paper calls (Oct 23, 2026)",
+     "url": "/case-studies/exit-study-first-10-calls/"
     },
     {
      "label": "Bitquery: pump.fun snipers and bundles investigation (Oct 10, 2026)",
@@ -246,7 +358,7 @@
      "url": "https://pump.fun"
     }
    ],
-   "date_checked": "2026-10-22"
+   "date_checked": "2026-10-23"
   },
   {
    "slug": "php-dead-in-minutes",
@@ -273,14 +385,14 @@
   {
    "slug": "scoreboard",
    "title": "Paper scoreboard",
-   "summary": "A dated snapshot of the paper calls logged on this site: wins, losses, open marks and net result after an estimated 2.5% round-trip cost. Paper only, not advice.",
+   "summary": "The paper calls logged on this site: wins, losses and net result after an estimated 2.5% round-trip cost, plus the same calls under three exit rules. Paper only, not advice.",
    "sources": [
     {
-     "label": "Paper log and tally (QA Desk), last updated Oct 22, 2026, 10:49 PM IST; data in /data/paper_calls.json",
+     "label": "Paper log, tally and exit study (QA Desk), last updated Oct 23, 2026, 2:10 AM IST; data in /data/paper_calls.json",
      "url": ""
     }
    ],
-   "date_checked": "2026-10-22"
+   "date_checked": "2026-10-23"
   }
  ]
 }

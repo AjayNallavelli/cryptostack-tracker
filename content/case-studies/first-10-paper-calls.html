@@ -1,4 +1,6 @@
 <p class="lead">On Oct 22, 2026, ten pump.fun coins were logged as paper calls and scored against a written exit line. Two won, seven lost and one was still open at the last check. This case study looks at what separated the winners from the losers, which rules would have caught the losers, how fast the stops hit, and the payoff math that decides whether a rulebook like this can ever work. Ten calls is a tiny sample, so every finding below is labelled <strong>promising</strong> or <strong>not supported</strong>, never proven.</p>
+<p class="small muted"><strong>Update, Oct 23, 2026:</strong> ship closed as a win at +23.7% net (half sold at 2x, then one sell gapped the rest from about $82k to $17.9k). The final record is <strong>3 wins, 7 losses, 0 open, average -24.0% net</strong> (about -8.0R). The table below shows the final results; the sections after it are the Oct 22 snapshot, with ship's same-slot result updated. A strict re-run of all ten calls at real trade prices, including three alternative exit rules, is in <a href="/case-studies/exit-study-first-10-calls/">the exit study</a>.</p>
+
 
 <h2>The ten calls at a glance</h2>
 <div class="table-wrap">
@@ -27,11 +29,11 @@
 <tr><td>DIF</td><td>7.8%</td><td>Pass</td><td>Win</td><td>Correct pass</td></tr>
 <tr><td>Pumuckel</td><td>25.8%</td><td>Pass</td><td>Loss</td><td>Missed loser</td></tr>
 <tr><td>EKO</td><td>37.8%</td><td>Kill</td><td>Loss</td><td>Caught</td></tr>
-<tr><td>ship</td><td>24.1%</td><td>Pass</td><td>Open</td><td>Unresolved</td></tr>
+<tr><td>ship</td><td>24.1%</td><td>Pass</td><td>Win (closed Oct 23)</td><td>Correct pass</td></tr>
 </tbody>
 </table>
 </div>
-<p><strong>Out of sample: 1 loser caught, 1 loser missed, 0 winners wrongly killed.</strong> Across all ten calls, the two winners had the two lowest same-slot shares (7.8% and 16.9%), but three losers were also under 30%. Verdict: <strong>promising, kept in testing</strong>. It is not a complete filter. The wider window (the launch slot plus the next two) told a similar story: EKO's launch-window buyers held about 82.7% of supply and sold within seconds.</p>
+<p><strong>Out of sample: 1 loser caught, 1 loser missed, 0 winners wrongly killed</strong> (DIF and ship both passed). Across all ten calls, every coin at 30%+ lost, and all three winners were under 30%, but three losers were also under 30%. From Oct 23, 2026 the rule is logged as a shadow skip (WOULD-SKIP) rather than enforced. Verdict: <strong>promising, kept in testing</strong>. It is not a complete filter. The wider window (the launch slot plus the next two) told a similar story: EKO's launch-window buyers held about 82.7% of supply and sold within seconds.</p>
 <p>This lines up with Bitquery's wider study: across 8.2 million new pump.fun coins it could check, someone other than the dev bought in block 0 on 38%, and on 21% of all coins the dev's own wallets were packed into the launch bundle.</p>
 
 <h2>What separated winners from losers (and what didn't)</h2>

@@ -1,0 +1,174 @@
+{
+ "as_of": "2026-10-23",
+ "scope": "Buying and selling a pump.fun coin that is still on its bonding curve, at small size (0.04 SOL). Fees are percentages of the trade unless stated. Educational, not financial advice; fees change, so check each source before relying on them.",
+ "fields": {
+  "venue_fee_pct": "the app's or bot's own fee per buy and per sell, on top of the pump.fun curve fee; null = not a flat percentage",
+  "round_trip_pct_at_0_04_sol": "approximate total cost of one buy plus one sell of 0.04 SOL, including the 1.25% curve fee each way, the venue fee each way and network/priority fees and tips at the stated settings; desk estimate"
+ },
+ "base_fees": [
+  {
+   "id": "pumpfun-curve",
+   "name": "pump.fun bonding curve fee",
+   "fee_pct": 1.25,
+   "applies": "every buy and every sell on the curve, whichever app or bot you use",
+   "avoidable": false,
+   "note": "Split 0.30% creator / 0.95% protocol. On its own it costs about 2.5% per round trip, so every trade starts about 2.5% down.",
+   "source": "https://pump.fun/docs/fees"
+  },
+  {
+   "id": "pumpfun-platform",
+   "name": "pump.fun site and app platform fee",
+   "fee_pct": 0.45,
+   "fee_pct_with_referral": 0.4,
+   "applies": "trades placed on the pump.fun website or mobile app (not Terminal or third-party apps), since Oct 17, 2026",
+   "avoidable": true,
+   "source": "https://pump.fun/docs/fees"
+  },
+  {
+   "id": "token-account-deposit",
+   "name": "Token account deposit (rent)",
+   "fee_sol": 0.002,
+   "applies": "each new token you buy opens a token account holding about 0.002 SOL",
+   "avoidable": true,
+   "note": "Not a fee: you get it back by closing the empty token account after selling. At 0.04 SOL it is about 5% of the trade if left behind."
+  }
+ ],
+ "venues": [
+  {
+   "id": "jupiter-manual",
+   "name": "Jupiter (Manual mode)",
+   "tool_slug": "jupiter",
+   "venue_fee_pct": 0.0,
+   "mev_protection": false,
+   "note": "No Jupiter commission; you set slippage, priority fee and tip yourself.",
+   "source": "https://docs.jup.ag/user-docs/trade/spot/manual-mode.md"
+  },
+  {
+   "id": "backpack",
+   "name": "Backpack Wallet",
+   "tool_slug": "backpack",
+   "venue_fee_pct": 0.0,
+   "note": "Zero fees on swaps and bridges in Backpack Wallet.",
+   "source": "https://learn.backpack.exchange/blog/backpack-wallet-zero-fees-swaps-bridges"
+  },
+  {
+   "id": "jupiter-ultra",
+   "name": "Jupiter (Ultra mode)",
+   "tool_slug": "jupiter",
+   "venue_fee_pct": 0.5,
+   "venue_fee_pct_other": 0.1,
+   "mev_protection": true,
+   "note": "0.5% on coins under 24 hours old (most pump.fun curve coins), 0.1% on most others; priority fee and tip are set automatically.",
+   "source": "https://docs.jup.ag/user-docs/trade/spot/fees.md"
+  },
+  {
+   "id": "pumpfun-app",
+   "name": "pump.fun site / app",
+   "tool_slug": null,
+   "venue_fee_pct": 0.45,
+   "note": "0.40% with a referral; since Oct 17, 2026.",
+   "source": "https://pump.fun/docs/fees"
+  },
+  {
+   "id": "phantom",
+   "name": "Phantom",
+   "tool_slug": "phantom",
+   "venue_fee_pct": 0.85,
+   "note": "Phantom fee on most swaps, plus network fees.",
+   "source": "https://help.phantom.com/articles/swap-crypto-in-phantom-5985106844435"
+  },
+  {
+   "id": "axiom",
+   "name": "Axiom",
+   "tool_slug": "axiom",
+   "venue_fee_pct": 1.0,
+   "default_priority_fee_sol": 0.001,
+   "default_bribe_sol": 0.001,
+   "note": "Default priority fee 0.001 SOL plus a 0.001 SOL bribe (tip) per trade; volume cashback can lower the net fee.",
+   "source": "https://docs.axiom.trade/getting-started/fees/axiom-fees"
+  },
+  {
+   "id": "gmgn",
+   "name": "GMGN",
+   "tool_slug": "gmgn",
+   "venue_fee_pct": 1.0,
+   "note": "Priority fee and anti-MEV tips are set in its trade settings.",
+   "source": "https://docs.gmgn.ai/index/gmgn-fees-settings"
+  },
+  {
+   "id": "photon",
+   "name": "Photon",
+   "tool_slug": "photon",
+   "venue_fee_pct": 1.0,
+   "source": "https://pies-organization.gitbook.io/photon-trading/photon-on-sol/photon-fees-sol"
+  },
+  {
+   "id": "trojan",
+   "name": "Trojan",
+   "tool_slug": "trojan",
+   "venue_fee_pct": 1.0,
+   "source": "https://docs.trojan.com/faqs"
+  },
+  {
+   "id": "bonkbot",
+   "name": "BONKbot",
+   "tool_slug": "bonkbot",
+   "venue_fee_pct": 1.0,
+   "source": "https://docs.bonkbot.io/fee-structure"
+  },
+  {
+   "id": "bullx",
+   "name": "BullX",
+   "tool_slug": "bullx",
+   "venue_fee_pct": null,
+   "status": "paused",
+   "note": "Suspended trading in its current app from June 1, 2026; wallet functions and withdrawals stayed open.",
+   "source": "https://www.panews.io/articles/019e80dd-8bad-722a-b9b8-cbee2cba8e5f"
+  }
+ ],
+ "round_trips_at_0_04_sol": [
+  {
+   "setup": "Jupiter Manual, 0.0001 SOL priority fee",
+   "venue_id": "jupiter-manual",
+   "round_trip_pct": 3.0
+  },
+  {
+   "setup": "Jupiter Ultra",
+   "venue_id": "jupiter-ultra",
+   "round_trip_pct": 3.5,
+   "plus": "automatic priority fees and tips"
+  },
+  {
+   "setup": "pump.fun site / app",
+   "venue_id": "pumpfun-app",
+   "round_trip_pct": 3.9
+  },
+  {
+   "setup": "Phantom",
+   "venue_id": "phantom",
+   "round_trip_pct": 4.2,
+   "plus": "network fees"
+  },
+  {
+   "setup": "GMGN at its minimum priority settings",
+   "venue_id": "gmgn",
+   "round_trip_pct": 5.5
+  },
+  {
+   "setup": "Axiom default settings",
+   "venue_id": "axiom",
+   "round_trip_pct": 14.5
+  },
+  {
+   "setup": "GMGN with anti-MEV on",
+   "venue_id": "gmgn",
+   "round_trip_pct": 15.0
+  }
+ ],
+ "lessons": [
+  "At small size, fixed priority fees and tips dominate: 0.002 SOL each way is 10% of a 0.04 SOL round trip. Set them by hand.",
+  "Close token accounts after selling to reclaim the ~0.002 SOL deposit.",
+  "Every curve trade starts about 2.5% down because of pump.fun's 1.25% fee each way; no venue avoids it.",
+  "A 0% app fee is not a 0% trade: Jupiter Manual still costs about 3.0% round trip at 0.04 SOL."
+ ]
+}

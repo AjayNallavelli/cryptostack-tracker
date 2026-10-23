@@ -1,30 +1,43 @@
+{%- set wins = paper.calls|selectattr("outcome","equalto","WIN")|list|length -%}
+{%- set losses = paper.calls|selectattr("outcome","equalto","LOSS")|list|length -%}
+{%- set open_n = paper.calls|selectattr("outcome","equalto","OPEN")|list|length -%}
 <p class="lead">A running tally of the paper calls logged on this site, scored after an estimated cost. It exists to keep the <a href="/strategies/desk-rulebook/">desk rulebook</a> honest: calls stay labelled <strong>PAPER CALL - not a buy signal</strong> until this table shows a positive net result after costs over at least 30 calls.</p>
-<p class="eyebrow">Paper only · 10 calls · snapshot as of 10:49 PM IST, Oct 22, 2026</p>
+<p class="eyebrow">Paper only · {{ paper.calls|length }} calls, all closed · updated 2:10 AM IST, Oct 23, 2026</p>
 <div class="stats">
-<div><strong>10</strong><span>paper calls</span></div>
-<div><strong>2</strong><span>wins</span></div>
-<div><strong>7</strong><span>losses</span></div>
-<div><strong>1</strong><span>open</span></div>
+<div><strong>{{ paper.calls|length }}</strong><span>paper calls</span></div>
+<div><strong>{{ wins }}</strong><span>wins</span></div>
+<div><strong>{{ losses }}</strong><span>losses</span></div>
+<div><strong>{{ open_n }}</strong><span>open</span></div>
 </div>
 <div class="table-wrap">
 <table class="ptable">
 <thead><tr><th>Net % after est. 2.5% cost (equal size)</th><th>Average per call</th><th>Total R</th></tr></thead>
 <tbody>
-<tr><td>Closed calls only (9)</td><td>-29.3%</td><td>-8.8R</td></tr>
-<tr><td>Including the open mark (10)</td><td>-23.1%</td><td>-7.7R</td></tr>
-<tr><td>Calls 1-6 (all closed)</td><td>-38.6%</td><td>-7.7R</td></tr>
-<tr><td>Calls 7-10 (ship at its mark)</td><td>+0.1%</td><td>+0.0R</td></tr>
+<tr><td>All 10 calls (all closed)</td><td>-24.0%</td><td>-8.0R</td></tr>
+<tr><td>Calls 1-6</td><td>-38.6%</td><td>-7.7R</td></tr>
+<tr><td>Calls 7-10</td><td>-2.2%</td><td>-0.3R</td></tr>
 </tbody>
 </table>
 </div>
-<p class="small muted">Win rate of closed calls: 2 of 9 (22%). R = net % ÷ 30, the size of the planned stop. Machine-readable copy: <a href="/data/paper_calls.json">paper_calls.json</a>.</p>
+<p class="small muted">Win rate: {{ wins }} of {{ paper.calls|length }} (30%); with half sold at 2x and a -30% stop, the break-even win rate is about 50%. R = net % ÷ 30, the size of the planned stop. The rulebook now judges rules on average R, not win rate. Machine-readable copy: <a href="/data/paper_calls.json">paper_calls.json</a>.</p>
 
 <h2>Every paper call</h2>
 <div class="table-wrap">
 <table class="ptable">
-<thead><tr><th>#</th><th>Ticker</th><th>Called (IST)</th><th>Mcap at call</th><th>Outcome</th><th>Exit</th><th>Net</th><th>R</th></tr></thead>
+<thead><tr><th>#</th><th>Ticker</th><th>Called (IST)</th><th>Mcap at call</th><th>Peak after call</th><th>Outcome</th><th>Exit</th><th>Net</th><th>R</th></tr></thead>
 <tbody>
-{% for c in paper.calls %}<tr><td>{{ c.call_no }}</td><td>{% if c.ticker == "php" %}<a href="/case-studies/php-dead-in-minutes/">php</a>{% else %}{{ c.ticker }}{% endif %}</td><td>Oct 22, {{ c.call_time[11:16] }}</td><td>${{ "%.1f"|format(c.mcap_at_call_usd / 1000) }}k</td><td>{% if c.outcome == "OPEN" %}Open (mark){% elif c.outcome == "WIN" %}Win{% else %}Loss{% endif %}</td><td>{{ c.exit }}</td><td>{{ "%+.1f"|format(c.net_pct) }}%</td><td>{{ "%+.2f"|format(c.R) }}</td></tr>
+{% for c in paper.calls %}<tr><td>{{ c.call_no }}</td><td>{% if c.ticker == "php" %}<a href="/case-studies/php-dead-in-minutes/">php</a>{% else %}{{ c.ticker }}{% endif %}</td><td>Oct 22, {{ c.call_time[11:16] }}</td><td>${{ "%.1f"|format(c.mcap_at_call_usd / 1000) }}k</td><td>{{ "%+.1f"|format(c.exit_study.peak_after_call.pct_vs_entry) }}%</td><td>{% if c.outcome == "OPEN" %}Open (mark){% elif c.outcome == "WIN" %}Win{% else %}Loss{% endif %}</td><td>{{ c.exit }}</td><td>{{ "%+.1f"|format(c.net_pct) }}%</td><td>{{ "%+.2f"|format(c.R) }}</td></tr>
+{% endfor %}</tbody>
+</table>
+</div>
+
+<h2>Same calls, three exit rules</h2>
+<p>The <a href="/case-studies/exit-study-first-10-calls/">exit study</a> re-ran all 10 calls from pump.fun trade data, filling every stop at the real trade price instead of exactly -30%. Equal size, same 2.5% estimated cost.</p>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Exit rule</th><th>Average net</th><th>Wins / losses</th><th>With Arnaud's entry corrected</th><th>Status</th></tr></thead>
+<tbody>
+{% for s in paper.exit_study.sets %}<tr><td>{{ s.name }}</td><td>{{ "%+.1f"|format(s.avg_net_pct) }}%</td><td>{{ s.wins }} / {{ s.losses }}</td><td>{{ "%+.1f"|format(s.avg_net_pct_arnaud_corrected) }}%</td><td>{{ s.status|capitalize }}</td></tr>
 {% endfor %}</tbody>
 </table>
 </div>
@@ -32,11 +45,11 @@
 <h2>Notes</h2>
 <ul>
 <li><strong>Every entry is a paper call, not advice.</strong> No coin here is a recommendation, and past paper results say nothing about future ones.</li>
-<li>Entry price = market cap when the call was named ÷ 1 billion supply. Exits follow the written exit line: -30% stop, or half at 2x with the rest on the same stop.</li>
-<li>Stops are filled on paper at exactly -30%. In fast crashes the real price can gap far below it: Pumuckel's first trade through its stop was about -67%.</li>
-<li>php and YAI were named before the exit rules existed and were marked to the floor. Re-reading their full trade history: php briefly touched 2x (about 9 minutes after the call) before collapsing, and YAI would have hit its stop about 2 minutes after the call. With today's rules applied to both, calls 1-6 average about -10.8% instead of -38.6%. The logged results stand.</li>
-<li>Earlier versions of this table showed R as gross ÷ 30 (+1.17 / -1.0). It is now net ÷ 30 throughout (+1.08 / -1.08).</li>
-<li>The 2.5% round-trip cost is an <strong>estimate</strong>, applied equally to every call. Real fees, priority fees and slippage can be higher, especially in thin pools.</li>
-<li>ship is open and marked at its last check; it can still change in either direction.</li>
-<li>10 calls is a tiny sample. What these calls do and don't show is written up in <a href="/case-studies/first-10-paper-calls/">the first 10 paper calls</a>.</li>
+<li>Logged entry price = market cap when the call was named ÷ 1 billion supply. For Arnaud, FORM and Pumuckel that price was 16 to 20%+ above anything that traded, so from Oct 23, 2026 new calls use the first real trade after the call, logged to the second. The logged results above are left as they were.</li>
+<li>Exits follow the written exit line: -30% stop, or half at 2x with the rest on the same stop. The logged stops on calls 2 and 5-9 are paper fills at exactly -30%; ship's is the real fill after it gapped through its stop.</li>
+<li>Stops fail on gaps. In the exit study every stop filled below its level, and single sells sent php, Pumuckel and ship straight through. Size as if a failed stop costs 50 to 70%, not 30%.</li>
+<li>ship closed as a win at +23.7% net: half was sold at 2x, it peaked at +305%, then one sell gapped the rest from about $82k to $17.9k.</li>
+<li>php and YAI were named before the exit rules existed and were marked to the floor. Re-reading their full trade history: php briefly touched 2x (about 9 minutes after the call) before collapsing, and YAI would have hit its stop about 2 minutes after the call. The logged results stand.</li>
+<li>The 2.5% round-trip cost is an <strong>estimate</strong>, applied equally to every call. At 0.04 SOL, real round trips run from about 3.0% to 15% depending on the app and its priority-fee settings; see <a href="/guides/solana-memecoin-trading-costs-small-size/">trading costs at small size</a>.</li>
+<li>10 calls is a tiny sample. What these calls do and don't show is written up in <a href="/case-studies/first-10-paper-calls/">the first 10 paper calls</a> and <a href="/case-studies/exit-study-first-10-calls/">the exit study</a>.</li>
 </ul>

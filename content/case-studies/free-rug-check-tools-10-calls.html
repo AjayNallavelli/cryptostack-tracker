@@ -1,0 +1,56 @@
+<p class="lead">Free rug-check tools promise to flag risky coins before you buy. This case study ran the free options against the first ten paper calls (3 winners, 7 losers) to see whether any of them would have told the two groups apart. Short answer: RugCheck's headline score did not, one of its sub-signals looked weakly useful, and the desk's own "extraction" check pointed the wrong way.</p>
+<p class="eyebrow">Paper calls only · not advice · data read 5:16-5:18 AM IST, Oct 23, 2026</p>
+
+<h2>Read this first: it is a snapshot taken after the fact</h2>
+<p>The RugCheck data below was pulled about 12 to 24 hours <strong>after</strong> the calls were named, once every outcome was known. It shows what RugCheck says about each coin now, not what it showed at the moment of the call. Insider networks, holdings and liquidity can all change in that time, and the thresholds were picked after seeing the outcomes. With n=10, treat every result here as a lead to test, not a finding.</p>
+
+<h2>Which tools could be tested for free</h2>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Tool</th><th>API access</th><th>Used here</th></tr></thead>
+<tbody>
+{% for t in tool_eval.tools %}<tr><td>{% if t.tool_slug %}<a href="/tools/{{ t.tool_slug }}/">{{ t.name }}</a>{% else %}{{ t.name }}{% endif %}</td><td>{{ t.api_access }}</td><td>{% if t.used_in_test %}Yes{% else %}No{% endif %}</td></tr>
+{% endfor %}</tbody>
+</table>
+</div>
+<p>Only RugCheck could be queried with no key and no payment. Bubblemaps' web map is free, but its API starts at $170/mo. InsightX, SolSniffer and GMGN need a (free) key, and Kolscan has no API, so they were not part of this run.</p>
+
+<h2>RugCheck, coin by coin</h2>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Coin</th><th>Outcome</th><th>Score</th><th>Risks flagged</th><th>Insiders detected</th><th>Insider networks</th><th>Largest network (% of supply)</th></tr></thead>
+<tbody>
+{% for c in paper.calls %}{% set r = c.rugcheck_snapshot %}<tr><td>{{ c.ticker }}</td><td>{% if c.outcome == "WIN" %}<strong>Win</strong>{% else %}Loss{% endif %}</td><td>{{ r.score_normalised }}</td><td>{% if r.risks %}{{ r.risks|join(", ") }}{% else %}none{% endif %}</td><td>{{ r.insiders_detected }}</td><td>{{ r.insider_networks }}</td><td>{% if r.largest_network_pct_supply is not none %}{{ "%.1f"|format(r.largest_network_pct_supply) }}%{% else %}-{% endif %}</td></tr>
+{% endfor %}</tbody>
+</table>
+</div>
+<p class="small muted">Numbers only; no holder addresses are published. RugCheck's "largest network" percentage has unclear meaning: it may be the cumulative amount transferred rather than what the network holds now. Per-coin values are in the <code>rugcheck_snapshot</code> field of each call in <a href="/data/paper_calls.json">paper_calls.json</a>.</p>
+
+<h2>Did anything separate winners from losers?</h2>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Signal</th><th>Losers flagged</th><th>Winners flagged</th><th>Verdict</th></tr></thead>
+<tbody>
+{% for s in tool_eval.separation %}<tr><td>{{ s.signal }}</td><td>{{ s.losers[0] }} of {{ s.losers[1] }}</td><td>{{ s.winners[0] }} of {{ s.winners[1] }}</td><td>{% if s.separates is sameas false %}No{% else %}{{ s.separates|capitalize }}{% endif %}</td></tr>
+{% endfor %}</tbody>
+</table>
+</div>
+<ul>
+<li><strong>RugCheck's score did not help.</strong> A score of 30+ (all four carried a "Low Liquidity" flag) hit 2 of 7 losers and 2 of 3 winners. Most losers scored 1, the cleanest possible reading.</li>
+<li><strong>"Insiders detected" did not help either:</strong> 4 of 7 losers and 2 of 3 winners.</li>
+<li><strong>A largest insider network at 10%+ of supply was the only weak lead:</strong> 4 of 7 losers against 1 of 3 winners. It is now logged as a flag in <strong>testing</strong>, never a kill.</li>
+</ul>
+
+<h2>The extraction finding</h2>
+<p>The desk's own launch checker flags "extraction" when a creator takes out more SOL than they put in. It had been added to the rulebook as a kill on Oct 22. On the ten calls it flagged <strong>3 of 3 winners</strong> (Arnaud, DIF, ship) and <strong>1 of 7 losers</strong> (Pumuckel). As a kill, it would have thrown away every winner and kept almost every loser. (An earlier run on Oct 22 had passed DIF; the Oct 23 run flagged it.) The three curves priced in a platform token (GRAIL, YAI, EKO) could not be checked.</p>
+<p>So extraction was <strong>downgraded from a kill to log-only</strong> on Oct 23, 2026. It fits a wider pattern from the <a href="/case-studies/first-10-paper-calls/">first 10 calls</a>: creators taking money out early is common and is not the same as a rug.</p>
+
+<h2>What to take from this</h2>
+<ul>
+<li>A clean rug-check score is not a buy signal. Most of the losers here looked clean.</li>
+<li>A warning flag is not a sell signal either: two of the three winners carried RugCheck's Low Liquidity risk, and all three showed extraction.</li>
+<li>Free tools are still useful for the hard safety checks (mint and freeze authority, obvious holder concentration); see <a href="/guides/rug-patterns/">rug patterns: what to check and with which free tool</a>.</li>
+<li>To test a tool properly, record its reading <strong>at the moment of the call</strong>, then score it after 30+ calls.</li>
+</ul>
+<p>Rule changes from this study are on the <a href="/strategies/desk-rulebook/">desk rulebook</a>; the exit side of the same ten calls is in <a href="/case-studies/exit-study-first-10-calls/">the exit study</a>.</p>
+<blockquote>A post-hoc test on ten paper calls, not a review of any tool's overall quality and not advice. Most new tokens lose most of their value.</blockquote>

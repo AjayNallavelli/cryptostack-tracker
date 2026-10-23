@@ -13,5 +13,10 @@
   "date": "2026-10-22",
   "title": "Tracking started",
   "summary": "CryptoStack Tracker launched with 20 tools across 4 categories, 10 comparisons, 4 strategy explainers and 3 guides. All fees were read from each vendor's official pages on this date; fees we could not read from an official source are blank and marked unverified."
+ },
+ {
+  "date": "2026-10-23",
+  "title": "Exit study, trading costs guide, rug-check tool test, rulebook update",
+  "summary": "ship closed as a win: the first 10 paper calls finished 3 wins, 7 losses, -24.0% per call. New: an exit study of all 10 calls (current exits -20.8%, 40% trailing stop -25.0%, 15-minute time stop -19.1%), a guide to Solana memecoin trading costs at 0.04 SOL (about 3% to 15% per round trip), and a test of free rug-check tools (RugCheck's score didn't separate winners from losers). The desk rulebook now uses the first real trade as the entry, judges rules on average R, makes extraction log-only, adds shadow skips and a time stop in testing, and rejects the trailing stop and pullback-reclaim entry. Added Jupiter; noted BullX's trading pause and Bubblemaps' API price. New data files: trading_costs.json and tool_eval.json."
  }
 ]

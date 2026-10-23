@@ -1,0 +1,42 @@
+<p class="lead">At small size, what a memecoin trade costs depends less on the headline fee and more on the fixed costs around it. This guide lists what each common Solana app or bot charges to buy and sell a pump.fun coin on its bonding curve, cheapest first, then works out a full buy-and-sell (round trip) at <strong>0.04 SOL</strong>. Fees change often; every number links to its source, checked Oct 23, 2026.</p>
+
+<h2>The fee nobody avoids: pump.fun's curve</h2>
+<ul>
+<li>Every buy and every sell on a pump.fun bonding curve pays <strong>1.25%</strong> (0.30% to the creator, 0.95% to the protocol), whichever app or bot sends the trade. That is about <strong>2.5% per round trip</strong>, so every trade starts about 2.5% down.</li>
+<li>Trading on the pump.fun website or mobile app adds a <strong>0.45%</strong> platform fee (0.40% with a referral) since Oct 17, 2026. It does not apply when you trade the same coin through another app.</li>
+<li>Buying a new token opens a token account that holds about <strong>0.002 SOL</strong>. That is a deposit, not a fee: you get it back by closing the empty account after you sell.</li>
+</ul>
+<p>More on how the curve works in <a href="/guides/pump-fun-bonding-curve/">the pump.fun bonding curve</a>.</p>
+
+<h2>What each app or bot adds, cheapest first</h2>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>App / bot</th><th>Its fee per buy and per sell</th><th>Notes</th><th>Source</th></tr></thead>
+<tbody>
+{% for v in costs.venues %}<tr><td>{% if v.tool_slug %}<a href="/tools/{{ v.tool_slug }}/">{{ v.name }}</a>{% else %}{{ v.name }}{% endif %}</td><td>{% if v.status == "paused" %}Trading paused{% elif v.venue_fee_pct_other is defined %}{{ v.venue_fee_pct }}% (coins under 24 h); {{ v.venue_fee_pct_other }}% most others{% else %}{{ v.venue_fee_pct }}%{% endif %}</td><td class="small">{{ v.note|default("") }}{% if v.mev_protection is sameas true %} MEV protection on.{% elif v.mev_protection is sameas false %} No MEV protection.{% endif %}</td><td class="small"><a href="{{ v.source }}" rel="nofollow noopener">source</a></td></tr>
+{% endfor %}</tbody>
+</table>
+</div>
+<p class="small muted">All of these are on top of pump.fun's 1.25% curve fee. Network and priority fees are extra everywhere.</p>
+
+<h2>A full round trip at 0.04 SOL</h2>
+<p>These totals cover one buy and one sell of 0.04 SOL on a bonding-curve coin: the 1.25% curve fee each way, the app's fee each way, and network and priority fees or tips at the setting shown.</p>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Setup</th><th>Approximate round-trip cost</th></tr></thead>
+<tbody>
+{% for r in costs.round_trips_at_0_04_sol %}<tr><td>{{ r.setup }}</td><td>about {{ "%.1f"|format(r.round_trip_pct) }}%{% if r.plus %} plus {{ r.plus }}{% endif %}</td></tr>
+{% endfor %}</tbody>
+</table>
+</div>
+<p>The spread is wide: from about 3% to about 15% for the same trade. The app fee explains little of it. Axiom's defaults add a 0.001 SOL priority fee and a 0.001 SOL bribe (tip) on each side, and 0.002 SOL each way is 10% of a 0.04 SOL round trip on its own.</p>
+
+<h2>Lessons</h2>
+<ul>
+{% for l in costs.lessons %}<li>{{ l }}</li>
+{% endfor %}</ul>
+<p>The <a href="/scoreboard/">paper scoreboard</a> scores every call with an estimated 2.5% round-trip cost. As the table shows, the real cost at 0.04 SOL is at least that, and can be several times higher with default settings. All figures are machine-readable in <a href="/data/trading_costs.json">trading_costs.json</a>.</p>
+
+<h2>A note on BullX</h2>
+<p><a href="/tools/bullx/">BullX</a> suspended trading, including memecoin trading, in its current app from June 1, 2026. Wallet functions and withdrawals stayed open.</p>
+<blockquote>Educational, not financial advice. Fees are copied from each provider's own pages on the date checked and can change at any time. Small trades in new tokens can lose most of their value on costs and price moves alone.</blockquote>

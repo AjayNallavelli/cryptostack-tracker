@@ -45,7 +45,9 @@ def load():
     log = sorted(json.loads((DATA / "changelog.json").read_text()), key=lambda c: c["date"], reverse=True)
     paper = json.loads((DATA / "paper_calls.json").read_text())
     rules = json.loads((DATA / "rules.json").read_text())
-    return site, tools, pairs, pages, log, paper, rules
+    costs = json.loads((DATA / "trading_costs.json").read_text())
+    tool_eval = json.loads((DATA / "tool_eval.json").read_text())
+    return site, tools, pairs, pages, log, paper, rules, costs, tool_eval
 
 
 ROOT_REL = re.compile(r'((?:href|src|action)=")/(?!/)')
@@ -67,7 +69,7 @@ def main():
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
-    site, tools, pairs, pages, log, paper, rules = load()
+    site, tools, pairs, pages, log, paper, rules, costs, tool_eval = load()
     env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=select_autoescape(["html", "xml"]))
     env.filters["nicedate"] = lambda d: dt.date.fromisoformat(d).strftime("%b %-d, %Y")
     cats = [{"name": n, "slug": s, "blurb": b, "tools": sorted([t for t in tools if t["category"] == n], key=lambda t: t["name"].lower())}
@@ -80,7 +82,7 @@ def main():
     sitemap = []
 
     def content(path):  # page bodies may loop over the machine-readable data files
-        return Markup(env.from_string(path.read_text()).render(paper=paper, rules=rules))
+        return Markup(env.from_string(path.read_text()).render(paper=paper, rules=rules, costs=costs, tool_eval=tool_eval))
 
     def render(tpl, path, sitemap_on=True, lastmod=None, **ctx):
         p = out / path.strip("/") / "index.html" if not path.endswith((".html", ".xml", ".txt")) else out / path.strip("/")
@@ -127,7 +129,7 @@ def main():
     render("404.html", "404.html", title="Page not found", description="Page not found")
     shutil.copytree(ROOT / "static", out / "static")
     (out / "data").mkdir()
-    for name in ("tools.json", "paper_calls.json", "rules.json"):
+    for name in ("tools.json", "paper_calls.json", "rules.json", "trading_costs.json", "tool_eval.json"):
         shutil.copy(DATA / name, out / "data" / name)
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for p, lm in sitemap:

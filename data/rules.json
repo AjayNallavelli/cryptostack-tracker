@@ -1,15 +1,18 @@
 {
  "title": "Desk rules and their evidence (education only, not advice)",
- "as_of": "2026-10-22",
- "sample": "10 paper calls; any result here is promising or not supported, never proven",
+ "as_of": "2026-10-23",
+ "sample": "10 paper calls, all closed (3 wins, 7 losses); any result here is promising or not supported, never proven",
  "rules": [
   {
    "id": "stop-30",
-   "rule": "Exit at -30% from the naming price",
+   "rule": "Exit at -30% from the entry price (the first real trade after the call)",
    "type": "exit",
    "threshold": "-30%",
    "status": "adopted",
-   "evidence": "Hit on 5 of 9 closed calls, 6-21 minutes after the call. The two calls named without a stop (php, YAI) lost about 80-86% net. Fast crashes gap through: Pumuckel's realistic fill was near -67% gross."
+   "evidence": "Kept Oct 23, 2026. In the exit study every stop filled below its level; single sells sent php, Pumuckel and ship straight through (fills -61.3%, -52.5% and -25.1% below the stop), so the real loss when a stop fails is closer to 50-70%. The two calls named without a stop (php, YAI) lost about 80-86% net as logged.",
+   "mode": "gate",
+   "changed": "2026-10-23",
+   "sizing_note": "Size each call assuming a 50-70% real loss on a gap, not 30%."
   },
   {
    "id": "half-at-2x",
@@ -17,7 +20,9 @@
    "type": "exit",
    "threshold": "2x entry",
    "status": "adopted",
-   "evidence": "Both wins (Arnaud, DIF) came from the 2x half. DIF's runner was stopped 2 minutes after the 2x, so the half-off locked in the win."
+   "evidence": "Kept Oct 23, 2026. All three wins (Arnaud, DIF, ship) came from the 2x half. ship sold half at 2x, then one sell gapped the rest from about $82k to $17.9k; it still closed +23.7% net.",
+   "mode": "gate",
+   "changed": "2026-10-23"
   },
   {
    "id": "dev-sell-not-kill",
@@ -25,7 +30,8 @@
    "type": "gate change",
    "threshold": "n/a",
    "status": "adopted",
-   "evidence": "Approved Oct 22, 2026. Winner Arnaud had a flagged creator sell; winner DIF's dev never sold but a bundle-style dump still hit it. MemeSwap: 'a creator sell is not the same as a rug'; Alphalumina makes the same point."
+   "evidence": "Approved Oct 22, 2026. Winner Arnaud had a flagged creator sell; winner DIF's dev never sold but a bundle-style dump still hit it. MemeSwap: 'a creator sell is not the same as a rug'; Alphalumina makes the same point.",
+   "mode": "gate"
   },
   {
    "id": "survival-after-dev-exit",
@@ -33,7 +39,8 @@
    "type": "gate",
    "threshold": "price >= 60% of high, buyers > sellers, holders rising (minute 3 to 5)",
    "status": "adopted",
-   "evidence": "Replaces the dev-sell kill. Not yet tested on a call named under the new wording."
+   "evidence": "Replaces the dev-sell kill. Not yet tested on a call named under the new wording.",
+   "mode": "gate"
   },
   {
    "id": "bundle-dump-kill",
@@ -41,23 +48,30 @@
    "type": "gate + exit",
    "threshold": "any linked-wallet dump",
    "status": "adopted",
-   "evidence": "The stops on DIF's runner and on Pumuckel both began with one wallet selling far more than it bought on the curve. Bitquery: 21% of launches had dev wallets in the launch bundle; bundled wallets often pass tokens to other wallets that sell."
+   "evidence": "The stops on DIF's runner and on Pumuckel both began with one wallet selling far more than it bought on the curve. Bitquery: 21% of launches had dev wallets in the launch bundle; bundled wallets often pass tokens to other wallets that sell. Kept Oct 23, 2026.",
+   "mode": "gate",
+   "changed": "2026-10-23"
   },
   {
    "id": "extraction-kill",
-   "rule": "Kill when the creator is extracting (taking out more SOL than they put in)",
+   "rule": "Log creator extraction (taking out more SOL than they put in); no longer a kill",
    "type": "gate",
    "threshold": "SOL out > SOL in",
-   "status": "adopted",
-   "evidence": "Adopted Oct 22, 2026 with the dev-sell change. Record so far is mixed: the launch checker flagged Arnaud (a win), Pumuckel (a loss) and ship (open), so 1 of 2 resolved flags was a loser. Not measurable on the three token-quoted curves. Under review at 30 calls."
+   "status": "testing",
+   "evidence": "Downgraded from a kill to log-only on Oct 23, 2026: the launch checker flagged extraction on 3 of 3 winners (Arnaud, DIF, ship) and 1 of 7 losers (Pumuckel), so as a kill it would have removed every winner. Not measurable on the three token-quoted curves.",
+   "previous_status": "adopted",
+   "mode": "log-only",
+   "changed": "2026-10-23"
   },
   {
    "id": "same-slot-30",
-   "rule": "Kill if non-creator wallets bought 30%+ of supply in the launch slot",
+   "rule": "Shadow skip if non-creator wallets bought 30%+ of supply in the launch slot",
    "type": "gate",
    "threshold": "30% of supply",
    "status": "testing",
-   "evidence": "Cutoff set after calls 1-6 (all four at 30%+ lost). Out of sample (calls 7-9): 1 loser caught (EKO 37.8%), 1 loser missed (Pumuckel 25.8%), 0 winners killed (DIF 7.8%). ship (24.1%) is open. Promising, not proven."
+   "evidence": "Cutoff set after calls 1-6 (all four at 30%+ lost). Out of sample (calls 7-10): 1 loser caught (EKO 37.8%), 1 loser missed (Pumuckel 25.8%), 0 winners killed (DIF 7.8%, ship 24.1%). Promising, not proven (n=4 out of sample). From Oct 23, 2026 logged as WOULD-SKIP, not enforced.",
+   "mode": "shadow",
+   "changed": "2026-10-23"
   },
   {
    "id": "launch-window-share",
@@ -65,23 +79,28 @@
    "type": "score",
    "threshold": "high share = worse",
    "status": "testing",
-   "evidence": "EKO 82.7%, FORM 64.9%, php 59.5% all lost; DIF won at 31.7%. Overlaps heavily with same-slot share."
+   "evidence": "EKO 82.7%, FORM 64.9%, php 59.5% all lost; DIF won at 31.7%. Overlaps heavily with same-slot share.",
+   "mode": "log-only"
   },
   {
    "id": "token-quoted-curve",
-   "rule": "Avoid curves priced in a platform token instead of SOL",
+   "rule": "Shadow skip curves priced in a platform token instead of SOL",
    "type": "gate",
    "threshold": "quote is not SOL",
    "status": "testing",
-   "evidence": "3 of 3 token-quoted calls lost (GRAIL, YAI, EKO). Tiny sample."
+   "evidence": "3 of 3 token-quoted calls lost (GRAIL, YAI, EKO). Tiny sample. From Oct 23, 2026 logged as WOULD-SKIP, not enforced.",
+   "mode": "shadow",
+   "changed": "2026-10-23"
   },
   {
    "id": "launchpad-story",
-   "rule": "Score down launchpad / platform-token stories",
+   "rule": "Shadow skip launchpad / platform-token stories",
    "type": "score",
    "threshold": "story type",
    "status": "testing",
-   "evidence": "4 of 4 launchpad or platform stories lost (php, GRAIL, MINE, FORM). Story labels are subjective."
+   "evidence": "4 of 4 launchpad or platform stories lost (php, GRAIL, MINE, FORM). Story labels are subjective. From Oct 23, 2026 logged as WOULD-SKIP, not enforced.",
+   "mode": "shadow",
+   "changed": "2026-10-23"
   },
   {
    "id": "dev-graduation-history",
@@ -89,7 +108,8 @@
    "type": "score",
    "threshold": "prior graduations >= 1",
    "status": "testing",
-   "evidence": "Alphalumina out-of-sample: devs with a prior graduation completed later launches at 2.139% vs 0.307%. In these 10 calls it did not separate winners from losers, and two coins' only 'graduation' was themselves."
+   "evidence": "Alphalumina out-of-sample: devs with a prior graduation completed later launches at 2.139% vs 0.307%. In these 10 calls it did not separate winners from losers, and two coins' only 'graduation' was themselves.",
+   "mode": "log-only"
   },
   {
    "id": "post-call-buyer-growth",
@@ -97,7 +117,8 @@
    "type": "score",
    "threshold": "more = better",
    "status": "testing",
-   "evidence": "Not supported: Pumuckel added 1,130 new buyers and lost; ship added 3 and is up at its mark."
+   "evidence": "Not supported: Pumuckel added 1,130 new buyers and lost; ship added 3 and won.",
+   "mode": "log-only"
   },
   {
    "id": "mcap-band",
@@ -105,7 +126,8 @@
    "type": "gate",
    "threshold": "$15k-$40k",
    "status": "testing",
-   "evidence": "Not supported as a separator: the two winners were named at $25.9k (inside the band) and $14.3k (just below it), and four of the ten calls were named outside the band. Candidate for deletion at 30 calls."
+   "evidence": "Not supported as a separator: the three winners were named at $25.9k, $14.3k and $34.2k, and four of the ten calls were named outside the band. Candidate for deletion at 30 calls.",
+   "mode": "gate"
   },
   {
    "id": "am-vs-pm",
@@ -113,7 +135,8 @@
    "type": "filter",
    "threshold": "AM vs PM IST",
    "status": "rejected",
-   "evidence": "1 win in 4 AM calls, 1 win in 5 resolved PM calls. No separation."
+   "evidence": "1 win in 4 AM calls, 2 wins in 6 PM calls. No clear separation.",
+   "mode": "log-only"
   },
   {
    "id": "dev-funded-1hop",
@@ -121,7 +144,8 @@
    "type": "gate",
    "threshold": "any dev-funded buyer",
    "status": "rejected",
-   "evidence": "Found 0 dev-funded buyers on all 10 calls, including the ones with probable bundle dumps. Too narrow to rely on alone; kept as one input."
+   "evidence": "Found 0 dev-funded buyers on all 10 calls, including the ones with probable bundle dumps. Too narrow to rely on alone; kept as one input.",
+   "mode": "log-only"
   },
   {
    "id": "daily-brake",
@@ -129,7 +153,89 @@
    "type": "risk",
    "threshold": "2 per day",
    "status": "adopted",
-   "evidence": "Would have tripped by about 10:22 IST, and again by 20:30 IST if counted per session, before calls 7-10."
+   "evidence": "Kept Oct 23, 2026. Would have tripped by about 10:22 IST, and again by 20:30 IST if counted per session, before calls 7-10.",
+   "mode": "gate",
+   "changed": "2026-10-23"
+  },
+  {
+   "id": "entry-first-trade",
+   "rule": "Entry price is the first real trade after the call, logged to the second",
+   "type": "method",
+   "threshold": "first trade after the call timestamp",
+   "status": "adopted",
+   "mode": "method",
+   "changed": "2026-10-23",
+   "evidence": "Arnaud's, FORM's and Pumuckel's call prices were 16 to 20%+ above anything that traded, so the logged entry could not have been filled. With Arnaud's entry corrected, the exit-set averages move from -20.8 / -25.0 / -19.1% to -17.0 / -22.4 / -12.3%."
+  },
+  {
+   "id": "log-peak-low-fill",
+   "rule": "Log the peak, the low before the peak, and the real stop fill for every call",
+   "type": "method",
+   "threshold": "every call",
+   "status": "adopted",
+   "mode": "method",
+   "changed": "2026-10-23",
+   "evidence": "The exit study needed these to compare exit rules; under the current rules, stop fills ranged from 0.2% to 61.3% below the stop level."
+  },
+  {
+   "id": "judge-avg-r",
+   "rule": "Judge rules on average R per call, not win rate",
+   "type": "method",
+   "threshold": "average net R",
+   "status": "adopted",
+   "mode": "method",
+   "changed": "2026-10-23",
+   "evidence": "Win rate hides the size of wins and gap losses: the first 10 calls won 30% against a 50% break-even rate and totalled about -8.0R (average -24.0% net). Every rule change is now compared on average R per call."
+  },
+  {
+   "id": "time-stop-15m",
+   "rule": "Exit at call + 15 minutes if price is at or below entry",
+   "type": "exit",
+   "threshold": "15 min, price <= entry",
+   "status": "testing",
+   "mode": "shadow",
+   "changed": "2026-10-23",
+   "evidence": "Best of the three exit sets in the exit study: -19.1% average vs -20.8% for current rules (-12.3% vs -17.0% with Arnaud's entry corrected). It changed only one call (MINE, -15.4% vs -32.6%). Logged alongside the 'no clock exit while buys lead' rule."
+  },
+  {
+   "id": "rugcheck-insider-network-10",
+   "rule": "Flag when RugCheck's largest insider network holds 10%+ of supply",
+   "type": "score",
+   "threshold": "10% of supply",
+   "status": "testing",
+   "mode": "log-only",
+   "changed": "2026-10-23",
+   "evidence": "4 of 7 losers vs 1 of 3 winners at 10%+. Post-hoc, n=10, and taken from a RugCheck snapshot about 12-24 h after the calls, not at call time. RugCheck's overall score did not separate winners from losers."
+  },
+  {
+   "id": "trail-40-after-50",
+   "rule": "40% trailing stop once a call is up 50%",
+   "type": "exit",
+   "threshold": "exit at 60% of the running peak after +50%",
+   "status": "rejected",
+   "mode": "gate",
+   "changed": "2026-10-23",
+   "evidence": "Worst exit set: -25.0% average, 1 win and 9 losses. Gaps blew straight through the trail: php went from +11.0% to -75.4% and DIF from +32.3% to -26.5%; only ship gained (+127.4%)."
+  },
+  {
+   "id": "pullback-reclaim-entry",
+   "rule": "Enter only after a 20-40% pullback in the first 15 minutes followed by a new high",
+   "type": "entry",
+   "threshold": "20-40% dip, then reclaim",
+   "status": "rejected",
+   "mode": "gate",
+   "changed": "2026-10-23",
+   "evidence": "0 of 10 coins showed the pattern (Arnaud's apparent match was an entry-price artifact), so it would never have triggered."
   }
+ ],
+ "fields": {
+  "status": "adopted | testing | rejected",
+  "mode": "gate = can block or exit a call; shadow = logged as WOULD-SKIP, never blocks; log-only = recorded, no action; method = how calls are priced, logged or judged",
+  "changed": "date of the last status change",
+  "previous_status": "status before that change, if any"
+ },
+ "notes": [
+  "Sizing: assume the real loss on a gap through the stop is 50-70%, not 30%.",
+  "Judge rules on average R per call, not win rate."
  ]
 }

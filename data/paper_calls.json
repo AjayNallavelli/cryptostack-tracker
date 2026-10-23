@@ -1,9 +1,9 @@
 {
  "title": "Paper calls (education only, not advice)",
  "paper_only": true,
- "as_of": "2026-10-22T22:49:00+05:30",
+ "as_of": "2026-10-23T02:10:00+05:30",
  "rules": {
-  "entry": "market cap when the call was named / 1B supply",
+  "entry": "logged: market cap when the call was named / 1B supply. Adopted Oct 23, 2026 for new calls: the first real trade after the call, logged to the second",
   "stop": "-30% from entry",
   "take_profit": "half at 2x; the other half rides the same stop or is marked",
   "haircut_pct_round_trip": 2.5,
@@ -12,9 +12,15 @@
  "fields": {
   "same_slot_share_pct": "share of supply bought by non-creator wallets in the creator's own launch slot",
   "launch_window_share_pct": "same, for the launch slot and the next two",
-  "stop_time": "null if no stop was hit (or none was set)"
+  "stop_time": "null if no stop was hit (or none was set)",
+  "exit_study": "strict re-run of the call from pump.fun trade data (QA Desk, Oct 23, 2026); market caps in USD, times IST; net figures after the ESTIMATED 2.5% haircut",
+  "exit_study.net_pct_by_set": "net % per exit set at equal size: current = -30% stop + half at 2x; trail_40_after_50 = no partial, hard -30% stop until +50%, then exit at 60% of the running peak; time_stop_15m = current rules, but exit at call+15 min if price is at or below entry",
+  "exit_study.stop_fill": "first trade at or below the stop under the current rules (the runner half if half was sold at 2x); gap_vs_stop_pct = fill vs stop level",
+  "exit_study.behaviour": "fast_flip, slow_builder or dead_on_arrival (never above +25% after the call); only known afterward; null = not classified in the source",
+  "rugcheck_snapshot": "RugCheck free API, read Oct 23, 2026 05:16-05:18 IST, about 12-24 h AFTER the calls (not what was visible at call time); numbers only, no holder addresses",
+  "launch_check_extraction": "true if the desk's launch checker flagged creator extraction (SOL out > SOL in) in the Oct 23, 2026 tool test; false = not flagged; null = not measurable"
  },
- "notes": "Fills at the stop are paper fills at exactly -30%; fast crashes can gap far below it. Story type is a subjective label. Only coin mint addresses appear here; no wallet addresses.",
+ "notes": "Logged results: stop fills on calls 2 and 5-9 are paper fills at exactly -30%; ship (call 10) is filled at the actual trade price after gapping through its stop. Fast crashes gap far below the stop; the exit_study block re-runs every call at real trade prices. Story type is a subjective label. Only coin mint addresses appear here; no wallet addresses.",
  "calls": [
   {
    "call_no": 1,
@@ -35,7 +41,52 @@
    "curve_quote": "SOL",
    "dev_history": "3 launches, 0 graduations",
    "exit": "No stop stated (named before the exit rules); marked to the floor",
-   "note": "Pre-rule call. A full trade re-read shows it briefly touched 2x (about $28.2k) at 10:17:04 IST, then one large sell took it to about $3.4k at 10:17:41 IST. Under today's exit rules it would have been a paper win; a real 2x fill in a one-second spike is unverified. The logged result stands."
+   "note": "Pre-rule call. A full trade re-read shows it briefly touched 2x (about $28.2k) at 10:17:04 IST, then one large sell took it to about $3.4k at 10:17:41 IST. Under today's exit rules it would have been a paper win; a real 2x fill in a one-second spike is unverified. The logged result stands.",
+   "exit_study": {
+    "entry_mcap_usd": 13200,
+    "last_trade_before_call": {
+     "time": "2026-10-22T10:07:58+05:30",
+     "mcap_usd": 13160
+    },
+    "first_trade_after_call": {
+     "time": "2026-10-22T10:08:03+05:30",
+     "mcap_usd": 13180
+    },
+    "peak_after_call": {
+     "time": "2026-10-22T10:17:04+05:30",
+     "mcap_usd": 28220,
+     "pct_vs_entry": 113.8
+    },
+    "low_before_peak": {
+     "time": "2026-10-22T10:08:27+05:30",
+     "mcap_usd": 10150,
+     "pct_vs_entry": -23.1
+    },
+    "low_first_15m_pct": -77.6,
+    "ran_past_2x": true,
+    "pullback_reclaim": false,
+    "stop_level_usd": 9240,
+    "stop_fill": {
+     "time": "2026-10-22T10:17:41+05:30",
+     "mcap_usd": 3570,
+     "gap_vs_stop_pct": -61.3
+    },
+    "net_pct_by_set": {
+     "current": 11.0,
+     "trail_40_after_50": -75.4,
+     "time_stop_15m": 11.0
+    },
+    "behaviour": null
+   },
+   "rugcheck_snapshot": {
+    "score_normalised": 1,
+    "risks": [],
+    "insiders_detected": 60,
+    "insider_networks": 7,
+    "largest_network_pct_supply": 37.7,
+    "creator_tokens": 2
+   },
+   "launch_check_extraction": false
   },
   {
    "call_no": 2,
@@ -56,7 +107,53 @@
    "curve_quote": "platform token",
    "dev_history": "1 launch, 1 graduation (this coin)",
    "exit": "-30% stop, 7 min after the call",
-   "note": "Later reached 2x after the stop; the stop is not loosened after the fact."
+   "note": "Later reached 2x after the stop; the stop is not loosened after the fact.",
+   "exit_study": {
+    "entry_mcap_usd": 31900,
+    "last_trade_before_call": {
+     "time": "2026-10-22T10:10:53+05:30",
+     "mcap_usd": 34680
+    },
+    "first_trade_after_call": {
+     "time": "2026-10-22T10:11:04+05:30",
+     "mcap_usd": 34230
+    },
+    "peak_after_call": {
+     "time": "2026-10-22T11:46:42+05:30",
+     "mcap_usd": 66670,
+     "pct_vs_entry": 109.0
+    },
+    "low_before_peak": {
+     "time": "2026-10-22T10:21:39+05:30",
+     "mcap_usd": 13380,
+     "pct_vs_entry": -58.1
+    },
+    "low_first_15m_pct": -58.1,
+    "ran_past_2x": true,
+    "pullback_reclaim": false,
+    "stop_level_usd": 22330,
+    "stop_fill": {
+     "time": "2026-10-22T10:18:29+05:30",
+     "mcap_usd": 22120,
+     "gap_vs_stop_pct": -0.9
+    },
+    "net_pct_by_set": {
+     "current": -33.2,
+     "trail_40_after_50": -33.2,
+     "time_stop_15m": -33.2
+    },
+    "behaviour": "slow_builder",
+    "note": "Stopped at 10:18 IST, then ran to +109% at 11:46 IST."
+   },
+   "rugcheck_snapshot": {
+    "score_normalised": 1,
+    "risks": [],
+    "insiders_detected": 14,
+    "insider_networks": 3,
+    "largest_network_pct_supply": 12.1,
+    "creator_tokens": 0
+   },
+   "launch_check_extraction": null
   },
   {
    "call_no": 3,
@@ -77,7 +174,52 @@
    "curve_quote": "platform token",
    "dev_history": "149 launches, 13 graduations (capped scan)",
    "exit": "No stop stated (named before the exit rules); marked to the floor",
-   "note": "Pre-rule call. A full trade re-read shows the -30% level would have been crossed at 10:23:10 IST, about 2 minutes after the call, with a gap to about $10.6k (a realistic fill near -43% gross)."
+   "note": "Pre-rule call. A full trade re-read shows the -30% level would have been crossed at 10:23:10 IST, about 2 minutes after the call, with a gap to about $10.6k (a realistic fill near -43% gross).",
+   "exit_study": {
+    "entry_mcap_usd": 18700,
+    "last_trade_before_call": {
+     "time": "2026-10-22T10:20:57+05:30",
+     "mcap_usd": 19180
+    },
+    "first_trade_after_call": {
+     "time": "2026-10-22T10:21:03+05:30",
+     "mcap_usd": 20460
+    },
+    "peak_after_call": {
+     "time": "2026-10-22T10:21:05+05:30",
+     "mcap_usd": 22290,
+     "pct_vs_entry": 19.2
+    },
+    "low_before_peak": {
+     "time": "2026-10-22T10:21:03+05:30",
+     "mcap_usd": 20460,
+     "pct_vs_entry": 9.4
+    },
+    "low_first_15m_pct": -83.0,
+    "ran_past_2x": false,
+    "pullback_reclaim": false,
+    "stop_level_usd": 13090,
+    "stop_fill": {
+     "time": "2026-10-22T10:23:10+05:30",
+     "mcap_usd": 12970,
+     "gap_vs_stop_pct": -0.9
+    },
+    "net_pct_by_set": {
+     "current": -33.1,
+     "trail_40_after_50": -33.1,
+     "time_stop_15m": -33.1
+    },
+    "behaviour": "dead_on_arrival"
+   },
+   "rugcheck_snapshot": {
+    "score_normalised": 1,
+    "risks": [],
+    "insiders_detected": 4,
+    "insider_networks": 1,
+    "largest_network_pct_supply": 14.5,
+    "creator_tokens": 0
+   },
+   "launch_check_extraction": null
   },
   {
    "call_no": 4,
@@ -98,7 +240,64 @@
    "curve_quote": "SOL",
    "dev_history": "199 launches, 7 graduations (capped scan)",
    "exit": "Half at 2x 11:00 IST, rest on the -30% stop",
-   "note": "Winner despite a creator sell."
+   "note": "Winner despite a creator sell.",
+   "exit_study": {
+    "entry_mcap_usd": 25900,
+    "last_trade_before_call": {
+     "time": "2026-10-22T10:23:59+05:30",
+     "mcap_usd": 16530
+    },
+    "first_trade_after_call": {
+     "time": "2026-10-22T10:24:05+05:30",
+     "mcap_usd": 16510
+    },
+    "peak_after_call": {
+     "time": "2026-10-22T11:03:22+05:30",
+     "mcap_usd": 78630,
+     "pct_vs_entry": 203.6
+    },
+    "low_before_peak": {
+     "time": "2026-10-22T10:24:05+05:30",
+     "mcap_usd": 16510,
+     "pct_vs_entry": -36.3
+    },
+    "low_first_15m_pct": -36.3,
+    "ran_past_2x": true,
+    "pullback_reclaim": false,
+    "stop_level_usd": 18130,
+    "stop_fill": {
+     "time": "2026-10-22T10:24:05+05:30",
+     "mcap_usd": 16510,
+     "gap_vs_stop_pct": -9.0
+    },
+    "net_pct_by_set": {
+     "current": -38.8,
+     "trail_40_after_50": -38.8,
+     "time_stop_15m": -38.8
+    },
+    "behaviour": null,
+    "note": "The call price ($25.9k) was well above anything that traded: trades from 10:23:31 to 10:24:05 IST were $14.5k-16.5k, so the first print after the call minute was already below the stop. The source's dip-and-reclaim YES for Arnaud is an artifact of that and is counted as no.",
+    "corrected_entry": {
+     "clock_start": "2026-10-22T10:24:06+05:30",
+     "first_print_mcap_usd": 19840,
+     "net_pct_by_set": {
+      "current": 29.6,
+      "trail_40_after_50": -12.6,
+      "time_stop_15m": 29.6
+     }
+    }
+   },
+   "rugcheck_snapshot": {
+    "score_normalised": 32,
+    "risks": [
+     "Low Liquidity"
+    ],
+    "insiders_detected": 0,
+    "insider_networks": 0,
+    "largest_network_pct_supply": null,
+    "creator_tokens": 0
+   },
+   "launch_check_extraction": true
   },
   {
    "call_no": 5,
@@ -119,7 +318,52 @@
    "curve_quote": "SOL",
    "dev_history": "1 launch, 0 graduations",
    "exit": "-30% stop, 21 min after the call",
-   "note": ""
+   "note": "",
+   "exit_study": {
+    "entry_mcap_usd": 24100,
+    "last_trade_before_call": {
+     "time": "2026-10-22T20:08:59+05:30",
+     "mcap_usd": 24100
+    },
+    "first_trade_after_call": {
+     "time": "2026-10-22T20:09:03+05:30",
+     "mcap_usd": 24230
+    },
+    "peak_after_call": {
+     "time": "2026-10-22T20:11:52+05:30",
+     "mcap_usd": 29910,
+     "pct_vs_entry": 24.1
+    },
+    "low_before_peak": {
+     "time": "2026-10-22T20:09:13+05:30",
+     "mcap_usd": 22010,
+     "pct_vs_entry": -8.7
+    },
+    "low_first_15m_pct": -27.6,
+    "ran_past_2x": false,
+    "pullback_reclaim": false,
+    "stop_level_usd": 16870,
+    "stop_fill": {
+     "time": "2026-10-22T20:30:06+05:30",
+     "mcap_usd": 16840,
+     "gap_vs_stop_pct": -0.2
+    },
+    "net_pct_by_set": {
+     "current": -32.6,
+     "trail_40_after_50": -32.6,
+     "time_stop_15m": -15.4
+    },
+    "behaviour": "dead_on_arrival"
+   },
+   "rugcheck_snapshot": {
+    "score_normalised": 1,
+    "risks": [],
+    "insiders_detected": 0,
+    "insider_networks": 0,
+    "largest_network_pct_supply": null,
+    "creator_tokens": 0
+   },
+   "launch_check_extraction": false
   },
   {
    "call_no": 6,
@@ -140,7 +384,53 @@
    "curve_quote": "SOL",
    "dev_history": "3 launches, 1 graduation",
    "exit": "-30% stop, 9 min after the call",
-   "note": ""
+   "note": "",
+   "exit_study": {
+    "entry_mcap_usd": 18800,
+    "last_trade_before_call": {
+     "time": "2026-10-22T20:18:57+05:30",
+     "mcap_usd": 15790
+    },
+    "first_trade_after_call": {
+     "time": "2026-10-22T20:19:01+05:30",
+     "mcap_usd": 15160
+    },
+    "peak_after_call": {
+     "time": "2026-10-22T20:26:17+05:30",
+     "mcap_usd": 28180,
+     "pct_vs_entry": 49.9
+    },
+    "low_before_peak": {
+     "time": "2026-10-22T20:19:01+05:30",
+     "mcap_usd": 15160,
+     "pct_vs_entry": -19.4
+    },
+    "low_first_15m_pct": -65.0,
+    "ran_past_2x": false,
+    "pullback_reclaim": false,
+    "stop_level_usd": 13160,
+    "stop_fill": {
+     "time": "2026-10-22T20:28:44+05:30",
+     "mcap_usd": 12560,
+     "gap_vs_stop_pct": -4.6
+    },
+    "net_pct_by_set": {
+     "current": -35.7,
+     "trail_40_after_50": -35.7,
+     "time_stop_15m": -35.7
+    },
+    "behaviour": null,
+    "note": "Call price was about 16-20% above the last trade before the call."
+   },
+   "rugcheck_snapshot": {
+    "score_normalised": 1,
+    "risks": [],
+    "insiders_detected": 0,
+    "insider_networks": 0,
+    "largest_network_pct_supply": null,
+    "creator_tokens": 0
+   },
+   "launch_check_extraction": false
   },
   {
    "call_no": 7,
@@ -161,7 +451,52 @@
    "curve_quote": "SOL",
    "dev_history": "1 launch, 0 graduations",
    "exit": "Half at 2x 21:02 IST, rest stopped at -30% 21:04 IST",
-   "note": "The runner half was stopped about 2 minutes after the 2x by a consolidation dump."
+   "note": "The runner half was stopped about 2 minutes after the 2x by a consolidation dump.",
+   "exit_study": {
+    "entry_mcap_usd": 14300,
+    "last_trade_before_call": {
+     "time": "2026-10-22T20:54:57+05:30",
+     "mcap_usd": 14550
+    },
+    "first_trade_after_call": {
+     "time": "2026-10-22T20:55:00+05:30",
+     "mcap_usd": 14600
+    },
+    "peak_after_call": {
+     "time": "2026-10-22T21:03:13+05:30",
+     "mcap_usd": 35460,
+     "pct_vs_entry": 148.0
+    },
+    "low_before_peak": {
+     "time": "2026-10-22T20:58:33+05:30",
+     "mcap_usd": 12710,
+     "pct_vs_entry": -11.2
+    },
+    "low_first_15m_pct": -76.3,
+    "ran_past_2x": true,
+    "pullback_reclaim": false,
+    "stop_level_usd": 10010,
+    "stop_fill": {
+     "time": "2026-10-22T21:04:16+05:30",
+     "mcap_usd": 9940,
+     "gap_vs_stop_pct": -0.7
+    },
+    "net_pct_by_set": {
+     "current": 32.3,
+     "trail_40_after_50": -26.5,
+     "time_stop_15m": 32.3
+    },
+    "behaviour": null
+   },
+   "rugcheck_snapshot": {
+    "score_normalised": 1,
+    "risks": [],
+    "insiders_detected": 20,
+    "insider_networks": 5,
+    "largest_network_pct_supply": 4.5,
+    "creator_tokens": 0
+   },
+   "launch_check_extraction": true
   },
   {
    "call_no": 8,
@@ -182,7 +517,55 @@
    "curve_quote": "SOL",
    "dev_history": "1 launch, 1 graduation (this coin)",
    "exit": "-30% stop, about 6 min after the call",
-   "note": "Gapped through the stop in one trade; a realistic fill was near -67% gross. Paper fills at -30%."
+   "note": "Gapped through the stop in one trade; a realistic fill was near -67% gross. Paper fills at -30%.",
+   "exit_study": {
+    "entry_mcap_usd": 47600,
+    "last_trade_before_call": {
+     "time": "2026-10-22T21:26:59+05:30",
+     "mcap_usd": 40370
+    },
+    "first_trade_after_call": {
+     "time": "2026-10-22T21:27:00+05:30",
+     "mcap_usd": 40440
+    },
+    "peak_after_call": {
+     "time": "2026-10-22T21:28:59+05:30",
+     "mcap_usd": 59030,
+     "pct_vs_entry": 24.0
+    },
+    "low_before_peak": {
+     "time": "2026-10-22T21:27:01+05:30",
+     "mcap_usd": 38470,
+     "pct_vs_entry": -19.2
+    },
+    "low_first_15m_pct": -95.6,
+    "ran_past_2x": false,
+    "pullback_reclaim": false,
+    "stop_level_usd": 33320,
+    "stop_fill": {
+     "time": "2026-10-22T21:32:53+05:30",
+     "mcap_usd": 15830,
+     "gap_vs_stop_pct": -52.5
+    },
+    "net_pct_by_set": {
+     "current": -69.2,
+     "trail_40_after_50": -69.2,
+     "time_stop_15m": -69.2
+    },
+    "behaviour": "dead_on_arrival",
+    "note": "Call price was about 16-20% above the last trade before the call."
+   },
+   "rugcheck_snapshot": {
+    "score_normalised": 33,
+    "risks": [
+     "Low Liquidity"
+    ],
+    "insiders_detected": 61,
+    "insider_networks": 6,
+    "largest_network_pct_supply": 10.8,
+    "creator_tokens": 0
+   },
+   "launch_check_extraction": true
   },
   {
    "call_no": 9,
@@ -203,7 +586,54 @@
    "curve_quote": "platform token",
    "dev_history": "1 launch, 0 graduations",
    "exit": "-30% stop, about 8 min after the call",
-   "note": "Only 3 new buyers in the 5 minutes after the call."
+   "note": "Only 3 new buyers in the 5 minutes after the call.",
+   "exit_study": {
+    "entry_mcap_usd": 12500,
+    "last_trade_before_call": {
+     "time": "2026-10-22T22:07:51+05:30",
+     "mcap_usd": 12480
+    },
+    "first_trade_after_call": {
+     "time": "2026-10-22T22:08:35+05:30",
+     "mcap_usd": 12480
+    },
+    "peak_after_call": {
+     "time": "2026-10-22T22:09:32+05:30",
+     "mcap_usd": 12760,
+     "pct_vs_entry": 2.1
+    },
+    "low_before_peak": {
+     "time": "2026-10-22T22:08:58+05:30",
+     "mcap_usd": 11670,
+     "pct_vs_entry": -6.6
+    },
+    "low_first_15m_pct": -75.2,
+    "ran_past_2x": false,
+    "pullback_reclaim": false,
+    "stop_level_usd": 8750,
+    "stop_fill": {
+     "time": "2026-10-22T22:16:29+05:30",
+     "mcap_usd": 8710,
+     "gap_vs_stop_pct": -0.4
+    },
+    "net_pct_by_set": {
+     "current": -32.8,
+     "trail_40_after_50": -32.8,
+     "time_stop_15m": -32.8
+    },
+    "behaviour": "dead_on_arrival"
+   },
+   "rugcheck_snapshot": {
+    "score_normalised": 34,
+    "risks": [
+     "Low Liquidity"
+    ],
+    "insiders_detected": 0,
+    "insider_networks": 0,
+    "largest_network_pct_supply": null,
+    "creator_tokens": 0
+   },
+   "launch_check_extraction": null
   },
   {
    "call_no": 10,
@@ -211,11 +641,11 @@
    "mint": "5rqev1HPtBMBekUXPCUVKnPGMULVR5skxxi9NW9Tpump",
    "call_time": "2026-10-22T22:36:00+05:30",
    "mcap_at_call_usd": 34200,
-   "outcome": "OPEN",
-   "gross_pct": 35.3,
-   "net_pct": 32.8,
-   "R": 1.09,
-   "stop_time": null,
+   "outcome": "WIN",
+   "gross_pct": 26.2,
+   "net_pct": 23.7,
+   "R": 0.79,
+   "stop_time": "2026-10-22T23:13:29+05:30",
    "same_slot_share_pct": 24.1,
    "launch_window_share_pct": 24.1,
    "dev_sold": "yes, 3 seconds after launch (about 1.0 SOL in, 2.0 SOL out)",
@@ -223,8 +653,133 @@
    "story_type": "X-post meme",
    "curve_quote": "SOL",
    "dev_history": "1 launch, 0 graduations",
-   "exit": "Open: neither the -30% stop ($23.9k) nor 2x ($68.4k) hit by 22:49 IST",
-   "note": "Marked at about $46.3k at 22:49 IST (net and R shown as if closed at the mark). Low since the call about $33.8k, high about $51.6k; graduated after the call."
+   "exit": "Half at 2x 22:54 IST, rest stopped 23:13 IST; gapped through the $23.9k stop and filled at the actual trade price (about $17.9k)",
+   "note": "Closed Oct 23, 2026 from pump.fun trade data. Peaked at about $138.5k (+305%) at 23:08 IST; one sell of about $6.6k then took it from about $82.3k to $17.9k.",
+   "exit_study": {
+    "entry_mcap_usd": 34200,
+    "last_trade_before_call": {
+     "time": "2026-10-22T22:35:24+05:30",
+     "mcap_usd": 33870
+    },
+    "first_trade_after_call": {
+     "time": "2026-10-22T22:36:09+05:30",
+     "mcap_usd": 33780
+    },
+    "peak_after_call": {
+     "time": "2026-10-22T23:08:29+05:30",
+     "mcap_usd": 138530,
+     "pct_vs_entry": 305.1
+    },
+    "low_before_peak": {
+     "time": "2026-10-22T22:36:09+05:30",
+     "mcap_usd": 33780,
+     "pct_vs_entry": -1.2
+    },
+    "low_first_15m_pct": -1.2,
+    "ran_past_2x": true,
+    "pullback_reclaim": false,
+    "stop_level_usd": 23940,
+    "stop_fill": {
+     "time": "2026-10-22T23:13:29+05:30",
+     "mcap_usd": 17930,
+     "gap_vs_stop_pct": -25.1
+    },
+    "net_pct_by_set": {
+     "current": 23.7,
+     "trail_40_after_50": 127.4,
+     "time_stop_15m": 23.7
+    },
+    "behaviour": null
+   },
+   "rugcheck_snapshot": {
+    "score_normalised": 33,
+    "risks": [
+     "Low Liquidity"
+    ],
+    "insiders_detected": 49,
+    "insider_networks": 5,
+    "largest_network_pct_supply": 12.9,
+    "creator_tokens": 0
+   },
+   "launch_check_extraction": true
   }
- ]
+ ],
+ "exit_study": {
+  "as_of": "2026-10-23T02:10:00+05:30",
+  "source": "QA Desk exit study from pump.fun trade data (all 10 calls)",
+  "method": "Entry = call market cap; clock from the call minute; stop and 2x fills at real trade prices (2x half fills at exactly 2x); 2.5% round-trip haircut ESTIMATED; equal size.",
+  "final_record": {
+   "wins": 3,
+   "losses": 7,
+   "open": 0,
+   "winners": [
+    "Arnaud",
+    "DIF",
+    "ship"
+   ],
+   "avg_net_pct_logged": -24.0,
+   "sum_net_pct_logged": -240.2,
+   "total_R_logged": -8.0
+  },
+  "ran_past_2x": 5,
+  "sets": [
+   {
+    "id": "current",
+    "name": "Current rules",
+    "rule": "-30% stop; half at 2x; rest on the same stop",
+    "avg_net_pct": -20.8,
+    "sum_net_pct": -208.4,
+    "wins": 3,
+    "losses": 7,
+    "avg_net_pct_arnaud_corrected": -17.0,
+    "status": "kept"
+   },
+   {
+    "id": "trail_40_after_50",
+    "name": "40% trailing stop after +50%",
+    "rule": "No partial; hard -30% stop until +50%, then exit at 60% of the running peak",
+    "avg_net_pct": -25.0,
+    "sum_net_pct": -249.9,
+    "wins": 1,
+    "losses": 9,
+    "avg_net_pct_arnaud_corrected": -22.4,
+    "status": "rejected"
+   },
+   {
+    "id": "time_stop_15m",
+    "name": "15-minute time stop",
+    "rule": "Current rules, plus exit at call+15 min if price is at or below entry",
+    "avg_net_pct": -19.1,
+    "sum_net_pct": -191.2,
+    "wins": 3,
+    "losses": 7,
+    "avg_net_pct_arnaud_corrected": -12.3,
+    "status": "testing"
+   }
+  ],
+  "pullback_reclaim": {
+   "coins_showing_pattern": 0,
+   "of": 10,
+   "status": "rejected"
+  },
+  "gap_losers": [
+   "php",
+   "Pumuckel",
+   "ship"
+  ],
+  "real_loss_when_stop_fails_pct": [
+   50,
+   70
+  ],
+  "behaviours": {
+   "fast_flip": "spike, then one-sell dumps within minutes",
+   "slow_builder": "dip, then run 40-90 minutes later",
+   "dead_on_arrival": "never above +25% after the call"
+  }
+ },
+ "rugcheck_snapshot_meta": {
+  "read": "2026-10-23T05:16:00+05:30 to 05:18 IST",
+  "timing": "about 12-24 h after the calls; a current snapshot, not what was visible at call time",
+  "largest_network_note": "totalAmount / 1e15 raw supply; semantics unclear (likely cumulative transferred)"
+ }
 }

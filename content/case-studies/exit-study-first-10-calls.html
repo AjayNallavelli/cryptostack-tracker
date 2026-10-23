@@ -1,0 +1,84 @@
+{%- set es = paper.exit_study -%}
+<p class="lead">The first ten paper calls ended <strong>3 wins, 7 losses, average -24.0% net</strong> after an estimated 2.5% round-trip cost. This study re-runs all ten from pump.fun trade data, at the prices that actually traded, to ask two questions: would a different exit rule have done better, and how well did the stops really work? Ten calls is a tiny sample, so nothing here is proven.</p>
+<p class="eyebrow">Paper calls only · not advice · data as of 2:10 AM IST, Oct 23, 2026</p>
+
+<h2>The final record</h2>
+<ul>
+<li><strong>3 wins</strong> (Arnaud, DIF, ship), <strong>7 losses</strong>, average <strong>-24.0%</strong> net per call, about -8.0R in total. Running totals are on the <a href="/scoreboard/">paper scoreboard</a>.</li>
+<li><strong>ship closed as a win at +23.7%.</strong> Half was sold at 2x. It went on to peak at +305%, then one sell gapped the rest from about $82k to $17.9k, far below its stop.</li>
+<li><strong>Half the coins ran past 2x at some point after the call.</strong> The losses did not come from coins that never moved.</li>
+</ul>
+
+<h2>How far each coin ran</h2>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Coin</th><th>Mcap at call</th><th>Peak after call</th><th>Peak time (IST)</th><th>Low before peak</th><th>Logged result</th></tr></thead>
+<tbody>
+{% for c in paper.calls|sort(attribute="exit_study.peak_after_call.pct_vs_entry", reverse=True) %}{% set x = c.exit_study %}<tr><td>{{ c.ticker }}</td><td>${{ "%.1f"|format(c.mcap_at_call_usd / 1000) }}k</td><td>{{ "%+.1f"|format(x.peak_after_call.pct_vs_entry) }}%</td><td>{{ x.peak_after_call.time[11:16] }}</td><td>{{ "%+.1f"|format(x.low_before_peak.pct_vs_entry) }}%</td><td>{% if c.outcome == "WIN" %}Win{% else %}Loss{% endif %} {{ "%+.1f"|format(c.net_pct) }}%</td></tr>
+{% endfor %}</tbody>
+</table>
+</div>
+<p class="small muted">Percentages are against the market cap logged at the call. Per-call detail (first trade after the call, low, stop fill, each exit set) is in the <code>exit_study</code> block of each call in <a href="/data/paper_calls.json">paper_calls.json</a>.</p>
+
+<h2>Three exit rules on the same ten calls</h2>
+<p>Each set was run at equal size with the same estimated 2.5% cost, filling every stop at the first real trade at or below it.</p>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Exit set</th><th>Rule</th><th>Average net</th><th>Wins / losses</th><th>Verdict</th></tr></thead>
+<tbody>
+{% for s in es.sets %}<tr><td>{{ s.name }}</td><td>{{ s.rule }}</td><td>{{ "%+.1f"|format(s.avg_net_pct) }}%</td><td>{{ s.wins }} / {{ s.losses }}</td><td>{{ s.status|capitalize }}</td></tr>
+{% endfor %}</tbody>
+</table>
+</div>
+<ul>
+<li><strong>The trailing stop was worst.</strong> A 40% trail after +50% sounds like it lets winners run, but gaps blew straight through it: php went from +11.0% to -75.4% and DIF from +32.3% to -26.5%. Only ship did better (+127.4%). <strong>Rejected.</strong></li>
+<li><strong>The 15-minute time stop was slightly better</strong> (-19.1% vs -20.8%), but the whole difference came from one coin (MINE, -15.4% instead of -32.6%). <strong>Testing</strong>, logged alongside the "no clock exit while buys lead" rule.</li>
+<li><strong>The current rules stay:</strong> -30% stop and half at 2x. All three wins came from that 2x half.</li>
+</ul>
+
+<h2>The entry price was wrong on three calls</h2>
+<p>For Arnaud, FORM and Pumuckel, the market cap written down at the call was 16 to 20%+ above anything that actually traded around it. FORM's last trade before the call was about $15.8k against an $18.8k call; Pumuckel's was about $40.4k against $47.6k. Arnaud's first trade after the call was already below its stop, so it was scored as an instant loss.</p>
+<p>Starting Arnaud's clock from the first real trade instead, the three averages become:</p>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Exit set</th><th>As logged</th><th>Arnaud's entry corrected</th></tr></thead>
+<tbody>
+{% for s in es.sets %}<tr><td>{{ s.name }}</td><td>{{ "%+.1f"|format(s.avg_net_pct) }}%</td><td>{{ "%+.1f"|format(s.avg_net_pct_arnaud_corrected) }}%</td></tr>
+{% endfor %}</tbody>
+</table>
+</div>
+<p>The ranking does not change. The rule does: <strong>the entry is now the first real trade after the call, logged to the second.</strong></p>
+
+<h2>Stops fail on gaps</h2>
+<p>Every stop in the study filled below its level. Most missed by under 5%, but single sells sent three coins straight through:</p>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Coin</th><th>Stop level</th><th>Actual fill</th><th>Fill vs stop</th></tr></thead>
+<tbody>
+{% for c in paper.calls|sort(attribute="exit_study.stop_fill.gap_vs_stop_pct") %}{% set f = c.exit_study.stop_fill %}<tr><td>{{ c.ticker }}</td><td>${{ "%.2f"|format(c.exit_study.stop_level_usd / 1000) }}k</td><td>${{ "%.2f"|format(f.mcap_usd / 1000) }}k</td><td>{{ "%+.1f"|format(f.gap_vs_stop_pct) }}%</td></tr>
+{% endfor %}</tbody>
+</table>
+</div>
+<p class="small muted">Stop levels are -30% from the logged entry; for php, DIF and ship the fill shown is the runner half after half was sold at 2x.</p>
+<p>So the real loss when a stop fails is closer to <strong>50 to 70%</strong> than 30%. Position size should assume that.</p>
+
+<h2>The pullback-then-reclaim entry: rejected</h2>
+<p>One idea was to wait for a 20-40% dip in the first 15 minutes and enter only when the price made a new high. <strong>0 of 10 coins showed that pattern</strong> (Arnaud's apparent match was the bad entry price above), so the rule would never have fired.</p>
+
+<h2>Three kinds of coin</h2>
+<ul>
+<li><strong>Fast flips:</strong> spike, then one-sell dumps within minutes.</li>
+<li><strong>Slow builders:</strong> dip, then run 40 to 90 minutes later. GRAIL was stopped at 10:18 IST, then peaked at +109% at 11:46 IST.</li>
+<li><strong>Dead on arrival:</strong> never above +25% after the call. YAI, EKO, MINE and Pumuckel.</li>
+</ul>
+<p>The catch is that the type is only known afterward. Whether any early signal predicts it is now being tested; until then, it cannot be used to pick an exit.</p>
+
+<h2>What changed in the rulebook</h2>
+<ul>
+<li><strong>Adopted:</strong> entry = first real trade after the call; log the peak, the low before the peak and the real stop fill; judge rules on average R, not win rate.</li>
+<li><strong>Testing:</strong> the 15-minute time stop; shadow skips (WOULD-SKIP) for 30%+ same-slot buys, platform-token curves and launchpad stories; RugCheck's largest insider network at 10%+ of supply. Extraction moved from a kill to log-only (see <a href="/case-studies/free-rug-check-tools-10-calls/">testing free rug-check tools</a>).</li>
+<li><strong>Rejected:</strong> the 40% trailing stop after +50%; the pullback-reclaim entry.</li>
+<li><strong>Kept:</strong> -30% stop, half at 2x, the daily brake, and the kill on bundle or linked-wallet dumps.</li>
+</ul>
+<p>Every rule's status and evidence is on the <a href="/strategies/desk-rulebook/">desk rulebook</a> and in <a href="/data/rules.json">rules.json</a>.</p>
+<blockquote>A post-mortem of paper calls, not a recommendation about any coin named here. Ten calls cannot prove a rule works, and the 2.5% cost is an estimate. Most new tokens lose most of their value.</blockquote>

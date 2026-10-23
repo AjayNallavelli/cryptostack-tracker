@@ -6,10 +6,10 @@ from pathlib import Path
 D = "2026-10-22"
 T, S, W, R = "Trading terminals & bots", "Scanners & analytics", "Wallets", "Safety checkers"
 
-def tool(id, name, cat, website, source_url, verification, fees_summary, fee_items, desc, features, best_for, chains, note="", extra=None):
+def tool(id, name, cat, website, source_url, verification, fees_summary, fee_items, desc, features, best_for, chains, note="", extra=None, date=D):
     return dict(id=id, name=name, category=cat, website=website, source_url=source_url, extra_sources=extra or [],
                 verification=verification, fees_summary=fees_summary, fee_items=fee_items, description=desc,
-                key_features=features, best_for=best_for, chains=chains, date_checked=D, verification_note=note)
+                key_features=features, best_for=best_for, chains=chains, date_checked=date, verification_note=note)
 
 def fi(item, value, note=""):
     return {"item": item, "value": value, "note": note}
@@ -45,7 +45,9 @@ tools = [
       "Multi-chain trading terminal logged in through a Telegram bot, with wallet manager, presets and MEV-only routing.",
       ["Telegram login flow", "Up to five buy and five sell setting presets", "MEV-only mode routing via Jito", "Funding on Solana plus several EVM chains (per docs)"],
       "Learning how platform fees, protocol fees and priority fees stack on one trade.", ["Solana", "Ethereum", "Base", "Blast", "Arbitrum", "Tron"],
-      extra=[{"label": "BullX trading settings (docs)", "url": "https://bullx.gitbook.io/bullx-neo-docs/trading-terminal/trading"}]),
+      note="Trading paused: BullX suspended trading (including memecoin trading) in the current version of its app from June 1, 2026; wallet functions and withdrawals stayed open. The fees above are from its docs and apply only if trading resumes on the same terms.",
+      extra=[{"label": "BullX trading settings (docs)", "url": "https://bullx.gitbook.io/bullx-neo-docs/trading-terminal/trading"},
+             {"label": "PANews: BullX suspends trading in the current app from June 1, 2026", "url": "https://www.panews.io/articles/019e80dd-8bad-722a-b9b8-cbee2cba8e5f"}], date="2026-10-23"),
  tool("trojan", "Trojan", T, "https://trojan.com", "https://docs.trojan.com/faqs", "verified",
       "1% per successful trade; SOL cashback that rises with Arena rank.",
       [fi("Trading fee", "1% per successful trade", "Only successful trades are charged."),
@@ -72,6 +74,19 @@ tools = [
       ["Telegram bot with manual and automatic trading", "Published fee wallet addresses per chain", "Cashback program (see docs)"],
       "Learning how a multi-chain Telegram bot charges fees and how to verify fee transfers on an explorer.", ["Solana", "EVM chains", "Tron", "TON"],
       extra=[{"label": "Maestro cashback (docs)", "url": "https://docs.maestrobots.com/sniper/cashback"}]),
+ tool("jupiter", "Jupiter", T, "https://jup.ag", "https://docs.jup.ag/user-docs/trade/spot/fees.md", "verified",
+      "Manual mode 0% Jupiter commission; Ultra mode (default) 0.5% on tokens under 24 hours old and 0.1% on most other swaps; network fees and tips extra.",
+      [fi("Manual mode (market swap)", "0%", "No Jupiter commission. You set slippage, priority fee and any Jito tip yourself. No MEV protection, no refunds or support."),
+       fi("Ultra mode: new tokens (within 24h of token age)", "0.5%", "Ultra is the default mode. Priority fee, tip and slippage are set automatically; MEV protection is on."),
+       fi("Ultra mode: all other swaps", "0.1%", "Lower or zero on some pairs (e.g. SOL ↔ stable 0.02%, stable ↔ stable 0%)."),
+       fi("Solana network fee / Jito tip", "Set by you (Manual) or automatically (Ultra)", "Paid to the network, not Jupiter."),
+       fi("Gasless swaps (Ultra)", "Gas cost added to the swap fee", "Only when the wallet holds under 0.01 SOL; minimum trade about $10.")],
+      "Solana swap aggregator (jup.ag) that routes a trade across many pools, with an automatic Ultra mode and a hands-on Manual mode.",
+      ["Routes across 100+ AMMs plus RFQ market makers (JupiterZ)", "Ultra mode: automatic slippage, priority fee and MEV-protected landing", "Manual mode: set your own slippage, priority fee and Jito tip", "Limit and DCA orders"],
+      "Learning how an aggregator routes a swap, and how a 0% commission still leaves you paying network fees and tips you set yourself.", ["Solana"],
+      note="Jupiter Mobile has a separate fee schedule, not shown here.",
+      extra=[{"label": "Jupiter Manual mode (docs)", "url": "https://docs.jup.ag/user-docs/trade/spot/manual-mode.md"},
+             {"label": "Jupiter Ultra mode fees (docs)", "url": "https://docs.jup.ag/user-docs/trade/spot/ultra-mode.md"}], date="2026-10-23"),
  # ---------- scanners & analytics ----------
  tool("gmgn", "GMGN", S, "https://gmgn.ai", "https://docs.gmgn.ai/index/gmgn-fees-settings", "verified",
       "1% handling fee per transaction when you trade through GMGN; launchpad fees (e.g. Pump.fun) are separate.",
@@ -186,12 +201,16 @@ tools = [
       "Learning to cross-check a second risk score against RugCheck.", ["Solana"],
       extra=[{"label": "Solsniffer user guide", "url": "https://solsniffer.gitbook.io/solsniffer-user-guide/product-snif-tokens/token-sniffer"}]),
  tool("bubblemaps", "Bubblemaps", R, "https://bubblemaps.io", "https://wiki.bubblemaps.io/bubblemaps-v2/premium", "partial",
-      "Bubblemaps V2 is free; some advanced features require holding the BMT token (amount not stated on the page we read).",
+      "Bubblemaps V2 web maps are free; some advanced features require holding the BMT token (amount not stated). API from $170/mo (Starter).",
       [fi("Bubblemaps V2", "$0", "Magic Nodes, Time Travel and real-time data open to all users."),
-       fi("Advanced features", "", "P&L, cross-chain analytics, AI cluster reading, top-1,000-holder maps need BMT holdings; amount not stated.")],
+       fi("Advanced features", "", "P&L, cross-chain analytics, AI cluster reading, top-1,000-holder maps need BMT holdings; amount not stated."),
+       fi("API Starter", "$170/mo ($136/mo billed yearly)", "100,000 credits/month, REST API. No free API tier on the plans page."),
+       fi("API Standard", "$850/mo ($680/mo billed yearly)", "750,000 credits/month. Enterprise on request.")],
       "Visual holder-map tool: shows top holders as bubbles and links wallets that transferred to each other.",
       ["Bubble map of top holders", "Linked-wallet clusters (Magic Nodes)", "Time Travel to see past holder maps", "Multi-chain"],
-      "Learning to spot clustered or connected wallets that a holder table can hide.", ["Multi-chain (see site)"]),
+      "Learning to spot clustered or connected wallets that a holder table can hide.", ["Multi-chain (see site)"],
+      note="API prices added Oct 23, 2026 from the Bubblemaps Pro plans page; the web map itself is free.",
+      extra=[{"label": "Bubblemaps API plans", "url": "https://pro.bubblemaps.io/api/plans"}], date="2026-10-23"),
  tool("tokensniffer", "Token Sniffer", R, "https://tokensniffer.com", "https://tokensniffer.readme.io/reference/pricing", "partial",
       "API: Sniffer Pack Pro $99/mo (500 tokens/day); Enterprise on request; 14-day free trial on request. Website price not published.",
       [fi("API Sniffer Pack Pro", "$99/mo", "500 unique token/address requests per day."),

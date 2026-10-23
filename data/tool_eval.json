@@ -1,0 +1,108 @@
+{
+ "as_of": "2026-10-23",
+ "question": "Do free rug-check tools separate the losers from the winners in the first 10 paper calls?",
+ "snapshot": {
+  "read": "2026-10-23 05:16-05:18 IST",
+  "timing": "current snapshot, about 12-24 h after the calls were named; not what the tools showed at call time",
+  "sample": "10 calls (3 wins, 7 losses), post-hoc"
+ },
+ "per_coin": "see rugcheck_snapshot and launch_check_extraction on each call in /data/paper_calls.json",
+ "tools": [
+  {
+   "name": "RugCheck",
+   "tool_slug": "rugcheck",
+   "api_access": "free, no key needed",
+   "used_in_test": true,
+   "result": "Score did not separate winners from losers"
+  },
+  {
+   "name": "Bubblemaps",
+   "tool_slug": "bubblemaps",
+   "api_access": "paid: API Starter $170/mo",
+   "used_in_test": false,
+   "source": "https://pro.bubblemaps.io/api/plans"
+  },
+  {
+   "name": "InsightX",
+   "tool_slug": null,
+   "api_access": "needs a free key",
+   "used_in_test": false
+  },
+  {
+   "name": "SolSniffer",
+   "tool_slug": "solsniffer",
+   "api_access": "needs a free key",
+   "used_in_test": false
+  },
+  {
+   "name": "GMGN",
+   "tool_slug": "gmgn",
+   "api_access": "needs a free key",
+   "used_in_test": false
+  },
+  {
+   "name": "Kolscan",
+   "tool_slug": null,
+   "api_access": "no API",
+   "used_in_test": false
+  }
+ ],
+ "separation": [
+  {
+   "signal": "RugCheck score_normalised >= 30",
+   "losers": [
+    2,
+    7
+   ],
+   "winners": [
+    2,
+    3
+   ],
+   "separates": false
+  },
+  {
+   "signal": "RugCheck insiders detected > 0",
+   "losers": [
+    4,
+    7
+   ],
+   "winners": [
+    2,
+    3
+   ],
+   "separates": false
+  },
+  {
+   "signal": "RugCheck largest insider network >= 10% of supply",
+   "losers": [
+    4,
+    7
+   ],
+   "winners": [
+    1,
+    3
+   ],
+   "separates": "weak, testing",
+   "rule_id": "rugcheck-insider-network-10"
+  },
+  {
+   "signal": "Desk launch checker: creator extraction",
+   "losers": [
+    1,
+    7
+   ],
+   "winners": [
+    3,
+    3
+   ],
+   "separates": "backwards",
+   "rule_id": "extraction-kill"
+  }
+ ],
+ "caveats": [
+  "RugCheck data is a snapshot taken after the fact, 12-24 h after the calls; insider networks and holdings can change after a call.",
+  "The meaning of RugCheck's largest-network percentage is unclear; it may be cumulative tokens transferred rather than current holdings.",
+  "n=10 and the thresholds were picked after seeing the outcomes.",
+  "The three token-quoted curves (GRAIL, YAI, EKO) could not be checked for extraction."
+ ]
+}

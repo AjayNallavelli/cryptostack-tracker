@@ -1,6 +1,6 @@
 <p class="lead">A "desk rulebook" is a short, fixed set of rules that every call must pass before it is named, written down in advance so decisions aren't made in the moment. This page explains, in plain language, the rulebook used for the paper calls on this site (confirmed Oct 22, 2026, and updated that evening), and the reasoning behind each rule. It is an example of how such rules are structured, not a system to copy.</p>
 
-<p class="small muted">Updated Oct 22, 2026 (evening): a dev sell alone is no longer a kill; bundles and extraction are; dev graduation history is now a score. The status and evidence for every rule are in <a href="/data/rules.json">rules.json</a>.</p>
+<p class="small muted">Updated Oct 23, 2026, after the <a href="/case-studies/exit-study-first-10-calls/">exit study</a> of the first 10 calls: entries are now the first real trade after the call; peaks, lows and real stop fills are logged; rules are judged on average R; extraction is log-only; a 15-minute time stop and three shadow skips are in testing; the trailing stop and pullback-reclaim entry were rejected. Oct 22 (evening): a dev sell alone is no longer a kill; dev graduation history is a score. The status and evidence for every rule are in <a href="/data/rules.json">rules.json</a> and in the table at the bottom of this page.</p>
 
 <h2>The four hard gates (all must pass)</h2>
 <ol>
@@ -13,7 +13,7 @@
 <li>holder count is higher at minute 5 than at minute 3.</li>
 </ul>
 <em>Why:</em> a coin that has already given back more than 40% of its spike, has more sellers than buyers, or is losing holders is usually being sold into, not discovered. These three checks are a simple way to tell the difference.</li>
-<li><strong>Kill it on a bundle or on extraction, not on a dev sell alone.</strong> The coin is out if linked wallets that bought at launch start dumping (a bundle or "consolidation" dump, where one wallet sells far more than it bought because tokens were gathered from other wallets), or if the creator is extracting, taking out more SOL than they put in. A dev sell on its own is logged, not a kill, and the survival checks in gate 3 must still pass <em>after</em> the dev has exited.<br><em>Why:</em> this gate used to kill on any dev or dev-funded sell. In the <a href="/case-studies/first-10-paper-calls/">first 10 paper calls</a> that would have killed one of the two winners (its creator sold early) while missing the dump that actually stopped the other. Wider data points the same way: most creators sell, usually within minutes, and a creator sale is not the same as a rug. What hurts holders is coordinated supply hitting the market at once, or a creator pulling out much more than they put in. The extraction kill is new and its record so far is mixed, so it is being watched. More in <a href="/guides/rug-patterns/">rug patterns</a>.</li>
+<li><strong>Kill it on a bundle or linked-wallet dump, not on a dev sell alone.</strong> The coin is out if linked wallets that bought at launch start dumping (a bundle or "consolidation" dump, where one wallet sells far more than it bought because tokens were gathered from other wallets). A dev sell on its own is logged, not a kill, and the survival checks in gate 3 must still pass <em>after</em> the dev has exited. Creator extraction (taking out more SOL than they put in) is now <strong>logged only</strong>.<br><em>Why:</em> this gate used to kill on any dev or dev-funded sell. In the <a href="/case-studies/first-10-paper-calls/">first 10 paper calls</a> that would have killed a winner (its creator sold early) while missing the dump that actually stopped another. Extraction was added as a kill on Oct 22 and dropped to log-only on Oct 23: the launch checker flagged it on 3 of 3 winners and only 1 of 7 losers, so as a kill it would have removed every winner. What hurts holders is coordinated supply hitting the market at once. More in <a href="/guides/rug-patterns/">rug patterns</a> and <a href="/case-studies/free-rug-check-tools-10-calls/">testing free rug-check tools</a>.</li>
 </ol>
 
 <h2>Dev history: a score, not a gate</h2>
@@ -22,15 +22,24 @@
 <h2>The target band: about $15k–$40k market cap</h2>
 <p>Calls are only named in roughly this market-cap range. <em>Why:</em> below it, a coin is usually still in its bot-and-creator phase; above it, much of the early move has already happened. The aim is early coins without rugs; the hold deliberately trades a little upside for survival.</p>
 
+<h2>The entry price and what gets logged</h2>
+<ul>
+<li><strong>Entry is the first real trade after the call</strong>, logged to the second. <em>Why:</em> for three of the first ten calls (Arnaud, FORM, Pumuckel) the market cap written down at the call was 16 to 20%+ above anything that actually traded, so nobody could have bought at that price.</li>
+<li><strong>Log the peak, the low before the peak, and the real stop fill</strong> for every call. <em>Why:</em> without them you cannot tell whether an exit rule helped, and paper fills at exactly -30% hide how far gaps run.</li>
+<li><strong>Judge on average R, not win rate.</strong> R = net % ÷ 30. <em>Why:</em> a rule that wins more often can still lose more money, and half of the first ten coins ran past 2x at some point, so the size of wins matters as much as how many there are.</li>
+</ul>
+
 <h2>The exit line (written before the call)</h2>
 <ul>
-<li><strong>Exit:</strong> at -30% from the naming price, on a bundle dump, or as soon as the survival checks fail. A dev sell on its own does not trigger an exit.</li>
+<li><strong>Exit:</strong> at -30% from the entry price (the first real trade after the call), on a bundle dump, or as soon as the survival checks fail. A dev sell on its own does not trigger an exit.</li>
 <li><strong>Take half at 2x</strong>, and ride the rest with the same stop.</li>
 </ul>
 <p><em>Why:</em> deciding exits in advance removes in-the-moment hoping. Taking half at 2x roughly returns the original stake (before costs), so the remainder can't turn a winner into a loss. Worked example and caveats in <a href="/strategies/exit-lines/">exit lines</a>.</p>
+<p><strong>Stops fail on gaps.</strong> In the exit study every stop filled below its level, and single sells sent three coins straight through theirs (fills 25% to 61% below the stop). For sizing, assume the real loss when a stop fails is about <strong>50 to 70%</strong>, not 30%.</p>
+<p><strong>In testing: a 15-minute time stop.</strong> Exit at 15 minutes after the call if the price is at or below entry. On the first ten calls it averaged -19.1% against -20.8% for the current exits, a small difference that came from one coin, so it is logged alongside the "no clock exit while buys lead" rule rather than adopted. <strong>Rejected:</strong> a 40% trailing stop after +50% (worst result, -25.0%, because gaps blew through the trail) and waiting for a pullback-then-reclaim entry (0 of 10 coins showed the pattern).</p>
 
 <h2>The PAPER CALL label</h2>
-<p>Every call carries the label <strong>PAPER CALL - not a buy signal</strong>, and keeps it until the <a href="/scoreboard/">paper scoreboard</a> shows a positive net result after costs over at least 30 calls. <em>Why:</em> a handful of lucky calls proves nothing. Thirty calls, counted honestly with costs, is a minimum sample before drawing any conclusion. As of Oct 22, 2026 the scoreboard is far from that.</p>
+<p>Every call carries the label <strong>PAPER CALL - not a buy signal</strong>, and keeps it until the <a href="/scoreboard/">paper scoreboard</a> shows a positive net result after costs over at least 30 calls. <em>Why:</em> a handful of lucky calls proves nothing. Thirty calls, counted honestly with costs, is a minimum sample before drawing any conclusion. As of Oct 23, 2026 the scoreboard is far from that: 3 wins and 7 losses, -24.0% per call.</p>
 
 <h2>The daily brake</h2>
 <p>After 2 calls in one day go to zero or hit their stop, nothing else is named that day. <em>Why:</em> two dead calls in a day usually means the market, or the reading of it, is off, and that is exactly when the urge to "win it back" is strongest. See <a href="/strategies/daily-loss-brake/">the daily loss brake</a>.</p>
@@ -40,7 +49,10 @@
 <p><em>Why:</em> it is worth testing whether real outside attention helps, but not trusting it enough to gate on yet. Follower counts can be bought and say nothing about whether anyone cared about a specific post; in the <a href="/case-studies/php-dead-in-minutes/">php case study</a> the creator had about 12.4k followers and the coin still died in minutes.</p>
 
 <h2>The size cap</h2>
-<p>Position size is the <strong>smaller of 0.04 SOL or 1% of the pool's liquidity</strong>; if that works out under 0.02 SOL, the call is skipped. <em>Why:</em> thin pools can't absorb even a small exit without a big price hit, so tying size to liquidity keeps a position from moving the price on its own, and the hard cap keeps every mistake small.</p>
+<p>Position size is the <strong>smaller of 0.04 SOL or 1% of the pool's liquidity</strong>; if that works out under 0.02 SOL, the call is skipped. <em>Why:</em> thin pools can't absorb even a small exit without a big price hit, so tying size to liquidity keeps a position from moving the price on its own, and the hard cap keeps every mistake small. Size as if a gap costs 50 to 70% of the position. At this size fixed priority fees and tips can cost more than the app fee; see <a href="/guides/solana-memecoin-trading-costs-small-size/">trading costs at small size</a>.</p>
+
+<h2>Shadow skips (logged, not enforced)</h2>
+<p>Three filters that looked good on the first ten calls are now logged as <strong>WOULD-SKIP</strong> on every call instead of blocking it: 30%+ of supply bought by outside wallets in the launch slot, a curve priced in a platform token instead of SOL, and a launchpad or platform-token story. A fourth, RugCheck's largest insider network at 10%+ of supply, is logged as a flag. <em>Why:</em> each one was chosen after seeing the outcomes. Logging them as shadow skips lets the next calls test them without letting an overfitted rule throw away a winner.</p>
 
 <h2>Wallet signals and honesty</h2>
 <ul>
@@ -48,4 +60,16 @@
 <li>No invented numbers: anything that can't be read is marked unverified, and every call goes in the paper log. If it isn't logged, it didn't happen.</li>
 <li>After 30 calls, each rule is tested: if coins that passed a rule didn't beat coins that failed it, the rule is a candidate for deletion.</li>
 </ul>
+<h2>Every rule and its status</h2>
+<p class="small muted">As of {{ rules.as_of }}. Generated from <a href="/data/rules.json">rules.json</a>. Mode: gate = can block or exit a call; shadow = logged as WOULD-SKIP; log-only = recorded, no action; method = how calls are priced, logged or judged.</p>
+{% for st in ["adopted", "testing", "rejected"] %}<h3>{{ st|capitalize }}</h3>
+<div class="table-wrap">
+<table class="ptable">
+<thead><tr><th>Rule</th><th>Mode</th><th>Evidence</th></tr></thead>
+<tbody>
+{% for r in rules.rules if r.status == st %}<tr><td>{{ r.rule }}{% if r.changed == "2026-10-23" %} <span class="tag">changed Oct 23</span>{% endif %}</td><td>{{ r.mode }}</td><td>{{ r.evidence }}</td></tr>
+{% endfor %}</tbody>
+</table>
+</div>
+{% endfor %}
 <blockquote>Rules for paper calls, explained for education. Not advice. Crypto is high risk and most new tokens lose most of their value.</blockquote>

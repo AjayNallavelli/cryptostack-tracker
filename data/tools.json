@@ -104,6 +104,10 @@
     {
      "label": "BullX trading settings (docs)",
      "url": "https://bullx.gitbook.io/bullx-neo-docs/trading-terminal/trading"
+    },
+    {
+     "label": "PANews: BullX suspends trading in the current app from June 1, 2026",
+     "url": "https://www.panews.io/articles/019e80dd-8bad-722a-b9b8-cbee2cba8e5f"
     }
    ],
    "verification": "verified",
@@ -146,8 +150,8 @@
     "Arbitrum",
     "Tron"
    ],
-   "date_checked": "2026-10-22",
-   "verification_note": ""
+   "date_checked": "2026-10-23",
+   "verification_note": "Trading paused: BullX suspended trading (including memecoin trading) in the current version of its app from June 1, 2026; wallet functions and withdrawals stayed open. The fees above are from its docs and apply only if trading resumes on the same terms."
   },
   {
    "id": "trojan",
@@ -274,6 +278,65 @@
    ],
    "date_checked": "2026-10-22",
    "verification_note": ""
+  },
+  {
+   "id": "jupiter",
+   "name": "Jupiter",
+   "category": "Trading terminals & bots",
+   "website": "https://jup.ag",
+   "source_url": "https://docs.jup.ag/user-docs/trade/spot/fees.md",
+   "extra_sources": [
+    {
+     "label": "Jupiter Manual mode (docs)",
+     "url": "https://docs.jup.ag/user-docs/trade/spot/manual-mode.md"
+    },
+    {
+     "label": "Jupiter Ultra mode fees (docs)",
+     "url": "https://docs.jup.ag/user-docs/trade/spot/ultra-mode.md"
+    }
+   ],
+   "verification": "verified",
+   "fees_summary": "Manual mode 0% Jupiter commission; Ultra mode (default) 0.5% on tokens under 24 hours old and 0.1% on most other swaps; network fees and tips extra.",
+   "fee_items": [
+    {
+     "item": "Manual mode (market swap)",
+     "value": "0%",
+     "note": "No Jupiter commission. You set slippage, priority fee and any Jito tip yourself. No MEV protection, no refunds or support."
+    },
+    {
+     "item": "Ultra mode: new tokens (within 24h of token age)",
+     "value": "0.5%",
+     "note": "Ultra is the default mode. Priority fee, tip and slippage are set automatically; MEV protection is on."
+    },
+    {
+     "item": "Ultra mode: all other swaps",
+     "value": "0.1%",
+     "note": "Lower or zero on some pairs (e.g. SOL ↔ stable 0.02%, stable ↔ stable 0%)."
+    },
+    {
+     "item": "Solana network fee / Jito tip",
+     "value": "Set by you (Manual) or automatically (Ultra)",
+     "note": "Paid to the network, not Jupiter."
+    },
+    {
+     "item": "Gasless swaps (Ultra)",
+     "value": "Gas cost added to the swap fee",
+     "note": "Only when the wallet holds under 0.01 SOL; minimum trade about $10."
+    }
+   ],
+   "description": "Solana swap aggregator (jup.ag) that routes a trade across many pools, with an automatic Ultra mode and a hands-on Manual mode.",
+   "key_features": [
+    "Routes across 100+ AMMs plus RFQ market makers (JupiterZ)",
+    "Ultra mode: automatic slippage, priority fee and MEV-protected landing",
+    "Manual mode: set your own slippage, priority fee and Jito tip",
+    "Limit and DCA orders"
+   ],
+   "best_for": "Learning how an aggregator routes a swap, and how a 0% commission still leaves you paying network fees and tips you set yourself.",
+   "chains": [
+    "Solana"
+   ],
+   "date_checked": "2026-10-23",
+   "verification_note": "Jupiter Mobile has a separate fee schedule, not shown here."
   },
   {
    "id": "gmgn",
@@ -822,9 +885,14 @@
    "category": "Safety checkers",
    "website": "https://bubblemaps.io",
    "source_url": "https://wiki.bubblemaps.io/bubblemaps-v2/premium",
-   "extra_sources": [],
+   "extra_sources": [
+    {
+     "label": "Bubblemaps API plans",
+     "url": "https://pro.bubblemaps.io/api/plans"
+    }
+   ],
    "verification": "partial",
-   "fees_summary": "Bubblemaps V2 is free; some advanced features require holding the BMT token (amount not stated on the page we read).",
+   "fees_summary": "Bubblemaps V2 web maps are free; some advanced features require holding the BMT token (amount not stated). API from $170/mo (Starter).",
    "fee_items": [
     {
      "item": "Bubblemaps V2",
@@ -835,6 +903,16 @@
      "item": "Advanced features",
      "value": "",
      "note": "P&L, cross-chain analytics, AI cluster reading, top-1,000-holder maps need BMT holdings; amount not stated."
+    },
+    {
+     "item": "API Starter",
+     "value": "$170/mo ($136/mo billed yearly)",
+     "note": "100,000 credits/month, REST API. No free API tier on the plans page."
+    },
+    {
+     "item": "API Standard",
+     "value": "$850/mo ($680/mo billed yearly)",
+     "note": "750,000 credits/month. Enterprise on request."
     }
    ],
    "description": "Visual holder-map tool: shows top holders as bubbles and links wallets that transferred to each other.",
@@ -848,8 +926,8 @@
    "chains": [
     "Multi-chain (see site)"
    ],
-   "date_checked": "2026-10-22",
-   "verification_note": ""
+   "date_checked": "2026-10-23",
+   "verification_note": "API prices added Oct 23, 2026 from the Bubblemaps Pro plans page; the web map itself is free."
   },
   {
    "id": "tokensniffer",
