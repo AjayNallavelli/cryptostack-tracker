@@ -1,5 +1,10 @@
 [
  {
+  "date": "2026-11-10",
+  "title": "New: crypto research tools guide",
+  "summary": "Added Crypto Research Tools: 30 Free & Paid Tools by Category (2026), a guide to the 31 tools in @0xvietnguyen's November 2026 list, grouped by category, with official homepage links and only the prices verified on vendor pages. No affiliate links. Education only."
+ },
+ {
   "date": "2026-10-22",
   "title": "New: first 10 paper calls case study, rug patterns guide; scoreboard and desk rulebook updated",
   "summary": "Added Case study: the first 10 paper calls (2 wins, 7 losses, 1 open; an out-of-sample test of the 30% launch-slot rule; stop speed and payoff math) and Rug patterns: what to check and with which free tool. The paper scoreboard now covers 10 calls (snapshot as of 10:49 PM IST) and renders from the new /data/paper_calls.json. The desk rulebook is updated: a dev sell alone is no longer a kill, survival must hold after the dev exits, bundles and extraction are kills, and dev graduation history is a score. Rule status and evidence are published in /data/rules.json. The php case study has an update note."

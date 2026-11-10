@@ -115,6 +115,70 @@
  ],
  "guides": [
   {
+   "slug": "crypto-research-tools",
+   "title": "Crypto Research Tools: 30 Free & Paid Tools by Category (2026)",
+   "summary": "A categorized field guide to the 31 research tools in @0xvietnguyen's November 2026 list (DefiLlama, Dune, Arkham, Nansen, Bubblemaps, DEX Screener, CoinGecko and others): what each one does, official homepage links, and only the prices we could verify. Education only, no affiliate links.",
+   "sources": [
+    {
+     "label": "0xvietnguyen: 30 Tools You Need in Crypto (X, Nov 9, 2026, 3:52 PM IST)",
+     "url": "https://x.com/0xvietnguyen/status/2119737277458903096"
+    },
+    {
+     "label": "Sparsity Research terms of use (updated Nov 6, 2026)",
+     "url": "https://sparsitydata.com/terms"
+    },
+    {
+     "label": "Token Terminal pricing",
+     "url": "https://tokenterminal.com/pricing"
+    },
+    {
+     "label": "Dune pricing",
+     "url": "https://dune.com/pricing"
+    },
+    {
+     "label": "Nansen Academy: About Nansen Pro",
+     "url": "https://academy.nansen.ai/articles/9412804-about-nansen-pro"
+    },
+    {
+     "label": "Nansen Academy: Plans & Pricing",
+     "url": "https://academy.nansen.ai/articles/1287744-plans-and-pricing"
+    },
+    {
+     "label": "CoinGecko API pricing",
+     "url": "https://www.coingecko.com/en/api/pricing"
+    },
+    {
+     "label": "TradingView pricing",
+     "url": "https://www.tradingview.com/pricing/"
+    },
+    {
+     "label": "Artemis pricing",
+     "url": "https://www.artemis.xyz/pricing"
+    },
+    {
+     "label": "AlphaGate docs: Free plan and Pro",
+     "url": "https://docs.alphagate.io/start-here/free-and-pro"
+    },
+    {
+     "label": "Surf AI pricing",
+     "url": "https://asksurf.ai/pricing"
+    },
+    {
+     "label": "CryptoStack: DEX Screener fees & features (checked Oct 22, 2026)",
+     "url": "/tools/dexscreener/"
+    },
+    {
+     "label": "CryptoStack: Bubblemaps fees & features (checked Oct 23, 2026)",
+     "url": "/tools/bubblemaps/"
+    },
+    {
+     "label": "Official homepage of each tool, HTTP-checked Nov 10, 2026 (no referral parameters)",
+     "url": ""
+    }
+   ],
+   "date_checked": "2026-11-10"
+  },
+  {
    "slug": "solana-memecoin-trading-costs-small-size",
    "title": "Solana memecoin trading costs at small size",
    "summary": "What pump.fun, Jupiter, Backpack, Phantom, Axiom, GMGN, Photon, Trojan and BONKbot charge, cheapest first, and the full round-trip cost at 0.04 SOL: from about 3% to about 15%, mostly down to priority fees and tips.",
