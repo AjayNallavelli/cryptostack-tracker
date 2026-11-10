@@ -538,5 +538,243 @@
    ],
    "date_checked": "2026-10-23"
   }
+ ],
+ "chains": [
+  {
+   "slug": "solana",
+   "name": "Solana",
+   "title": "What Is Solana? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of Solana: SOL as gas, the official 5,000-lamport base fee, 200 ms slots as of 9 Oct 2026, the official explorer, and commonly used DEXs and launchpads. Education only.",
+   "chain_type": "Layer 1",
+   "gas_token": "SOL",
+   "explorer_name": "explorer.solana.com",
+   "explorer_url": "https://explorer.solana.com",
+   "venues_short": "Pump.fun, Raydium, Jupiter",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "Solana docs: Fees",
+     "url": "https://solana.com/docs/core/fees"
+    },
+    {
+     "label": "Solana upgrade notes: Reduced slot times (9 Oct 2026, SIMD-0525)",
+     "url": "https://solana.com/upgrades/reduced-slot-times"
+    },
+    {
+     "label": "Official Solana explorer",
+     "url": "https://explorer.solana.com"
+    },
+    {
+     "label": "Official Solana website",
+     "url": "https://solana.com"
+    },
+    {
+     "label": "Pump.fun",
+     "url": "https://pump.fun"
+    },
+    {
+     "label": "Raydium",
+     "url": "https://raydium.io"
+    },
+    {
+     "label": "Jupiter",
+     "url": "https://jup.ag"
+    }
+   ]
+  },
+  {
+   "slug": "ethereum",
+   "name": "Ethereum",
+   "title": "What Is Ethereum? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of Ethereum: ETH as gas, the official 12-second slot time, how the base fee and tip work, Etherscan, and Uniswap as the principal DEX. Education only.",
+   "chain_type": "Layer 1 (proof of stake)",
+   "gas_token": "ETH",
+   "explorer_name": "etherscan.io",
+   "explorer_url": "https://etherscan.io",
+   "venues_short": "Uniswap",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "ethereum.org: Gas and fees",
+     "url": "https://ethereum.org/en/developers/docs/gas/"
+    },
+    {
+     "label": "ethereum.org: Blocks (12-second slots)",
+     "url": "https://ethereum.org/en/developers/docs/blocks/"
+    },
+    {
+     "label": "ethereum.org: Block explorers",
+     "url": "https://ethereum.org/en/developers/docs/data-and-analytics/block-explorers/"
+    },
+    {
+     "label": "Etherscan",
+     "url": "https://etherscan.io"
+    },
+    {
+     "label": "Official Ethereum website",
+     "url": "https://ethereum.org"
+    },
+    {
+     "label": "Uniswap",
+     "url": "https://uniswap.org"
+    }
+   ]
+  },
+  {
+   "slug": "bnb-chain",
+   "name": "BNB Smart Chain",
+   "title": "What Is BNB Smart Chain (BSC)? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of BNB Smart Chain: BNB as gas, official ~0.45-second block times, chain ID 56, BscScan, PancakeSwap, and Four.Meme. Education only.",
+   "chain_type": "Layer 1, EVM-compatible (PoSA)",
+   "gas_token": "BNB",
+   "explorer_name": "bscscan.com",
+   "explorer_url": "https://bscscan.com",
+   "venues_short": "PancakeSwap, Four.Meme",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "BNB Chain docs: BNB Smart Chain overview",
+     "url": "https://docs.bnbchain.org/bnb-smart-chain/overview/"
+    },
+    {
+     "label": "BNB Chain docs: Cross-chain bridge",
+     "url": "https://docs.bnbchain.org/bnb-smart-chain/cross-chain-bridge/"
+    },
+    {
+     "label": "BscScan",
+     "url": "https://bscscan.com"
+    },
+    {
+     "label": "PancakeSwap",
+     "url": "https://pancakeswap.finance"
+    },
+    {
+     "label": "Four.Meme",
+     "url": "https://four.meme"
+    },
+    {
+     "label": "Four.Meme docs: About Four.Meme",
+     "url": "https://four-meme.gitbook.io/four.meme/about-four.meme"
+    }
+   ]
+  },
+  {
+   "slug": "base",
+   "name": "Base",
+   "title": "What Is Base? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of Base, Coinbase's OP Stack Ethereum Layer 2: ETH as gas, chain ID 8453, 200 ms blocks, the official 5-day or 1-day withdrawal windows, Basescan, and Uniswap. Education only.",
+   "chain_type": "Layer 2, settles to Ethereum",
+   "gas_token": "ETH",
+   "explorer_name": "basescan.org",
+   "explorer_url": "https://basescan.org",
+   "venues_short": "Uniswap",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "Base docs: Connect to Base",
+     "url": "https://docs.base.org/get-started/connect-to-base"
+    },
+    {
+     "label": "Base docs: Bridge to Base",
+     "url": "https://docs.base.org/base-chain/network-information/ecosystem-bridges"
+    },
+    {
+     "label": "Base docs: Withdrawals specification",
+     "url": "https://docs.base.org/specifications/base-protocol/bridging/withdrawals"
+    },
+    {
+     "label": "Base docs: Faster Withdrawals (Beryl)",
+     "url": "https://docs.base.org/upgrades/beryl/reducing-canonical-withdrawal-delay"
+    },
+    {
+     "label": "Basescan",
+     "url": "https://basescan.org"
+    },
+    {
+     "label": "Official Base website",
+     "url": "https://www.base.org"
+    },
+    {
+     "label": "Uniswap",
+     "url": "https://uniswap.org"
+    }
+   ]
+  },
+  {
+   "slug": "monad",
+   "name": "Monad",
+   "title": "What Is Monad? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of Monad, an EVM-compatible layer 1: MON as gas, chain ID 143, official 300 ms blocks and 600 ms finality, official explorers, and App Hub-listed venues. Education only.",
+   "chain_type": "Layer 1, EVM-compatible",
+   "gas_token": "MON",
+   "explorer_name": "monadvision.com",
+   "explorer_url": "https://monadvision.com",
+   "venues_short": "Uniswap, PancakeSwap, Nad.fun, Flap",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "Monad docs: Network information (mainnet)",
+     "url": "https://docs.monad.xyz/developer-essentials/network-information"
+    },
+    {
+     "label": "Monad docs: Tokens and Bridges",
+     "url": "https://docs.monad.xyz/developer-essentials/network-information/tokens-and-bridges"
+    },
+    {
+     "label": "Monad docs: Official links",
+     "url": "https://docs.monad.xyz/official-links"
+    },
+    {
+     "label": "Monad docs: Block explorers",
+     "url": "https://docs.monad.xyz/tooling-and-infra/block-explorers"
+    },
+    {
+     "label": "Official Monad App Hub",
+     "url": "https://app.monad.xyz/app-hub"
+    },
+    {
+     "label": "MonadVision",
+     "url": "https://monadvision.com"
+    },
+    {
+     "label": "Monadscan",
+     "url": "https://monadscan.com"
+    }
+   ]
+  },
+  {
+   "slug": "tron",
+   "name": "TRON",
+   "title": "What Is TRON? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of TRON: Bandwidth and Energy instead of Ethereum-style gas, official ~3-second blocks and about-one-minute solidification, TRONSCAN, SunSwap and SunPump. Education only.",
+   "chain_type": "Layer 1 (DPoS)",
+   "gas_token": "TRX (Bandwidth / Energy)",
+   "explorer_name": "tronscan.org",
+   "explorer_url": "https://tronscan.org",
+   "venues_short": "SunSwap, SunPump",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "TRON developer docs: What is TRON",
+     "url": "https://developers.tron.network/docs/what-is-tron"
+    },
+    {
+     "label": "TRON developer documentation",
+     "url": "https://developers.tron.network"
+    },
+    {
+     "label": "Official TRON explorer (TRONSCAN)",
+     "url": "https://tronscan.org"
+    },
+    {
+     "label": "Official TRON website",
+     "url": "https://tron.network"
+    },
+    {
+     "label": "SUN.io (SunSwap and SunPump)",
+     "url": "https://sun.io"
+    }
+   ]
+  }
  ]
 }

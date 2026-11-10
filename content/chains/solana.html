@@ -1,0 +1,74 @@
+<p class="lead">Solana is a public layer-1 blockchain. Fees are paid in SOL. Official docs describe a small base fee per signature, optional priority fees, and &mdash; since a 9 Oct 2026 upgrade &mdash; 200 millisecond slots. This page is a plain-language snapshot of those official figures, the official explorer, and venues commonly used for new tokens. It is not a reason to use Solana or to buy any token.</p>
+
+<p class="small muted">Last verified 10 Nov 2026 (Asia/Calcutta) against official Solana documentation. Network details can change; check the official docs before you rely on a figure.</p>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#what">What Solana is</a></li>
+<li><a href="#gas">Gas token, fees and speed</a></li>
+<li><a href="#explorer">Official explorer</a></li>
+<li><a href="#venues">DEXs and memecoin launchpads</a></li>
+<li><a href="#bridging">Bridging basics</a></li>
+<li><a href="#evaluate">How to evaluate a token on Solana</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+
+<h2 id="what">What Solana is</h2>
+<p>Solana is a <strong>layer-1</strong> network: transactions are executed and finalized on Solana itself, rather than being settled to another chain the way an Ethereum Layer 2 is. Official materials describe a proof-of-stake validator set, with Proof of History used as a timing mechanism. You do not need to run a validator, or to use any particular wallet, in order to <em>read</em> the chain. Explorers and public RPC endpoints are enough to inspect a transaction or a token mint.</p>
+<p>Most activity that this site already documents &mdash; including pump.fun-style token launches and Solana DEX routing &mdash; happens on <strong>mainnet-beta</strong>, Solana’s production cluster. Test clusters are for development only and are not covered here.</p>
+
+<h2 id="gas">Gas token, fees and speed</h2>
+<p>The native coin is <strong>SOL</strong>. Fees are denominated in lamports (1 SOL = 1,000,000,000 lamports).</p>
+<p>Official fee docs (checked 10 Nov 2026) describe the current model this way:</p>
+<ul>
+<li>Each transaction pays a <strong>base fee of 5,000 lamports (0.000005 SOL) per signature</strong>.</li>
+<li>Half of that base fee is <strong>burned</strong> and half is paid to the validator that includes the transaction.</li>
+<li>A sender may also attach an optional <strong>priority fee</strong> so validators are more likely to include the transaction when the network is busy. Priority fees vary with demand; there is no single official “typical USD fee.”</li>
+<li>A transaction is limited to a maximum of <strong>1.4 million compute units</strong>.</li>
+</ul>
+<p>On <strong>9 Oct 2026</strong> (epoch 1053), official Solana upgrade notes say mainnet slot times were reduced from 400 milliseconds to <strong>200 milliseconds</strong> (SIMD-0525). Older pages and third-party explainers that still say “400 ms slots” are out of date. A slot is a scheduling window, not a guarantee that every slot contains a confirmed transaction, and confirmation or finality can take more than one slot.</p>
+<div class="table-wrap"><table class="ptable vs compact"><thead><tr><th>Item</th><th>Official figure (checked 10 Nov 2026)</th></tr></thead><tbody>
+<tr><td>Type</td><td>Layer 1</td></tr>
+<tr><td>Gas token</td><td>SOL</td></tr>
+<tr><td>Base fee</td><td>5,000 lamports (0.000005 SOL) per signature</td></tr>
+<tr><td>Slot time</td><td>200 ms, as of the 9 Oct 2026 upgrade</td></tr>
+<tr><td>Production cluster</td><td>mainnet-beta</td></tr>
+</tbody></table></div>
+<p>For a worked example of how small-size Solana memecoin trading costs can add up (priority fees, tips and DEX fees together), see <a href="/guides/solana-memecoin-trading-costs-small-size/">Solana memecoin trading costs at small size</a>. That guide is an illustration of cost structure, not a reason to trade.</p>
+
+<h2 id="explorer">Official explorer</h2>
+<p>The official block explorer is <a href="https://explorer.solana.com" rel="nofollow noopener" target="_blank">explorer.solana.com</a>. You can look up a transaction signature, an account, or a token mint without connecting a wallet. <a href="/tools/solscan/">Solscan</a> is a widely used independent explorer that this site already documents; it is a third-party product, not the official explorer. Bookmark official URLs yourself. Do not trust an “explorer” or “support” link from a DM, a comment reply or a look-alike domain, and never paste a seed phrase or private key into a website.</p>
+
+<h2 id="venues">DEXs and memecoin launchpads</h2>
+<p>These are commonly used public venues, not recommendations, and not a complete list.</p>
+<ul>
+<li><a href="https://pump.fun" rel="nofollow noopener" target="_blank">Pump.fun</a> is a bonding-curve launchpad. New tokens are often created and traded there first; some later move liquidity to a DEX. See <a href="/guides/pump-fun-bonding-curve/">How the pump.fun bonding curve works</a> for the mechanism, not as a reason to use it.</li>
+<li><a href="https://raydium.io" rel="nofollow noopener" target="_blank">Raydium</a> is a major Solana AMM where many tokens trade after (or instead of) a launchpad stage.</li>
+<li><a href="https://jup.ag" rel="nofollow noopener" target="_blank">Jupiter</a> is a widely used aggregator that routes swaps across Solana liquidity sources. This site’s <a href="/tools/jupiter/">Jupiter tool page</a> covers the public product, not a signup prompt.</li>
+</ul>
+<p>A listing or a completed bonding curve does not mean a token is safe, liquid or worth anything. Most new tokens fail, and many are designed to extract money from buyers. See <a href="/guides/spotting-rugs/">spotting rugs</a>.</p>
+
+<h2 id="bridging">Bridging basics</h2>
+<p>This is a description of how assets typically move, not an instruction to move funds. If you do not need an asset on Solana, you do not need a bridge.</p>
+<p>Solana is a layer 1, so there is no single official “canonical withdrawal” window of the kind Ethereum Layer 2s use. Moving assets between Solana and other networks usually means a <strong>third-party bridge</strong> or a messaging protocol. Each bridge has its own trust assumptions, fees, delays and failure modes. There is no official Solana Foundation portal that this page can point to as the one correct bridge.</p>
+<p>If you ever use a bridge, start from a project’s official documentation, double-check the domain, confirm you selected the intended network on both sides, and treat unsolicited “bridge” links, fake RPC endpoints and look-alike explorers as phishing. A bridge error can permanently lose funds. This page does not name, rank or endorse any bridge.</p>
+
+<h2 id="evaluate">How to evaluate a token on Solana</h2>
+<p>This is a reading list, not a trading method and not a reason to buy anything.</p>
+<ul>
+<li>Read the mint, holders and transactions on <a href="https://explorer.solana.com" rel="nofollow noopener" target="_blank">the official explorer</a> or <a href="/tools/solscan/">Solscan</a>.</li>
+<li>Look at the pool and recent trades on a public screener such as <a href="/tools/dexscreener/">DEX Screener</a>.</li>
+<li>Inspect holder clusters and linked wallets with <a href="/tools/bubblemaps/">Bubblemaps</a> where the chain is covered.</li>
+<li>Read <a href="/guides/spotting-rugs/">spotting rugs</a> for common failure patterns, and <a href="/guides/crypto-research-tools/">crypto research tools</a> for a wider catalogue of free and paid research products.</li>
+</ul>
+<p>None of those tools can make a token safe. They can only show you what is already on-chain.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li><strong>New tokens are usually worthless.</strong> Bonding-curve and “fair launch” labels do not remove insider allocations, hidden seller wallets, or malicious programs.</li>
+<li><strong>Phishing is common.</strong> Fake explorers, fake “support” accounts, airdrop sites and look-alike RPC endpoints try to steal seed phrases or approvals.</li>
+<li><strong>Network congestion and priority fees.</strong> When demand spikes, inclusion can slow and priority fees can rise well above the tiny base fee.</li>
+<li><strong>Bridging risk.</strong> A wrong network, a fake front-end or a bridge exploit can lose funds with no recourse.</li>
+<li><strong>Software and validator risk.</strong> Like any chain, clients, programs and operational incidents can delay or halt activity.</li>
+</ul>
+<p>Nothing on this page is financial advice, a recommendation to hold SOL, or a suggestion to launch or trade a token.</p>

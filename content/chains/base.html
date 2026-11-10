@@ -1,0 +1,71 @@
+<p class="lead">Base is a public Ethereum Layer 2 built by Coinbase on the OP Stack. Fees are paid in ETH; official materials do not describe a separate Base gas token. Official docs give Base a chain ID of 8453, 200 millisecond canonical blocks, and a canonical withdrawal delay of 5 days (or 1 day when both TEE and ZK proofs support the same proposal). This page is a plain-language snapshot of those official figures. It is not a reason to use Base or to buy any token.</p>
+
+<p class="small muted">Last verified 10 Nov 2026 (Asia/Calcutta) against official Base documentation. Network details can change; check the official docs before you rely on a figure.</p>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#what">What Base is</a></li>
+<li><a href="#gas">Gas token, fees and speed</a></li>
+<li><a href="#explorer">Official explorer</a></li>
+<li><a href="#venues">DEXs and memecoin launchpads</a></li>
+<li><a href="#bridging">Bridging basics</a></li>
+<li><a href="#evaluate">How to evaluate a token on Base</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+
+<h2 id="what">What Base is</h2>
+<p>Base is an <strong>optimistic rollup</strong>: transactions are executed on Base, and the chain <strong>settles to Ethereum</strong> (layer 1, chain ID 1). Official docs describe it as built by Coinbase on the OP Stack, with a <strong>single sequencer</strong> and mainnet chain ID <strong>8453</strong>. A single sequencer is a different trust model from a fully decentralized validator set: inclusion can be fast, but you are relying on that sequencer’s liveness and on Ethereum settlement plus the proof system for security.</p>
+<p>Official connecting docs list a public RPC at <a href="https://mainnet.base.org" rel="nofollow noopener" target="_blank">https://mainnet.base.org</a>. Use only endpoints published in official docs. An unsolicited “Base RPC” from a chat message is a common phishing pattern.</p>
+
+<h2 id="gas">Gas token, fees and speed</h2>
+<p>The gas token is <strong>ETH</strong>. Official Base materials do not introduce a separate “Base” gas coin; tokens that claim to be the Base gas token are a known scam pattern. Users still pay Ethereum-style gas (gas used × gas price) in ETH, typically at a small fraction of Ethereum layer-1 cost, but there is no single official USD fee this page can quote without going stale. Check a current Base gas tracker on the day you care about.</p>
+<p>Official docs describe <strong>200 millisecond</strong> canonical blocks. That is the chain’s block interval, not a guarantee of instant withdrawals or of Ethereum finality. Settlement and canonical withdrawals follow the bridging rules below and take much longer than one Base block.</p>
+<div class="table-wrap"><table class="ptable vs compact"><thead><tr><th>Item</th><th>Official figure (checked 10 Nov 2026)</th></tr></thead><tbody>
+<tr><td>Type</td><td>Layer 2 (OP Stack optimistic rollup), settles to Ethereum</td></tr>
+<tr><td>Chain ID</td><td><code>8453</code></td></tr>
+<tr><td>Gas token</td><td>ETH (no separate Base gas token)</td></tr>
+<tr><td>Block time</td><td>200 ms canonical blocks</td></tr>
+<tr><td>Sequencer</td><td>Single sequencer (official docs)</td></tr>
+<tr><td>Canonical withdrawals</td><td>5 days (single-proof dispute game), or 1 day when both TEE and ZK proofs support the same proposal</td></tr>
+</tbody></table></div>
+
+<h2 id="explorer">Official explorer</h2>
+<p>The standard public explorer is <a href="https://basescan.org" rel="nofollow noopener" target="_blank">basescan.org</a>, listed in official connecting docs. You can look up a transaction, an address or a token without connecting a wallet. Official network details are on <a href="https://docs.base.org/get-started/connect-to-base" rel="nofollow noopener" target="_blank">Connect to Base</a>. Bookmark official URLs yourself. Do not trust an explorer or RPC from a DM, a comment reply or a look-alike domain, and never paste a seed phrase or private key into a website.</p>
+
+<h2 id="venues">DEXs and memecoin launchpads</h2>
+<p>These are commonly used public venues, not recommendations, and not a complete list.</p>
+<ul>
+<li><a href="https://uniswap.org" rel="nofollow noopener" target="_blank">Uniswap</a> is a major decentralized exchange on Base, as on Ethereum. Many tokens, including memecoins, trade in Uniswap pools on chain ID 8453.</li>
+</ul>
+<p>Other AMMs and launchpads also operate on Base. This page does not inventory them or endorse any of them. A pool on Base is not evidence that a token is safe or worth anything. Most new tokens fail. See <a href="/guides/spotting-rugs/">spotting rugs</a>.</p>
+
+<h2 id="bridging">Bridging basics</h2>
+<p>This is a description of the official path, not an instruction to move funds. If you do not need an asset on Base, you do not need to bridge.</p>
+<p>Official Base docs describe a standard bridge between Ethereum and Base, plus a wider set of ecosystem and messaging options, in <a href="https://docs.base.org/base-chain/network-information/ecosystem-bridges" rel="nofollow noopener" target="_blank">Bridge to Base</a> and in the protocol <a href="https://docs.base.org/specifications/base-protocol/bridging/withdrawals" rel="nofollow noopener" target="_blank">withdrawals specification</a>. The important structural fact is the <strong>canonical withdrawal delay</strong> when moving assets back from Base to Ethereum:</p>
+<ul>
+<li>Start the withdrawal on Base, then prove and finalize it on Ethereum after a challenge window.</li>
+<li>Official “Faster Withdrawals” / Beryl upgrade notes, and the current withdrawals spec, say the <strong>single-proof dispute game finalizes in 5 days</strong> (reduced from an earlier 7-day window).</li>
+<li>A <strong>dual-proof fast path (TEE + ZK)</strong> remains at <strong>1 day</strong> when both proof types support the same proposal.</li>
+</ul>
+<p>Third-party “fast bridges” can quote shorter delays; they are a different trust model (you are relying on a liquidity provider or another protocol, not only on the canonical proof window). This page does not recommend them. Always start from official Base docs, confirm chain ID <code>8453</code> on Base and chain ID <code>1</code> on Ethereum, and treat unsolicited bridge links as phishing. A wrong-network transfer can permanently lose funds.</p>
+
+<h2 id="evaluate">How to evaluate a token on Base</h2>
+<p>This is a reading list, not a trading method and not a reason to buy anything.</p>
+<ul>
+<li>Read the contract, holders and transactions on <a href="https://basescan.org" rel="nofollow noopener" target="_blank">Basescan</a>.</li>
+<li>Look at the pool and recent trades on a public screener such as <a href="/tools/dexscreener/">DEX Screener</a>.</li>
+<li>Inspect holder clusters with <a href="/tools/bubblemaps/">Bubblemaps</a> where the chain is covered.</li>
+<li>Use contract-screening tools such as <a href="/tools/goplus/">GoPlus</a> and <a href="/tools/tokensniffer/">Token Sniffer</a> as one input only; a “passed” badge is not a safety guarantee.</li>
+<li>Read <a href="/guides/spotting-rugs/">spotting rugs</a> and <a href="/guides/crypto-research-tools/">crypto research tools</a> for broader context.</li>
+</ul>
+<p>None of those tools can make a token safe. They can only show you what is already on-chain.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li><strong>Layer-2 trust assumptions.</strong> A single sequencer, optimistic proofs and a multi-day withdrawal window are different from holding assets on Ethereum L1. A sequencer outage can delay inclusion; the canonical path back to Ethereum is not instant.</li>
+<li><strong>Fake “Base” tokens and RPCs.</strong> There is no official separate Base gas coin. Scam tokens and unofficial network settings are common.</li>
+<li><strong>New tokens are usually worthless.</strong> A Uniswap pool on Base is easy to create and is not a quality signal.</li>
+<li><strong>Phishing.</strong> Fake bridges, explorers and airdrop sites try to steal keys or approvals. Start from docs.base.org, not from a chat link.</li>
+<li><strong>Wrong-network transfers.</strong> Base addresses look like Ethereum addresses. Confirm chain ID 8453 versus 1 (and versus other EVM chains) before sending anything.</li>
+</ul>
+<p>Nothing on this page is financial advice, a recommendation to hold ETH on Base, or a suggestion to launch or trade a token.</p>

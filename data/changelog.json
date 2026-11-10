@@ -1,6 +1,11 @@
 [
  {
   "date": "2026-11-10",
+  "title": "New: chain explainers",
+  "summary": "Added a Chains section with a comparison index and plain-language pages for Solana, Ethereum, BNB Smart Chain, Base, Monad and TRON: gas tokens, official fees and block times, explorers, and commonly used DEXs and launchpads. Education only, no affiliate links."
+ },
+ {
+  "date": "2026-11-10",
   "title": "New: What is Elysium guide",
   "summary": "Added What Is Elysium? Kinetiq's Hyperliquid L2 Explained (and How to Bridge): a sourced explainer of the 9 Nov 2026 mainnet, verified chain ID 99901, official bridge path, sequencer fee split, planned HyperCore upgrade, and rollup risks. Education only, no affiliate links."
  },

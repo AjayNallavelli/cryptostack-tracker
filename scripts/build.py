@@ -118,6 +118,15 @@ def main():
                description={"strategies": "Plain-language risk-management concepts. Not advice.",
                             "guides": "How-to guides researched from public docs: rugs, bundles and pump.fun bonding curves.",
                             "case-studies": "Dated post-mortems of paper calls: what happened and which rule would have caught it. Not advice."}[kind])
+    for a in pages.get("chains", []):
+        body = content(ROOT / "content" / "chains" / f"{a['slug']}.html")
+        render("chain.html", f"/chains/{a['slug']}/", lastmod=a["date_checked"], a=a, kind="chains", kind_label="Chains", body=body,
+               title=f"{a['title']} | {site['name']}", description=a["summary"])
+    if pages.get("chains"):
+        chain_last = max(a["date_checked"] for a in pages["chains"])
+        render("chains_index.html", "/chains/", lastmod=chain_last,
+               title=f"Crypto chains: gas, fees, explorers and venues (2026) | {site['name']}",
+               description="Plain-language explainers of Solana, Ethereum, BNB Smart Chain, Base, Monad and TRON: gas tokens, official fees and block times, explorers, and commonly used DEXs and launchpads. Education only.")
     for a in pages["standalone"]:  # one-off pages: paper scoreboard, learning log
         render("standalone.html", f"/{a['slug']}/", lastmod=a["date_checked"], a=a,
                body=content(ROOT / "content" / f"{a['slug']}.html"),
@@ -139,7 +148,7 @@ def main():
     (out / "robots.txt").write_text(robots_txt(site))
     (out / ".nojekyll").write_text("")
     print(f"Built {len(sitemap)} sitemap pages ({len(tools)} tools, {len(pairs)} comparisons, "
-          f"{len(pages['strategies'])} strategies, {len(pages['guides'])} guides, {len(pages['case-studies'])} case studies, {len(pages['standalone'])} standalone pages) -> {out}")
+          f"{len(pages['strategies'])} strategies, {len(pages['guides'])} guides, {len(pages['case-studies'])} case studies, {len(pages.get('chains', []))} chains, {len(pages['standalone'])} standalone pages) -> {out}")
 
 
 if __name__ == "__main__":

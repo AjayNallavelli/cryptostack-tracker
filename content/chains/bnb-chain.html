@@ -1,0 +1,66 @@
+<p class="lead">BNB Smart Chain (BSC) is a public, EVM-compatible layer-1 network in the BNB Chain family. Fees are paid in BNB. Official docs describe Proof of Staked Authority, a chain ID of 56, and a block time of about 0.45 seconds after recent upgrades. This page is a plain-language snapshot of those official figures, the standard explorer, and venues commonly used for new tokens. It is not a reason to use BSC or to buy any token.</p>
+
+<p class="small muted">Last verified 10 Nov 2026 (Asia/Calcutta) against official BNB Chain documentation and Four.Meme docs. Network details can change; check the official docs before you rely on a figure.</p>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#what">What BNB Smart Chain is</a></li>
+<li><a href="#gas">Gas token, fees and speed</a></li>
+<li><a href="#explorer">Official explorer</a></li>
+<li><a href="#venues">DEXs and memecoin launchpads</a></li>
+<li><a href="#bridging">Bridging basics</a></li>
+<li><a href="#evaluate">How to evaluate a token on BSC</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+
+<h2 id="what">What BNB Smart Chain is</h2>
+<p>Official BNB Chain docs describe <strong>BNB Smart Chain</strong> as an Ethereum-compatible layer 1, launched on 1 September 2020, running a <strong>Proof of Staked Authority (PoSA)</strong> consensus. The mainnet chain ID is <strong>56</strong>. Because it is EVM-compatible, familiar Ethereum tooling (wallets, contract languages, explorers) can often be pointed at BSC &mdash; but it is a different network, with a different gas token, a different validator set and different risk. Always confirm you are on chain ID 56 before signing anything.</p>
+<p>BSC is sometimes still called “Binance Smart Chain.” Official documentation now uses <strong>BNB Smart Chain</strong> / BSC. Other BNB Chain products (for example opBNB, an L2 that settles to BSC) are separate networks and are not covered on this page.</p>
+
+<h2 id="gas">Gas token, fees and speed</h2>
+<p>The native coin is <strong>BNB</strong>. Fees use an Ethereum-style gas model, priced in gwei of BNB.</p>
+<p>Official overview docs (checked 10 Nov 2026) say the block interval is about <strong>0.45 seconds</strong> after the Lorentz, Maxwell and Fermi upgrades, down from an earlier 3-second block time. Those same docs have also cited a “0.05 Gwei standard gas price” and “typical transaction fees around $0.005 or less.” Treat the USD figure as <strong>illustrative and possibly stale</strong>: dollar costs move with the price of BNB and with the gas price of the day. Prefer the official structural facts (BNB as gas, current block time) and check a live gas tracker such as BscScan on the date you care about rather than relying on a copied USD number.</p>
+<div class="table-wrap"><table class="ptable vs compact"><thead><tr><th>Item</th><th>Official figure (checked 10 Nov 2026)</th></tr></thead><tbody>
+<tr><td>Type</td><td>Layer 1, EVM-compatible (Proof of Staked Authority)</td></tr>
+<tr><td>Chain ID</td><td><code>56</code></td></tr>
+<tr><td>Gas token</td><td>BNB</td></tr>
+<tr><td>Block time</td><td>About 0.45 seconds (official overview)</td></tr>
+<tr><td>Launched</td><td>1 September 2020 (official docs)</td></tr>
+</tbody></table></div>
+
+<h2 id="explorer">Official explorer</h2>
+<p>The standard public explorer for BNB Smart Chain is <a href="https://bscscan.com" rel="nofollow noopener" target="_blank">bscscan.com</a>. You can look up a transaction, an address or a BEP-20 token without connecting a wallet. Official network details also live in <a href="https://docs.bnbchain.org/bnb-smart-chain/overview/" rel="nofollow noopener" target="_blank">BNB Chain’s BSC overview</a>. Bookmark official URLs yourself. Do not trust an explorer, RPC or “support” link from a DM, a comment reply or a look-alike domain, and never paste a seed phrase or private key into a website.</p>
+
+<h2 id="venues">DEXs and memecoin launchpads</h2>
+<p>These are commonly used public venues, or venues named in official documentation. They are not recommendations, and this is not a complete list.</p>
+<ul>
+<li><a href="https://pancakeswap.finance" rel="nofollow noopener" target="_blank">PancakeSwap</a> is the principal DEX associated with BSC and is named in official BNB Chain documentation.</li>
+<li><a href="https://four.meme" rel="nofollow noopener" target="_blank">Four.Meme</a> is a token launch platform on BNB Chain. Official Four.Meme docs describe a Classic Fair Launch path: tokens are created without needing to write code, trade on a <strong>bonding curve</strong>, and <strong>automatically migrate liquidity to PancakeSwap</strong> once the stated conditions are met. Other launch models exist in the same ecosystem; this page does not inventory them.</li>
+</ul>
+<p>A completed bonding curve or a PancakeSwap pool does not mean a token is safe, liquid or worth anything. Most new tokens fail. See <a href="/guides/spotting-rugs/">spotting rugs</a>.</p>
+
+<h2 id="bridging">Bridging basics</h2>
+<p>This is a description of official documentation, not an instruction to move funds. If you do not need an asset on BSC, you do not need a bridge.</p>
+<p>BNB Chain publishes official <a href="https://docs.bnbchain.org/bnb-smart-chain/cross-chain-bridge/" rel="nofollow noopener" target="_blank">cross-chain bridge documentation</a> for moving assets between BSC and other networks in the BNB Chain family and beyond. Third-party bridges also exist; each has its own trust assumptions, fees and delays. Start from official docs, not from a link in a chat.</p>
+<p>If you ever use a bridge, confirm you selected <strong>BNB Smart Chain, chain ID 56</strong> (and the intended counterpart network), double-check the domain, and treat unsolicited “bridge” links and fake RPCs as phishing. Sending BNB or tokens to the wrong network can permanently lose them. This page does not rank or endorse third-party bridges.</p>
+
+<h2 id="evaluate">How to evaluate a token on BSC</h2>
+<p>This is a reading list, not a trading method and not a reason to buy anything.</p>
+<ul>
+<li>Read the contract, holders and transactions on <a href="https://bscscan.com" rel="nofollow noopener" target="_blank">BscScan</a>.</li>
+<li>Look at the pool and recent trades on a public screener such as <a href="/tools/dexscreener/">DEX Screener</a>.</li>
+<li>Inspect holder clusters with <a href="/tools/bubblemaps/">Bubblemaps</a> where the chain is covered.</li>
+<li>Use contract-screening tools such as <a href="/tools/goplus/">GoPlus</a> and <a href="/tools/tokensniffer/">Token Sniffer</a> as one input only; a “passed” badge is not a safety guarantee.</li>
+<li>Read <a href="/guides/spotting-rugs/">spotting rugs</a> and <a href="/guides/crypto-research-tools/">crypto research tools</a> for broader context.</li>
+</ul>
+<p>None of those tools can make a token safe. They can only show you what is already on-chain.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li><strong>New tokens are usually worthless.</strong> Bonding-curve launches and automatic DEX migration do not remove insider wallets, hidden mint authority or malicious contracts.</li>
+<li><strong>Wrong-network mistakes.</strong> BSC shares address formats with other EVM chains. Sending assets to chain ID 56 when you meant Ethereum (chain ID 1), or the reverse, is a common way to lose funds.</li>
+<li><strong>Phishing and fake RPCs.</strong> Look-alike explorers, airdrop sites and unofficial “BSC” network pop-ups try to steal keys or approvals.</li>
+<li><strong>Validator and protocol risk.</strong> PoSA is a different security model from Ethereum’s proof of stake. Official docs, not marketing comparisons, are the place to read how validators are set.</li>
+<li><strong>Stale fee quotes.</strong> A USD “typical fee” on a documentation overview can lag the live gas price and the price of BNB.</li>
+</ul>
+<p>Nothing on this page is financial advice, a recommendation to hold BNB, or a suggestion to launch or trade a token.</p>

@@ -1,0 +1,71 @@
+<p class="lead">TRON is a public layer-1 blockchain. It does not use Ethereum-style gas. Official developer docs describe a Delegated Proof of Stake network with 27 Super Representatives, a block time of about 3 seconds, and a fee model based on Bandwidth and Energy, with TRX burned when those resources are insufficient. This page is a plain-language snapshot of those official figures, the official explorer, and commonly used TRON venues for new tokens. It is not a reason to use TRON or to buy any token.</p>
+
+<p class="small muted">Last verified 10 Nov 2026 (Asia/Calcutta) against official TRON developer documentation. Network details can change; check the official docs before you rely on a figure.</p>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#what">What TRON is</a></li>
+<li><a href="#gas">Resources, fees and speed</a></li>
+<li><a href="#explorer">Official explorer</a></li>
+<li><a href="#venues">DEXs and memecoin launchpads</a></li>
+<li><a href="#bridging">Bridging basics</a></li>
+<li><a href="#evaluate">How to evaluate a token on TRON</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+
+<h2 id="what">What TRON is</h2>
+<p>Official developer docs describe TRON as a <strong>layer-1</strong> smart-contract network using <strong>Delegated Proof of Stake (DPoS)</strong>. <strong>27 Super Representatives</strong> produce blocks. That is a different validator model from Ethereum’s large proof-of-stake set or Solana’s validator cluster, with a correspondingly different set of operational and governance assumptions. Official introductory material is published at <a href="https://developers.tron.network/docs/what-is-tron" rel="nofollow noopener" target="_blank">developers.tron.network</a>.</p>
+<p>TRON’s account and contract model is not identical to Ethereum’s, even when a wallet UI makes them look similar. Confirm you are on TRON mainnet, and on the official explorer, before signing anything.</p>
+
+<h2 id="gas">Resources, fees and speed</h2>
+<p>TRON does <strong>not</strong> use Ethereum-style gas paid as “gwei of ETH.” Official docs describe two resources:</p>
+<ul>
+<li><strong>Bandwidth</strong>, used for ordinary transfers and the bytes in a transaction.</li>
+<li><strong>Energy</strong>, used for smart-contract execution.</li>
+</ul>
+<p>Accounts can obtain Bandwidth and Energy by staking or freezing TRX, according to official resource-model docs. When an account does not have enough of either resource, <strong>TRX is burned</strong> to pay for the shortfall. Per-unit burn prices are published in official documentation and can change; this page does not copy a sun-per-unit figure that may go stale. Check the official resource-model docs on the date you care about rather than treating a cached number as current. There is also no single official “typical USD fee” that would stay accurate.</p>
+<p>Official docs describe a block time of about <strong>3 seconds</strong>. They also describe <strong>solidification</strong> (a stronger confirmation than “included in one block”) when at least <strong>19 distinct active Super Representatives</strong> have produced at that height, which official material says typically takes about <strong>one minute</strong>. Inclusion in a block is not the same thing as a solidified block.</p>
+<div class="table-wrap"><table class="ptable vs compact"><thead><tr><th>Item</th><th>Official figure (checked 10 Nov 2026)</th></tr></thead><tbody>
+<tr><td>Type</td><td>Layer 1 (Delegated Proof of Stake)</td></tr>
+<tr><td>Gas / fee model</td><td>Bandwidth and Energy; TRX burned when resources are insufficient</td></tr>
+<tr><td>Native coin</td><td>TRX</td></tr>
+<tr><td>Block time</td><td>About 3 seconds</td></tr>
+<tr><td>Solidification</td><td>Typically about 1 minute, after ≥19 distinct active Super Representatives have produced at that height</td></tr>
+<tr><td>Super Representatives</td><td>27 (official docs)</td></tr>
+</tbody></table></div>
+
+<h2 id="explorer">Official explorer</h2>
+<p>The official explorer is <a href="https://tronscan.org" rel="nofollow noopener" target="_blank">tronscan.org</a>. You can look up a transaction, an account or a TRC-20 token without connecting a wallet. Bookmark that official URL yourself. Do not trust an explorer or “support” link from a DM, a comment reply or a look-alike domain, and never paste a seed phrase or private key into a website.</p>
+
+<h2 id="venues">DEXs and memecoin launchpads</h2>
+<p>These are commonly used public venues described in official SUN.io materials. They are not recommendations, and this is not a complete list.</p>
+<ul>
+<li><a href="https://sun.io" rel="nofollow noopener" target="_blank">SUN.io</a> publishes <strong>SunSwap</strong>, a decentralized exchange on TRON, and <strong>SunPump</strong>, a memecoin launchpad. Official product materials describe SunPump as using a bonding-curve launch, with liquidity later placed on SunSwap (SunSwap V2 is the venue named in those materials).</li>
+</ul>
+<p>A completed bonding curve or a SunSwap pool does not mean a token is safe, liquid or worth anything. Most new tokens fail. See <a href="/guides/spotting-rugs/">spotting rugs</a>.</p>
+
+<h2 id="bridging">Bridging basics</h2>
+<p>This is a description of how assets typically move, not an instruction to move funds. If you do not need an asset on TRON, you do not need a bridge.</p>
+<p>TRON is a layer 1, so there is no single official “canonical withdrawal” window of the kind Ethereum Layer 2s use. Moving assets between TRON and other networks usually means a third-party bridge or a messaging protocol, each with its own trust assumptions, fees and delays. Start from official project documentation, not from a link in a chat. This page does not name, rank or endorse any bridge.</p>
+<p>If you ever use a bridge, double-check the domain, confirm you selected TRON (and the intended counterpart network), and treat unsolicited “bridge” links and fake explorers as phishing. TRON addresses do not use the same <code>0x</code> format as Ethereum; sending assets to the wrong address format or the wrong network can permanently lose them.</p>
+
+<h2 id="evaluate">How to evaluate a token on TRON</h2>
+<p>This is a reading list, not a trading method and not a reason to buy anything. Some Ethereum-oriented scanners have weaker or no coverage of TRC-20 tokens.</p>
+<ul>
+<li>Read the contract, holders and transactions on <a href="https://tronscan.org" rel="nofollow noopener" target="_blank">TRONSCAN</a>.</li>
+<li>Look at the pool and recent trades on a public screener such as <a href="/tools/dexscreener/">DEX Screener</a>, if the pair is listed there.</li>
+<li>Inspect holder clusters with <a href="/tools/bubblemaps/">Bubblemaps</a> where the chain is covered.</li>
+<li>Do not assume an Ethereum contract scanner will produce a meaningful result for a TRON token. If a tool’s own docs do not say it supports TRON, treat a missing or generic result as “not checked,” not as a pass.</li>
+<li>Read <a href="/guides/spotting-rugs/">spotting rugs</a> and <a href="/guides/crypto-research-tools/">crypto research tools</a> for broader context.</li>
+</ul>
+<p>None of those tools can make a token safe. They can only show you what is already on-chain.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li><strong>Different fee and account model.</strong> People who are used to Ethereum gas can misread Bandwidth, Energy and TRX burns, or sign a transaction they did not intend.</li>
+<li><strong>New tokens are usually worthless.</strong> Bonding-curve launches on SunPump, like launchpads on other chains, do not remove insider wallets or malicious contracts.</li>
+<li><strong>Phishing.</strong> Fake explorers, airdrop sites and unofficial wallet pop-ups try to steal keys. Prefer tronscan.org and official developer docs.</li>
+<li><strong>Bridging and address-format risk.</strong> TRON addresses are easy to confuse with “just another network” in a multi-chain wallet UI. A wrong destination can lose funds.</li>
+<li><strong>Consensus model.</strong> A 27-producer DPoS set is a different security and governance model from a large proof-of-stake validator set. Read official docs rather than marketing comparisons.</li>
+</ul>
+<p>Nothing on this page is financial advice, a recommendation to hold TRX, or a suggestion to launch or trade a token.</p>

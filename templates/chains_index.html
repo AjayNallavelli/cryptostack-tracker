@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="crumbs small"><a href="/">Home</a> / Chains</nav>
+<article class="article">
+<h1>Crypto chains: gas, fees, explorers and venues (2026)</h1>
+<p class="risk"><strong>Education only. Not financial advice.</strong> These pages explain public networks. They are not a recommendation to use any chain or venue, not a complete list of every blockchain, and not a signal to buy any token. Crypto is high risk.</p>
+<p class="lead">Each explainer covers, in plain language: what the chain is, which coin pays fees, how official docs describe speed and fees, the official explorer, commonly used DEXs and launchpads, and the basic risks of bridging. Figures are dated and can change &mdash; check the official sources before you rely on one.</p>
+<div class="table-wrap">
+<table class="ptable vs">
+<thead>
+<tr><th>Chain</th><th>Type</th><th>Gas token</th><th>Official explorer</th><th>Typical memecoin venues</th></tr>
+</thead>
+<tbody>
+{% for a in pages.chains %}
+<tr>
+<td><a href="/chains/{{ a.slug }}/">{{ a.name }}</a></td>
+<td>{{ a.chain_type }}</td>
+<td>{{ a.gas_token }}</td>
+<td>{% if a.explorer_url %}<a href="{{ a.explorer_url }}" rel="nofollow noopener" target="_blank">{{ a.explorer_name }}</a>{% else %}{{ a.explorer_name }}{% endif %}</td>
+<td>{{ a.venues_short }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+<p class="small muted">Venues named in the table are commonly used public markets, or listings on official documentation or app directories. They are not endorsements. Fees, block times and product names change; the date on each page is when the sources were last checked.</p>
+<h2>Explainers</h2>
+<ul class="links">{% for a in pages.chains %}<li><a href="/chains/{{ a.slug }}/">{{ a.title }}</a> <span class="small muted">{{ a.summary }}</span></li>{% endfor %}</ul>
+<p class="small muted">Last verified 10 Nov 2026 (Asia/Calcutta).</p>
+</article>
+{% endblock %}
