@@ -1,0 +1,69 @@
+<p class="lead">Arbitrum One is a public Ethereum Layer 2 that uses the Nitro rollup stack. Official docs list a mainnet chain ID of 42161, ETH as the gas token, a 0.02 gwei gas-price floor, and a dispute window of about 6.4 days. This page focuses on Arbitrum One, which is what most people mean by “Arbitrum.” Arbitrum Nova is a separate AnyTrust chain and is mentioned only briefly. This page is not a reason to use Arbitrum or to buy any token.</p>
+
+<p class="small muted">Last verified 10 Nov 2026 (Asia/Calcutta) against official Arbitrum documentation. Network details can change; check the official docs before you rely on a figure.</p>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#what">What Arbitrum is</a></li>
+<li><a href="#gas">Gas token, fees and speed</a></li>
+<li><a href="#explorer">Official explorer</a></li>
+<li><a href="#venues">DEXs and memecoin launchpads</a></li>
+<li><a href="#bridging">Bridging basics</a></li>
+<li><a href="#evaluate">How to evaluate a token on Arbitrum</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+
+<h2 id="what">What Arbitrum is</h2>
+<p>Official Arbitrum docs describe a platform for applications, tokenization and dedicated chains that settle to Ethereum. The public general-purpose rollup is <strong>Arbitrum One</strong>: a Nitro <strong>optimistic rollup</strong> with chain ID <strong>42161</strong> and a public RPC at <a href="https://arb1.arbitrum.io/rpc" rel="nofollow noopener" target="_blank">https://arb1.arbitrum.io/rpc</a>. Transactions are sequenced and executed on Arbitrum; batches and assertions are posted to Ethereum, where they can be challenged during the official dispute window.</p>
+<p><strong>Arbitrum Nova</strong> (chain ID 42170) is a separate public chain that official docs describe as Nitro <strong>AnyTrust</strong> rather than a full rollup. It has different data-availability assumptions. As of 31 January 2026, official docs also note that some third-party tools (including the former Nova Arbiscan) no longer support Nova. This page does not treat Nova as interchangeable with Arbitrum One. Other “Arbitrum chains” can be launched as dedicated chains on the same stack; they have their own chain IDs and are not Arbitrum One. <a href="/chains/robinhood-chain/">Robinhood Chain</a> is one example officially described as built on Arbitrum Dedicated Blockchains.</p>
+
+<h2 id="gas">Gas token, fees and speed</h2>
+<p>The gas token on Arbitrum One is <strong>ETH</strong>. Official docs describe child-chain execution gas plus an L1 data component that is folded into the fee a wallet estimates. Official chain parameters (checked 10 Nov 2026) include:</p>
+<ul>
+<li>A <strong>gas-price floor of 0.02 gwei</strong> on Arbitrum One.</li>
+<li>A <strong>block gas limit of 32,000,000</strong>.</li>
+<li>A <strong>dispute window of 45,818 blocks, about 6.4 days</strong>, during which an assertion can be challenged before it is confirmed.</li>
+<li>A <strong>force-include period of 24 hours</strong> (7,200 L1 blocks) after which a delayed message can enter the inbox without the sequencer.</li>
+</ul>
+<p>Official docs also publish a multi-window gas-target schedule for Arbitrum One (for example 60 Mgas/s over a 9-second window, stepping down over longer windows). Those are protocol congestion parameters, not a promise of sustained live throughput, and not a USD fee. Fees vary with L2 demand and with Ethereum data costs.</p>
+<p>Official docs distinguish a sequencer “soft confirmation” (the sequencer has ordered and executed the transaction) from parent-chain finality (the data is posted and the assertion is confirmed on Ethereum). A successful send is not the same thing as a completed withdrawal.</p>
+<div class="table-wrap"><table class="ptable vs compact"><thead><tr><th>Item</th><th>Official figure for Arbitrum One (checked 10 Nov 2026)</th></tr></thead><tbody>
+<tr><td>Type</td><td>Layer 2, Nitro optimistic rollup, settles to Ethereum</td></tr>
+<tr><td>Chain ID</td><td><code>42161</code></td></tr>
+<tr><td>Gas token</td><td>ETH</td></tr>
+<tr><td>Gas-price floor</td><td>0.02 gwei</td></tr>
+<tr><td>Block gas limit</td><td>32,000,000</td></tr>
+<tr><td>Dispute window</td><td>45,818 blocks (about 6.4 days)</td></tr>
+</tbody></table></div>
+
+<h2 id="explorer">Official explorer</h2>
+<p>Official chain-information docs list <a href="https://arbiscan.io" rel="nofollow noopener" target="_blank">Arbiscan (arbiscan.io)</a> and Blockscout as explorers for Arbitrum One. You can look up a transaction, an address or a token without connecting a wallet. Bookmark official URLs yourself. Do not trust an explorer or RPC from a DM or a look-alike domain, and never paste a seed phrase or private key into a website.</p>
+
+<h2 id="venues">DEXs and memecoin launchpads</h2>
+<p><a href="https://uniswap.org" rel="nofollow noopener" target="_blank">Uniswap</a> is a major decentralized exchange on Arbitrum One, as on Ethereum. Other AMMs also operate on the chain. Official docs do not name a single canonical memecoin launchpad, and this page does not invent one. A pool on Arbitrum is not evidence that a token is safe or worth anything. Most new tokens fail. See <a href="/guides/spotting-rugs/">spotting rugs</a>.</p>
+
+<h2 id="bridging">Bridging basics</h2>
+<p>This is a description of official documentation, not an instruction to move funds. If you do not need an asset on Arbitrum, you do not need to bridge.</p>
+<p>Official docs describe the canonical token bridge between Ethereum and Arbitrum chains, documented in the Arbitrum bridge guides and typically accessed via the official portal at <a href="https://bridge.arbitrum.io" rel="nofollow noopener" target="_blank">bridge.arbitrum.io</a>. Canonical withdrawals inherit the rollup’s dispute window: official parameters put confirmation at about <strong>6.4 days</strong> on Arbitrum One, after which funds are claimed on Ethereum. Third-party “fast bridges” can quote shorter delays; they are a different trust model. This page does not recommend them.</p>
+<p>If you ever use a bridge, start from official Arbitrum docs, confirm chain ID <code>42161</code> for Arbitrum One (and not Nova’s 42170, unless that is the network you actually intended), double-check the domain, and treat unsolicited bridge links as phishing.</p>
+
+<h2 id="evaluate">How to evaluate a token on Arbitrum</h2>
+<p>This is a reading list, not a trading method and not a reason to buy anything.</p>
+<ul>
+<li>Read the contract, holders and transactions on <a href="https://arbiscan.io" rel="nofollow noopener" target="_blank">Arbiscan</a>.</li>
+<li>Look at the pool and recent trades on a public screener such as <a href="/tools/dexscreener/">DEX Screener</a>.</li>
+<li>Inspect holder clusters with <a href="/tools/bubblemaps/">Bubblemaps</a> where the chain is covered.</li>
+<li>Use <a href="/tools/goplus/">GoPlus</a> and <a href="/tools/tokensniffer/">Token Sniffer</a> as one input only; a “passed” badge is not a safety guarantee.</li>
+<li>Read <a href="/guides/spotting-rugs/">spotting rugs</a> and <a href="/guides/crypto-research-tools/">crypto research tools</a>.</li>
+</ul>
+<p>None of those tools can make a token safe.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li><strong>Layer-2 trust assumptions.</strong> Sequencer soft confirmations are faster than Ethereum finality. Canonical withdrawals wait out the official dispute window of about 6.4 days.</li>
+<li><strong>Wrong Arbitrum chain.</strong> Arbitrum One, Arbitrum Nova and other Arbitrum chains have different chain IDs and different security models. Sending assets to the wrong one can lose them or park them somewhere a venue does not support.</li>
+<li><strong>New tokens are usually worthless.</strong></li>
+<li><strong>Phishing and fake bridges.</strong> Prefer docs.arbitrum.io and the official bridge host.</li>
+<li><strong>Variable L1 data fees.</strong> The L1 component of an Arbitrum fee moves with Ethereum congestion.</li>
+</ul>
+<p>Nothing on this page is financial advice, a recommendation to hold ETH on Arbitrum, or a suggestion to launch or trade a token.</p>

@@ -50,6 +50,100 @@ def load():
     return site, tools, pairs, pages, log, paper, rules, costs, tool_eval
 
 
+
+# First-mention links from chain names to /chains/<slug>/. Applied to rendered HTML.
+# Longer names first. Conservative patterns for Base, Arc and Stable.
+_CHAIN_TERMS = [
+    ("BNB Smart Chain", "bnb-chain"),
+    ("BNB Chain", "bnb-chain"),
+    ("Robinhood Chain", "robinhood-chain"),
+    ("Arbitrum One", "arbitrum"),
+    ("Arbitrum Nova", "arbitrum"),
+    ("Avalanche C-Chain", "avalanche"),
+    ("X Layer", "x-layer"),
+    ("HyperEVM", "hyperevm"),
+    ("MegaETH", "megaeth"),
+    ("Stable Mainnet", "stable"),
+    ("Stable Chain", "stable"),
+    ("StableChain", "stable"),
+    ("Ethereum", "ethereum"),
+    ("Solana", "solana"),
+    ("Arbitrum", "arbitrum"),
+    ("Avalanche", "avalanche"),
+    ("Monad", "monad"),
+    ("TRON", "tron"),
+    ("Tron", "tron"),
+    ("Blast", "blast"),
+    ("BSC", "bnb-chain"),
+    ("Base", "base"),
+    ("Arc", "arc"),
+]
+
+_FORBIDDEN_TAGS = {"a", "code", "pre", "script", "style", "title", "textarea", "svg", "h1"}
+_BASE_BAD_FOLLOW = re.compile(r"^( fee| Fee| URL| url| path| Path|64)", re.S)
+_TAG_OR_TEXT = re.compile(r"(<[^>]+>|[^<]+)")
+_OPEN = re.compile(r"^</?([A-Za-z][A-Za-z0-9:-]*)")
+
+
+def _term_pattern(term):
+    if term == "Base":
+        return re.compile(r"(?<![A-Za-z0-9])Base(?![A-Za-z0-9])")
+    if term == "Arc":
+        return re.compile(r"(?<![A-Za-z0-9])Arc(?![A-Za-z0-9])")
+    if term == "BSC":
+        return re.compile(r"\bBSC\b")
+    return re.compile(r"(?<![A-Za-z0-9])" + re.escape(term) + r"(?![A-Za-z0-9])")
+
+
+def link_chain_names(html, skip_slugs=None):
+    """Wrap the first mention of each known chain name in a /chains/<slug>/ link."""
+    skip = set(skip_slugs or [])
+    linked = set(skip)
+    compiled = [(term, slug, _term_pattern(term)) for term, slug in _CHAIN_TERMS]
+    depth = {name: 0 for name in _FORBIDDEN_TAGS}
+
+    def in_forbidden():
+        return any(depth.values())
+
+    def link_text(chunk):
+        if in_forbidden() or not chunk or chunk.startswith("<"):
+            return chunk
+        for term, slug, pat in compiled:
+            if slug in linked:
+                continue
+            m = pat.search(chunk)
+            if not m:
+                continue
+            if term == "Base" and _BASE_BAD_FOLLOW.match(chunk[m.end():]):
+                continue
+            href = f"/chains/{slug}/"
+            linked.add(slug)
+            start, end = m.span()
+            chunk = (
+                chunk[:start]
+                + f'<a href="{href}">{chunk[start:end]}</a>'
+                + chunk[end:]
+            )
+        return chunk
+
+    out = []
+    for part in _TAG_OR_TEXT.findall(html):
+        if part.startswith("<"):
+            om = _OPEN.match(part)
+            if om:
+                name = om.group(1).lower()
+                if name in depth:
+                    if part.startswith("</"):
+                        depth[name] = max(0, depth[name] - 1)
+                    elif not part.endswith("/>"):
+                        depth[name] += 1
+            out.append(part)
+        else:
+            out.append(link_text(part))
+    return "".join(out)
+
+
+
 ROOT_REL = re.compile(r'((?:href|src|action)=")/(?!/)')
 
 
@@ -87,7 +181,12 @@ def main():
     def render(tpl, path, sitemap_on=True, lastmod=None, **ctx):
         p = out / path.strip("/") / "index.html" if not path.endswith((".html", ".xml", ".txt")) else out / path.strip("/")
         p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text(prefix_links(env.get_template(tpl).render(**common, path=path, **ctx), site["base_path"]))
+        html_out = env.get_template(tpl).render(**common, path=path, **ctx)
+        skip = []
+        if path.startswith("/chains/") and path != "/chains/":
+            skip = [path.strip("/").split("/")[-1]]
+        html_out = link_chain_names(html_out, skip_slugs=skip)
+        p.write_text(prefix_links(html_out, site["base_path"]))
         if sitemap_on and path.endswith("/"):
             sitemap.append((path, lastmod))
 
@@ -126,7 +225,7 @@ def main():
         chain_last = max(a["date_checked"] for a in pages["chains"])
         render("chains_index.html", "/chains/", lastmod=chain_last,
                title=f"Crypto chains: gas, fees, explorers and venues (2026) | {site['name']}",
-               description="Plain-language explainers of Solana, Ethereum, BNB Smart Chain, Base, Monad and TRON: gas tokens, official fees and block times, explorers, and commonly used DEXs and launchpads. Education only.")
+               description="Plain-language explainers of widely used crypto chains: gas tokens, official fees and block times, explorers, and commonly used DEXs and launchpads. Education only.")
     for a in pages["standalone"]:  # one-off pages: paper scoreboard, learning log
         render("standalone.html", f"/{a['slug']}/", lastmod=a["date_checked"], a=a,
                body=content(ROOT / "content" / f"{a['slug']}.html"),

@@ -1,6 +1,11 @@
 [
  {
   "date": "2026-11-10",
+  "title": "New: more chain explainers and chain links",
+  "summary": "Added plain-language chain pages for Arbitrum, Avalanche, Blast, HyperEVM, MegaETH, X Layer, Robinhood Chain, Arc and Stable, linked chain names across existing guides and tool pages, and disclosed a Binance referral link (marked “Referral link”) on the BNB Smart Chain page, the footer and the methodology page. Education only."
+ },
+ {
+  "date": "2026-11-10",
   "title": "New: chain explainers",
   "summary": "Added a Chains section with a comparison index and plain-language pages for Solana, Ethereum, BNB Smart Chain, Base, Monad and TRON: gas tokens, official fees and block times, explorers, and commonly used DEXs and launchpads. Education only, no affiliate links."
  },

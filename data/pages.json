@@ -775,6 +775,312 @@
      "url": "https://sun.io"
     }
    ]
+  },
+  {
+   "slug": "arbitrum",
+   "name": "Arbitrum",
+   "title": "What Is Arbitrum? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of Arbitrum One: ETH as gas, chain ID 42161, official 0.02 gwei gas-price floor, and a dispute window of about 6.4 days, plus how it differs from Arbitrum Nova. Education only.",
+   "chain_type": "Layer 2, settles to Ethereum",
+   "gas_token": "ETH",
+   "explorer_name": "arbiscan.io",
+   "explorer_url": "https://arbiscan.io",
+   "venues_short": "Uniswap",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "Arbitrum docs: Chain information",
+     "url": "https://docs.arbitrum.io/chain-info"
+    },
+    {
+     "label": "Arbitrum docs: Get started",
+     "url": "https://docs.arbitrum.io/welcome/get-started"
+    },
+    {
+     "label": "Official Arbitrum bridge",
+     "url": "https://bridge.arbitrum.io"
+    },
+    {
+     "label": "Arbiscan",
+     "url": "https://arbiscan.io"
+    }
+   ]
+  },
+  {
+   "slug": "avalanche",
+   "name": "Avalanche",
+   "title": "What Is Avalanche? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of Avalanche’s C-Chain: AVAX as gas, chain ID 43114, official fee-burn rules, the 22 Sep 2026 Helicon upgrade, and the official explorer. Education only.",
+   "chain_type": "Layer 1 (C-Chain is the EVM)",
+   "gas_token": "AVAX",
+   "explorer_name": "explorer.avax.network",
+   "explorer_url": "https://explorer.avax.network/c-chain",
+   "venues_short": "C-Chain AMMs",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "Avalanche docs: Primary Network",
+     "url": "https://docs.avax.network/docs/primary-network"
+    },
+    {
+     "label": "Avalanche docs: Helicon upgrade",
+     "url": "https://docs.avax.network/docs/primary-network/helicon-upgrade"
+    },
+    {
+     "label": "Avalanche docs: Transaction fees",
+     "url": "https://docs.avax.network/docs/rpcs/other/guides/txn-fees"
+    },
+    {
+     "label": "ACP-226: Dynamic minimum block times",
+     "url": "https://build.avax.network/docs/acps/226-dynamic-minimum-block-times"
+    },
+    {
+     "label": "Official C-Chain explorer",
+     "url": "https://explorer.avax.network/c-chain"
+    }
+   ]
+  },
+  {
+   "slug": "blast",
+   "name": "Blast",
+   "title": "What Is Blast? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of Blast, an OP Stack Ethereum Layer 2: ETH as gas, chain ID 81457, official explorer, and a roughly seven-day canonical withdrawal window. Education only.",
+   "chain_type": "Layer 2, settles to Ethereum",
+   "gas_token": "ETH",
+   "explorer_name": "blastscan.io",
+   "explorer_url": "https://blastscan.io",
+   "venues_short": "See page",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "Blast docs: Network information",
+     "url": "https://docs.blast.io/building/network-information"
+    },
+    {
+     "label": "Blast docs: About Blast",
+     "url": "https://docs.blast.io/about-blast"
+    },
+    {
+     "label": "Blast docs: Mainnet bridges",
+     "url": "https://docs.blast.io/building/bridges/mainnet"
+    },
+    {
+     "label": "Official Blast bridge",
+     "url": "https://blast.io/bridge"
+    },
+    {
+     "label": "Blastscan",
+     "url": "https://blastscan.io"
+    }
+   ]
+  },
+  {
+   "slug": "hyperevm",
+   "name": "HyperEVM",
+   "title": "What Is HyperEVM? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of HyperEVM, Hyperliquid’s EVM environment: HYPE as gas, chain ID 999, official dual-block times, and official explorers. Education only.",
+   "chain_type": "EVM on Hyperliquid L1",
+   "gas_token": "HYPE",
+   "explorer_name": "hyperevmscan.io",
+   "explorer_url": "https://hyperevmscan.io",
+   "venues_short": "See page",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "Hyperliquid docs: HyperEVM",
+     "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/hyperevm"
+    },
+    {
+     "label": "Hyperliquid docs: How to use the HyperEVM",
+     "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/onboarding/how-to-use-the-hyperevm"
+    },
+    {
+     "label": "Hyperliquid docs: Dual-block architecture",
+     "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/hyperevm/dual-block-architecture"
+    },
+    {
+     "label": "HyperEVMScan",
+     "url": "https://hyperevmscan.io"
+    },
+    {
+     "label": "Hyperscan",
+     "url": "https://www.hyperscan.com"
+    }
+   ]
+  },
+  {
+   "slug": "megaeth",
+   "name": "MegaETH",
+   "title": "What Is MegaETH? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of MegaETH, an OP Stack Ethereum Layer 2: ETH as gas, chain ID 4326, official 10 ms mini-blocks and 1 s EVM blocks, and the official explorer. Education only.",
+   "chain_type": "Layer 2, settles to Ethereum",
+   "gas_token": "ETH",
+   "explorer_name": "mega.etherscan.io",
+   "explorer_url": "https://mega.etherscan.io",
+   "venues_short": "See page",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "MegaETH docs: Connect to MegaETH",
+     "url": "https://docs.megaeth.com/user-guide/connect"
+    },
+    {
+     "label": "MegaETH docs: Architecture",
+     "url": "https://docs.megaeth.com/architecture"
+    },
+    {
+     "label": "MegaETH docs: Get funds on mainnet",
+     "url": "https://docs.megaeth.com/user-guide/bridge"
+    },
+    {
+     "label": "Official MegaETH bridge portal",
+     "url": "https://rabbithole.megaeth.com/bridge"
+    },
+    {
+     "label": "MegaETH explorer",
+     "url": "https://mega.etherscan.io"
+    }
+   ]
+  },
+  {
+   "slug": "x-layer",
+   "name": "X Layer",
+   "title": "What Is X Layer? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of X Layer, OKX’s OP Stack Ethereum Layer 2: OKB as gas, chain ID 196, official 1-second blocks, and the official explorer. Education only.",
+   "chain_type": "Layer 2, settles to Ethereum",
+   "gas_token": "OKB",
+   "explorer_name": "okx.com/web3/explorer/xlayer",
+   "explorer_url": "https://www.okx.com/web3/explorer/xlayer",
+   "venues_short": "See page",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "X Layer docs: About X Layer",
+     "url": "https://web3.okx.com/onchainos/dev-docs/xlayer/developer/build-on-xlayer/about-xlayer"
+    },
+    {
+     "label": "X Layer docs: Network information",
+     "url": "https://web3.okx.com/onchainos/dev-docs/xlayer/developer/build-on-xlayer/network-information"
+    },
+    {
+     "label": "X Layer docs: Bridge overview",
+     "url": "https://web3.okx.com/onchainos/dev-docs/xlayer/developer/bridge/overview"
+    },
+    {
+     "label": "Official X Layer bridge portal",
+     "url": "https://web3.okx.com/xlayer/bridge"
+    },
+    {
+     "label": "Official X Layer explorer",
+     "url": "https://www.okx.com/web3/explorer/xlayer"
+    }
+   ]
+  },
+  {
+   "slug": "robinhood-chain",
+   "name": "Robinhood Chain",
+   "title": "What Is Robinhood Chain? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of Robinhood Chain, an Arbitrum Layer 2: ETH as gas, chain ID 4663, official first-come first-served sequencing, and a 7-day canonical withdrawal window. Education only.",
+   "chain_type": "Layer 2, settles to Ethereum",
+   "gas_token": "ETH",
+   "explorer_name": "robinhoodchain.blockscout.com",
+   "explorer_url": "https://robinhoodchain.blockscout.com",
+   "venues_short": "Uniswap (official ecosystem list)",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "Robinhood Chain docs: About",
+     "url": "https://docs.robinhood.com/chain/"
+    },
+    {
+     "label": "Robinhood Chain docs: Connecting",
+     "url": "https://docs.robinhood.com/chain/connecting/"
+    },
+    {
+     "label": "Robinhood Chain docs: Gas and fees",
+     "url": "https://docs.robinhood.com/chain/gas-and-fees/"
+    },
+    {
+     "label": "Robinhood Chain docs: Bridging",
+     "url": "https://docs.robinhood.com/chain/bridging/"
+    },
+    {
+     "label": "Robinhood support: Robinhood Chain mainnet",
+     "url": "https://robinhood.com/us/en/support/articles/robinhood-chain-mainnet/"
+    },
+    {
+     "label": "Official explorer (Blockscout)",
+     "url": "https://robinhoodchain.blockscout.com"
+    }
+   ]
+  },
+  {
+   "slug": "arc",
+   "name": "Arc",
+   "title": "What Is Arc? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of Circle’s Arc layer 1: USDC as gas, chain ID 5042, official ~0.5-second blocks and sub-second finality, and the official explorer. Education only.",
+   "chain_type": "Layer 1, EVM-compatible (permissioned validators)",
+   "gas_token": "USDC",
+   "explorer_name": "explorer.arc.io",
+   "explorer_url": "https://explorer.arc.io",
+   "venues_short": "See page",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "Arc docs: Arc Network",
+     "url": "https://docs.arc.io/arc-chain"
+    },
+    {
+     "label": "Arc docs: Connect to Arc",
+     "url": "https://docs.arc.io/arc/references/connect-to-arc"
+    },
+    {
+     "label": "Arc docs: RPC endpoints",
+     "url": "https://docs.arc.io/arc/references/rpc-endpoints"
+    },
+    {
+     "label": "Arc docs: Gas and fees",
+     "url": "https://docs.arc.io/arc/references/gas-and-fees"
+    },
+    {
+     "label": "Official Arc explorer",
+     "url": "https://explorer.arc.io"
+    }
+   ]
+  },
+  {
+   "slug": "stable",
+   "name": "Stable",
+   "title": "What Is Stable? Gas, Fees, Explorer, DEXs and Memecoin Launchpads (2026)",
+   "summary": "A plain-language explainer of the Stable payments layer 1: USDT0 as gas, chain ID 988, official ~0.7-second blocks and single-slot finality, and the official explorer. Education only.",
+   "chain_type": "Layer 1, EVM-compatible (payments)",
+   "gas_token": "USDT0",
+   "explorer_name": "stablescan.xyz",
+   "explorer_url": "https://stablescan.xyz",
+   "venues_short": "Uniswap v3 / Stable Swap",
+   "date_checked": "2026-11-10",
+   "sources": [
+    {
+     "label": "Official Stable docs",
+     "url": "https://docs.stable.xyz/"
+    },
+    {
+     "label": "Stable docs: Mainnet information",
+     "url": "https://docs.stable.xyz/en/reference/mainnet-information"
+    },
+    {
+     "label": "Stable docs: Finality",
+     "url": "https://docs.stable.xyz/en/explanation/finality"
+    },
+    {
+     "label": "Official Stablescan explorer",
+     "url": "https://stablescan.xyz"
+    },
+    {
+     "label": "Stable Swap",
+     "url": "https://swap.stable.xyz"
+    }
+   ]
   }
  ]
 }

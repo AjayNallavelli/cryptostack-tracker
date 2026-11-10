@@ -1,0 +1,69 @@
+<p class="lead">MegaETH is a public Ethereum Layer 2, built on the OP Stack and optimized for real-time execution. Official docs describe a live mainnet (chain ID 4326), ETH as gas, mini-blocks about every 10 milliseconds, EVM blocks about every 1 second, and a posted base fee of 0.001 gwei. This page is a plain-language snapshot of those official figures. It is not a reason to use MegaETH or to buy any token.</p>
+
+<p class="small muted">Last verified 10 Nov 2026 (Asia/Calcutta) against official MegaETH documentation. Network details can change; check the official docs before you rely on a figure.</p>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#what">What MegaETH is</a></li>
+<li><a href="#gas">Gas token, fees and speed</a></li>
+<li><a href="#explorer">Official explorer</a></li>
+<li><a href="#venues">DEXs and memecoin launchpads</a></li>
+<li><a href="#bridging">Bridging basics</a></li>
+<li><a href="#evaluate">How to evaluate a token on MegaETH</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+
+<h2 id="what">What MegaETH is</h2>
+<p>Official architecture docs describe MegaETH as an <strong>Ethereum Layer 2 built on the OP Stack</strong>, with a single sequencer, mini-blocks streamed to RPC nodes, and settlement on Ethereum L1. Data availability is officially described as using <strong>EigenDA</strong>, with an OP Stack batcher posting a certificate to Ethereum. Dispute resolution uses the OP Stack framework, with official docs naming <strong>Kailua</strong> (a ZK fraud-proof system built on RISC-Zero) instead of the older multi-round interactive bisection.</p>
+<p>Official connecting docs list a <strong>mainnet</strong> and a <strong>testnet</strong>. Mainnet is the production network described on this page (chain ID <strong>4326</strong>). Testnet (chain ID 6343) is for experiments; official docs say testnet tokens have no real monetary value. Official docs also warn that RPCs may be rate-limited or go offline during upgrades, and that contracts and state may be rolled back in rare cases &mdash; a risk to take seriously on a high-speed L2.</p>
+
+<h2 id="gas">Gas token, fees and speed</h2>
+<p>The gas token is <strong>ETH</strong> (18 decimals). Official connecting docs (checked 10 Nov 2026) state:</p>
+<ul>
+<li><strong>Mini-blocks</strong> about every <strong>10 milliseconds</strong>, and standard <strong>EVM blocks</strong> about every <strong>1 second</strong>.</li>
+<li>A block gas limit of <strong>10,000,000,000</strong> gas per EVM block.</li>
+<li>A <strong>base fee of 0.001 gwei</strong>, with EIP-1559 base-fee adjustment “effectively disabled.”</li>
+<li>A public mainnet RPC at <a href="https://mainnet.megaeth.com/rpc" rel="nofollow noopener" target="_blank">https://mainnet.megaeth.com/rpc</a>.</li>
+</ul>
+<p>A 10-millisecond mini-block is a sequencer confirmation, not Ethereum finality. Settlement and any canonical withdrawal still depend on Ethereum and the fault-proof window. Official docs do not, in the pages checked, publish a single day-count for that window; check the current official docs rather than assuming a 7-day OP Stack default.</p>
+<p>The 0.001 gwei base fee is an official protocol figure, not a USD quote. Dollar costs still move with the price of ETH.</p>
+<div class="table-wrap"><table class="ptable vs compact"><thead><tr><th>Item</th><th>Official figure (checked 10 Nov 2026)</th></tr></thead><tbody>
+<tr><td>Type</td><td>Layer 2 (OP Stack), settles to Ethereum; DA via EigenDA</td></tr>
+<tr><td>Chain ID</td><td><code>4326</code></td></tr>
+<tr><td>Gas token</td><td>ETH</td></tr>
+<tr><td>Mini-blocks / EVM blocks</td><td>~10 ms / ~1 s</td></tr>
+<tr><td>Base fee</td><td>0.001 gwei (adjustment effectively disabled)</td></tr>
+<tr><td>EVM block gas limit</td><td>10,000,000,000</td></tr>
+</tbody></table></div>
+
+<h2 id="explorer">Official explorer</h2>
+<p>Official connecting docs list <a href="https://mega.etherscan.io" rel="nofollow noopener" target="_blank">mega.etherscan.io</a> as the mainnet explorer (and also mention Blockscout). You can look up a transaction, an address or a token without connecting a wallet. Official status is published at <a href="https://uptime.megaeth.com" rel="nofollow noopener" target="_blank">uptime.megaeth.com</a>. Bookmark official URLs yourself. Do not trust an explorer or RPC from a DM or a look-alike domain, and never paste a seed phrase or private key into a website.</p>
+
+<h2 id="venues">DEXs and memecoin launchpads</h2>
+<p>Official user docs focus on connecting, bridging and developer tooling. They do not name a single official memecoin launchpad that this page can treat as canonical, and this page does not invent DEX names. A pool on MegaETH is not evidence that a token is safe or worth anything. Most new tokens fail. See <a href="/guides/spotting-rugs/">spotting rugs</a>.</p>
+
+<h2 id="bridging">Bridging basics</h2>
+<p>This is a description of official documentation, not an instruction to move funds. If you do not need an asset on MegaETH, you do not need to bridge.</p>
+<p>Official “Get Funds on Mainnet” docs point to the official portal at <a href="https://rabbithole.megaeth.com/bridge" rel="nofollow noopener" target="_blank">rabbithole.megaeth.com/bridge</a>, and they also list third-party bridges and aggregators. MegaETH uses an <strong>OP Stack Standard Bridge</strong> for the canonical path. This page does not publish contract addresses and does not tell you to use a card on-ramp or any third-party route.</p>
+<p>If you ever use a bridge, start from official MegaETH docs, confirm chain ID <code>4326</code> on MegaETH and chain ID <code>1</code> on Ethereum, double-check the domain, and treat unsolicited bridge links as phishing. A wrong-network transfer can permanently lose funds. Expect canonical withdrawals, if you use that path, to follow an L2 dispute process that is slower than a 10-millisecond mini-block.</p>
+
+<h2 id="evaluate">How to evaluate a token on MegaETH</h2>
+<p>This is a reading list, not a trading method and not a reason to buy anything. Coverage on a newer L2 can be uneven.</p>
+<ul>
+<li>Read the contract, holders and transactions on <a href="https://mega.etherscan.io" rel="nofollow noopener" target="_blank">mega.etherscan.io</a>.</li>
+<li>Look at the pool and recent trades on a public screener such as <a href="/tools/dexscreener/">DEX Screener</a>, if the pair is listed there.</li>
+<li>Inspect holder clusters with <a href="/tools/bubblemaps/">Bubblemaps</a> where the chain is covered.</li>
+<li>Use <a href="/tools/goplus/">GoPlus</a> and <a href="/tools/tokensniffer/">Token Sniffer</a> only if they actually support MegaETH for that contract.</li>
+<li>Read <a href="/guides/spotting-rugs/">spotting rugs</a> and <a href="/guides/crypto-research-tools/">crypto research tools</a>.</li>
+</ul>
+<p>None of those tools can make a token safe.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li><strong>Sequencer and rollback risk.</strong> Official docs warn that RPCs may go offline during upgrades and that contracts and state may be rolled back in rare cases.</li>
+<li><strong>Fast confirmation is not Ethereum finality.</strong> A 10 ms mini-block is not the same as a completed withdrawal or a finalized L1 batch.</li>
+<li><strong>New tokens are usually worthless.</strong></li>
+<li><strong>Phishing.</strong> Prefer docs.megaeth.com and the official rabbithole.megaeth.com host, not a chat link.</li>
+<li><strong>Wrong-network transfers.</strong> MegaETH addresses look like Ethereum addresses. Confirm chain ID 4326 versus 1 (and versus other EVM chains) before sending anything.</li>
+</ul>
+<p>Nothing on this page is financial advice, a recommendation to hold ETH on MegaETH, or a suggestion to launch or trade a token.</p>
