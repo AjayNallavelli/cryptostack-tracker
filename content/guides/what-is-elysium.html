@@ -1,0 +1,122 @@
+<p class="lead">Elysium is a general-purpose Layer 2 built by Kinetiq for the Hyperliquid ecosystem. It settles to HyperEVM, uses HYPE as gas, and went live on public mainnet on 9 Nov 2026. This page explains what that means in plain language, how the official bridge is described, and what is still incomplete. It is not a reason to use the chain, bridge funds or buy any token.</p>
+
+<p class="small muted">Last verified 10 Nov 2026 (Asia/Calcutta) against Kinetiq’s official Elysium docs and blog, a live read of the public RPC, and DefiLlama snapshots. Network details can change; check the official docs before you rely on a figure.</p>
+
+<p class="risk"><strong>Education only. Not financial advice.</strong> Crypto is high risk, and a new chain is riskier still. Nothing here is a coin pick, a signal or a suggestion to bridge, trade or deploy. Kinetiq’s stated fee model and token-unlock schedule are described as facts about the project, not as a reason to buy or sell KNTQ or HYPE.</p>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#what">What Elysium is</a></li>
+<li><a href="#hyperliquid">How it relates to Hyperliquid, HyperEVM and HyperCore</a></li>
+<li><a href="#network">Network details</a></li>
+<li><a href="#bridge">How bridging is described</a></li>
+<li><a href="#fees">The sequencer fee model</a></li>
+<li><a href="#coming">What is planned next</a></li>
+<li><a href="#ecosystem">Ecosystem (listed, not endorsed)</a></li>
+<li><a href="#risks">Risks</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+
+<h2 id="what">What Elysium is</h2>
+<p>In official docs, Elysium is “a general-purpose, high-performance L2 for Hyperliquid built by Kinetiq.” It is an <strong>Arbitrum Orbit</strong> chain (Nitro/ArbOS), operated with <strong>Conduit</strong>. Transactions run on Elysium; the chain <strong>settles to HyperEVM</strong> (Hyperliquid’s EVM, chain ID 999).</p>
+<p>Kinetiq opened public mainnet on <strong>9 Nov 2026</strong>, according to its launch blog and the Elysium docs (which mark both mainnet and testnet as live). The docs, last updated 9 Nov 2026, also state:</p>
+<ul>
+<li>Blocks are produced at a <strong>100 millisecond</strong> canonical cadence, with a perceived transaction receipt of about 300 milliseconds.</li>
+<li>The execution target is <strong>300 million gas per second</strong>, described as validated in load testing before mainnet — a target, not a promise of sustained live throughput.</li>
+<li>The native gas token is <strong>HYPE</strong>, the same native coin as HyperEVM. Official docs say HYPE bridges in 1:1 as native gas and withdraws 1:1, with no wrapper and no new gas token.</li>
+<li>The EVM is stock <strong>ArbOS 61</strong>, so ordinary EVM tooling is intended to work. Blob transactions are not supported.</li>
+</ul>
+<p>Elysium does not introduce its own gas token. <strong>KNTQ</strong> is Kinetiq’s existing governance token; it is relevant to the sequencer fee split described below, not to paying gas on Elysium.</p>
+<p>This Elysium (chain ID 99901) is Kinetiq’s Hyperliquid L2. It is not the older, unrelated “Elysium” networks that appear on some market-data sites.</p>
+
+<h2 id="hyperliquid">How it relates to Hyperliquid, HyperEVM and HyperCore</h2>
+<p>Hyperliquid has more than one layer. The official Elysium docs describe the relationship this way:</p>
+<ul>
+<li><strong>HyperCore</strong> is Hyperliquid’s Layer 1: the spot and perpetual order books, running at about 70 millisecond blocks. Official docs call it the destination for tokens that “graduate” to a HyperCore spot order book, and the venue for possible HIP-3 perpetual listings.</li>
+<li><strong>HyperEVM</strong> is Hyperliquid’s EVM (chain ID 999). Official docs say HyperEVM is deliberately constrained (3 million gas per second on small blocks; 30 million gas only on 60-second “big blocks”) so that EVM activity can stay in step with HyperCore. Elysium <strong>settles to HyperEVM</strong>, and HyperEVM is the hop between Elysium and HyperCore for tokens.</li>
+<li><strong>Elysium</strong> is the new L2: a higher-throughput EVM environment that stays inside the Hyperliquid ecosystem. Assets, settlement and market structure are described as Hyperliquid-native.</li>
+</ul>
+<p>Official docs also describe an intended token path: a token can launch on an Elysium AMM, be mirrored to HyperEVM, graduate to a HyperCore spot order book, and possibly reach a perpetual listing through HIP-3. That is a design described by Kinetiq, not a forecast that any particular token will complete it or be worth anything. Most new-chain token launches fail.</p>
+<p>Direct HyperCore read and write from Elysium contracts is <strong>not part of day-one mainnet</strong>. Official docs say those arrive in an ArbOS upgrade about four weeks after mainnet. See <a href="#coming">What is planned next</a>.</p>
+
+<h2 id="network">Network details</h2>
+<p>These mainnet figures were read from official “Connecting to Elysium” and “What is Elysium” docs on 10 Nov 2026. The public RPC was also queried the same day and returned chain ID 99901 (<code>0x1863d</code>), matching the docs. Always re-check the official page; do not trust a chain ID or RPC from a chat message, airdrop, or look-alike website.</p>
+<div class="table-wrap"><table class="ptable vs compact"><thead><tr><th>Item</th><th>Mainnet (official docs, 9–10 Nov 2026)</th></tr></thead><tbody>
+<tr><td>Chain ID</td><td><code>99901</code> (also confirmed by a live <code>eth_chainId</code> / <code>net_version</code> call to the public RPC)</td></tr>
+<tr><td>Gas token</td><td>HYPE (native)</td></tr>
+<tr><td>Public RPC</td><td><a href="https://rpc.elysium.kinetiq.xyz" rel="nofollow noopener" target="_blank">https://rpc.elysium.kinetiq.xyz</a> (shared; official docs say to use a provider endpoint for production traffic)</td></tr>
+<tr><td>Block explorer</td><td><a href="https://elysium.kinetiq.xyz/explorer" rel="nofollow noopener" target="_blank">elysium.kinetiq.xyz/explorer</a></td></tr>
+<tr><td>Settles to</td><td>HyperEVM, chain ID <code>999</code></td></tr>
+<tr><td>Stack</td><td>Arbitrum Orbit (Nitro/ArbOS 61), operated with Conduit</td></tr>
+<tr><td>Block time</td><td>100 ms canonical blocks; batches posted to HyperEVM about every 15 minutes, so <code>finalized</code> can trail <code>latest</code></td></tr>
+<tr><td>Minimum base fee / block gas limit</td><td>0.1 gwei; 32,000,000 (official fees page)</td></tr>
+<tr><td>Withdrawals</td><td>Optimistic, with a challenge period of about 5.5 days</td></tr>
+<tr><td>Testnet (for reference)</td><td>Chain ID <code>99801</code>, RPC <code>https://testnet-rpc.elysium.kinetiq.xyz</code>, explorer at <code>elysium.kinetiq.xyz/testnet-explorer</code>, settles to HyperEVM testnet (chain ID 998)</td></tr>
+</tbody></table></div>
+<p>Official docs also list Alchemy as a recommended infrastructure provider, with API-key RPC URLs. This page does not ask you to create an account anywhere. If you need an endpoint, start from the official connecting page and treat any unsolicited RPC as suspect.</p>
+
+<h2 id="bridge">How bridging is described</h2>
+<p>This is a description of the official path, not an instruction to move funds. If you do not need to use Elysium, you do not need to bridge.</p>
+<p>Official docs and the 9 Nov 2026 launch blog point to the official bridge and network details at <a href="https://elysium.kinetiq.xyz/bridge" rel="nofollow noopener" target="_blank">elysium.kinetiq.xyz/bridge</a>, with the longer explanation in <a href="https://elysium.kinetiq.xyz/docs/token-bridging-on-elysium" rel="nofollow noopener" target="_blank">Token bridging on Elysium</a>.</p>
+<ol>
+<li><strong>Verify the network only from official docs.</strong> Confirm chain ID <code>99901</code>, the official public RPC and the official explorer on <a href="https://elysium.kinetiq.xyz/docs/connecting-to-elysium" rel="nofollow noopener" target="_blank">Connecting to Elysium</a>. Fake “Elysium” sites and RPCs are a common phishing pattern on new chains. Bookmark the <code>elysium.kinetiq.xyz</code> and <code>kinetiq.xyz</code> hosts from those docs; do not follow a link from a DM, a comment reply or a look-alike domain. Never paste a seed phrase or private key into a bridge or “support” page.</li>
+<li><strong>HYPE on HyperEVM is the gas path.</strong> Official docs say you deposit HYPE on HyperEVM and receive native HYPE gas on Elysium 1:1, or burn native HYPE on Elysium to withdraw HYPE 1:1. There is no wrapper in this path. Bridge fees on the EVM legs are described as paid in native HYPE.</li>
+<li><strong>Use only the official bridge URL above</strong> (or the flow documented on the official docs site). Other front-ends may exist later; this page does not recommend them.</li>
+<li><strong>Expect a long wait on the way back.</strong> Elysium is an optimistic rollup. Official docs say canonical withdrawals finalize after a challenge period of about <strong>5.5 days</strong> on mainnet. Burning a representation of a HyperEVM token on Elysium likewise releases the escrow on HyperEVM after that challenge period. Plan on that delay; a “fast bridge” that is not the canonical official path is a different trust model and is not described here.</li>
+<li><strong>Other official routes exist for tokens, not only native HYPE.</strong> The canonical bridge locks an ERC-20 on HyperEVM and mints a 1:1 representation on Elysium. The mirror bridge does the reverse for Elysium-native tokens (after a one-time setup). A further “Core linkage” path is how a token on HyperEVM can be connected to HyperCore. Official docs say fee-on-transfer and rebasing tokens are not currently supported.</li>
+</ol>
+<p>On 10 Nov 2026 at about 5:51 PM IST, DefiLlama’s “Kinetiq Elysium Bridge” adapter (described there as the canonical HyperEVM–Elysium bridge) showed about <strong>$45.8 million</strong>. That is a third-party snapshot of bridged value, and it will change. It is not a measure of whether the chain is safe or useful. The same day, at about 4:54 PM IST, DefiLlama listed <strong>Kinetiq’s overall protocol TVL at about $856 million</strong>, almost entirely on Hyperliquid L1 and dominated by existing Kinetiq products such as kHYPE. That larger figure is not “Elysium TVL.”</p>
+<p>For general market-data and holder-check tools, see <a href="/guides/crypto-research-tools/">Crypto research tools</a> and <a href="/tools/dexscreener/">DEX Screener</a>. Listing those tools here is not a suggestion to trade Elysium assets.</p>
+
+<h2 id="fees">The sequencer fee model</h2>
+<p>Users pay transaction fees in HYPE. Official fees docs say that on mainnet, priority fees are collected by the network, not burned, and that there is no parent-chain data fee in the usual per-byte sense because data availability is committee-style (see risks below).</p>
+<p>Separately, Kinetiq has stated how it intends to allocate <strong>sequencer revenue</strong>. The 27 Aug 2026 announcement, the Kinetiq homepage, the 9 Nov 2026 launch blog and the KNTQ docs agree on the split:</p>
+<ul>
+<li><strong>50%</strong> to programmatic purchases of KNTQ on the open market. Official KNTQ docs say purchased tokens, along with fees already paid in KNTQ, are sent to the Hyperliquid Assistance Fund, which those docs describe as permanently removing them from supply.</li>
+<li><strong>25%</strong> to builders whose applications drive blockspace demand, which Kinetiq says can be used for incentives, rebates, liquidity programs or application-level mechanisms.</li>
+<li><strong>25%</strong> to the Kinetiq treasury for operations.</li>
+</ul>
+<p>That is a stated policy, not a guarantee of buyback size, of KNTQ demand, or of builder payouts. This page does not treat the split as a reason to buy or sell anything.</p>
+<p>As factual schedule context, official KNTQ docs (last updated 16 Sep 2026) say the KNTQ genesis was <strong>27 Nov 2025</strong>, with a maximum supply of 1 billion, and that core contributors and investors share a three-year vest: a <strong>one-year cliff</strong> and then two years of monthly linear vesting. The cliff date implied by that official schedule is <strong>27 Nov 2026</strong>. An unlock is a supply event, not a trading signal.</p>
+
+<h2 id="coming">What is planned next</h2>
+<p>Official “What is Elysium” and related docs split the roadmap into three stages:</p>
+<ol>
+<li><strong>Launch (now, as of the 9 Nov 2026 mainnet).</strong> Stock ArbOS, native HYPE gas, 100 ms blocks, AnyTrust data availability, HyperEVM settlement, and the token-bridging surface (canonical bridge, mirror bridge, and the HyperCore graduation path).</li>
+<li><strong>About four weeks after mainnet.</strong> An ArbOS network upgrade is planned to add the HyperCore read and write edge: a native <strong>HyperCore market-data precompile</strong> (live order books, prices, balances and positions, readable by contracts for ordinary call gas) and the <strong>ElysiumCoreWriter</strong> predeploy (contracts can emit order intents; a trade-only agent on the user’s own HyperCore account submits them). Official trading docs say custody is meant to stay in the user’s HyperCore account, and that the agent can be revoked on HyperCore without involving Elysium. These features are documented as not shipping on day-one stock ArbOS. Kinetiq has not, in the docs checked on 10 Nov 2026, published a calendar date such as 7 Dec 2026; “about four weeks after mainnet” is the official wording.</li>
+<li><strong>Hardening (later).</strong> Official docs mention MEV telemetry and native Timeboost, further block-time tuning, a multi-member data-availability committee, permissionless proving (Arbitrum BoLD), and audits. These are plans, not completed work.</li>
+</ol>
+<p>An earlier Kinetiq blog (27 Aug 2026) described a customized “L1Read” precompile. Current official docs use the names above. This page follows the docs.</p>
+
+<h2 id="ecosystem">Ecosystem (listed, not endorsed)</h2>
+<p>Kinetiq’s 9 Nov 2026 launch blog names infrastructure and application partners including <strong>Alchemy</strong>, <strong>Arbitrum</strong>, <strong>Conduit</strong> and <strong>Uniswap</strong>. That blog says Uniswap is part of the infrastructure from day one, and that hooks let teams customise how pools behave.</p>
+<p>The official ecosystem directory at <a href="https://elysium.kinetiq.xyz/ecosystem" rel="nofollow noopener" target="_blank">elysium.kinetiq.xyz/ecosystem</a> also lists many other projects. Among them, as of the 10 Nov 2026 sitemap, are DEX and routing names such as 0x and KyberSwap, launch-related names such as Pump.fun and fomo, bridging names such as Wormhole and Mayan, and the wallet name Zerion, plus a long tail of launchpads, NFT and game pages. A listing in that directory means Kinetiq has published a page for the name. It does not mean the app is live, audited, or safe, and it is not a recommendation to use it.</p>
+<p>New chains often publish large directories on day one. Most new-chain projects fail, go unmaintained, or turn out to be marketing pages. Treat every app as unproven unless you have checked it yourself against official contract addresses and independent sources.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li><strong>It is a new mainnet.</strong> Public mainnet opened on 9 Nov 2026. Software, bridges, sequencers and apps can fail, pause or get exploited. Official docs still list later audits and permissionless proving as future work.</li>
+<li><strong>Optimistic withdrawals are slow.</strong> A canonical withdrawal has a challenge period of about 5.5 days. If you cannot wait, you may be stuck, or tempted by unofficial “fast” routes that add extra trust assumptions.</li>
+<li><strong>The launch security posture is centralised in several ways.</strong> Official security docs say Elysium starts with a <strong>single sequencer</strong>, <strong>permissioned validation</strong> (with a later path to Arbitrum BoLD), and a <strong>single Conduit-operated data-availability server</strong>. Until a multi-member committee is live, official docs say “AnyTrust” describes the mechanism, not k-of-n committee security. If that server is unavailable, the docs say the chain falls back to posting full data to HyperEVM, which raises costs. Users are said to keep forced inclusion via the delayed inbox on HyperEVM, and withdrawal safety via the challenge period — those are design claims to read in the official docs, not guarantees against every failure mode.</li>
+<li><strong>Phishing and fake networks.</strong> Confirm chain ID 99901 and URLs only from official docs. Impersonator RPCs, “support” accounts and look-alike bridges are common around launches.</li>
+<li><strong>Apps and token launches are high risk.</strong> An intended path from an Elysium AMM to HyperCore is not a quality filter. Most new tokens go to zero. Do not treat a listing, a “graduation” story or a directory badge as due diligence.</li>
+<li><strong>Fee-split and unlock facts are not investment merits.</strong> Stated buybacks, burns and a 27 Nov 2026 cliff are descriptions of policy and schedule. They do not imply a price, a yield or a reason to buy KNTQ.</li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+<h3>What is Elysium?</h3>
+<p>Kinetiq’s general-purpose Layer 2 for the Hyperliquid ecosystem: an Arbitrum Orbit chain that settles to HyperEVM and uses HYPE as gas. Public mainnet opened on 9 Nov 2026.</p>
+<h3>What is Elysium’s chain ID?</h3>
+<p>Mainnet chain ID is <code>99901</code>, according to official docs and a live query of the public RPC on 10 Nov 2026. Testnet is <code>99801</code>. Re-check the official connecting page if you are configuring a wallet; do not copy a chain ID from an unofficial message.</p>
+<h3>What RPC should be used?</h3>
+<p>The official public RPC is <code>https://rpc.elysium.kinetiq.xyz</code>. Official docs also list provider endpoints and warn that the public RPC is shared. Only add an RPC you have verified against those docs.</p>
+<h3>How do you bridge to Elysium?</h3>
+<p>Official materials point to <a href="https://elysium.kinetiq.xyz/bridge" rel="nofollow noopener" target="_blank">elysium.kinetiq.xyz/bridge</a>. HYPE is described as moving 1:1 from HyperEVM as native gas. This page does not ask you to bridge. If you ever use the official path, verify the URL and network settings first, and read the withdrawal warning below.</p>
+<h3>How long do withdrawals take?</h3>
+<p>Official docs say canonical optimistic withdrawals have a challenge period of about 5.5 days on mainnet.</p>
+<h3>Does Elysium have its own token?</h3>
+<p>Elysium’s gas token is HYPE, not a new Elysium coin. KNTQ is Kinetiq’s existing governance token and is named in the sequencer fee split. That is not a recommendation of either asset.</p>
+<h3>When can contracts read and trade HyperCore from Elysium?</h3>
+<p>Official docs say the market-data precompile and ElysiumCoreWriter predeploy ship in an ArbOS upgrade about four weeks after mainnet. They are not described as live on day-one stock ArbOS. No calendar date was published in the official docs checked on 10 Nov 2026.</p>
+<h3>Is this the same as other projects named Elysium?</h3>
+<p>No. This page is only about Kinetiq’s Hyperliquid L2 (chain ID 99901). Other chains or tokens that reuse the name are unrelated unless official Kinetiq docs say otherwise.</p>

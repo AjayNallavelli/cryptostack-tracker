@@ -115,6 +115,86 @@
  ],
  "guides": [
   {
+   "slug": "what-is-elysium",
+   "title": "What Is Elysium? Kinetiq's Hyperliquid L2 Explained (and How to Bridge)",
+   "summary": "A plain-language explainer of Elysium, Kinetiq's Arbitrum Orbit L2 for Hyperliquid: what it is, how it relates to HyperEVM and HyperCore, verified mainnet details (chain ID 99901), how the official bridge is described, the sequencer fee split, and the risks of a new optimistic rollup. Education only.",
+   "sources": [
+    {
+     "label": "Elysium docs: What is Elysium (updated 9 Nov 2026)",
+     "url": "https://elysium.kinetiq.xyz/docs/what-is-elysium"
+    },
+    {
+     "label": "Elysium docs: Connecting to Elysium (updated 9 Nov 2026)",
+     "url": "https://elysium.kinetiq.xyz/docs/connecting-to-elysium"
+    },
+    {
+     "label": "Elysium docs: Token bridging on Elysium (updated 9 Nov 2026)",
+     "url": "https://elysium.kinetiq.xyz/docs/token-bridging-on-elysium"
+    },
+    {
+     "label": "Elysium docs: Blocks, fees, and ordering (updated 9 Nov 2026)",
+     "url": "https://elysium.kinetiq.xyz/docs/blocks-fees-and-ordering"
+    },
+    {
+     "label": "Elysium docs: Security and data availability (updated 9 Nov 2026)",
+     "url": "https://elysium.kinetiq.xyz/docs/security-and-data-availability"
+    },
+    {
+     "label": "Elysium docs: HyperCore market data",
+     "url": "https://elysium.kinetiq.xyz/docs/hypercore-market-data"
+    },
+    {
+     "label": "Elysium docs: Trading on HyperCore from Elysium",
+     "url": "https://elysium.kinetiq.xyz/docs/trading-on-hypercore-from-elysium"
+    },
+    {
+     "label": "Elysium docs: Building on Elysium",
+     "url": "https://elysium.kinetiq.xyz/docs/building-on-elysium"
+    },
+    {
+     "label": "Official Elysium bridge page",
+     "url": "https://elysium.kinetiq.xyz/bridge"
+    },
+    {
+     "label": "Official Elysium explorer",
+     "url": "https://elysium.kinetiq.xyz/explorer"
+    },
+    {
+     "label": "Official Elysium ecosystem directory",
+     "url": "https://elysium.kinetiq.xyz/ecosystem"
+    },
+    {
+     "label": "Kinetiq blog: Kinetiq launches Elysium public mainnet (9 Nov 2026)",
+     "url": "https://kinetiq.xyz/blog/elysium-public-mainnet-is-live"
+    },
+    {
+     "label": "Kinetiq blog: Elysium mainnet launches November 9 (20 Oct 2026)",
+     "url": "https://kinetiq.xyz/blog/elysium-mainnet-launch"
+    },
+    {
+     "label": "Kinetiq blog: Elysium: A New Era for Hyperliquid (27 Aug 2026)",
+     "url": "https://kinetiq.xyz/blog/elysium-hyperliquid-l2"
+    },
+    {
+     "label": "Kinetiq docs: KNTQ (updated 16 Sep 2026)",
+     "url": "https://kinetiq.xyz/docs/kntq"
+    },
+    {
+     "label": "DefiLlama: Kinetiq protocol (TVL snapshot 10 Nov 2026, about 4:54 PM IST)",
+     "url": "https://defillama.com/protocol/kinetiq"
+    },
+    {
+     "label": "DefiLlama: Kinetiq Elysium Bridge adapter (TVL snapshot 10 Nov 2026, about 5:51 PM IST)",
+     "url": "https://defillama.com/protocol/kinetiq-elysium-bridge"
+    },
+    {
+     "label": "Public RPC eth_chainId / net_version check (10 Nov 2026), https://rpc.elysium.kinetiq.xyz",
+     "url": ""
+    }
+   ],
+   "date_checked": "2026-11-10"
+  },
+  {
    "slug": "crypto-research-tools",
    "title": "Crypto Research Tools: 30 Free & Paid Tools by Category (2026)",
    "summary": "A categorized field guide to the 31 research tools in @0xvietnguyen's November 2026 list (DefiLlama, Dune, Arkham, Nansen, Bubblemaps, DEX Screener, CoinGecko and others): what each one does, official homepage links, and only the prices we could verify. Education only, no affiliate links.",
