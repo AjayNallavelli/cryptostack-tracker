@@ -1,0 +1,31 @@
+<h2>What this calculator does</h2>
+<p>It splits a completed trade into gross profit or loss, estimated fees, net profit or loss, and a breakeven exit price. Gross P/L is the price change times quantity (reversed for a short). Fees are the entry-fee percentage on the entry notional, the exit-fee percentage on the exit notional, and any flat fees you add. Net P/L is gross minus fees. The breakeven price is the exit at which net P/L would be zero.</p>
+<p>Pair it with the <a href="/calculators/trading-fees/">trading fee calculator</a> to pick a fee rate, and with <a href="/techniques/stop-take-profit-ladders/">stop-loss and take-profit ladders</a> to see how a planned exit looks after costs.</p>
+
+<div class="example">
+<h2>Example (labelled as an example)</h2>
+<p><strong>This is a worked example, not a trade and not advice.</strong> A long of 1 unit, entry 100, exit 110, and 0.10% fees each way: gross P/L is +10, fees are 0.10 + 0.11 = 0.21, and net P/L is +9.79 (about +9.79% of the $100 entry value). Breakeven is 100.2002, a little above 100, because both the entry and the exit still pay a fee if you close flat. The same prices as a short would be a net loss: gross −10, plus the same 0.21 of fees.</p>
+</div>
+
+<h2>How to read the result</h2>
+<ul>
+<li>A small win can be a net loss once fees are included, especially at small size or with a 1% terminal fee on <a href="/chains/solana/">Solana</a>.</li>
+<li>Breakeven for a long sits above entry; for a short it sits below entry, as long as fees are positive.</li>
+<li>Funding, borrow interest and slippage are not included. For a round-trip fee only, use the <a href="/calculators/trading-fees/">fee calculator</a>.</li>
+</ul>
+
+<div class="faq">
+<h2>FAQ</h2>
+<div class="faq-item">
+<h3>Should the exit fee use the exit price or the entry price?</h3>
+<p>This calculator applies the exit fee to the exit notional (exit price × quantity), which is how most venues charge a close. If your venue charges both sides on the entry notional, type the rates accordingly or use the fee calculator on a fixed size.</p>
+</div>
+<div class="faq-item">
+<h3>Can I model a DEX priority fee?</h3>
+<p>Yes, put the priority fee and any tip into the flat-fees box, in the same unit as price × quantity. Percentage venue or curve fees go in the entry and exit fee fields.</p>
+</div>
+<div class="faq-item">
+<h3>Is a positive net P/L a reason to take a trade?</h3>
+<p>No. This is backward-looking arithmetic on numbers you already typed. It does not forecast price or recommend a trade.</p>
+</div>
+</div>

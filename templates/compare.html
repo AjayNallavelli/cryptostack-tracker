@@ -1,4 +1,4 @@
-{% extends "base.html" %}{% from "_macros.html" import outlink, status, fee_table, fee_line %}
+{% extends "base.html" %}{% from "_macros.html" import outlink, outlink_disclosure, status, fee_table, fee_line %}
 {% block content %}
 <nav class="crumbs small"><a href="/">Home</a> / <a href="/compare/">Compare</a> / {{ p.a.name }} vs {{ p.b.name }}</nav>
 <h1>{{ p.a.name }} vs {{ p.b.name }}: fees &amp; features</h1>
@@ -18,8 +18,8 @@
 <h2>Key differences</h2>
 <ul>{% for x in p.notes %}<li>{{ x }}</li>{% endfor %}</ul>
 <div class="two">
-  <div><h2>{{ p.a.name }} fees</h2>{{ fee_table(p.a) }}<p><a href="/tools/{{ p.a.slug }}/">{{ p.a.name }} page →</a></p></div>
-  <div><h2>{{ p.b.name }} fees</h2>{{ fee_table(p.b) }}<p><a href="/tools/{{ p.b.slug }}/">{{ p.b.name }} page →</a></p></div>
+  <div><h2>{{ p.a.name }} fees</h2>{{ fee_table(p.a) }}<p>{{ outlink(p.a) }}</p>{{ outlink_disclosure(p.a) }}<p><a href="/tools/{{ p.a.slug }}/">{{ p.a.name }} page →</a></p></div>
+  <div><h2>{{ p.b.name }} fees</h2>{{ fee_table(p.b) }}<p>{{ outlink(p.b) }}</p>{{ outlink_disclosure(p.b) }}<p><a href="/tools/{{ p.b.slug }}/">{{ p.b.name }} page →</a></p></div>
 </div>
 <p class="risk">Fees are only one part of cost: network priority fees, launchpad/pool fees and slippage apply too. Not financial advice.</p>
 {% endblock %}

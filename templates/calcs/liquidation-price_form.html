@@ -1,0 +1,29 @@
+<div class="calc">
+<form data-calc="liquidation">
+  <fieldset>
+    <legend>Isolated-margin liquidation price</legend>
+    <p class="small muted">A simplified isolated-margin model. Maintenance margin is an input you set — it is not read from an exchange. Live venues also apply fees, funding and maintenance amounts, so their number will differ.</p>
+    <div class="calc-grid">
+      <div class="calc-field">
+        <label for="lq-side">Side</label>
+        <select id="lq-side" name="side"><option value="long" selected>Long</option><option value="short">Short</option></select>
+      </div>
+      <div class="calc-field">
+        <label for="lq-entry">Entry price</label>
+        <input id="lq-entry" name="entry" type="number" inputmode="decimal" min="0" step="any" value="100" required>
+      </div>
+      <div class="calc-field">
+        <label for="lq-lev">Leverage (×)</label>
+        <input id="lq-lev" name="leverage" type="number" inputmode="decimal" min="1" step="any" value="10" required>
+      </div>
+      <div class="calc-field">
+        <label for="lq-mmr">Maintenance margin (%)</label>
+        <input id="lq-mmr" name="mmr" type="number" inputmode="decimal" min="0" step="any" value="0.5" required>
+      </div>
+    </div>
+    <div class="calc-actions"><button type="submit" class="btn">Calculate</button></div>
+    <p class="calc-error" hidden></p>
+    <div class="calc-result" hidden></div>
+  </fieldset>
+</form>
+</div>

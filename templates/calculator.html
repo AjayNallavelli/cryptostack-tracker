@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="crumbs small"><a href="/">Home</a> / <a href="/calculators/">Calculators</a> / {{ a.name }}</nav>
+<article class="article">
+<h1>{{ a.title }}</h1>
+<p class="risk"><strong>Education only. Not financial advice.</strong> These figures are illustrations from the numbers you enter. They are not a quote from any exchange or wallet, and they are not a signal to trade. Crypto is high risk; you can lose everything you put in.</p>
+<p class="lead">{{ a.summary }}</p>
+<p class="small muted">Last checked {{ a.date_checked|nicedate }}. Presets use published rates; your live fee may differ. Nothing is sent off this page — the maths runs in your browser.</p>
+{% include "calcs/" ~ a.slug ~ "_form.html" %}
+{{ body }}
+<h2>Related pages</h2>
+<ul class="links">
+  <li><a href="/techniques/">Trading techniques</a></li>
+  {% for href, label in a.related %}<li><a href="{{ href }}">{{ label }}</a></li>{% endfor %}
+</ul>
+{% if a.sources %}
+<h2>Sources</h2>
+<ul class="sources">{% for s in a.sources %}<li>{% if s.url %}<a href="{{ s.url }}" rel="nofollow noopener" target="_blank">{{ s.label }}</a>{% else %}{{ s.label }}{% endif %}</li>{% endfor %}</ul>
+<p class="small muted">Sources checked {{ a.date_checked|nicedate }}.</p>
+{% endif %}
+</article>
+<p><a href="/calculators/">All calculators →</a></p>
+{% endblock %}
+{% block scripts %}
+<script src="/static/calculators.js"></script>
+{% endblock %}

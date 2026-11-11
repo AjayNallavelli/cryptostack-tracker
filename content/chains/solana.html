@@ -1,3 +1,4 @@
+{% from "_macros.html" import vendor_cta, vendor_text %}
 <p class="lead">Solana is a public layer-1 blockchain. Fees are paid in SOL. Official docs describe a small base fee per signature, optional priority fees, and &mdash; since a 9 Oct 2026 upgrade &mdash; 200 millisecond slots. This page is a plain-language snapshot of those official figures, the official explorer, and venues commonly used for new tokens. It is not a reason to use Solana or to buy any token.</p>
 
 <p class="small muted">Last verified 10 Nov 2026 (Asia/Calcutta) against official Solana documentation. Network details can change; check the official docs before you rely on a figure.</p>
@@ -43,10 +44,12 @@
 <h2 id="venues">DEXs and memecoin launchpads</h2>
 <p>These are commonly used public venues, not recommendations, and not a complete list.</p>
 <ul>
-<li><a href="https://pump.fun" rel="nofollow noopener" target="_blank">Pump.fun</a> is a bonding-curve launchpad. New tokens are often created and traded there first; some later move liquidity to a DEX. See <a href="/guides/pump-fun-bonding-curve/">How the pump.fun bonding curve works</a> for the mechanism, not as a reason to use it.</li>
+<li>{{ vendor_text('pumpfun', 'Pump.fun') }} is a bonding-curve launchpad. New tokens are often created and traded there first; some later move liquidity to a DEX. See <a href="/guides/pump-fun-bonding-curve/">How the pump.fun bonding curve works</a> for the mechanism, not as a reason to use it.</li>
 <li><a href="https://raydium.io" rel="nofollow noopener" target="_blank">Raydium</a> is a major Solana AMM where many tokens trade after (or instead of) a launchpad stage.</li>
 <li><a href="https://jup.ag" rel="nofollow noopener" target="_blank">Jupiter</a> is a widely used aggregator that routes swaps across Solana liquidity sources. This site’s <a href="/tools/jupiter/">Jupiter tool page</a> covers the public product, not a signup prompt.</li>
 </ul>
+<p class="small muted">The Pump.fun link above is a referral link. CryptoStack may earn a commission if you use it. This is not a recommendation to use pump.fun or to trade.</p>
+{{ vendor_cta('pumpfun', 'Visit pump.fun') }}
 <p>A listing or a completed bonding curve does not mean a token is safe, liquid or worth anything. Most new tokens fail, and many are designed to extract money from buyers. See <a href="/guides/spotting-rugs/">spotting rugs</a>.</p>
 
 <h2 id="bridging">Bridging basics</h2>

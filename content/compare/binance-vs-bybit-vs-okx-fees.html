@@ -1,0 +1,79 @@
+{% from "_macros.html" import vendor_cta %}
+<p>This page compares the <strong>regular-user</strong> (or VIP 0) maker and taker rates that Binance, Bybit and OKX publish for spot and for USDT-style perpetual or futures contracts. Figures were read from official fee or help pages on 11 Nov 2026. VIP tiers, pair groups, regional pages, logged-in rates and short-lived promotions can all differ from these headline rows. This is not a recommendation to open an account or to trade.</p>
+{{ vendor_cta('binance', 'Visit Binance') }}
+
+<h2>Best for, in one line</h2>
+<ul>
+<li><strong>Best for the lowest published regular-user spot maker fee among these three:</strong> OKX, because its September 2026 fee-adjustment notice lists Regular spot at 0.0800% maker / 0.1000% taker.</li>
+<li><strong>Best for a published token discount on regular spot rates:</strong> Binance, because the official spot schedule lists 0.100% / 0.100% for regular users and 0.07500% / 0.07500% with a 25% BNB discount.</li>
+<li><strong>Best for the lowest published regular-user perp taker fee among these three:</strong> Binance and OKX, which both publish a 0.0500% taker rate on the standard USDT-margined (or FAQ example) schedule, versus Bybit VIP 0 at 0.0550% taker. Binance also publishes a 10% USDⓈ-M discount when fees are paid in BNB (0.0180% / 0.0450%).</li>
+</ul>
+<p>Bybit’s published VIP 0 crypto-crypto spot rate is 0.1000% / 0.1000%, the same headline as Binance spot without the BNB discount. Bybit’s official table lists higher VIP 0 rates for fiat-crypto spot (0.2000% taker / 0.1500% maker below $100,000 of 30-day volume).</p>
+
+<div class="table-wrap">
+<table class="ptable vs">
+<thead>
+<tr><th></th><th>Binance</th><th>Bybit</th><th>OKX</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td>Spot, regular / VIP 0 (crypto-crypto)</td>
+  <td>0.100% maker / 0.100% taker</td>
+  <td>0.1000% maker / 0.1000% taker</td>
+  <td>0.0800% maker / 0.1000% taker</td>
+</tr>
+<tr>
+  <td>Spot discount the venue publishes at this tier</td>
+  <td>25% off with BNB: 0.07500% / 0.07500%</td>
+  <td>None listed at VIP 0 on the crypto-crypto table (lower rates start at higher VIP tiers)</td>
+  <td>Lower rates start at VIP 1 on the same notice (0.0675% / 0.0800%)</td>
+</tr>
+<tr>
+  <td>USDT-style perps / futures, regular / VIP 0</td>
+  <td>USDⓈ-M: 0.0200% maker / 0.0500% taker</td>
+  <td>Perpetual &amp; futures: 0.0200% maker / 0.0550% taker</td>
+  <td>0.02% maker / 0.05% taker, as used in official FAQ worked examples (confirm on the live fee schedule)</td>
+</tr>
+<tr>
+  <td>Published futures discount at this tier</td>
+  <td>10% off USDⓈ-M fees paid in BNB: 0.0180% / 0.0450%</td>
+  <td>Lower rates start at VIP 1 (0.0180% / 0.0400%)</td>
+  <td>Logged-in rates can differ; see the official fee page</td>
+</tr>
+<tr>
+  <td>Official source, checked 11 Nov 2026</td>
+  <td class="small"><a href="https://www.binance.com/en/fee/schedule" rel="nofollow noopener" target="_blank">Spot schedule</a>; <a href="https://www.binance.com/en/fee/futureFee" rel="nofollow noopener" target="_blank">USDⓈ-M futures schedule</a></td>
+  <td class="small"><a href="https://www.bybit.com/en/help-center/article/Trading-Fee-Structure" rel="nofollow noopener" target="_blank">Trading fee structure</a> (page dated 5 Nov 2026)</td>
+  <td class="small"><a href="https://www.okx.com/en-us/help/advance-notice-spot-and-futures-trading-fee-adjustment" rel="nofollow noopener" target="_blank">Spot regular tier in the Sep 2026 notice</a>; <a href="https://www.okx.com/help/trading-fee-rules-faq" rel="nofollow noopener" target="_blank">Trading fee rules FAQ</a> (updated 9 Sep 2026)</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+{{ vendor_cta('bybit', 'Visit Bybit') }}
+{{ vendor_cta('okx', 'Visit OKX') }}
+
+<h2>Notes that did not go into the table</h2>
+<ul>
+<li>Binance’s USDⓈ-M fee page can also describe promotions (for example a 0 maker-fee period). This table uses the standard Regular User column, not a promotion that may have ended.</li>
+<li>OKX’s FAQ states that rates shown when you are logged out can differ from the rates on your account. The 0.02% / 0.05% futures figures are the rates used in that FAQ’s worked examples, not a substitute for the live schedule at <a href="https://www.okx.com/fees" rel="nofollow noopener" target="_blank">okx.com/fees</a>.</li>
+<li>Bybit’s help article, last updated 5 Nov 2026, also publishes separate, higher schedules for fiat-crypto spot, an “Adventure Zone”, pre-market perps and an Innovation Zone. Those are not in the headline row.</li>
+<li>Funding, liquidation fees, withdrawal fees and spread are separate from maker/taker rates. The <a href="/calculators/trading-fees/">trading fee calculator</a> can apply these percentages to a size you type.</li>
+<li>Access, fiat rails and tax rules vary by country. For INR on-ramps and Indian TDS notes, see <a href="/compare/best-crypto-exchanges-india/">crypto exchanges for Indian users</a>.</li>
+</ul>
+
+<div class="faq">
+<h2>FAQ</h2>
+<div class="faq-item">
+<h3>Is OKX always cheaper than Binance on spot?</h3>
+<p>Not necessarily. At the published regular-user rates, OKX’s 0.08% maker is lower than Binance’s 0.10% maker, while both list a 0.10% taker. With Binance’s published 25% BNB discount, Binance regular spot is 0.075% / 0.075%, which is lower than OKX regular. Your logged-in tier may be different.</p>
+</div>
+<div class="faq-item">
+<h3>Do these rates include funding?</h3>
+<p>No. Funding is a periodic payment between longs and shorts on perpetual contracts, not a maker/taker trading fee. See <a href="/techniques/funding-rate-carry/">funding-rate carry</a>.</p>
+</div>
+<div class="faq-item">
+<h3>Why is there a Binance referral button?</h3>
+<p>It is a disclosed referral link stored in this site’s referrals file. CryptoStack may earn a commission if you use it. It is not a recommendation to use Binance. Bybit and OKX are linked to their official sites until a referral URL is added for them.</p>
+</div>
+</div>

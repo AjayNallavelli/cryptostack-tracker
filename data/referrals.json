@@ -1,0 +1,115 @@
+{
+  "updated": "2026-11-11",
+  "disclosure": "Where a link is marked “Referral link”, CryptoStack may earn a commission if you use it. This is not a recommendation to sign up, deposit or trade. Services without a referral URL are linked to their official site.",
+  "services": {
+    "binance": {
+      "name": "Binance",
+      "official_url": "https://www.binance.com",
+      "referral_url": "https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&ref=GRO_28502_DAZ2K"
+    },
+    "bybit": {
+      "name": "Bybit",
+      "official_url": "https://www.bybit.com",
+      "referral_url": ""
+    },
+    "okx": {
+      "name": "OKX",
+      "official_url": "https://www.okx.com",
+      "referral_url": ""
+    },
+    "pumpfun": {
+      "name": "pump.fun",
+      "official_url": "https://pump.fun",
+      "referral_url": "https://pump.fun/u/BharathLobby",
+      "referral_code": "BharathLobby"
+    },
+    "fomo": {
+      "name": "FOMO",
+      "official_url": "https://fomo.family",
+      "referral_url": "https://fomo.family/r/CryptoLead",
+      "referral_code": "CryptoLead"
+    },
+    "gmgn": {
+      "name": "GMGN",
+      "official_url": "https://gmgn.ai",
+      "referral_url": "https://gmgn.ai/r/R153kbMq",
+      "referral_code": "R153kbMq"
+    },
+    "axiom": {
+      "name": "Axiom",
+      "official_url": "https://axiom.trade",
+      "referral_url": "https://axiom.trade/@cstack",
+      "referral_code": "cstack"
+    },
+    "photon": {
+      "name": "Photon",
+      "official_url": "https://photon-sol.tinyastro.io",
+      "referral_url": ""
+    },
+    "bullx": {
+      "name": "BullX Neo",
+      "official_url": "https://neo.bullx.io",
+      "referral_url": ""
+    },
+    "trojan": {
+      "name": "Trojan",
+      "official_url": "https://trojan.com",
+      "referral_url": ""
+    },
+    "bonkbot": {
+      "name": "BONKbot",
+      "official_url": "https://bonkbot.io",
+      "referral_url": ""
+    },
+    "jupiter": {
+      "name": "Jupiter",
+      "official_url": "https://jup.ag",
+      "referral_url": ""
+    },
+    "phantom": {
+      "name": "Phantom",
+      "official_url": "https://phantom.com",
+      "referral_url": ""
+    },
+    "maestro": {
+      "name": "Maestro",
+      "official_url": "https://www.maestrobots.com",
+      "referral_url": ""
+    },
+    "raydium": {
+      "name": "Raydium",
+      "official_url": "https://raydium.io",
+      "referral_url": ""
+    },
+    "moonshot": {
+      "name": "Moonit (formerly Moonshot)",
+      "official_url": "https://docs.moonshot.cc",
+      "referral_url": ""
+    },
+    "letsbonk": {
+      "name": "LetsBONK",
+      "official_url": "https://www.letsbonk.fun",
+      "referral_url": ""
+    },
+    "wazirx": {
+      "name": "WazirX",
+      "official_url": "https://wazirx.com",
+      "referral_url": ""
+    },
+    "zebpay": {
+      "name": "ZebPay",
+      "official_url": "https://zebpay.com",
+      "referral_url": ""
+    },
+    "coindcx": {
+      "name": "CoinDCX",
+      "official_url": "https://coindcx.com",
+      "referral_url": ""
+    },
+    "coinswitch": {
+      "name": "CoinSwitch",
+      "official_url": "https://coinswitch.co",
+      "referral_url": ""
+    }
+  }
+}

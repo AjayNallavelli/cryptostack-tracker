@@ -1,4 +1,4 @@
-{% extends "base.html" %}{% from "_macros.html" import outlink, status, fee_table, fee_line %}
+{% extends "base.html" %}{% from "_macros.html" import outlink, outlink_disclosure, status, fee_table, fee_line %}
 {% block content %}
 <nav class="crumbs small"><a href="/">Home</a> / <a href="/category/{{ t.cat_slug }}/">{{ t.category }}</a> / {{ t.name }}</nav>
 <section class="tool-hero">
@@ -12,7 +12,7 @@
     <p class="small muted">Official site</p>
     {{ outlink(t) }}
     <p class="small">Fee source: <a href="{{ t.source_url }}" rel="nofollow noopener" target="_blank">official page ↗</a></p>
-    <p class="small muted">The official-site button is not an affiliate or referral link.</p>
+    {{ outlink_disclosure(t) }}
   </div>
 </section>
 <dl class="glance">

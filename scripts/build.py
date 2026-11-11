@@ -47,7 +47,8 @@ def load():
     rules = json.loads((DATA / "rules.json").read_text())
     costs = json.loads((DATA / "trading_costs.json").read_text())
     tool_eval = json.loads((DATA / "tool_eval.json").read_text())
-    return site, tools, pairs, pages, log, paper, rules, costs, tool_eval
+    referrals = json.loads((DATA / "referrals.json").read_text())
+    return site, tools, pairs, pages, log, paper, rules, costs, tool_eval, referrals
 
 
 
@@ -163,7 +164,7 @@ def main():
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
-    site, tools, pairs, pages, log, paper, rules, costs, tool_eval = load()
+    site, tools, pairs, pages, log, paper, rules, costs, tool_eval, referrals = load()
     env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=select_autoescape(["html", "xml"]))
     env.filters["nicedate"] = lambda d: dt.date.fromisoformat(d).strftime("%b %-d, %Y")
     cats = [{"name": n, "slug": s, "blurb": b, "tools": sorted([t for t in tools if t["category"] == n], key=lambda t: t["name"].lower())}
@@ -172,11 +173,13 @@ def main():
     stats = {"tools": len(tools), "verified": sum(t["verification"] == "verified" for t in tools),
              "partial": sum(t["verification"] == "partial" for t in tools),
              "unverified": sum(t["verification"] == "unverified" for t in tools), "last": last}
-    common = dict(site=site, cats=cats, stats=stats, year=dt.date.today().year, pages=pages)
+    common = dict(site=site, cats=cats, stats=stats, year=dt.date.today().year, pages=pages, referrals=referrals)
     sitemap = []
 
     def content(path):  # page bodies may loop over the machine-readable data files
-        return Markup(env.from_string(path.read_text()).render(paper=paper, rules=rules, costs=costs, tool_eval=tool_eval))
+        return Markup(env.from_string(path.read_text()).render(
+            paper=paper, rules=rules, costs=costs, tool_eval=tool_eval,
+            referrals=referrals, pages=pages, site=site, tools=tools))
 
     def render(tpl, path, sitemap_on=True, lastmod=None, **ctx):
         p = out / path.strip("/") / "index.html" if not path.endswith((".html", ".xml", ".txt")) else out / path.strip("/")
@@ -235,6 +238,19 @@ def main():
         render("techniques_index.html", "/techniques/", lastmod=tech_last,
                title=f"Trading techniques: sizing, exits, execution and risk (2026) | {site['name']}",
                description="Plain-language explainers of position sizing, stop-loss and take-profit ladders, DCA, grid trading, funding carry, basis trades, TWAP, liquidation risk, memecoin checklists, paper trading and journaling. Education only.")
+    for a in pages.get("calculators", []):
+        body = content(ROOT / "content" / "calculators" / f"{a['slug']}.html")
+        render("calculator.html", f"/calculators/{a['slug']}/", lastmod=a["date_checked"], a=a, body=body,
+               title=f"{a['title']} | {site['name']}", description=a["summary"])
+    if pages.get("calculators"):
+        calc_last = max(a["date_checked"] for a in pages["calculators"])
+        render("calculators_index.html", "/calculators/", lastmod=calc_last,
+               title=f"Crypto trading calculators: fees, position size, liquidation and P/L | {site['name']}",
+               description="Browser-based calculators for trading fees, position size, isolated-margin liquidation price, and profit or loss after fees. Education only; the maths runs on this page and nothing is sent away.")
+    for a in pages.get("roundups", []):
+        body = content(ROOT / "content" / "compare" / f"{a['slug']}.html")
+        render("compare_roundup.html", f"/compare/{a['slug']}/", lastmod=a["date_checked"], a=a, body=body,
+               title=f"{a['title']} | {site['name']}", description=a["summary"])
     for a in pages["standalone"]:  # one-off pages: paper scoreboard, learning log
         render("standalone.html", f"/{a['slug']}/", lastmod=a["date_checked"], a=a,
                body=content(ROOT / "content" / f"{a['slug']}.html"),
@@ -246,7 +262,7 @@ def main():
     render("404.html", "404.html", title="Page not found", description="Page not found")
     shutil.copytree(ROOT / "static", out / "static")
     (out / "data").mkdir()
-    for name in ("tools.json", "paper_calls.json", "rules.json", "trading_costs.json", "tool_eval.json"):
+    for name in ("tools.json", "paper_calls.json", "rules.json", "trading_costs.json", "tool_eval.json", "referrals.json"):
         shutil.copy(DATA / name, out / "data" / name)
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for p, lm in sitemap:
@@ -256,7 +272,7 @@ def main():
     (out / "robots.txt").write_text(robots_txt(site))
     (out / ".nojekyll").write_text("")
     print(f"Built {len(sitemap)} sitemap pages ({len(tools)} tools, {len(pairs)} comparisons, "
-          f"{len(pages['strategies'])} strategies, {len(pages['guides'])} guides, {len(pages['case-studies'])} case studies, {len(pages.get('chains', []))} chains, {len(pages.get('techniques', []))} techniques, {len(pages['standalone'])} standalone pages) -> {out}")
+          f"{len(pages['strategies'])} strategies, {len(pages['guides'])} guides, {len(pages['case-studies'])} case studies, {len(pages.get('chains', []))} chains, {len(pages.get('techniques', []))} techniques, {len(pages.get('calculators', []))} calculators, {len(pages.get('roundups', []))} roundups, {len(pages['standalone'])} standalone pages) -> {out}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="article">
+<h1>Crypto trading calculators</h1>
+<p class="risk"><strong>Education only. Not financial advice.</strong> These calculators run in your browser from the numbers you type. They are not a quote from any venue and not a recommendation to trade.</p>
+<p class="lead">Four simple calculators for fees, position size, isolated-margin liquidation price, and profit or loss after fees. Use them with the <a href="/techniques/">trading techniques</a> explainers and the <a href="/chains/">chain pages</a> to see how costs and risk change with the venue.</p>
+<div class="grid">
+{% for a in pages.calculators %}
+<div class="card">
+  <h2><a href="/calculators/{{ a.slug }}/">{{ a.name }}</a></h2>
+  <p class="small">{{ a.summary }}</p>
+  <p class="small muted">Last checked {{ a.date_checked|nicedate }}</p>
+</div>
+{% endfor %}
+</div>
+<h2>Related pages</h2>
+<ul class="links">
+  <li><a href="/techniques/">Trading techniques</a></li>
+  <li><a href="/techniques/position-sizing/">Position sizing</a></li>
+  <li><a href="/techniques/avoiding-liquidation/">Avoiding liquidation</a></li>
+  <li><a href="/guides/solana-memecoin-trading-costs-small-size/">Solana memecoin trading costs at small size</a></li>
+  <li><a href="/chains/">Chain explainers</a></li>
+  <li><a href="/compare/">Fee and venue comparisons</a></li>
+</ul>
+</article>
+{% endblock %}

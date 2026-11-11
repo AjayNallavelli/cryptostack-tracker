@@ -1,0 +1,33 @@
+<div class="calc">
+<form data-calc="position-size">
+  <fieldset>
+    <legend>Position size calculator</legend>
+    <p class="small muted">Uses the cash you are willing to lose if the stop is hit, including optional estimated fees. Prices can be in any one unit.</p>
+    <div class="calc-grid">
+      <div class="calc-field">
+        <label for="ps-account">Account size</label>
+        <input id="ps-account" name="account" type="number" inputmode="decimal" min="0" step="any" value="10000" required>
+      </div>
+      <div class="calc-field">
+        <label for="ps-risk">Risk per trade (%)</label>
+        <input id="ps-risk" name="risk_pct" type="number" inputmode="decimal" min="0" step="any" value="1" required>
+      </div>
+      <div class="calc-field">
+        <label for="ps-entry">Entry price</label>
+        <input id="ps-entry" name="entry" type="number" inputmode="decimal" min="0" step="any" value="100" required>
+      </div>
+      <div class="calc-field">
+        <label for="ps-stop">Stop price</label>
+        <input id="ps-stop" name="stop" type="number" inputmode="decimal" min="0" step="any" value="95" required>
+      </div>
+      <div class="calc-field calc-full">
+        <label for="ps-fee">Estimated fee each way (% of price, optional)</label>
+        <input id="ps-fee" name="fee_pct" type="number" inputmode="decimal" min="0" step="any" value="0">
+      </div>
+    </div>
+    <div class="calc-actions"><button type="submit" class="btn">Calculate</button></div>
+    <p class="calc-error" hidden></p>
+    <div class="calc-result" hidden></div>
+  </fieldset>
+</form>
+</div>

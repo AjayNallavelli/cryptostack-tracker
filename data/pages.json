@@ -1358,5 +1358,365 @@
     }
    ]
   }
- ]
+ ],
+ "calculators": [
+ {
+  "slug": "trading-fees",
+  "name": "Trading fee calculator",
+  "title": "Trading fee calculator: CEX maker/taker and DEX priority fees",
+  "summary": "Add up a buy and a sell using published maker/taker rates or a DEX venue fee plus priority fees and tips. Presets come from official fee pages and this site’s verified tool data.",
+  "date_checked": "2026-11-11",
+  "related": [
+   [
+    "/techniques/",
+    "Trading techniques"
+   ],
+   [
+    "/techniques/by-chain/",
+    "Trading styles by chain"
+   ],
+   [
+    "/guides/solana-memecoin-trading-costs-small-size/",
+    "Solana memecoin trading costs at small size"
+   ],
+   [
+    "/compare/binance-vs-bybit-vs-okx-fees/",
+    "Binance vs Bybit vs OKX fees"
+   ],
+   [
+    "/chains/solana/",
+    "Solana"
+   ],
+   [
+    "/calculators/profit-loss/",
+    "Profit / loss calculator"
+   ]
+  ],
+  "sources": [
+   {
+    "label": "Binance spot fee schedule",
+    "url": "https://www.binance.com/en/fee/schedule"
+   },
+   {
+    "label": "Binance USDⓈ-M futures fee schedule",
+    "url": "https://www.binance.com/en/fee/futureFee"
+   },
+   {
+    "label": "Bybit trading fee structure (updated 5 Nov 2026)",
+    "url": "https://www.bybit.com/en/help-center/article/Trading-Fee-Structure"
+   },
+   {
+    "label": "OKX advance notice: spot and futures trading fee adjustment",
+    "url": "https://www.okx.com/en-us/help/advance-notice-spot-and-futures-trading-fee-adjustment"
+   },
+   {
+    "label": "CryptoStack trading_costs.json and tool fee pages (mostly 22–23 Oct 2026)",
+    "url": "/data/trading_costs.json"
+   },
+   {
+    "label": "pump.fun fees (updated 17 Oct 2026)",
+    "url": "https://pump.fun/docs/fees"
+   }
+  ]
+ },
+ {
+  "slug": "position-size",
+  "name": "Position size calculator",
+  "title": "Position size calculator: account size, risk %, entry and stop",
+  "summary": "Turn an account size, a risk percentage, an entry and a stop into a position size, with optional fees included in the cash at risk.",
+  "date_checked": "2026-11-11",
+  "related": [
+   [
+    "/techniques/position-sizing/",
+    "Position sizing"
+   ],
+   [
+    "/techniques/stop-take-profit-ladders/",
+    "Stop-loss and take-profit ladders"
+   ],
+   [
+    "/techniques/",
+    "Trading techniques"
+   ],
+   [
+    "/calculators/liquidation-price/",
+    "Liquidation price calculator"
+   ],
+   [
+    "/calculators/profit-loss/",
+    "Profit / loss calculator"
+   ]
+  ],
+  "sources": [
+   {
+    "label": "CryptoStack: position sizing technique",
+    "url": "/techniques/position-sizing/"
+   }
+  ]
+ },
+ {
+  "slug": "liquidation-price",
+  "name": "Liquidation price calculator",
+  "title": "Isolated-margin liquidation price calculator (long/short, leverage, maintenance margin)",
+  "summary": "A simplified isolated-margin estimate of liquidation price from entry, leverage, side and a maintenance-margin rate you type. Not an official exchange quote.",
+  "date_checked": "2026-11-11",
+  "related": [
+   [
+    "/techniques/avoiding-liquidation/",
+    "Avoiding liquidation"
+   ],
+   [
+    "/techniques/position-sizing/",
+    "Position sizing"
+   ],
+   [
+    "/techniques/",
+    "Trading techniques"
+   ],
+   [
+    "/chains/hyperevm/",
+    "HyperEVM"
+   ],
+   [
+    "/calculators/position-size/",
+    "Position size calculator"
+   ]
+  ],
+  "sources": [
+   {
+    "label": "CryptoStack: avoiding liquidation technique",
+    "url": "/techniques/avoiding-liquidation/"
+   }
+  ]
+ },
+ {
+  "slug": "profit-loss",
+  "name": "Profit / loss calculator",
+  "title": "Profit and loss calculator with fees and breakeven price",
+  "summary": "Split a completed trade into gross P/L, estimated fees, net P/L and a breakeven exit price, including percentage and flat fees.",
+  "date_checked": "2026-11-11",
+  "related": [
+   [
+    "/techniques/stop-take-profit-ladders/",
+    "Stop-loss and take-profit ladders"
+   ],
+   [
+    "/techniques/",
+    "Trading techniques"
+   ],
+   [
+    "/calculators/trading-fees/",
+    "Trading fee calculator"
+   ],
+   [
+    "/calculators/position-size/",
+    "Position size calculator"
+   ]
+  ],
+  "sources": [
+   {
+    "label": "CryptoStack: trading fee calculator",
+    "url": "/calculators/trading-fees/"
+   }
+  ]
+ }
+],
+ "roundups": [
+ {
+  "slug": "best-solana-trading-bots",
+  "title": "Best Solana trading bots and terminals (2026): fees compared",
+  "summary": "A sourced comparison of published fees and features for Jupiter, Axiom, Photon, GMGN, Trojan, BONKbot, Maestro and BullX. “Best for” is a use case plus a published fact, not a recommendation to sign up or to trade.",
+  "date_checked": "2026-11-11",
+  "related": [
+   [
+    "/chains/solana/",
+    "Solana"
+   ],
+   [
+    "/category/trading-terminals/",
+    "Trading terminals & bots"
+   ],
+   [
+    "/guides/solana-memecoin-trading-costs-small-size/",
+    "Solana memecoin trading costs"
+   ],
+   [
+    "/calculators/trading-fees/",
+    "Trading fee calculator"
+   ],
+   [
+    "/techniques/by-chain/",
+    "Trading styles by chain"
+   ],
+   [
+    "/tools/axiom/",
+    "Axiom tool page"
+   ]
+  ],
+  "sources": [
+   {
+    "label": "CryptoStack tool pages for Jupiter, Axiom, Photon, GMGN, Trojan, BONKbot, Maestro and BullX (fees last checked 22–23 Oct 2026)",
+    "url": "/category/trading-terminals/"
+   },
+   {
+    "label": "Axiom fees (docs)",
+    "url": "https://docs.axiom.trade/getting-started/fees/axiom-fees"
+   },
+   {
+    "label": "Axiom referral program (docs)",
+    "url": "https://docs.axiom.trade/getting-started/referral-program"
+   }
+  ]
+ },
+ {
+  "slug": "binance-vs-bybit-vs-okx-fees",
+  "title": "Binance vs Bybit vs OKX fees (2026): spot and perps",
+  "summary": "Regular-user maker and taker rates for spot and USDT-style perpetual or futures contracts, copied from official fee pages on 11 Nov 2026, with “best for” use cases and source links.",
+  "date_checked": "2026-11-11",
+  "related": [
+   [
+    "/calculators/trading-fees/",
+    "Trading fee calculator"
+   ],
+   [
+    "/compare/best-crypto-exchanges-india/",
+    "Exchanges for Indian users"
+   ],
+   [
+    "/chains/bnb-chain/",
+    "BNB Smart Chain"
+   ],
+   [
+    "/techniques/funding-rate-carry/",
+    "Funding-rate carry"
+   ]
+  ],
+  "sources": [
+   {
+    "label": "Binance spot fee schedule",
+    "url": "https://www.binance.com/en/fee/schedule"
+   },
+   {
+    "label": "Binance USDⓈ-M futures fee schedule",
+    "url": "https://www.binance.com/en/fee/futureFee"
+   },
+   {
+    "label": "Bybit trading fee structure (updated 5 Nov 2026)",
+    "url": "https://www.bybit.com/en/help-center/article/Trading-Fee-Structure"
+   },
+   {
+    "label": "OKX advance notice: spot and futures trading fee adjustment",
+    "url": "https://www.okx.com/en-us/help/advance-notice-spot-and-futures-trading-fee-adjustment"
+   },
+   {
+    "label": "OKX trading fee rules FAQ (updated 9 Sep 2026)",
+    "url": "https://www.okx.com/help/trading-fee-rules-faq"
+   }
+  ]
+ },
+ {
+  "slug": "pump-fun-vs-solana-launchpads",
+  "title": "pump.fun vs other Solana launchpads (2026): published fees",
+  "summary": "Side-by-side official fees for pump.fun, Raydium LaunchLab and Moonshot/Moonit, with LetsBONK left unverified where no official fee table was found.",
+  "date_checked": "2026-11-11",
+  "related": [
+   [
+    "/guides/pump-fun-bonding-curve/",
+    "pump.fun bonding curve"
+   ],
+   [
+    "/chains/solana/",
+    "Solana"
+   ],
+   [
+    "/compare/best-solana-trading-bots/",
+    "Solana trading bots"
+   ],
+   [
+    "/calculators/trading-fees/",
+    "Trading fee calculator"
+   ],
+   [
+    "/techniques/memecoin-risk-checklist/",
+    "Memecoin risk checklist"
+   ]
+  ],
+  "sources": [
+   {
+    "label": "pump.fun fees (updated 17 Oct 2026)",
+    "url": "https://pump.fun/docs/fees"
+   },
+   {
+    "label": "Raydium fee comparison (LaunchLab)",
+    "url": "https://docs.raydium.io/reference/fee-comparison"
+   },
+   {
+    "label": "Moonshot / Moonit FAQ",
+    "url": "https://docs.moonshot.cc/faq"
+   },
+   {
+    "label": "LetsBONK terms of service",
+    "url": "https://www.letsbonk.fun/terms-of-service"
+   }
+  ]
+ },
+ {
+  "slug": "best-crypto-exchanges-india",
+  "title": "Best crypto exchanges for Indian users (2026): fees, INR on-ramps and TDS",
+  "summary": "A sourced comparison of INR deposit rails, published fees and official Indian VDA tax notes (section 115BBH at 30%, section 194S 1% TDS) for WazirX, ZebPay, CoinDCX, CoinSwitch, Binance, Bybit and OKX. Not tax advice.",
+  "date_checked": "2026-11-11",
+  "related": [
+   [
+    "/compare/binance-vs-bybit-vs-okx-fees/",
+    "Binance vs Bybit vs OKX fees"
+   ],
+   [
+    "/calculators/trading-fees/",
+    "Trading fee calculator"
+   ],
+   [
+    "/chains/bnb-chain/",
+    "BNB Smart Chain"
+   ],
+   [
+    "/techniques/",
+    "Trading techniques"
+   ]
+  ],
+  "sources": [
+   {
+    "label": "Income Tax Department: section 115BBH",
+    "url": "https://www.incometaxindia.gov.in/w/section-115bbh"
+   },
+   {
+    "label": "CBDT Circular No. 13 of 2022 (22 June 2022) and Circular No. 14 of 2022 (28 June 2022)",
+    "url": ""
+   },
+   {
+    "label": "WazirX fees",
+    "url": "https://wazirx.com/fees/"
+   },
+   {
+    "label": "ZebPay pricing",
+    "url": "https://zebpay.com/in/features/pricing"
+   },
+   {
+    "label": "CoinDCX: INR deposit fees",
+    "url": "https://support.coindcx.com/articles/how-do-i-deposit/is-there-any-fee-for-inr-deposits/6a70614fc89cf6cc50d1c20c"
+   },
+   {
+    "label": "CoinSwitch: what is TDS deduction in crypto trades",
+    "url": "https://coinswitch.co/faqs/what-is-tds-deduction-in-crypto-trades"
+   },
+   {
+    "label": "Binance spot and USDⓈ-M fee schedules",
+    "url": "https://www.binance.com/en/fee/schedule"
+   },
+   {
+    "label": "Binance FIU-IND registration announcement",
+    "url": "https://www.binance.com/en/blog/regulation/3022489348045738409"
+   }
+  ]
+ }
+]
 }

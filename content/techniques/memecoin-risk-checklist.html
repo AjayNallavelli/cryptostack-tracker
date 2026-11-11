@@ -1,3 +1,4 @@
+{% from "_macros.html" import vendor_cta %}
 <h2>Contents</h2>
 <ul>
 <li><a href="#how">How it works</a></li>
@@ -8,6 +9,7 @@
 
 <h2 id="how">How it works</h2>
 <p>A memecoin risk checklist is a pre-trade filter for short-lived tokens, usually on a launchpad or a new pool. It does not make a token “safe.” It only tries to throw out some of the worst patterns before size is at risk. The items below are methods, not a buy list. Deeper pattern write-ups already live in <a href="/guides/spotting-rugs/">spotting rugs</a>, <a href="/guides/how-bundles-work/">how bundles work</a>, and (for <a href="/chains/solana/">Solana</a> bonding curves) <a href="/guides/pump-fun-bonding-curve/">Pump.fun’s bonding curve</a>.</p>
+{{ vendor_cta('pumpfun', 'Visit pump.fun') }}
 <p>Questions a careful checklist usually asks, on the official explorer and on public pool pages:</p>
 <ol>
 <li><strong>Mint and authorities.</strong> Can someone still mint, freeze, blacklist, or change the metadata? An “abandoned” mint that is not actually abandoned is a common failure.</li>

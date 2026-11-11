@@ -1,0 +1,95 @@
+{% from "_macros.html" import vendor_cta, vendor_text %}
+<p>This page compares published launch and trading fees for three Solana launchpads that document a fee schedule: <a href="https://pump.fun/docs/fees" rel="nofollow noopener" target="_blank">pump.fun</a>, <a href="https://docs.raydium.io/reference/fee-comparison" rel="nofollow noopener" target="_blank">Raydium LaunchLab</a>, and Moonshot (the official FAQ now says the product is called Moonit). A fourth venue, LetsBONK, is included only to say that an official fee table was not found. This is not a recommendation to launch or trade a token, and it is not a pick of any coin.</p>
+{{ vendor_cta('pumpfun', 'Visit pump.fun') }}
+
+<h2>Best for, in one line</h2>
+<ul>
+<li><strong>Best for a published “no platform fee” coin create, plus a documented 1.25% bonding-curve trade fee:</strong> pump.fun, because its fees page (updated 17 Oct 2026) lists no platform fee to create a coin and a 1.25% curve fee (0.30% creator / 0.95% protocol), with a 0.015 SOL graduation fee.</li>
+<li><strong>Best for a lower published pre-graduation swap fee (1%) and a 0.25% post-graduation CPMM fee:</strong> Raydium LaunchLab, because Raydium’s official fee-comparison page lists a 1% default on LaunchLab bonding-curve trades, about 0.04 SOL graduation paid from curve reserves, and 0.25% on the post-graduation CPMM pool.</li>
+<li><strong>Best for a published flat 1% trade fee, a 2 SOL migration fee, and a stated 432 SOL graduation market cap with a choice of Meteora, Raydium or Uniswap:</strong> Moonshot / Moonit, because that is what the official FAQ states.</li>
+</ul>
+
+<div class="table-wrap">
+<table class="ptable vs">
+<thead>
+<tr><th></th><th>pump.fun</th><th>Raydium LaunchLab</th><th>Moonshot / Moonit</th><th>LetsBONK</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td>Create / launch fee</td>
+  <td>No platform fee; network fee and account deposit only</td>
+  <td>0.1 SOL LaunchLab fee plus about 0.015 SOL rent (typical total about 0.115 SOL)</td>
+  <td>Not stated as a platform create fee on the FAQ page we read</td>
+  <td><span class="tag tag-unverified">unverified</span></td>
+</tr>
+<tr>
+  <td>Bonding-curve / pre-graduation trade fee</td>
+  <td>1.25% (0.30% creator, 0.95% protocol, 0% LP) on SOL- or USDC-paired coins</td>
+  <td>1% default (50% to pool seed, 50% to LaunchLab treasury); projects may add a creator fee</td>
+  <td>1% flat on buys and sells, charged as a taker fee in SOL</td>
+  <td><span class="tag tag-unverified">unverified</span></td>
+</tr>
+<tr>
+  <td>App / interface add-on</td>
+  <td>0.45% platform fee on pump.fun web or mobile app trades from 17 Oct 2026 (0.40% with a referral); not charged via Terminal or third-party interfaces</td>
+  <td>Not described as a separate front-end platform fee on the fee-comparison page</td>
+  <td>Not listed as a separate app add-on on the FAQ</td>
+  <td><span class="tag tag-unverified">unverified</span></td>
+</tr>
+<tr>
+  <td>Graduation / migration</td>
+  <td>0.015 SOL, then a canonical PumpSwap pool</td>
+  <td>About 0.04 SOL from bonding-curve reserves, then a CPMM pool</td>
+  <td>2 SOL (or 0.1 ETH / 45 BERA on the EVM networks the FAQ lists); remaining tokens and liquidity migrate to Meteora, Raydium or Uniswap, as set at launch. Graduation market cap: 432 SOL on Solana, once 80% of the 1B supply is sold, per the FAQ</td>
+  <td><span class="tag tag-unverified">unverified</span></td>
+</tr>
+<tr>
+  <td>After graduation</td>
+  <td>Canonical PumpSwap fees are tiered by market cap, from 1.25% at the lowest tier down to 0.30% at the top tier (SOL-paired schedule on the fees page)</td>
+  <td>0.25% standard CPMM fee</td>
+  <td>Liquidity is described as locked; Meteora migrations can use AirLock / LP-reward rules described in the FAQ (including a later change that sends some rewards to the creator wallet)</td>
+  <td><span class="tag tag-unverified">unverified</span></td>
+</tr>
+<tr>
+  <td>Official source, checked 11 Nov 2026</td>
+  <td class="small"><a href="https://pump.fun/docs/fees" rel="nofollow noopener" target="_blank">pump.fun fees</a> (updated 17 Oct 2026)</td>
+  <td class="small"><a href="https://docs.raydium.io/reference/fee-comparison" rel="nofollow noopener" target="_blank">Raydium fee comparison</a></td>
+  <td class="small"><a href="https://docs.moonshot.cc/faq" rel="nofollow noopener" target="_blank">Moonshot / Moonit FAQ</a></td>
+  <td class="small"><a href="https://www.letsbonk.fun/terms-of-service" rel="nofollow noopener" target="_blank">LetsBONK terms</a> say fees may be charged and are shown before confirmation; no official fee table was found</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+{{ vendor_cta('raydium', 'Visit Raydium') }}
+{{ vendor_cta('moonshot', 'Moonshot / Moonit docs') }}
+{{ vendor_cta('letsbonk', 'Visit LetsBONK') }}
+
+<h2>How to use this table</h2>
+<ul>
+<li>A third-party terminal fee (often 1%; see <a href="/compare/best-solana-trading-bots/">Solana trading bots</a>) is added on top of the launchpad fee when you do not trade through the launchpad’s own app.</li>
+<li>On pump.fun, the 0.45% app platform fee applies only to the official web or mobile app, not to Terminal or third-party interfaces.</li>
+<li>Work a size through the <a href="/calculators/trading-fees/">trading fee calculator</a> (the “pump.fun app + curve” preset uses 0.45% + 1.25%). The <a href="/guides/pump-fun-bonding-curve/">bonding-curve guide</a> explains pump.fun’s curve in more detail.</li>
+<li>New launches are high risk. See the <a href="/techniques/memecoin-risk-checklist/">memecoin risk checklist</a> and <a href="/techniques/timing-new-token-launches/">timing new token launches</a>.</li>
+</ul>
+
+
+<h2>Related trading app</h2>
+<p>{{ vendor_text('fomo', 'FOMO') }} describes itself as a social crypto trading app and web platform for trading memecoins and other tokens. A published per-trade fee schedule was not verified on the official marketing site we read on 11 Nov 2026, so no FOMO fee is shown here. That absence is not a judgment of the product, and it is not a recommendation to use it.</p>
+{{ vendor_cta('fomo', 'Visit FOMO') }}
+
+<div class="faq">
+<h2>FAQ</h2>
+<div class="faq-item">
+<h3>Why is LetsBONK in the table if the fees are blank?</h3>
+<p>It is a Solana launchpad people compare with pump.fun, so omitting it would be less honest than showing it with an unverified label. Its official terms say fees may apply and should appear before you confirm. Third-party sites quote percentages; those are not used here because they are not official.</p>
+</div>
+<div class="faq-item">
+<h3>Is Moonshot the same as Moonit?</h3>
+<p>The official FAQ we read is still hosted at docs.moonshot.cc and opens with “Moonshot is now Moonit”. The fee figures in the table are taken from that FAQ. Check the live docs if the product name or fee line has moved.</p>
+</div>
+<div class="faq-item">
+<h3>Does a lower curve fee make a launch safer?</h3>
+<p>No. A fee is a cost, not a safety check. Graduation rules, liquidity locks and audits (Moonshot’s FAQ, for example, links an Ackee audit) still do not make a token safe to buy.</p>
+</div>
+</div>

@@ -1,0 +1,31 @@
+<h2>What this calculator does</h2>
+<p>It turns an account size, a risk percentage, an entry and a stop into a position size. The cash at risk is <em>account × risk&nbsp;%</em>. The position size in units is that cash divided by the price move from entry to stop, plus optional estimated fees per unit. If the stop is below the entry, the example is treated as a long; if it is above, as a short.</p>
+<p>This is the same idea as the <a href="/techniques/position-sizing/">position sizing</a> explainer: you choose how much of the account you are willing to lose if the stop is hit, then size the trade so that loss stays near that amount. It does not tell you what to buy, where to put a stop, or whether to trade.</p>
+
+<div class="example">
+<h2>Example (labelled as an example)</h2>
+<p><strong>This is a worked example, not a trade and not advice.</strong> Take a $10,000 account, 1% risk ($100), entry 100, stop 95, and no fees. The stop is 5 price units away, so the size is $100 ÷ 5 = 20 units, with a position value of $2,000. If you add an estimated 0.10% fee each way, the fees per unit are 0.10 + 0.095 = 0.195 and the size falls to about 19.25 units, because part of the $100 now covers costs instead of price movement.</p>
+</div>
+
+<h2>How to read the result</h2>
+<ul>
+<li>A tighter stop produces a larger size for the same cash at risk, and leaves less room for a normal swing or a gap through the stop.</li>
+<li>Fees, slippage and gaps can make the actual loss larger than the cash-at-risk figure.</li>
+<li>On leveraged venues, also check the <a href="/calculators/liquidation-price/">liquidation price calculator</a> and <a href="/techniques/avoiding-liquidation/">avoiding liquidation</a>. Size that looks fine on a stop can still be liquidated first.</li>
+</ul>
+
+<div class="faq">
+<h2>FAQ</h2>
+<div class="faq-item">
+<h3>What risk percentage should I use?</h3>
+<p>This page does not recommend a percentage. The field is there so you can see how size changes when the percentage changes. Many risk explainers, including the one on this site, discuss small single-digit percentages as a teaching device only.</p>
+</div>
+<div class="faq-item">
+<h3>Can I use this for memecoins or new launches?</h3>
+<p>You can type any prices, but a stop on a thin, fast market is often not filled at the stop price. See the <a href="/techniques/memecoin-risk-checklist/">memecoin risk checklist</a> and the <a href="/guides/solana-memecoin-trading-costs-small-size/">small-size costs guide</a>. Costs and slippage can be several percent of a small <a href="/chains/solana/">Solana</a> trade.</p>
+</div>
+<div class="faq-item">
+<h3>Does this include leverage?</h3>
+<p>No. It sizes a position from cash at risk and a stop. Leverage changes margin and liquidation price, which is a separate calculation.</p>
+</div>
+</div>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% from "_macros.html" import vendor_cta %}
+{% block content %}
+<nav class="crumbs small"><a href="/">Home</a> / <a href="/compare/">Compare</a> / {{ a.title }}</nav>
+<article class="article">
+<h1>{{ a.title }}</h1>
+<p class="risk"><strong>Education only. Not financial advice.</strong> “Best for” on this page means a stated use case plus a published, dated fact — not a recommendation to sign up, deposit or trade, and not a coin pick. Fees and product availability change; check the official source before you rely on a figure. Crypto is high risk.</p>
+<p class="lead">{{ a.summary }}</p>
+<p class="small muted">Last checked {{ a.date_checked|nicedate }}.</p>
+{{ body }}
+<h2>Related pages</h2>
+<ul class="links">
+  <li><a href="/techniques/">Trading techniques</a></li>
+  <li><a href="/calculators/">Calculators</a></li>
+  {% for href, label in a.related %}<li><a href="{{ href }}">{{ label }}</a></li>{% endfor %}
+</ul>
+<h2>Sources</h2>
+<ul class="sources">{% for s in a.sources %}<li>{% if s.url %}<a href="{{ s.url }}" rel="nofollow noopener" target="_blank">{{ s.label }}</a>{% else %}{{ s.label }}{% endif %}</li>{% endfor %}</ul>
+<p class="small muted">Sources checked {{ a.date_checked|nicedate }}.</p>
+</article>
+<p><a href="/compare/">All comparisons →</a></p>
+{% endblock %}

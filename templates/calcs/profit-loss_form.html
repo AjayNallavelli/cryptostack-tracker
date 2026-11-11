@@ -1,0 +1,41 @@
+<div class="calc">
+<form data-calc="profit-loss">
+  <fieldset>
+    <legend>Profit / loss and breakeven</legend>
+    <p class="small muted">Includes percentage fees on the entry and exit notionals, plus any flat fees. Funding and slippage are not included.</p>
+    <div class="calc-grid">
+      <div class="calc-field">
+        <label for="pl-side">Side</label>
+        <select id="pl-side" name="side"><option value="long" selected>Long</option><option value="short">Short</option></select>
+      </div>
+      <div class="calc-field">
+        <label for="pl-qty">Quantity</label>
+        <input id="pl-qty" name="qty" type="number" inputmode="decimal" min="0" step="any" value="1" required>
+      </div>
+      <div class="calc-field">
+        <label for="pl-entry">Entry price</label>
+        <input id="pl-entry" name="entry" type="number" inputmode="decimal" min="0" step="any" value="100" required>
+      </div>
+      <div class="calc-field">
+        <label for="pl-exit">Exit price</label>
+        <input id="pl-exit" name="exit" type="number" inputmode="decimal" min="0" step="any" value="110" required>
+      </div>
+      <div class="calc-field">
+        <label for="pl-ef">Entry fee (%)</label>
+        <input id="pl-ef" name="entry_fee" type="number" inputmode="decimal" min="0" step="any" value="0.1">
+      </div>
+      <div class="calc-field">
+        <label for="pl-xf">Exit fee (%)</label>
+        <input id="pl-xf" name="exit_fee" type="number" inputmode="decimal" min="0" step="any" value="0.1">
+      </div>
+      <div class="calc-field calc-full">
+        <label for="pl-flat">Flat fees (same unit as price × quantity, optional)</label>
+        <input id="pl-flat" name="flat_fees" type="number" inputmode="decimal" min="0" step="any" value="0">
+      </div>
+    </div>
+    <div class="calc-actions"><button type="submit" class="btn">Calculate</button></div>
+    <p class="calc-error" hidden></p>
+    <div class="calc-result" hidden></div>
+  </fieldset>
+</form>
+</div>

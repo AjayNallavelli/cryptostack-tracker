@@ -75,3 +75,29 @@ code{font-size:.85em;background:#f1f5f9;padding:.1em .3em;border-radius:4px}
 .log-entry{border:1px solid var(--line);border-radius:12px;background:#fff;padding:12px 14px;margin:10px 0}
 h2.day{font-size:1.05rem;margin:1.4em 0 .2em}
 .ptable.fees td{white-space:normal!important}.ptable.fees td:first-child{width:28%}.ptable.fees td:nth-child(2){width:30%}
+
+
+/* Calculators and long-form comparisons */
+.calc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin:18px 0 28px;max-width:720px}
+.calc fieldset{border:0;margin:0;padding:0}
+.calc legend{font-weight:700;margin-bottom:8px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+.calc label,.calc-field label{display:block;font-size:.86rem;font-weight:600;margin:0 0 4px}
+.calc-field{margin:0}
+.calc input[type=number],.calc input[type=text],.calc select{width:100%;padding:.55em .75em;border:1px solid var(--line);border-radius:8px;font-size:1rem;background:#fff}
+.calc-full{grid-column:1/-1}
+.calc-actions{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.calc-result{background:#f5f3ff;border-left:4px solid var(--brand);border-radius:10px;padding:14px 16px;margin-top:16px}
+.calc-result .big{font-size:1.45rem;margin:.15em 0}
+.calc-result dl{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;margin:10px 0 0}
+.calc-result dt{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.calc-result dd{margin:0;font-weight:600;font-variant-numeric:tabular-nums}
+.calc-error{color:var(--bad);font-size:.9rem;margin-top:8px}
+.example{border-left:4px solid var(--brand);background:#faf5ff;padding:12px 16px;border-radius:8px;margin:16px 0}
+.example h2,.example h3{margin-top:0}
+.preset-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px}
+.preset{border:1px solid var(--line);background:#fff;border-radius:99px;padding:.3em .8em;font-size:.82rem;cursor:pointer;color:var(--fg)}
+.preset:hover,.preset:focus{border-color:var(--brand);color:var(--brand)}
+.referral-box{margin:12px 0 20px}
+.referral-box .btn{margin-right:8px}
+@media (max-width:640px){.calc-grid,.calc-result dl{grid-template-columns:1fr}}

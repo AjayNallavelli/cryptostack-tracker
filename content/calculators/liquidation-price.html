@@ -1,0 +1,36 @@
+<h2>What this calculator does</h2>
+<p>It estimates an isolated-margin liquidation price from entry, leverage, side (long or short) and a maintenance-margin rate that you type. The formulas used are:</p>
+<ul>
+<li><strong>Long:</strong> entry × (1 − 1/leverage + maintenance margin rate)</li>
+<li><strong>Short:</strong> entry × (1 + 1/leverage − maintenance margin rate)</li>
+</ul>
+<p>That is a classroom isolated-margin model. Exchange formulas also use wallet balance, a maintenance amount that can vary by notional tier, trading fees, funding and insurance-clearing rules. Treat the result as an illustration, then check the venue’s own calculator. The <a href="/techniques/avoiding-liquidation/">avoiding liquidation</a> page explains the same idea in words.</p>
+
+<div class="example">
+<h2>Example (labelled as an example)</h2>
+<p><strong>This is a worked example, not a trade and not advice.</strong> A long at 100, 10× leverage, and 0.5% maintenance margin has an initial margin rate of 10%. The estimated liquidation price is 100 × (1 − 0.10 + 0.005) = 90.5, which is 9.5% below entry. The same inputs as a short give 100 × (1 + 0.10 − 0.005) = 109.5. If maintenance margin were 0.4% instead of 0.5%, the long estimate would be 90.4. A live Binance, Bybit or OKX figure will not match this exactly.</p>
+</div>
+
+<h2>How to read the result</h2>
+<ul>
+<li>Higher leverage moves estimated liquidation closer to entry.</li>
+<li>Maintenance margin must stay below the initial margin rate (1 ÷ leverage), or the position would not be valid in this model.</li>
+<li>Isolated margin limits losses to the margin assigned to that position, in the venue’s own rules; cross margin is not modelled here.</li>
+<li>Funding payments can move a live liquidation price even if the mark price has not reached it.</li>
+</ul>
+
+<div class="faq">
+<h2>FAQ</h2>
+<div class="faq-item">
+<h3>Why do I have to type the maintenance margin?</h3>
+<p>Each exchange publishes its own maintenance-margin tiers, and they change with the contract and the size. This calculator does not fetch those tables and does not guess them. If you do not know the rate, look it up on the venue’s official margin or risk page rather than leaving the 0.5% default as if it were official.</p>
+</div>
+<div class="faq-item">
+<h3>Is this the Binance or Bybit official formula?</h3>
+<p>No. It is a simplified isolated-margin identity used for teaching. Official help pages describe extra terms (isolated wallet balance, cumulative maintenance amounts, fees). Use the exchange’s liquidation calculator for a number that applies to an account.</p>
+</div>
+<div class="faq-item">
+<h3>Does this apply on-chain, for example on HyperEVM?</h3>
+<p>Only as a sketch of the same leverage maths. Perpetual venues on <a href="/chains/hyperevm/">HyperEVM</a> or elsewhere have their own margin engines. See the <a href="/chains/">chain pages</a> and the venue docs for the product you are actually reading about.</p>
+</div>
+</div>

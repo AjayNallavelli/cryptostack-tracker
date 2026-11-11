@@ -1,0 +1,125 @@
+{% from "_macros.html" import vendor_cta, vendor_text %}
+<p>This page compares published fees and documented features for widely used <a href="/chains/solana/">Solana</a> trading terminals and Telegram bots, using this site’s tool pages. Fee figures in the table were last read from each vendor’s official docs on the date in that row (mostly 22–23 Oct 2026). They were not all re-opened on 11 Nov 2026. A listing is not a ranking of “the best bot”, and it is not a recommendation to trade memecoins or to sign up.</p>
+
+<h2>Best for, in one line</h2>
+<ul>
+<li><strong>Best for the lowest published platform commission:</strong> <a href="/tools/jupiter/">Jupiter</a> Manual mode, because official docs state a 0% Jupiter commission (you still set priority fees and tips yourself; there is no MEV protection in Manual mode).</li>
+<li><strong>Best for a documented volume-tier net fee:</strong> <a href="/tools/axiom/">Axiom</a>, because official docs publish a net fee from 0.95% (Wood) down to 0.75% (Champion) via SOL cashback, and a 10% trading-fee discount for referred sign-ups.</li>
+<li><strong>Best for a simple published flat 1% web terminal:</strong> <a href="/tools/photon/">Photon</a>, because its fee page states 1% of the SOL amount on every buy and every sell, with no published volume discount.</li>
+<li><strong>Best for a Telegram bot with a published 1% successful-swap fee:</strong> <a href="/tools/bonkbot/">BONKbot</a> or <a href="/tools/trojan/">Trojan</a>, because both official fee pages state 1% per successful trade or swap. Reward or cashback percentages are not fully published on those pages.</li>
+<li><strong>Best for combining a scanner with 1% in-app trading across several chains:</strong> <a href="/tools/gmgn/">GMGN</a>, because official docs state a 1% handling fee when you trade through it, and list Solana plus other networks.</li>
+</ul>
+<p><a href="/tools/bullx/">BullX Neo</a> published a 1% platform fee, but it suspended trading in its current app from 1 June 2026, so it is not a current trading option on those terms. <a href="/tools/maestro/">Maestro</a> publishes 1% per successful buy and sell on several chains, including Solana.</p>
+{{ vendor_cta('axiom', 'Visit Axiom') }}
+
+<div class="table-wrap">
+<table class="ptable vs">
+<thead>
+<tr><th>Tool</th><th>Published venue fee</th><th>Interface</th><th>Chains (as listed)</th><th>Fee last checked</th><th>Source</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td><a href="/tools/jupiter/">Jupiter</a></td>
+  <td>Manual 0%; Ultra 0.5% on tokens under 24 hours old, 0.1% on most other swaps</td>
+  <td>Web aggregator</td>
+  <td>Solana</td>
+  <td>23 Oct 2026</td>
+  <td class="small"><a href="https://docs.jup.ag/user-docs/trade/spot/fees.md" rel="nofollow noopener" target="_blank">Jupiter fees</a></td>
+</tr>
+<tr>
+  <td><a href="/tools/axiom/">Axiom</a></td>
+  <td>1% base; net 0.95% → 0.75% by cashback tier; 10% off for referred sign-ups; default priority 0.001 SOL + 0.001 SOL tip</td>
+  <td>Web terminal</td>
+  <td>Solana (perps via Hyperliquid, per its docs)</td>
+  <td>22 Oct 2026</td>
+  <td class="small"><a href="https://docs.axiom.trade/getting-started/fees/axiom-fees" rel="nofollow noopener" target="_blank">Axiom fees</a>; <a href="https://docs.axiom.trade/getting-started/referral-program" rel="nofollow noopener" target="_blank">referral docs</a></td>
+</tr>
+<tr>
+  <td><a href="/tools/photon/">Photon</a></td>
+  <td>1% per buy and per sell, collected in SOL</td>
+  <td>Web terminal</td>
+  <td>Solana</td>
+  <td>22 Oct 2026</td>
+  <td class="small"><a href="https://pies-organization.gitbook.io/photon-trading/photon-on-sol/photon-fees-sol" rel="nofollow noopener" target="_blank">Photon fees</a></td>
+</tr>
+<tr>
+  <td><a href="/tools/gmgn/">GMGN</a></td>
+  <td>1% per transaction; priority / anti-MEV tips set by you</td>
+  <td>Web + Telegram</td>
+  <td>Solana, Ethereum, Base, BSC, Tron</td>
+  <td>22 Oct 2026</td>
+  <td class="small"><a href="https://docs.gmgn.ai/index/gmgn-fees-settings" rel="nofollow noopener" target="_blank">GMGN fees</a></td>
+</tr>
+<tr>
+  <td><a href="/tools/trojan/">Trojan</a></td>
+  <td>1% per successful trade; cashback varies by Arena rank (exact rates not on the FAQ)</td>
+  <td>Web + Telegram</td>
+  <td>Solana</td>
+  <td>22 Oct 2026</td>
+  <td class="small"><a href="https://docs.trojan.com/faqs" rel="nofollow noopener" target="_blank">Trojan FAQ</a></td>
+</tr>
+<tr>
+  <td><a href="/tools/bonkbot/">BONKbot</a></td>
+  <td>1% per successful swap; Telemetry rewards by volume (percentages not on the fee page)</td>
+  <td>Telegram</td>
+  <td>Solana</td>
+  <td>22 Oct 2026</td>
+  <td class="small"><a href="https://docs.bonkbot.io/fee-structure" rel="nofollow noopener" target="_blank">BONKbot fees</a></td>
+</tr>
+<tr>
+  <td><a href="/tools/maestro/">Maestro</a></td>
+  <td>1% per successful buy and sell; transfers not charged</td>
+  <td>Telegram</td>
+  <td>Solana, EVM, Tron, TON</td>
+  <td>22 Oct 2026</td>
+  <td class="small"><a href="https://docs.maestrobots.com/sniper/monetization" rel="nofollow noopener" target="_blank">Maestro monetization</a></td>
+</tr>
+<tr>
+  <td><a href="/tools/bullx/">BullX Neo</a></td>
+  <td>1% per buy and sell was published; trading in the current app has been paused since 1 June 2026</td>
+  <td>Web (Telegram login)</td>
+  <td>Solana and several EVM chains, per its docs</td>
+  <td>23 Oct 2026</td>
+  <td class="small"><a href="https://bullx.gitbook.io/bullx-neo-docs/fees-and-gas" rel="nofollow noopener" target="_blank">BullX fees</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="small muted">Launchpad or pool fees (for example pump.fun’s 1.25% bonding-curve fee) and Solana priority fees sit on top of these venue fees. See the <a href="/calculators/trading-fees/">trading fee calculator</a> and the <a href="/guides/solana-memecoin-trading-costs-small-size/">small-size costs guide</a>.</p>
+
+
+<h2>FOMO (trading app)</h2>
+<p>{{ vendor_text('fomo', 'FOMO') }} describes itself as a social-first crypto trading app with a web platform, for trading memecoins and other tokens on phone and desktop. A published maker/taker or per-trade fee schedule was not verified on the official site we read on 11 Nov 2026, so FOMO is not in the fee table above. That is not a ranking and not a recommendation to sign up.</p>
+{{ vendor_cta('fomo', 'Visit FOMO') }}
+
+<h2>Official-site and referral buttons</h2>
+<p class="small muted">Where a button is marked “Referral link”, CryptoStack may earn a commission if you use it. Axiom’s official referral docs describe a trading-fee discount for referred sign-ups. Buttons without that label go to the vendor’s ordinary official URL (<code>rel="noopener nofollow"</code>).</p>
+{{ vendor_cta('jupiter', 'Visit Jupiter') }}
+{{ vendor_cta('photon', 'Visit Photon') }}
+{{ vendor_cta('gmgn', 'Visit GMGN') }}
+{{ vendor_cta('trojan', 'Visit Trojan') }}
+{{ vendor_cta('bonkbot', 'Visit BONKbot') }}
+{{ vendor_cta('maestro', 'Visit Maestro') }}
+{{ vendor_cta('bullx', 'Visit BullX') }}
+
+<h2>What the fee does not include</h2>
+<ul>
+<li>At small size, Axiom’s documented default priority fee and tip (0.001 SOL each) can cost more than the 1% venue fee. That is why a 0.04 SOL round trip at those defaults was about 14.5% in the costs guide, versus about 3% for Jupiter Manual with a 0.0001 SOL priority fee.</li>
+<li>Wallets such as <a href="/tools/phantom/">Phantom</a> (0.85% on most swaps, checked 22 Oct 2026) are a different category; they are listed on this site’s wallet pages, not in the table above.</li>
+</ul>
+
+<div class="faq">
+<h2>FAQ</h2>
+<div class="faq-item">
+<h3>Which bot is cheapest?</h3>
+<p>There is no single answer. The lowest published platform commission in this set is Jupiter Manual at 0%, but you still pay network fees and any launchpad fee. A 1% terminal plus high default tips can be several times more expensive at small size than a 0% or 0.85% route with lower fixed fees. Work a size through the <a href="/calculators/trading-fees/">fee calculator</a>.</p>
+</div>
+<div class="faq-item">
+<h3>Are these all of the Solana trading bots?</h3>
+<p>No. This list is the terminals and bots this site has already checked against official fee pages. Absence is not a judgment.</p>
+</div>
+<div class="faq-item">
+<h3>Is this a recommendation to use Axiom’s referral?</h3>
+<p>No. The Axiom button is a disclosed referral link. Axiom’s docs say referred sign-ups receive a trading-fee discount; CryptoStack may earn a commission if you use the link. It is not a reason to sign up or to trade.</p>
+</div>
+</div>

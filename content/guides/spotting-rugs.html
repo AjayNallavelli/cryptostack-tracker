@@ -1,4 +1,6 @@
+{% from "_macros.html" import vendor_cta %}
 <p class="lead">A "rug" is when the people behind a token take value out and leave holders with something they cannot sell or that is worth far less. No checker can rule this out, but a few on-chain facts make some kinds of rug easier or harder. This guide explains what those facts mean and where to read them.</p>
+{{ vendor_cta('pumpfun', 'Visit pump.fun') }}
 
 <h2>1. Mint authority</h2>
 <p>A Solana token's mint account stores a <strong>mint authority</strong>: the address allowed to create more tokens. Solana's docs explain that the authority can be changed with the Token Program's <code>SetAuthority</code> instruction, and that setting it to <code>None</code> <em>permanently</em> removes that role.</p>

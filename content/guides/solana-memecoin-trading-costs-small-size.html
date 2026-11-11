@@ -1,3 +1,4 @@
+{% from "_macros.html" import vendor_cta %}
 <p class="lead">At small size, what a memecoin trade costs depends less on the headline fee and more on the fixed costs around it. This guide lists what each common Solana app or bot charges to buy and sell a pump.fun coin on its bonding curve, cheapest first, then works out a full buy-and-sell (round trip) at <strong>0.04 SOL</strong>. Fees change often; every number links to its source, checked Oct 23, 2026.</p>
 
 <h2>The fee nobody avoids: pump.fun's curve</h2>
@@ -7,6 +8,7 @@
 <li>Buying a new token opens a token account that holds about <strong>0.002 SOL</strong>. That is a deposit, not a fee: you get it back by closing the empty account after you sell.</li>
 </ul>
 <p>More on how the curve works in <a href="/guides/pump-fun-bonding-curve/">the pump.fun bonding curve</a>.</p>
+{{ vendor_cta('pumpfun', 'Visit pump.fun') }}
 
 <h2>What each app or bot adds, cheapest first</h2>
 <div class="table-wrap">
@@ -30,6 +32,8 @@
 </table>
 </div>
 <p>The spread is wide: from about 3% to about 15% for the same trade. The app fee explains little of it. Axiom's defaults add a 0.001 SOL priority fee and a 0.001 SOL bribe (tip) on each side, and 0.002 SOL each way is 10% of a 0.04 SOL round trip on its own.</p>
+{{ vendor_cta('axiom', 'Visit Axiom') }}
+{{ vendor_cta('gmgn', 'Visit GMGN') }}
 
 <h2>Lessons</h2>
 <ul>

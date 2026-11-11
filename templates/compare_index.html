@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Comparisons</h1>
-<p class="lead">{{ pairs|length }} side-by-side comparisons built from each vendor's own fee pages.</p>
+<p class="lead">Side-by-side pages built from official fee and product docs. Education only: a “best for” line is a use case plus a published fact, not a recommendation to sign up or to trade.</p>
+{% if pages.get("roundups") %}
+<h2>Fee and venue comparisons</h2>
+<ul class="links">{% for a in pages.roundups %}<li><a href="/compare/{{ a.slug }}/">{{ a.title }}</a> <span class="small muted">Last checked {{ a.date_checked|nicedate }}</span></li>{% endfor %}</ul>
+{% endif %}
+<p class="lead">{{ pairs|length }} tool-vs-tool comparisons built from each vendor's own fee pages.</p>
 {% for c in cats %}{% set ps = pairs|selectattr('a.category','equalto',c.name)|list %}{% if ps %}
 <h2>{{ c.name }}</h2><ul class="links cols">{% for p in ps %}<li><a href="/compare/{{ p.slug }}/">{{ p.a.name }} vs {{ p.b.name }}</a></li>{% endfor %}</ul>
 {% endif %}{% endfor %}

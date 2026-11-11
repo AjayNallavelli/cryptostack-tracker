@@ -3,7 +3,21 @@
 {%- endmacro %}
 
 {% macro outlink(t, label=None, cls="btn") -%}
+{%- set r = referrals.services.get(t.id) if referrals and referrals.services is defined else none -%}
+{%- if r and r.referral_url -%}
+<a class="{{ cls }}" href="{{ r.referral_url }}" rel="sponsored nofollow" target="_blank">{{ label or ("Visit " ~ t.name) }} <span class="small">(Referral link)</span></a>
+{%- else -%}
 <a class="{{ cls }}" href="{{ t.website }}" rel="noopener nofollow" target="_blank">{{ label or ("Visit " ~ t.name) }} ↗</a>
+{%- endif -%}
+{%- endmacro %}
+
+{% macro outlink_disclosure(t) -%}
+{%- set r = referrals.services.get(t.id) if referrals and referrals.services is defined else none -%}
+{%- if r and r.referral_url -%}
+<p class="small muted">Referral link: CryptoStack may earn a commission if you use it. This is not a recommendation to sign up or to trade.{% if t.id == "axiom" %} Axiom's official referral docs describe a trading-fee discount for referred sign-ups.{% endif %}</p>
+{%- else -%}
+<p class="small muted">The official-site button is not an affiliate or referral link.</p>
+{%- endif -%}
 {%- endmacro %}
 
 {% macro fee_line(t) -%}
@@ -37,4 +51,25 @@
   </div>
   <div class="card-visit small"><a href="/tools/{{ t.slug }}/">Fees &amp; features →</a></div>
 </article>
+{%- endmacro %}
+
+{% macro vendor_cta(key, label=None, cls="btn") -%}
+{%- set r = referrals.services.get(key) if referrals and referrals.services is defined else none -%}
+{%- if r and r.referral_url -%}
+<p class="referral-box">
+  <a class="{{ cls }}" href="{{ r.referral_url }}" rel="sponsored nofollow" target="_blank">{{ label or r.name }} <span class="small">(Referral link)</span></a>
+  <span class="small muted">Referral link: CryptoStack may earn a commission if you use it. This is not a recommendation to sign up or to trade.</span>
+</p>
+{%- elif r -%}
+<p class="referral-box"><a class="{{ cls }}" href="{{ r.official_url }}" rel="noopener nofollow" target="_blank">{{ label or ("Visit " ~ r.name) }} ↗</a></p>
+{%- endif -%}
+{%- endmacro %}
+
+{% macro vendor_text(key, label=None) -%}
+{%- set r = referrals.services.get(key) if referrals and referrals.services is defined else none -%}
+{%- if r and r.referral_url -%}
+<a href="{{ r.referral_url }}" rel="sponsored nofollow" target="_blank">{{ label or r.name }}</a> <span class="small muted">(Referral link)</span>
+{%- elif r -%}
+<a href="{{ r.official_url }}" rel="noopener nofollow" target="_blank">{{ label or r.name }}</a>
+{%- endif -%}
 {%- endmacro %}

@@ -1,0 +1,35 @@
+{% from "_macros.html" import vendor_cta %}
+<h2>What this calculator does</h2>
+<p>It adds up the trading fees on a buy and a sell. In centralized-exchange mode it uses maker and taker rates. In DEX / terminal mode it uses a venue percentage, an optional protocol or bonding-curve percentage, and fixed priority fees or tips on each side. A round trip is one buy plus one sell at the same size.</p>
+<p>Centralized-exchange presets are the regular-user (or VIP 0) rates published on official fee pages, checked 11 Nov 2026. DEX and terminal presets are the fee figures already verified on this site’s tool pages and in <a href="/data/trading_costs.json">trading_costs.json</a> (mostly 22–23 Oct 2026). See the <a href="/compare/binance-vs-bybit-vs-okx-fees/">Binance vs Bybit vs OKX fees</a> comparison and the <a href="/guides/solana-memecoin-trading-costs-small-size/">Solana memecoin trading-costs guide</a> for sources.</p>
+
+<div class="example">
+<h2>Example (labelled as an example)</h2>
+<p><strong>This is a worked example, not a trade and not advice.</strong> Suppose you take a $1,000 Binance spot fill as a taker and sell it as a taker, at the regular-user rate of 0.100% each way, with no BNB discount. The calculator shows $1.00 on the buy, $1.00 on the sell, and $2.00 for the round trip (0.20% of size). If you instead use the “Binance spot with BNB 25% off” preset (0.075% / 0.075%), the same example comes to $1.50. A live account may have a different VIP tier or promotion.</p>
+</div>
+
+<h2>How to read the result</h2>
+<ul>
+<li>Percentage fees are charged on the size you enter, not on your profit.</li>
+<li>On <a href="/chains/solana/">Solana</a>, a small size plus a fixed priority fee or tip can dominate the percentage fee. The costs guide walks through a 0.04 SOL example.</li>
+<li>Spread, slippage, funding, token-account rent and withdrawal fees are not included.</li>
+</ul>
+
+<div class="faq">
+<h2>FAQ</h2>
+<div class="faq-item">
+<h3>What is the difference between a maker and a taker fee?</h3>
+<p>A maker order rests on the book and adds liquidity; a taker order fills immediately against the book. Each exchange publishes both rates. Market orders are usually taker orders. Confirm the rate that applies to your account on the venue’s fee page.</p>
+</div>
+<div class="faq-item">
+<h3>Why are some DEX presets 1% plus a fixed 0.001?</h3>
+<p>Several Solana terminals, including <a href="/tools/axiom/">Axiom</a>, <a href="/tools/gmgn/">GMGN</a>, <a href="/tools/photon/">Photon</a>, <a href="/tools/trojan/">Trojan</a> and <a href="/tools/bonkbot/">BONKbot</a>, publish a 1% venue fee. Axiom’s docs also describe a default 0.001 SOL priority fee and a 0.001 SOL tip. Those fixed amounts are a large share of a small trade. The preset copies those published defaults; you can type different numbers.</p>
+</div>
+<div class="faq-item">
+<h3>Does this include pump.fun’s bonding-curve fee?</h3>
+<p>Only if you add it. The “pump.fun app + curve” preset uses the 0.45% app platform fee plus the 1.25% curve fee from pump.fun’s fees page (updated 17 Oct 2026). Trades sent through another terminal still pay the curve fee, plus that terminal’s own fee, and do not pay the app platform fee.</p>
+{{ vendor_cta('pumpfun', 'Visit pump.fun') }}
+{{ vendor_cta('axiom', 'Visit Axiom') }}
+{{ vendor_cta('gmgn', 'Visit GMGN') }}
+</div>
+</div>

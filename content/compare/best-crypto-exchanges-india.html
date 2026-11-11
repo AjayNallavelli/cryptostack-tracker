@@ -1,0 +1,103 @@
+{% from "_macros.html" import vendor_cta %}
+<p>This page is for readers in India who want a sourced comparison of INR access, published trading fees, and the main tax rules for virtual digital assets (VDAs). It is education only: not tax advice, not legal advice, and not a recommendation to use any exchange. Product availability, KYC and payment methods depend on the venue’s current terms and on your verification status. Last checked 11 Nov 2026.</p>
+{{ vendor_cta('binance', 'Visit Binance') }}
+
+<h2>Best for, in one line</h2>
+<ul>
+<li><strong>Best for a documented INR bank-transfer on-ramp plus a stated FIU-IND registration:</strong> <a href="https://wazirx.com/fees/" rel="nofollow noopener" target="_blank">WazirX</a>, because its official fees/FAQ pages describe INR deposits by IMPS, NEFT or RTGS and state that it is FIU-IND registered.</li>
+<li><strong>Best for a fully published regular-user spot fee with free INR deposits, on a dedicated pricing page:</strong> <a href="https://zebpay.com/in/features/pricing" rel="nofollow noopener" target="_blank">ZebPay</a>, because that official page lists 0.45% maker and 0.45% taker for regular users (0 to ₹5 lakh of 30-day volume), free instant and manual INR deposits, a ₹15 INR withdrawal fee, and 1% TDS. Those percentage fees are higher than the regular-user spot rates Binance, Bybit and OKX publish.</li>
+<li><strong>Best for a published subscription that sets eligible spot trading fees to zero:</strong> WazirX ZERO, because wazirx.com/fees states unlimited spot trading with zero trading fees for ₹99 a month. Whether that costs less than percentage fees depends on your volume; this is not a recommendation to subscribe. The same page lists 0.02% maker / 0.04% taker on INR-settled futures for ZERO members.</li>
+<li><strong>Best for a published international regular-user spot and perp schedule, with an official FIU-IND registration announcement:</strong> Binance, because its official fee schedules list 0.100% / 0.100% spot (0.075% / 0.075% with BNB) and 0.0200% / 0.0500% USDⓈ-M futures for regular users, and Binance has published an FIU-IND registration announcement. An INR deposit path is documented on Binance’s site; whether it is offered to a given account depends on location and verification — this page does not claim it works for every Indian user.</li>
+</ul>
+
+<h2>Indian tax notes (official sources, not advice)</h2>
+<p>These are the main central rules that official Income-tax materials describe for VDAs. Thresholds, forms and your own facts can change; read the Act and, if needed, a qualified tax professional.</p>
+<ul>
+<li><strong>Section 115BBH</strong> of the Income-tax Act, 1961 (in force from assessment year 2023–24) taxes income from the transfer of a VDA at <strong>30%</strong>. Official text says no deduction is allowed except the cost of acquisition, and a loss from a VDA transfer cannot be set off against other income or carried forward.</li>
+<li><strong>Section 194S</strong> requires the payer of consideration for transfer of a VDA to a resident to deduct <strong>1%</strong> TDS, with effect from 1 July 2022. CBDT Circular No. 14 of 2022 restates the statutory de minimis: no deduction if the consideration paid by a “specified person” does not exceed <strong>₹50,000</strong> in the financial year, or <strong>₹10,000</strong> for any other payer. On an exchange, the exchange typically deducts; in a peer-to-peer transfer, the buyer is generally the deductor. Circular No. 13 of 2022 is the guideline for transactions on or through an exchange. TDS is an advance of tax, not the final 30% liability.</li>
+<li>Exchange help pages (ZebPay’s pricing page; CoinSwitch’s TDS FAQ) also describe 1% TDS and say the amount can be claimed when filing a return. Those pages are secondary to the Act and CBDT circulars.</li>
+</ul>
+<p class="small muted">Sources: <a href="https://www.incometaxindia.gov.in/w/section-115bbh" rel="nofollow noopener" target="_blank">Section 115BBH (Income Tax Department)</a>; CBDT Circular No. 13 of 2022 (22 June 2022) and Circular No. 14 of 2022 (28 June 2022).</p>
+
+<div class="table-wrap">
+<table class="ptable vs">
+<thead>
+<tr><th>Venue</th><th>INR on-ramp (as officially described)</th><th>Published trading fees we could verify</th><th>TDS / compliance notes from official pages</th><th>Last checked</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td>WazirX</td>
+  <td>INR deposits by instant bank transfer (IMPS / NEFT / RTGS), per the official fees/FAQ page. The same page states FIU-IND registration and KYC with PAN and Aadhaar.</td>
+  <td>WazirX ZERO: ₹99/month for zero fees on eligible spot trades. ZERO members’ INR futures: 0.02% maker / 0.04% taker, per wazirx.com/fees. A help article still lists 0.10% maker / 0.25% taker on many listed pairs; treat that as a separate, older-looking schedule and confirm in the app before relying on it.</td>
+  <td>Describes itself as FIU-IND registered and subject to PMLA KYC rules.</td>
+  <td>11 Nov 2026</td>
+</tr>
+<tr>
+  <td>ZebPay</td>
+  <td>Instant and manual INR deposits: ₹0, per the official pricing page. Crypto deposits also listed as free. Penalty for deposits from an unregistered bank account: ₹500, per the same page.</td>
+  <td>Regular (₹0–5 lakh 30-day volume): 0.45% maker / 0.45% taker; Quick Trade from 0.5%. Fees exclusive of GST. INR withdrawals: ₹15 flat. Higher VIP tiers are listed on the same page.</td>
+  <td>The pricing page states 1% TDS on spot and Quick Trade from 1 July 2022, “which can extend to 5% in exceptional cases,” and that deducted TDS can be claimed in an ITR. The 1% rate matches section 194S; the “up to 5%” line is the vendor’s wording, not something we independently verified in the Act.</td>
+  <td>11 Nov 2026</td>
+</tr>
+<tr>
+  <td>CoinDCX</td>
+  <td>Official help article: “CoinDCX does not charge any fees for INR deposits.”</td>
+  <td><span class="tag tag-unverified">unverified here</span> Help articles say spot and futures fees depend on VIP level and point to a Fee Details / VIP page. The numeric schedule was not readable from the help articles we fetched, so no percentage is shown.</td>
+  <td>Help articles note that GST is discussed on trading fees (see CoinDCX’s GST article). This is not a substitute for the 194S / 115BBH rules above.</td>
+  <td>11 Nov 2026</td>
+</tr>
+<tr>
+  <td>CoinSwitch</td>
+  <td>Official marketing and help pages discuss INR deposits; a single, dated “INR deposits are free” line was not used as a fee figure here.</td>
+  <td><span class="tag tag-unverified">unverified here</span> A 7 July 2026 CoinSwitch blog post discusses spot fees in general without publishing a complete consumer maker/taker table. API trading docs show an example fee object that is user-specific, so it is not treated as a public standard rate.</td>
+  <td>Official FAQ: when you sell or transfer crypto above a threshold, the exchange or payer deducts 1% TDS, which can be set off or refunded when you file.</td>
+  <td>11 Nov 2026</td>
+</tr>
+<tr>
+  <td>Binance</td>
+  <td>Binance publishes an India site and an <a href="https://www.binance.com/en/fiat/deposit/inr" rel="nofollow noopener" target="_blank">INR deposit</a> page. Official blog: FIU-IND registration announcement. Availability and limits depend on account and verification.</td>
+  <td>Regular user, official global schedules (11 Nov 2026): spot 0.100% / 0.100% (0.07500% / 0.07500% with BNB); USDⓈ-M futures 0.0200% / 0.0500% (0.0180% / 0.0450% with BNB). See <a href="/compare/binance-vs-bybit-vs-okx-fees/">Binance vs Bybit vs OKX</a>.</td>
+  <td>FIU-IND registration was announced on Binance’s official blog. That is a reporting-entity registration, not a finding that every Binance product is offered in India or that tax is handled for you.</td>
+  <td>11 Nov 2026</td>
+</tr>
+<tr>
+  <td>Bybit / OKX</td>
+  <td>No official INR bank-transfer on-ramp is cited on this page. Do not assume one exists; check each venue’s current deposit page for your account.</td>
+  <td>Published regular-user crypto-crypto spot and perp rates are on the <a href="/compare/binance-vs-bybit-vs-okx-fees/">fee comparison</a>. Bybit’s VIP 0 fiat-crypto spot rates are higher than its crypto-crypto rates.</td>
+  <td>Indian VDA tax rules above apply to the resident’s transfers regardless of venue, including when no Indian exchange deducts TDS automatically (for example some peer-to-peer or self-custody transfers). That is a reading of the official circulars, not advice.</td>
+  <td>11 Nov 2026</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+{{ vendor_cta('wazirx', 'Visit WazirX') }}
+{{ vendor_cta('zebpay', 'Visit ZebPay') }}
+{{ vendor_cta('coindcx', 'Visit CoinDCX') }}
+{{ vendor_cta('coinswitch', 'Visit CoinSwitch') }}
+{{ vendor_cta('bybit', 'Visit Bybit') }}
+{{ vendor_cta('okx', 'Visit OKX') }}
+
+<h2>How to read this</h2>
+<ul>
+<li>A lower published international fee does not by itself make a venue “better” if you need a documented INR rail, or if that venue is not offered to you.</li>
+<li>1% TDS is not the same as the 30% tax on VDA income under 115BBH. TDS is withheld up front; the 30% is computed on the return, with official limits on deductions and loss set-off.</li>
+<li>GST on exchange fees, where a venue charges it, is separate from TDS.</li>
+<li>Use the <a href="/calculators/trading-fees/">trading fee calculator</a> to apply a published percentage to a size you type. For risk maths, see <a href="/techniques/">trading techniques</a>.</li>
+</ul>
+
+<div class="faq">
+<h2>FAQ</h2>
+<div class="faq-item">
+<h3>Is crypto legal in India?</h3>
+<p>This page does not give a legal opinion. The Income-tax Act taxes transfers of virtual digital assets, and exchanges describe FIU-IND registration and KYC under PMLA. That is not the same as a product-by-product licence, and it is not advice to use any venue.</p>
+</div>
+<div class="faq-item">
+<h3>Why are CoinDCX and CoinSwitch fees left blank?</h3>
+<p>Because a complete official maker/taker table could not be verified from the pages we were able to read on 11 Nov 2026. The site’s rule is to leave unverified fees blank rather than copy them from reviews.</p>
+</div>
+<div class="faq-item">
+<h3>Does the Binance referral apply in India?</h3>
+<p>The button is a disclosed referral link. CryptoStack may earn a commission if you use it. Whether Binance offers a given product or INR rail to you is a question for Binance’s current terms, not for this page.</p>
+</div>
+</div>

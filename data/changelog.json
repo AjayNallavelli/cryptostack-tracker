@@ -1,6 +1,11 @@
 [
  {
   "date": "2026-11-11",
+  "title": "New: calculators, fee comparisons, and labelled referral links",
+  "summary": "Added a Calculators section (trading fees, position size, isolated-margin liquidation price, and profit/loss with breakeven) and four sourced comparison pages: Solana trading bots and terminals, Binance vs Bybit vs OKX fees, pump.fun vs other Solana launchpads, and crypto exchanges for Indian users (INR rails and official TDS notes). Referral URLs now live in data/referrals.json. Filled and labelled “Referral link” with a disclosure, and with no stated commission rate: Binance, Axiom (code cstack), pump.fun (code BharathLobby), FOMO (code CryptoLead) and GMGN (code R153kbMq). GMGN is not used on chain pages. Other services keep their official URL until a referral is added."
+ },
+ {
+  "date": "2026-11-11",
   "title": "New: trading techniques and styles by chain",
   "summary": "Added a Trading Techniques section with explainers of position sizing, stop-loss and take-profit ladders, dollar-cost averaging, grid trading, funding-rate carry, spot–futures basis, TWAP execution, avoiding liquidation, a memecoin risk checklist, timing new token launches, post-trade journaling and paper trading, plus a comparison of which styles are a better mechanical fit for each of the 15 chain pages. Education only; not financial advice. A labeled Binance referral appears where a centralized exchange is a natural venue."
  },
