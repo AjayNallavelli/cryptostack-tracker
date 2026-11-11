@@ -1,0 +1,39 @@
+<h2>Contents</h2>
+<ul>
+<li><a href="#how">How it works</a></li>
+<li><a href="#fails">When it fails</a></li>
+<li><a href="#example">Worked example</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+
+<h2 id="how">How it works</h2>
+<p>TWAP means time-weighted average price. Instead of sending one large order, the method splits the parent order into smaller child orders and releases them over a planned clock — for example, equal slices every few minutes until the size is done. The aim is to reduce the footprint of a single print and to come close to the average price over that window, not to “beat” the market.</p>
+<p>Related slicing methods exist (VWAP uses volume rather than clock time; iceberg orders hide size on a book). The common idea is the same: the child size should be small relative to typical volume in that interval, and the schedule should be written down before the first slice.</p>
+<p>A careful version usually includes:</p>
+<ol>
+<li>A parent size, a window (start and end), and a slice rule (equal notional, or a cap as a percentage of recent volume).</li>
+<li>A limit or a marketable limit for each child, plus a rule for unfilled leftovers (re-price, skip, or cancel the rest).</li>
+<li>A hard stop if price leaves a pre-set band, so the algorithm does not keep buying a crashing market or selling a ripping one unless that is the intent.</li>
+<li>A fee and slippage budget. On a DEX aggregator, each slice is a separate swap with its own price impact. On a CEX, maker/taker fees still add up. See <a href="/techniques/position-sizing/">position sizing</a>.</li>
+<li>Paper or a tiny live clip first, because venue TWAP tools differ. See <a href="/techniques/paper-trading/">paper trading</a>.</li>
+</ol>
+<p>TWAP is a better fit for liquid majors and deep pools than for a newly launched token with thin volume. In a thin book, twelve small slices can still walk the price, and each slice can be picked off. For venue differences, see <a href="/techniques/by-chain/">styles by chain</a>.</p>
+
+<h2 id="fails">When it fails</h2>
+<ul>
+<li><strong>The window is too slow for a moving market.</strong> Later slices fill at much worse prices than the first, and the average is simply a lagging chase.</li>
+<li><strong>The window is too fast for the book.</strong> Child orders still move the price, which is the problem you were trying to avoid.</li>
+<li><strong>A predictable clock.</strong> If every slice hits at the same second, other participants can lean on the schedule.</li>
+<li><strong>One slice errors or a connection drop.</strong> The parent is only partly filled and risk is not what you planned.</li>
+<li><strong>Using TWAP as a thesis.</strong> Slicing is an execution tool. It does not make a bad trade good.</li>
+</ul>
+
+<h2 id="example">Worked example</h2>
+<p><strong>Example (not a recommendation).</strong> A trader wants to buy $50,000 of a liquid major and chooses 20 equal slices of $2,500, one every three minutes, over about an hour. If mid prices of the fills are $100.00, then gradually $100.80 by the last slice, the TWAP is the notional-weighted average of those fills, not the first print and not the low of the hour. If, halfway through, price drops 8% and there is no abort band, the algorithm keeps buying the decline and the average is pulled down — which may or may not be what was intended. If instead the pair only trades $4,000 in a typical three-minute window, $2,500 children are too large and the “quiet” schedule is still aggressive.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li>Slicing does not remove market, venue, or slippage risk, and it can increase fee count.</li>
+<li>Automated TWAP tools can mis-fire around funding, auctions, or halts.</li>
+<li>This page is education only. It is not a suggestion to trade or to use any execution algorithm.</li>
+</ul>

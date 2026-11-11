@@ -1,0 +1,37 @@
+<h2>Contents</h2>
+<ul>
+<li><a href="#how">How it works</a></li>
+<li><a href="#fails">When it fails</a></li>
+<li><a href="#example">Worked example</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+
+<h2 id="how">How it works</h2>
+<p>A post-trade journal is a written record of what you planned, what you did, and what the market did, with enough detail that you can learn from the process rather than from the P&amp;L alone. Published trading-desk playbooks treat the journal as part of the trade’s lifecycle, not as optional notes after a win.</p>
+<p>A useful entry usually separates three things:</p>
+<ol>
+<li><strong>Plan.</strong> The thesis in one sentence, the invalidation, the size, the stop, the targets, and why this trade was allowed under the rules (for example, it cleared a <a href="/techniques/memecoin-risk-checklist/">checklist</a>, or it was a scheduled <a href="/techniques/dollar-cost-averaging/">DCA</a> buy).</li>
+<li><strong>Execution.</strong> Actual fills, fees, funding, slippage, and whether the stop or targets were changed. “I moved the stop” is a process fact, even if the trade later made money.</li>
+<li><strong>Outcome in R, after costs.</strong> R is the planned dollar risk (see <a href="/techniques/position-sizing/">position sizing</a>). A trade that made $80 after fees when $50 was at risk is +1.6R, not “a nice win.” A trade that lost $50 as planned is −1R and may still have been a well-executed plan.</li>
+</ol>
+<p>Playbooks often add a fourth line: <em>one repeatable finding</em>. For example “I entered after the move was already extended, which my launch-timing rules forbid,” or “the daily loss brake would have stopped the second trade.” Without that line, the journal is only a diary of emotions. Public desk reviews also suggest judging the process first, then the outcome, so a lucky break of the rules is not recorded as skill.</p>
+<p>The same habit supports the <a href="/strategies/desk-rulebook/">desk rulebook</a> and the <a href="/strategies/daily-loss-brake/">daily loss brake</a>. It is also how <a href="/techniques/paper-trading/">paper trading</a> becomes evidence rather than a story.</p>
+
+<h2 id="fails">When it fails</h2>
+<ul>
+<li><strong>It is written only after wins,</strong> or only after losses, so the sample is biased.</li>
+<li><strong>Fees, funding and slippage are left out,</strong> so results look better than the account.</li>
+<li><strong>The finding is vague</strong> (“be more disciplined”) instead of a rule you could apply next time.</li>
+<li><strong>Private details leak.</strong> A public or shared log should not contain seed phrases, API keys, wallet addresses you want kept private, or account numbers.</li>
+<li><strong>The journal is used to relitigate a rule mid-day</strong> instead of waiting for the review.</li>
+</ul>
+
+<h2 id="example">Worked example</h2>
+<p><strong>Example (not a recommendation, and not a live trade).</strong> Plan: buy a liquid major at $100 with a stop at $97 (3% risk) and a first target at $106, risking $50 (so planned size is $50 ÷ 0.03 ≈ $1,667). Execution: filled $100.20, stop worked at $97.05, fees $4, no funding. Outcome: loss of about $52.50 plus $4 fees ≈ $56.50, or about −1.13R. Finding: “Entry drifted 0.2% from the planned price and I did not shrink size, so realized risk exceeded the $50 cap. Next time, recalc size from the actual fill, or cancel if the fill is outside a 0.1% band.” That finding is usable. “The market was unfair” is not.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li>A journal will not fix a method that has no edge, and it can create false confidence if you only remember the good notes.</li>
+<li>Storing trade records on a device or a cloud doc has privacy and security implications.</li>
+<li>This page is education only. It is not a suggestion to trade.</li>
+</ul>

@@ -1,0 +1,171 @@
+<h2>Contents</h2>
+<ul>
+<li><a href="#how-to-read">How to read this comparison</a></li>
+<li><a href="#volume">DEX volume snapshot</a></li>
+<li><a href="#table">Comparison table</a></li>
+<li><a href="#solana">Solana</a></li>
+<li><a href="#bnb-chain">BNB Chain</a></li>
+<li><a href="#ethereum">Ethereum</a></li>
+<li><a href="#hyperevm">HyperEVM</a></li>
+<li><a href="#base">Base</a></li>
+<li><a href="#others">The other chains on this site</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+<p class="small muted"><em>Disclosure:</em> Links to <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_DAZ2K" rel="sponsored nofollow" target="_blank">Binance</a> <span class="small muted">(Referral link)</span> on this page are referral links. CryptoStack may earn a commission if you use them. This is not a recommendation to open an account or to trade.</p>
+
+<h2 id="how-to-read">How to read this comparison</h2>
+<p>This page is education only. It is not financial advice, not a ranking of chains to buy, and not a suggestion to trade any style. When this page says a style is a <strong>better fit</strong> or <strong>best suited</strong>, it means “best suited because of documented fees, block or slot times, liquidity venues, launchpads, perps venues, and MEV or sandwich characteristics” — not “you should do this.” A style can be a mechanical fit and still be a bad idea for a given person, or unprofitable.</p>
+<p>Every fee, block-time and venue claim below is taken from official or public docs already cited on the <a href="/chains/">chain explainers</a>, plus a dated public volume snapshot from DefiLlama. Re-check those sources; figures change. There is no dedicated liquidity-providing (LP) technique page on this site yet; LP is listed in the table where it comes up, with the usual impermanent-loss and smart-contract caveats. Airdrop or points farming is listed only as a style people use <em>when a project has actually published a program</em>. Nothing here forecasts that any chain will run one.</p>
+<p>Related method pages: <a href="/techniques/timing-new-token-launches/">timing new token launches</a>, <a href="/techniques/memecoin-risk-checklist/">memecoin risk checklist</a>, <a href="/techniques/dollar-cost-averaging/">DCA</a>, <a href="/techniques/grid-trading/">grid trading</a>, <a href="/techniques/funding-rate-carry/">funding-rate carry</a>, <a href="/techniques/spot-futures-basis/">spot–futures basis</a>, <a href="/techniques/avoiding-liquidation/">avoiding liquidation</a>, <a href="/techniques/twap-execution/">TWAP</a>, <a href="/techniques/position-sizing/">position sizing</a>.</p>
+
+<h2 id="volume">DEX volume snapshot</h2>
+<p>On 11 Nov 2026 (Asia/Calcutta), a public pull of DefiLlama’s DEX overview (<a href="https://defillama.com/dexs/chains" rel="nofollow noopener" target="_blank">defillama.com/dexs/chains</a>, via the public <a href="https://api.llama.fi/overview/dexs" rel="nofollow noopener" target="_blank">api.llama.fi/overview/dexs</a> breakdown) showed approximately the following 24-hour spot DEX volume, rounded: <a href="/chains/ethereum/">Ethereum</a> $1.99B, <a href="/chains/solana/">Solana</a> $1.56B, <a href="/chains/base/">Base</a> $1.11B, <a href="/chains/bnb-chain/">BNB Chain</a> (BSC) $977M, <a href="/chains/robinhood-chain/">Robinhood Chain</a> $573M, Hyperliquid L1 $386M, <a href="/chains/arbitrum/">Arbitrum</a> $210M, <a href="/chains/avalanche/">Avalanche</a> $89M, <a href="/chains/tron/">TRON</a> $68M, <a href="/chains/monad/">Monad</a> $37M, <a href="/chains/x-layer/">X Layer</a> $28M, <a href="/chains/arc/">Arc</a> $16M, <a href="/chains/megaeth/">MegaETH</a> $1.4M. <a href="/chains/stable/">Stable</a> printed a negligible figure (tens of dollars) in that breakdown. <a href="/chains/blast/">Blast</a> did not appear among the large venues in that 24-hour breakdown. These are one-day snapshot figures, not a quality ranking, and they are not perps volume. DefiLlama’s paid derivatives API was not used here. Hyperliquid’s distinctive venue is a native perpetual order book (HyperCore), which official docs describe separately from HyperEVM spot activity — so the $386M DEX figure understates why perps styles are listed for that stack.</p>
+
+<h2 id="table">Comparison table</h2>
+<div class="table-wrap">
+<table class="ptable vs">
+<thead>
+<tr>
+<th>Chain</th>
+<th>Styles that fit best</th>
+<th>Why (fees, speed, venues, MEV)</th>
+<th>Main risks</th>
+<th>Technique pages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/chains/solana/">Solana</a></td>
+<td>Memecoin launch timing and short-horizon DEX activity; DEX swing trades on major Solana venues; CEX <a href="/techniques/dollar-cost-averaging/">DCA</a> or <a href="/techniques/grid-trading/">grid</a> for liquid majors</td>
+<td>Best suited because official base fee is 5,000 lamports per signature, slots are 200&nbsp;ms as of the 9 Oct 2026 SIMD-0525 notes, and commonly used venues include Pump.fun, Raydium and Jupiter. DefiLlama’s 11 Nov 2026 snapshot put Solana near the top of 24h DEX volume (~$1.56B). Priority fees still rise when demand spikes. MEV exists (including priority-fee competition) even though it is not the same mechanism as Ethereum’s public mempool sandwiches.</td>
+<td>Rugs, bundle and honeypot patterns, attention dumps, failed transactions, congestion and priority-fee spikes, bridging mistakes</td>
+<td><a href="/techniques/timing-new-token-launches/">Launch timing</a>, <a href="/techniques/memecoin-risk-checklist/">memecoin checklist</a>, <a href="/techniques/stop-take-profit-ladders/">ladders</a>, <a href="/techniques/position-sizing/">sizing</a></td>
+</tr>
+<tr>
+<td><a href="/chains/bnb-chain/">BNB Chain</a></td>
+<td>Launchpad (Four.meme-style) activity and PancakeSwap DEX swings; CEX DCA, grid, funding and basis next to the Binance stack</td>
+<td>Best suited because official docs describe ~0.45s block times and typically low BNB fees, with PancakeSwap and Four.meme among commonly used venues. DefiLlama’s 11 Nov 2026 snapshot showed about $977M of 24h DEX volume on BSC. A centralized exchange is a natural fit for majors here: <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_DAZ2K" rel="sponsored nofollow" target="_blank">Binance</a> <span class="small muted">(Referral link)</span> is adjacent to the chain, which is a venue fact, not a reason to open an account.</td>
+<td>Launch rugs, congestion around popular mints, BNB fee spikes, CEX custody vs on-chain execution risk</td>
+<td><a href="/techniques/timing-new-token-launches/">Launch timing</a>, <a href="/techniques/memecoin-risk-checklist/">checklist</a>, <a href="/techniques/dollar-cost-averaging/">DCA</a>, <a href="/techniques/grid-trading/">grid</a>, <a href="/techniques/funding-rate-carry/">funding carry</a></td>
+</tr>
+<tr>
+<td><a href="/chains/ethereum/">Ethereum</a></td>
+<td>DEX swing trades in deep L1 venues (notably Uniswap); large-size <a href="/techniques/twap-execution/">TWAP</a> where liquidity supports it; CEX or L2 often used instead for DCA, grid, and perps</td>
+<td>Best suited for deeper DEX swings because DefiLlama’s 11 Nov 2026 snapshot showed the highest 24h DEX volume in this set (~$1.99B) and Uniswap is a commonly used venue in official and public listings. Micro memecoin sniping is a poorer mechanical fit because official slots are ~12 seconds, L1 gas is variable (base fee plus tip; the base fee is burned), and <a href="https://ethereum.org/en/developers/docs/mev/" rel="nofollow noopener" target="_blank">Ethereum’s own MEV docs</a> describe sandwich and back-run risk in the public mempool.</td>
+<td>Gas spikes, MEV/sandwiches, failed or stuck transactions, smart-contract and bridging risk (when leaving L1)</td>
+<td><a href="/techniques/twap-execution/">TWAP</a>, <a href="/techniques/position-sizing/">sizing</a>, <a href="/techniques/dollar-cost-averaging/">DCA</a> (often off L1)</td>
+</tr>
+<tr>
+<td><a href="/chains/hyperevm/">HyperEVM</a></td>
+<td>Perps, <a href="/techniques/funding-rate-carry/">funding-rate carry</a>, and <a href="/techniques/spot-futures-basis/">basis-style hedges</a> on HyperCore; cautious DEX activity on the EVM where liquidity exists</td>
+<td>Best suited because HyperEVM is Hyperliquid’s EVM environment (chain ID 999), not a separate L1, and official docs describe HyperCore’s perpetual order book, <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding" rel="nofollow noopener" target="_blank">funding</a> and <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/liquidations" rel="nofollow noopener" target="_blank">liquidations</a> as the native trading venue. Official docs also describe the EVM as alpha, with a dual-block design (1s / 3M gas and 1 min / 30M gas). DefiLlama’s snapshot showed meaningful Hyperliquid L1 DEX volume (~$386M 24h) that is still secondary to the perp venue. Launch/memecoin culture is thinner than on Solana or BNB Chain.</td>
+<td>Liquidation, Core vs EVM confusion, alpha/dual-block behaviour, thinner launch liquidity</td>
+<td><a href="/techniques/funding-rate-carry/">Funding carry</a>, <a href="/techniques/spot-futures-basis/">basis</a>, <a href="/techniques/avoiding-liquidation/">liquidation</a></td>
+</tr>
+<tr>
+<td><a href="/chains/base/">Base</a></td>
+<td>Lower-fee DEX swings versus Ethereum L1; some short-horizon token activity where pools exist; CEX DCA/grid for majors sits off-chain</td>
+<td>Best suited because Base is an OP Stack L2 (chain ID 8453) that uses ETH for gas, has no separate Base gas token, and official docs describe 200&nbsp;ms block times — cheaper and faster than L1 for many swaps. DefiLlama’s 11 Nov 2026 snapshot put Base third by 24h DEX volume (~$1.11B). Uniswap is a commonly used venue. MEV still exists on L2s; it is not “solved” by leaving L1. No Coinbase referral is used on this site.</td>
+<td>Sequencer and L2 operational risk; official withdrawal paths take time (5-day single-proof, or 1-day with TEE+ZK, as of the chain page’s 10 Nov 2026 sources); smart-contract and rug risk in newer pools</td>
+<td><a href="/techniques/position-sizing/">Sizing</a>, <a href="/techniques/twap-execution/">TWAP</a>, <a href="/techniques/memecoin-risk-checklist/">checklist</a>, <a href="/techniques/dollar-cost-averaging/">DCA</a></td>
+</tr>
+<tr>
+<td><a href="/chains/arbitrum/">Arbitrum</a></td>
+<td>DEX swings at lower fees than Ethereum L1; some LP in established pools; perps and CEX styles often sit on other venues</td>
+<td>Best suited for cheaper L2 DEX activity because official docs describe Arbitrum One (42161) with a 0.02 gwei fee floor and ETH gas, and DefiLlama’s snapshot showed about $210M of 24h DEX volume. Official dispute window is 45,818 blocks, about 6.4 days. Nova (42170) is a separate AnyTrust chain and is not the same venue.</td>
+<td>Withdrawal delay, sequencer risk, MEV on L2, confusing One vs Nova</td>
+<td><a href="/techniques/twap-execution/">TWAP</a>, <a href="/techniques/position-sizing/">sizing</a></td>
+</tr>
+<tr>
+<td><a href="/chains/avalanche/">Avalanche</a></td>
+<td>C-Chain DEX swings and CEX activity in majors; not a primary memecoin-launch venue in the same way as Solana or BNB Chain</td>
+<td>Best suited for ordinary C-Chain DEX and CEX-adjacent styles because official docs describe the C-Chain (43114, AVAX gas, both base and priority fees burned) and a dynamic min block delay after Helicon (ACP-226). DefiLlama’s snapshot showed about $89M of 24h DEX volume — meaningful but well below the top four. The X-Chain and P-Chain are different built-in chains, not swap venues in the same sense.</td>
+<td>C-Chain fee changes (validator-voted min base fee), confusing the three built-in chains, thinner launch liquidity than Solana/BSC</td>
+<td><a href="/techniques/position-sizing/">Sizing</a>, <a href="/techniques/dollar-cost-averaging/">DCA</a></td>
+</tr>
+<tr>
+<td><a href="/chains/tron/">TRON</a></td>
+<td>SunSwap / SunPump-style DEX and launch activity where those official venues are used; CEX activity for TRX and majors</td>
+<td>Best suited for those official venues because TRON uses Bandwidth and Energy rather than a simple gas-price model, official docs describe ~3s blocks and ~1 minute solidification, and SunSwap/SunPump are listed via sun.io. DefiLlama’s snapshot showed about $68M of 24h DEX volume. Resource rental and energy mechanics change the fee picture versus an EVM L2.</td>
+<td>Energy/Bandwidth surprises, launch rugs, slower “solidification” than a 3s block time might suggest, bridging risk</td>
+<td><a href="/techniques/memecoin-risk-checklist/">Checklist</a>, <a href="/techniques/timing-new-token-launches/">launch timing</a>, <a href="/techniques/dollar-cost-averaging/">DCA</a></td>
+</tr>
+<tr>
+<td><a href="/chains/monad/">Monad</a></td>
+<td>Cautious DEX activity and newer launchpads listed on the official App Hub; not yet in the same volume class as Solana, BSC, Ethereum or Base</td>
+<td>Official docs describe a fast EVM L1 (300&nbsp;ms blocks / 600&nbsp;ms finality, MON for gas, mainnet from 24 Nov 2025). That speed is a mechanical match for short-horizon DEX activity in principle. DefiLlama’s 11 Nov 2026 snapshot showed about $37M of 24h DEX volume — thinner, newer liquidity. App Hub listings (for example Uniswap, PancakeSwap, Nad.fun, Flap) are directory facts, not endorsements.</td>
+<td>Thinner books, newer launchpad risk, the usual mint/honeypot patterns, 10k+ TPS is a capacity figure rather than a promise of filled trades</td>
+<td><a href="/techniques/memecoin-risk-checklist/">Checklist</a>, <a href="/techniques/paper-trading/">paper trading</a>, <a href="/techniques/position-sizing/">sizing</a></td>
+</tr>
+<tr>
+<td><a href="/chains/robinhood-chain/">Robinhood Chain</a></td>
+<td>DEX activity in officially listed venues (Uniswap appears on the official ecosystem list); not framed here as a memecoin-snipe venue</td>
+<td>DefiLlama’s 11 Nov 2026 snapshot showed high 24h DEX volume (~$573M). That is a volume fact, not a quality or “best trade” ranking. Officially this is an Arbitrum Orbit L2 (4663, ETH gas, FCFS sequencing, Ethereum blobs) aimed at a broader RWA/brokerage-adjacent design, with Uniswap listed plus the project’s own ecosystem disclaimer. Canonical deposits are described around 10 minutes and withdrawals around 7 days. Official connecting and gas pages checked for the chain explainer did not publish a block time. Independent of Robinhood brokerage. No signup CTA.</td>
+<td>Withdrawal delay (~7 days), Orbit/L2 operational risk, treating a volume snapshot as a reason to trade, confusing the chain with the brokerage</td>
+<td><a href="/techniques/position-sizing/">Sizing</a>, <a href="/techniques/twap-execution/">TWAP</a></td>
+</tr>
+<tr>
+<td><a href="/chains/x-layer/">X Layer</a></td>
+<td>Modest DEX activity; CEX-adjacent styles next to OKX (no OKX referral on this site)</td>
+<td>Official docs describe an OKX OP Stack L2 (196, OKB gas, 1s blocks). DefiLlama’s snapshot showed about $28M of 24h DEX volume — modest versus the top four. Official material describes both a 7-day challenge period and an AggLayer PP path; re-check which withdrawal path applies. OKB’s 21M fixed supply is an official token fact, not a buy reason.</td>
+<td>Modest liquidity, withdrawal-path ambiguity until you re-check official docs, L2 and bridging risk</td>
+<td><a href="/techniques/position-sizing/">Sizing</a>, <a href="/techniques/dollar-cost-averaging/">DCA</a></td>
+</tr>
+<tr>
+<td><a href="/chains/blast/">Blast</a></td>
+<td>Limited, cautious DEX activity only; not a primary launch or perps venue in this comparison</td>
+<td>Official sources indexed 10 Nov 2026 describe an OP Stack L2 (81457, ETH gas) with a yield design and a roughly 7-day withdrawal window. An official block time was not confirmed on those pages. Blast did not appear among the large 24h DEX venues in the 11 Nov 2026 DefiLlama breakdown used here, so styles that need deep, competitive flow are a poorer fit than on Ethereum, Solana, Base or BSC.</td>
+<td>Thinner liquidity, yield-design quirks, ~7-day withdrawals, L2 operational risk</td>
+<td><a href="/techniques/position-sizing/">Sizing</a>, <a href="/techniques/paper-trading/">paper trading</a></td>
+</tr>
+<tr>
+<td><a href="/chains/megaeth/">MegaETH</a></td>
+<td>Theoretically low-latency DEX activity if and when liquidity is there; treat as new and thin</td>
+<td>Official docs describe an OP Stack L2 mainnet (4326, ETH gas) with ~10&nbsp;ms mini-blocks and ~1s EVM blocks, a 0.001 gwei base-fee adjustment that is effectively disabled, and 10B gas per EVM block. That latency is a mechanical match for short-horizon trading in principle. DefiLlama’s snapshot showed only about $1.4M of 24h DEX volume. An official withdrawal day-count was not in the official pages checked for the chain explainer.</td>
+<td>New/thin books, unsettled withdrawal documentation, L2 and bridging risk</td>
+<td><a href="/techniques/paper-trading/">Paper trading</a>, <a href="/techniques/position-sizing/">sizing</a></td>
+</tr>
+<tr>
+<td><a href="/chains/arc/">Arc</a></td>
+<td>Payments-oriented transfers and cautious DEX use (USDC gas); not a memecoin-launch venue</td>
+<td>Best suited to payments-style activity because official docs describe a Circle L1 (5042) that uses USDC for gas (18 decimals, not 6), ~0.5s blocks, sub-second BFT finality, and a 20 gwei maxFeePerGas floor. DefiLlama’s snapshot showed about $16M of 24h DEX volume. Privacy and some post-quantum wallet features were still roadmap items in the official material cited on the chain page. Permissioned validators, permissionless developers.</td>
+<td>Permissioned validator set, thinner trading liquidity, roadmap features not to be treated as live, issuer and stablecoin risk</td>
+<td><a href="/techniques/twap-execution/">TWAP</a> (only if liquidity supports it), <a href="/techniques/position-sizing/">sizing</a></td>
+</tr>
+<tr>
+<td><a href="/chains/stable/">Stable</a></td>
+<td>Payments-oriented USDT0 activity and cautious use of listed DEX venues (Uniswap v3 / official swap); not a memecoin-launch venue</td>
+<td>Official docs describe a payments L1 (988) that uses USDT0 for gas, ~0.7s blocks and single-slot finality. Uniswap v3 and swap.stable.xyz are listed official venues. DefiLlama’s 11 Nov 2026 breakdown printed a negligible 24h DEX figure (tens of dollars), so any “DEX swing” style is not supported by visible volume on that date. Some official finality wording still mentioned a testnet phase; the chain page treats mainnet as live per the mainnet-information docs. STABLE is described as governance/DPoS, not as a buy.</td>
+<td>Negligible DEX volume on the date checked, stablecoin and issuer risk, docs that still mix testnet wording, thinner books</td>
+<td><a href="/techniques/paper-trading/">Paper trading</a>, <a href="/techniques/position-sizing/">sizing</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="solana">Solana</h2>
+<p>Styles that are <strong>best suited</strong> to Solana, because of official fees, 200&nbsp;ms slots and the Pump.fun / Raydium / Jupiter venue set, plus high DEX volume in the 11 Nov 2026 snapshot: short-horizon launch timing and DEX activity, and ordinary DEX swings in more liquid Solana markets. CEX <a href="/techniques/dollar-cost-averaging/">DCA</a> and <a href="/techniques/grid-trading/">grid</a> remain a fit for majors, but they do not use the chain’s slot speed. Main risks are rugs, bundles, priority fees and attention dumps. Read the <a href="/chains/solana/">Solana explainer</a>, the <a href="/techniques/memecoin-risk-checklist/">memecoin checklist</a> and <a href="/techniques/timing-new-token-launches/">launch timing</a>.</p>
+
+<h2 id="bnb-chain">BNB Chain</h2>
+<p>Styles that are <strong>best suited</strong> to BNB Chain, because of official ~0.45s blocks, typically low BNB fees, PancakeSwap and Four.meme, and large BSC DEX volume in the snapshot: launchpad-style activity and DEX swings, plus CEX DCA, grid, funding and basis next to <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_DAZ2K" rel="sponsored nofollow" target="_blank">Binance</a> <span class="small muted">(Referral link)</span>. That adjacency is a venue fact, not a recommendation to open an account. Main risks are launch rugs and the usual gap between CEX and on-chain execution. Read the <a href="/chains/bnb-chain/">BNB Chain explainer</a>.</p>
+
+<h2 id="ethereum">Ethereum</h2>
+<p>Styles that are <strong>best suited</strong> to Ethereum L1, because it led this snapshot in 24h DEX volume and has deep Uniswap-style venues: DEX swings and, where the book is deep enough, <a href="/techniques/twap-execution/">TWAP</a> of larger size. Micro memecoin sniping is a <em>poorer</em> fit because of ~12s slots, variable L1 gas, and documented MEV/sandwich risk. Funding, basis and small-size DCA often happen on a CEX or on a cheaper L2 rather than on L1, which is a cost fact, not a product pitch. Read the <a href="/chains/ethereum/">Ethereum explainer</a> and Ethereum’s <a href="https://ethereum.org/en/developers/docs/mev/" rel="nofollow noopener" target="_blank">MEV documentation</a>.</p>
+
+<h2 id="hyperevm">HyperEVM</h2>
+<p>Styles that are <strong>best suited</strong> to this stack, because official docs put the perpetual order book, funding and liquidations on HyperCore next to HyperEVM: <a href="/techniques/funding-rate-carry/">funding-rate carry</a>, <a href="/techniques/spot-futures-basis/">basis-style hedges</a>, and other perps methods, always with <a href="/techniques/avoiding-liquidation/">liquidation risk</a> in view. The EVM itself is still described as alpha; launch culture is thinner than Solana or BNB Chain. Confusing a HyperCore perp with a HyperEVM token is a common operational failure. Read the <a href="/chains/hyperevm/">HyperEVM explainer</a> and, for the related name, <a href="/guides/what-is-elysium/">What is Elysium?</a>.</p>
+
+<h2 id="base">Base</h2>
+<p>Styles that are <strong>best suited</strong> to Base, because it is a 200&nbsp;ms OP Stack L2 with ETH gas and, in the 11 Nov 2026 snapshot, the third-largest 24h DEX volume in this set: lower-fee DEX swings versus Ethereum L1, and some short-horizon token activity in pools that actually have liquidity. L2 withdrawal delays and sequencer risk remain. There is no Coinbase referral on this site. Read the <a href="/chains/base/">Base explainer</a>.</p>
+
+<h2 id="others">The other chains on this site</h2>
+<p><a href="/chains/arbitrum/">Arbitrum One</a> is a fit for cheaper-than-L1 DEX swings, with an official ~6.4-day dispute window. <a href="/chains/avalanche/">Avalanche</a> C-Chain supports ordinary DEX and CEX-adjacent styles, not a primary memecoin-launch culture. <a href="/chains/tron/">TRON</a> styles follow SunSwap/SunPump and CEX activity, with Bandwidth/Energy fee mechanics. <a href="/chains/monad/">Monad</a> is fast on paper and thinner in the volume snapshot, so caution and paper-style sizing come first. <a href="/chains/robinhood-chain/">Robinhood Chain</a> had high DefiLlama DEX volume on the date checked, but officially it is an Orbit L2 with a Uniswap listing and ~7-day withdrawals — treat the volume figure as a snapshot, not as a reason to snipe memecoins. <a href="/chains/x-layer/">X Layer</a> is OKX-adjacent with modest volume (no OKX referral here). <a href="/chains/blast/">Blast</a> and <a href="/chains/megaeth/">MegaETH</a> are thinner or newer; MegaETH’s official latency is notable, its 24h DEX volume in the snapshot was not. <a href="/chains/arc/">Arc</a> and <a href="/chains/stable/">Stable</a> are payments-oriented (USDC gas and USDT0 gas); they are not framed here as memecoin-launch venues, and Stable’s DEX volume on the date checked was negligible.</p>
+<p>Points or airdrop farming is only a “style” when a project has published a program with written rules. This page does not forecast one.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li>A mechanical fit is not an edge. Fees, speed and volume do not make a trade profitable.</li>
+<li>Volume snapshots change daily and can be dominated by a few pools or by wash-prone flow. DefiLlama is a public aggregator, not an official chain document.</li>
+<li>MEV, sandwiches, rugs, liquidation, bridging and custody risk apply even on a “well suited” chain.</li>
+<li>This page is education only. It is not a recommendation to use any chain, venue or style, and not a suggestion to buy any token.</li>
+</ul>

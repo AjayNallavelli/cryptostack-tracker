@@ -1,0 +1,39 @@
+<h2>Contents</h2>
+<ul>
+<li><a href="#how">How it works</a></li>
+<li><a href="#fails">When it fails</a></li>
+<li><a href="#example">Worked example</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+
+<h2 id="how">How it works</h2>
+<p>Some traders treat the minutes around a token’s first public pool or bonding-curve listing as a separate activity from later “swing” trading. The method is about <em>process and timing</em>, not about picking a winner. Launch venues and slot or block times differ by chain — official fee and speed facts are on the <a href="/chains/">chain pages</a>, and the comparison of which styles fit which chain is in <a href="/techniques/by-chain/">styles by chain</a>.</p>
+<p>A careful launch-timing process usually has a written sequence:</p>
+<ol>
+<li><strong>Know the venue’s mechanics before the name appears.</strong> Bonding curves, migration conditions, and DEX default routes are documented (for example Pump.fun’s curve on Solana; Four.meme-style venues on BNB Chain). If you cannot explain how a buy exits, you do not have a method. See <a href="/guides/pump-fun-bonding-curve/">Pump.fun’s bonding curve</a>.</li>
+<li><strong>Run a risk checklist first, not after the buy.</strong> Authorities, honeypot behaviour, shared funders, and fee floors are covered in the <a href="/techniques/memecoin-risk-checklist/">memecoin risk checklist</a>.</li>
+<li><strong>Decide size, stop and targets in advance.</strong> Launch volatility is large; a stop can be skipped. See <a href="/techniques/position-sizing/">sizing</a> and <a href="/techniques/stop-take-profit-ladders/">ladders</a>.</li>
+<li><strong>Treat attention as a clock, not as a thesis.</strong> Public chat, livestreams and scanner spikes can cluster entries. A name that has already had a large, widely seen move is a different trade from a planned process at first listing.</li>
+<li><strong>Do not chase an extended print</strong> just because you “missed” the open. Missing a launch is a valid outcome.</li>
+<li><strong>Journal the process</strong> (did you follow the list?) separately from the outcome (did price go up?). See <a href="/techniques/post-trade-journal/">post-trade journaling</a>.</li>
+</ol>
+<p>Fast blocks (for example Solana’s 200 ms slots as of the 9 Oct 2026 SIMD-0525 notes, or BNB Chain’s official ~0.45s) change how competitive inclusion is. They do not change the fact that most new tokens fail. Ethereum’s ~12-second slots and documented MEV/sandwich risk make tiny launch snipes a worse mechanical fit than on a low-fee, fast L1 — that is a venue fact, not a reason to snipe somewhere else.</p>
+
+<h2 id="fails">When it fails</h2>
+<ul>
+<li><strong>Bundles and insiders were already filled.</strong> The public flow is exit liquidity. See <a href="/guides/how-bundles-work/">how bundles work</a>.</li>
+<li><strong>Priority fees and failed transactions.</strong> You pay costs and still miss the slot, or you land at a much worse price.</li>
+<li><strong>Attention dumps.</strong> When the livestream or scanner crowd leaves, liquidity can vanish.</li>
+<li><strong>Migration or router surprises</strong> at the curve-to-pool handoff, including tax or tax-like behaviour that was not obvious on the curve.</li>
+<li><strong>Tooling lag.</strong> A scanner print can be later than the people who were already in the pool.</li>
+</ul>
+
+<h2 id="example">Worked example</h2>
+<p><strong>Example (not a recommendation, and not a real token).</strong> A bonding-curve page shows a new name. The pre-written process says: run the checklist (2 minutes), cap risk at a small fixed fraction of equity, refuse the trade if mint authority is live or if a shared-funder cluster is obvious, and refuse it if the name is already many times away from its first print. Suppose the checklist fails on a still-live mint authority. The method stops there. Suppose instead the checklist is clean enough to proceed, the buy fills, and price doubles — then the planned first scale-out is at that 2× level, not a larger improvised target. Suppose price dumps 80% through the stop in one trade: the planned stop was not a guaranteed fill, and the journal records a gap, not “the method failed because I should have held.”</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li>Launch trading is usually closer to a casino than to investing. Most names go to zero. Phishing “official” launch sites are common.</li>
+<li>MEV, sandwiches, and priority-fee auctions can make the fill much worse than the quoted chart.</li>
+<li>This page is education only. It is not a suggestion to snipe, scalp, or buy any launch. No contract addresses or tickers are listed here on purpose.</li>
+</ul>

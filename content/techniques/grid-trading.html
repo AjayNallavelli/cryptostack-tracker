@@ -1,0 +1,40 @@
+<h2>Contents</h2>
+<ul>
+<li><a href="#how">How it works</a></li>
+<li><a href="#fails">When it fails</a></li>
+<li><a href="#example">Worked example</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+<p class="small muted"><em>Disclosure:</em> Links to <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_DAZ2K" rel="sponsored nofollow" target="_blank">Binance</a> <span class="small muted">(Referral link)</span> on this page are referral links. CryptoStack may earn a commission if you use them. This is not a recommendation to open an account or to trade.</p>
+
+<h2 id="how">How it works</h2>
+<p>Grid trading places a ladder of buy orders below a mid price and sell orders above it, inside a chosen range. When a buy fills, the method typically places a corresponding sell one grid step higher (and the reverse for sells), so the book keeps working as long as price stays in the range. Exchange education pages, including <a href="https://www.binance.com/en/square/post/322951" rel="nofollow noopener" target="_blank">Binance’s grid-trading explainer</a>, describe bots that do this automatically on a centralized order book.</p>
+<p>The method is built for a market that <em>oscillates</em> inside a band. Each completed up-and-down step can realize a small profit equal to the grid spacing minus fees. It is a poor match for a one-way trend: buy orders keep filling as price falls, or sell orders keep filling as price rips, and inventory piles up on the wrong side.</p>
+<p>Practical pieces of the method:</p>
+<ol>
+<li>Choose a range you can defend with evidence (recent structure or a volatility band), not a guess that “it always comes back.”</li>
+<li>Choose the number of grids and the order size so that total inventory, if the range is fully traversed, is a risk you have sized. See <a href="/techniques/position-sizing/">position sizing</a>.</li>
+<li>Count fees. If the grid step is 0.3% and the round-trip fee is 0.2%, very little is left after a fill pair.</li>
+<li>Decide in advance what happens if price leaves the range: cancel, widen, or stop. Leaving a fully long inventory in a crash is a directional bet, not a grid.</li>
+<li>Paper the bot first. Venue grid bots have their own rules for funding, leverage and liquidation if the grid is on futures. <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_DAZ2K" rel="sponsored nofollow" target="_blank">Binance</a> <span class="small muted">(Referral link)</span> is one CEX that offers grid tools; this is not a reason to turn one on.</li>
+</ol>
+<p>On-chain “grid” ideas exist too, but most published grid playbooks assume a CEX book. For which chains are a better fit for CEX-style majors versus DEX swing trades, see <a href="/techniques/by-chain/">styles by chain</a>.</p>
+
+<h2 id="fails">When it fails</h2>
+<ul>
+<li><strong>A trend, not a range.</strong> This is the main failure mode. The grid can finish fully long in a decline or fully short in a rally.</li>
+<li><strong>Spacing too tight for fees and spreads.</strong> The bot is busy and unprofitable.</li>
+<li><strong>A gap through many levels.</strong> Several orders fill at once; inventory and risk jump.</li>
+<li><strong>Futures grids plus leverage.</strong> Inventory can approach liquidation. See <a href="/techniques/avoiding-liquidation/">avoiding liquidation</a>.</li>
+<li><strong>Changing the range mid-trade without a rule.</strong> That often turns the grid into discretionary averaging.</li>
+</ul>
+
+<h2 id="example">Worked example</h2>
+<p><strong>Example (not a recommendation).</strong> Suppose a trader sets a $90–$110 range on a liquid major, with 10 equally spaced grids (about $2 apart) and $100 at each level, using no leverage. If price chops between $96 and $104 several times, some adjacent pairs may complete and each completed pair realizes about $2 per unit minus fees. If instead price trends from $100 to $70, every buy level can fill, the sells may never fill, and the account holds a large long inventory with an unrealized loss. The bot did what it was designed to do; the range assumption was wrong.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li>Grid profits in a backtest range are not a forecast. Past ranges break.</li>
+<li>Exchange-bot risk: outages, parameter mistakes, and the venue’s own liquidation engine on leveraged grids.</li>
+<li>This page is education only. It is not a suggestion to run a bot or to use any exchange.</li>
+</ul>

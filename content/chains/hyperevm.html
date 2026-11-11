@@ -10,6 +10,7 @@
 <li><a href="#venues">DEXs and memecoin launchpads</a></li>
 <li><a href="#bridging">Bridging basics</a></li>
 <li><a href="#evaluate">How to evaluate a token on HyperEVM</a></li>
+<li><a href="#trading-styles">Trading styles that fit HyperEVM</a></li>
 <li><a href="#risks">Risks</a></li>
 </ul>
 
@@ -61,6 +62,9 @@
 <li>Read <a href="/guides/spotting-rugs/">spotting rugs</a>, <a href="/guides/crypto-research-tools/">crypto research tools</a>, and the <a href="/guides/what-is-elysium/">Elysium explainer</a> if you are looking at the related L2.</li>
 </ul>
 <p>None of those tools can make a token safe. They can only show you what is already on-chain.</p>
+
+<h2 id="trading-styles">Trading styles that fit HyperEVM</h2>
+<p>This is a venue-fit note, not a recommendation to trade. Styles that are <strong>best suited</strong> to this stack, because official docs put the perpetual order book, <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding" rel="nofollow noopener" target="_blank">funding</a> and <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/liquidations" rel="nofollow noopener" target="_blank">liquidations</a> on HyperCore next to HyperEVM (chain ID 999; the EVM is not a separate L1), are perps methods, <a href="/techniques/funding-rate-carry/">funding-rate carry</a> and <a href="/techniques/spot-futures-basis/">basis-style hedges</a>, always with <a href="/techniques/avoiding-liquidation/">liquidation risk</a> in view. Official docs still describe the EVM as alpha and use a dual-block design (1s / 3M gas and 1 min / 30M gas). A dated DefiLlama snapshot on 11 Nov 2026 (Asia/Calcutta) showed meaningful Hyperliquid L1 DEX volume (~$386M 24h) that remains secondary to the perp venue. Launch and memecoin culture is thinner than on Solana or BNB Chain. A common operational failure is confusing a HyperCore perp with a HyperEVM token. See <a href="/techniques/by-chain/">trading styles by chain</a> and, for a related name, <a href="/guides/what-is-elysium/">What is Elysium?</a>.</p>
 
 <h2 id="risks">Risks</h2>
 <ul>

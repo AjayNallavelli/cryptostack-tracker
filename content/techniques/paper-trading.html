@@ -1,0 +1,38 @@
+<h2>Contents</h2>
+<ul>
+<li><a href="#how">How it works</a></li>
+<li><a href="#fails">When it fails</a></li>
+<li><a href="#example">Worked example</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+
+<h2 id="how">How it works</h2>
+<p>Paper trading is practice without (or before) putting meaningful money at risk: a testnet, a venue’s demo book, or a written log of hypothetical fills. The point is to test whether a method can be followed — entries, exits, <a href="/techniques/position-sizing/">sizing</a>, and a <a href="/strategies/daily-loss-brake/">daily loss brake</a> — and to see where the process breaks. It is not a forecast that the same results will appear in a live account.</p>
+<p>Published “paper then live” playbooks usually insist on:</p>
+<ol>
+<li><strong>The same rules as live,</strong> including fees, funding, and a stop that you actually “place” in the log or on the demo venue. A paper book that assumes perfect fills is a different game.</li>
+<li><strong>A journal of process vs outcome.</strong> See <a href="/techniques/post-trade-journal/">post-trade journaling</a>.</li>
+<li><strong>A minimum sample</strong> and a pre-written promotion test, so a short lucky streak is not treated as proof.</li>
+<li><strong>Honesty about the gap between paper and live:</strong> real fills slip, demo liquidity can be fake, queues and MEV do not always show up, and emotions change when the money is real.</li>
+<li><strong>Promotion needs evidence, not a narrative.</strong> If the paper log cannot show that stops were respected and that results survived fees, there is nothing to promote.</li>
+</ol>
+<p>CryptoStack already keeps a public, delayed <a href="/scoreboard/">paper scoreboard</a> and <a href="/case-studies/">paper case studies</a> for named research processes. Those pages are themselves education; they are not a claim that paper results will repeat, and they are not a signal to copy a trade.</p>
+
+<h2 id="fails">When it fails</h2>
+<ul>
+<li><strong>Fills are fantasized.</strong> “I would have got the low” is not a fill.</li>
+<li><strong>Fees, spreads, funding and failed transactions are skipped.</strong> The paper edge can vanish live, especially on small-size DEX routes.</li>
+<li><strong>The method changes every session,</strong> so nothing is actually tested.</li>
+<li><strong>A short window is treated as a statistically meaningful test.</strong></li>
+<li><strong>Live size is much larger than paper size,</strong> so liquidity and psychology are new variables.</li>
+</ul>
+
+<h2 id="example">Worked example</h2>
+<p><strong>Example (not a recommendation).</strong> A trader papers a 20-session grid on a liquid major, with $10,000 notional and a written abort if price leaves a $90–$110 range. The log records every child fill at the then-current bid or ask plus a 0.1% fee assumption, not at mid. After 20 sessions the paper book is +$180 after fees, but three of the “wins” required fills that a real $10,000 clip would have moved. The honest finding is “the method is unproven at this size,” not “it made 1.8%.” A pre-written promotion rule that required, say, 40 sessions and a fee-adjusted result above zero after a realistic slippage haircut would refuse promotion. That refusal is the method working.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li>Paper trading can create overconfidence. Demo books can be badly calibrated. Testnet tokens are not mainnet value.</li>
+<li>Some “demo” sites are phishing. Use official venue docs and official testnets only.</li>
+<li>This page is education only. It is not a suggestion to start a live account after any paper streak.</li>
+</ul>

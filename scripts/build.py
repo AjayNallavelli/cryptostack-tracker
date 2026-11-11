@@ -226,6 +226,15 @@ def main():
         render("chains_index.html", "/chains/", lastmod=chain_last,
                title=f"Crypto chains: gas, fees, explorers and venues (2026) | {site['name']}",
                description="Plain-language explainers of widely used crypto chains: gas tokens, official fees and block times, explorers, and commonly used DEXs and launchpads. Education only.")
+    for a in pages.get("techniques", []):
+        body = content(ROOT / "content" / "techniques" / f"{a['slug']}.html")
+        render("technique.html", f"/techniques/{a['slug']}/", lastmod=a.get("last_reviewed") or a["date_checked"], a=a, kind="techniques", kind_label="Techniques", body=body,
+               title=f"{a['title']} | {site['name']}", description=a["summary"])
+    if pages.get("techniques"):
+        tech_last = max(a.get("last_reviewed") or a["date_checked"] for a in pages["techniques"])
+        render("techniques_index.html", "/techniques/", lastmod=tech_last,
+               title=f"Trading techniques: sizing, exits, execution and risk (2026) | {site['name']}",
+               description="Plain-language explainers of position sizing, stop-loss and take-profit ladders, DCA, grid trading, funding carry, basis trades, TWAP, liquidation risk, memecoin checklists, paper trading and journaling. Education only.")
     for a in pages["standalone"]:  # one-off pages: paper scoreboard, learning log
         render("standalone.html", f"/{a['slug']}/", lastmod=a["date_checked"], a=a,
                body=content(ROOT / "content" / f"{a['slug']}.html"),
@@ -247,7 +256,7 @@ def main():
     (out / "robots.txt").write_text(robots_txt(site))
     (out / ".nojekyll").write_text("")
     print(f"Built {len(sitemap)} sitemap pages ({len(tools)} tools, {len(pairs)} comparisons, "
-          f"{len(pages['strategies'])} strategies, {len(pages['guides'])} guides, {len(pages['case-studies'])} case studies, {len(pages.get('chains', []))} chains, {len(pages['standalone'])} standalone pages) -> {out}")
+          f"{len(pages['strategies'])} strategies, {len(pages['guides'])} guides, {len(pages['case-studies'])} case studies, {len(pages.get('chains', []))} chains, {len(pages.get('techniques', []))} techniques, {len(pages['standalone'])} standalone pages) -> {out}")
 
 
 if __name__ == "__main__":

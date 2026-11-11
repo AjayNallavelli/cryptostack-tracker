@@ -1,0 +1,45 @@
+<h2>Contents</h2>
+<ul>
+<li><a href="#how">How it works</a></li>
+<li><a href="#fails">When it fails</a></li>
+<li><a href="#example">Worked example</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+
+<h2 id="how">How it works</h2>
+<p>Position sizing is the step that turns a risk limit into an order size. A common method is to decide, before entry, the largest loss you will accept on that trade as a percentage of account equity, then work backwards from the distance to your stop.</p>
+<p>In outline:</p>
+<ol>
+<li>Pick a maximum dollar risk for the trade (for example a small percentage of current equity). This is a planning number, not a promise that the loss will stop there.</li>
+<li>Choose a stop level using a rule you can write down, such as a structure level or a volatility band. See <a href="/techniques/stop-take-profit-ladders/">stop-loss and take-profit ladders</a>.</li>
+<li>Position size ≈ dollar risk ÷ distance from entry to stop (as a fraction of entry). A wider stop means a smaller position for the same dollar risk.</li>
+<li>Cap size against liquidity (can you exit without moving the market a large amount?) and against any venue leverage or open-risk ceiling you use.</li>
+<li>Keep a daily loss limit so a cluster of stops cannot drain the account in one session. That idea is expanded in the <a href="/strategies/daily-loss-brake/">daily loss brake</a> and the <a href="/strategies/desk-rulebook/">desk rulebook</a> pages.</li>
+</ol>
+<p>Published trading-desk playbooks often start example per-trade risk in a low range such as 0.25–0.5% of equity, with hard ceilings above that (for example 2% per trade, a cap on total open risk, a maximum leverage, and a daily loss brake). Those figures are published method examples, not advice to copy. Many desks also require the stop to rest on the exchange, not only in a spreadsheet, because a local bot can disconnect.</p>
+<p>The same arithmetic applies on a DEX or a centralized exchange. On-chain, the “entry” you use in the formula should include expected fees and slippage; a tight stop that looks 2% away can already be inside a 3%+ round-trip cost. That problem shows up often on <a href="/chains/solana/">Solana</a> memecoin routes — see the <a href="/guides/solana-memecoin-trading-costs-small-size/">small-size trading-costs guide</a>.</p>
+
+<h2 id="fails">When it fails</h2>
+<ul>
+<li><strong>The stop is skipped.</strong> Gaps, thin books and liquidation cascades can fill you far beyond the planned stop. Dollar risk was a plan, not a guaranteed maximum.</li>
+<li><strong>The size ignores liquidity.</strong> A size that is fine on a major CEX pair can be un-exitable in a new token pool.</li>
+<li><strong>Fees eat the edge.</strong> If the target is smaller than round-trip fees, even a “correct” size loses.</li>
+<li><strong>Risk is stacked.</strong> Five “0.5%” trades that are the same bet counted five times are not 0.5% risk.</li>
+<li><strong>Leverage hides the stop distance.</strong> Raising leverage without shrinking size increases dollar risk, even if the stop price is unchanged. See <a href="/techniques/avoiding-liquidation/">avoiding liquidation</a>.</li>
+</ul>
+
+<h2 id="example">Worked example</h2>
+<p><strong>Example (not a recommendation, and not a live market).</strong> Suppose an account has $10,000 equity and the trader plans to risk 0.5% of equity, or $50, on one trade.</p>
+<ul>
+<li>If the stop is 10% below a $1.00 entry, the planned position is $50 ÷ 0.10 = $500 (500 units).</li>
+<li>If the stop is only 2% below the same entry, the planned position is $50 ÷ 0.02 = $2,500 (2,500 units).</li>
+</ul>
+<p>Same dollar risk, different size. If the fill actually occurs 12% below entry instead of 10% because of a gap, the realized loss on the first case is $60, not $50. If a 3.5% round-trip fee applies, a 2% target cannot cover costs even when the price thesis is right.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li>Sizing does not make a bad market, a scam token, or a leveraged venue safe.</li>
+<li>Percentage-of-equity rules shrink after losses and grow after wins; that can feel uncomfortable and is easy to override mid-drawdown.</li>
+<li>USD examples go stale. Recalculate from current equity, current fees and current liquidity.</li>
+<li>This page is education only. It is not a suggestion to trade, to use any particular risk percentage, or to buy any asset.</li>
+</ul>

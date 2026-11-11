@@ -1,0 +1,47 @@
+<h2>Contents</h2>
+<ul>
+<li><a href="#how">How it works</a></li>
+<li><a href="#fails">When it fails</a></li>
+<li><a href="#example">Worked example</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+
+<h2 id="how">How it works</h2>
+<p>A stop-loss is a resting order (or a venue-side trigger) intended to close or reduce a position if price moves against you by a planned amount. A take-profit is the opposite: a planned exit where the thesis has worked. A <em>ladder</em> splits those exits into steps instead of all-in, all-out. Related ideas also appear on the older <a href="/strategies/exit-lines/">exit-lines</a> page.</p>
+<p>A typical ladder, described as a method rather than a rule you should follow:</p>
+<ol>
+<li>Place the stop when you enter, on the venue, at a level you can explain in writing.</li>
+<li>Scale out a first slice at a closer target, then move the stop on the remainder to break-even <em>after fees</em> if the method calls for it.</li>
+<li>Take a second slice at a further target, and trail the rest only if a trailing rule was defined in advance.</li>
+<li>If one exit fills, cancel or replace the unfilled sibling so you do not flip into an accidental opposite position. Bracket (OCO-style) orders exist on many centralized exchanges for this reason.</li>
+</ol>
+<p>Stops come in several flavors: a fixed stop, a bracket that ties the stop and the take-profit together, and a trailing stop that follows price by a set distance. A trailing stop can lock in an open profit in a trend and can also get shaken out in a noisy range.</p>
+<p>On perpetual futures, the stop should be thought about next to maintenance margin. A stop that sits beyond the liquidation price will not save the account. See <a href="/techniques/avoiding-liquidation/">avoiding liquidation</a>. On short-lived tokens, gap risk is large: the next print can be far past the stop.</p>
+
+<h2 id="fails">When it fails</h2>
+<ul>
+<li><strong>Gap and slippage.</strong> The order is a request, not a guaranteed price. Thin books and halted or hugely volatile markets fill through the level.</li>
+<li><strong>The stop never reaches the venue.</strong> A note in a chat or a local bot is not a working order if the connection drops.</li>
+<li><strong>Targets ignore fees.</strong> A +8% take-profit after a ~3.5% round-trip cost is a much smaller net result, and can be a net loss after failed attempts.</li>
+<li><strong>Moving the stop mid-trade without a rule.</strong> Widening a losing stop “to give it room” turns a sized risk into an un-sized one. See <a href="/techniques/position-sizing/">position sizing</a>.</li>
+<li><strong>Orphan legs.</strong> If the take-profit fills and the stop is left working, you can wake up short (or long) by accident.</li>
+</ul>
+
+<h2 id="example">Worked example</h2>
+<p><strong>Example (not a recommendation, and not a live token).</strong> A trader buys 1,000 units at $1.00 and uses a three-step ladder that some short-horizon methods describe:</p>
+<ul>
+<li>A stop at $0.65 (35% below entry). If it fills exactly there, the loss is $350 plus fees. If the next print is $0.40, the loss is larger — the 35% figure was a plan, not a floor.</li>
+<li>Take-profit 1: sell 40% (400 units) at $2.00 (2×). After a 3.5% round-trip cost assumption, the net on that slice is smaller than the headline +100%.</li>
+<li>After TP1, the stop on the remaining 600 units is moved to break-even after estimated fees, not to the original entry.</li>
+<li>Take-profit 2: sell 30% of the original size (300 units) at $4.00 (4×).</li>
+<li>The last 300 units are trailed, for example by a fixed percentage, until stopped.</li>
+</ul>
+<p>If price never reaches $2 and the stop fills at $0.65, the trade is a full planned loss. If fees on a small account are a large percentage of the position, this ladder can be a poor fit — the first target has to clear costs on the size you actually trade. The costs guide for <a href="/guides/solana-memecoin-trading-costs-small-size/">small-size Solana memecoin routes</a> walks through that fee floor.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li>Ladders do not remove rug, insolvency, or liquidation risk.</li>
+<li>More exits mean more fees and more chances of a partial fill that leaves you with an awkward residual.</li>
+<li>Past percentage moves (2×, 4×) are not a forecast that any token will make those moves.</li>
+<li>This page is education only. It is not a suggestion to trade or to use these percentages.</li>
+</ul>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="crumbs small"><a href="/">Home</a> / Techniques</nav>
+<article class="article">
+<h1>Trading techniques: sizing, exits, execution and risk (2026)</h1>
+<p class="risk"><strong>Education only. Not financial advice.</strong> These pages explain methods traders talk about. They are not a recommendation to use any method, venue or chain, and not a signal to buy any token. Crypto is high risk.</p>
+<p class="lead">Each explainer covers how the technique works, when it fails, a worked example with labeled numbers, and the main risks. Start with <a href="/techniques/by-chain/">which styles are better suited to which chain</a> if you want the comparison first. Related risk-management concepts also live under <a href="/strategies/">Strategies</a>.</p>
+{% set featured = pages.techniques | selectattr('slug', 'equalto', 'by-chain') | list %}
+{% if featured %}
+<p class="card"><strong><a href="/techniques/by-chain/">{{ featured[0].title }}</a></strong> — {{ featured[0].summary }}</p>
+{% endif %}
+<h2>The techniques</h2>
+<ul class="links">{% for a in pages.techniques if a.slug != 'by-chain' %}<li><a href="/techniques/{{ a.slug }}/">{{ a.title }}</a> <span class="small muted">{{ a.summary }}</span></li>{% endfor %}</ul>
+<p class="small muted">Last reviewed 11 Nov 2026 (Asia/Calcutta).</p>
+</article>
+{% endblock %}

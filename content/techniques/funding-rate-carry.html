@@ -1,0 +1,38 @@
+<h2>Contents</h2>
+<ul>
+<li><a href="#how">How it works</a></li>
+<li><a href="#fails">When it fails</a></li>
+<li><a href="#example">Worked example</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+<p class="small muted"><em>Disclosure:</em> Links to <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_DAZ2K" rel="sponsored nofollow" target="_blank">Binance</a> <span class="small muted">(Referral link)</span> on this page are referral links. CryptoStack may earn a commission if you use them. This is not a recommendation to open an account or to trade.</p>
+
+<h2 id="how">How it works</h2>
+<p>Perpetual futures usually have a funding rate: periodic payments between longs and shorts that tug the perp price toward the spot index. Official venue docs describe the formula, the interval and who pays. On <a href="/chains/hyperevm/">Hyperliquid’s</a> perp venue (HyperCore), funding is documented in the <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding" rel="nofollow noopener" target="_blank">Hyperliquid funding pages</a>. Centralized exchanges, including <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_DAZ2K" rel="sponsored nofollow" target="_blank">Binance</a> <span class="small muted">(Referral link)</span>, publish their own funding rules for USD-M and coin-M contracts. Intervals and formulas are not the same everywhere — read the venue you would actually use.</p>
+<p>A funding-rate carry trade tries to collect those payments while staying roughly hedged to price. One common shape:</p>
+<ol>
+<li>Hold a long (or short) perpetual that is <em>receiving</em> funding.</li>
+<li>Hedge the price risk with an opposite position in spot, a dated future, or another perp, so a move in the coin is mostly cancelled.</li>
+<li>Collect (or pay) funding on the schedule the venue uses, minus trading fees, borrow costs and basis changes.</li>
+<li>Watch margin on the derivatives leg. A “hedged” book can still be liquidated if one leg is leveraged and the other is not fully offset, or if marks diverge. See <a href="/techniques/avoiding-liquidation/">avoiding liquidation</a> and the related <a href="/techniques/spot-futures-basis/">spot–futures basis</a> page.</li>
+</ol>
+<p>If you only hold the perp and do not hedge, you are not running a carry trade. You are running a directional bet that also happens to pay or charge funding.</p>
+
+<h2 id="fails">When it fails</h2>
+<ul>
+<li><strong>The rate flips.</strong> A rate you were receiving can turn into a rate you pay, sometimes quickly around events.</li>
+<li><strong>The hedge is imperfect.</strong> Different indexes, different expiry, or a spot that cannot be sold or withdrawn when you need it leave residual price risk.</li>
+<li><strong>Fees and spreads eat the rate.</strong> A small positive funding number does not clear entry/exit costs if you have to reposition often.</li>
+<li><strong>Liquidation or auto-deleveraging on one leg.</strong> The other leg then becomes a naked directional position.</li>
+<li><strong>Venue and custody risk.</strong> The carry lives on the exchange or protocol that pays it.</li>
+</ul>
+
+<h2 id="example">Worked example</h2>
+<p><strong>Example (not a recommendation, and not a current rate).</strong> Suppose a perp pays longs 0.01% every 8 hours, and a trader is long $10,000 of the perp and short $10,000 of the same asset in spot as a hedge. If the rate stays unchanged for 24 hours, gross funding received is 0.03% × $10,000 = $3 that day, before trading fees and any borrow cost on the short spot. If the mark price of the perp jumps and maintenance margin is breached on the long, the $10,000 short spot remains and the book is no longer hedged. If the rate flips to −0.05% for one interval, that interval costs $5, which can wipe several earlier intervals of carry.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li>Funding is variable. Historical average rates are not a promise.</li>
+<li>Hedged carry still has operational, margin, and counterparty risk.</li>
+<li>This page is education only. It is not a suggestion to run a carry trade or to use any venue.</li>
+</ul>

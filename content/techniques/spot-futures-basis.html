@@ -1,0 +1,36 @@
+<h2>Contents</h2>
+<ul>
+<li><a href="#how">How it works</a></li>
+<li><a href="#fails">When it fails</a></li>
+<li><a href="#example">Worked example</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+<p class="small muted"><em>Disclosure:</em> Links to <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_DAZ2K" rel="sponsored nofollow" target="_blank">Binance</a> <span class="small muted">(Referral link)</span> on this page are referral links. CryptoStack may earn a commission if you use them. This is not a recommendation to open an account or to trade.</p>
+
+<h2 id="how">How it works</h2>
+<p>The basis is the difference between a futures price (or a perpetual’s mark) and the spot price of the same asset. A cash-and-carry style trade tries to lock in that difference:</p>
+<ul>
+<li><strong>Contango (futures above spot):</strong> buy spot, short the future (or perp). The idea is that the two prices converge, or that you hold to expiry and deliver, so the premium is earned if the hedge holds.</li>
+<li><strong>Backwardation (futures below spot):</strong> the opposite — short spot (or sell already-held spot) and long the future. This is often harder in crypto because borrowing spot can be expensive or unavailable.</li>
+</ul>
+<p>On dated futures, the path to convergence is clearer around expiry, subject to the contract’s settlement rules. On perpetuals, there is no expiry; the premium can persist, and funding (see <a href="/techniques/funding-rate-carry/">funding-rate carry</a>) is the usual transfer mechanism. Official education from large venues, including <a href="https://www.binance.com/en/square/post/2604092" rel="nofollow noopener" target="_blank">Binance Square material on cash-and-carry</a>, describes the same long-spot, short-futures shape. <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_DAZ2K" rel="sponsored nofollow" target="_blank">Binance</a> <span class="small muted">(Referral link)</span> is one CEX where both legs can sit; HyperCore is the native perp book next to <a href="/chains/hyperevm/">HyperEVM</a>. Neither mention is a recommendation to trade there.</p>
+<p>Execution quality matters. Entering and exiting both legs without lag is a job for planned orders, sometimes sliced — see <a href="/techniques/twap-execution/">TWAP execution</a>. Margin sits on the futures leg even when the book is “hedged.”</p>
+
+<h2 id="fails">When it fails</h2>
+<ul>
+<li><strong>The basis widens against you after you enter.</strong> You may be right eventually and still get liquidated on the short futures leg first.</li>
+<li><strong>Funding or borrow costs reverse the edge.</strong> A pretty entry premium can be smaller than what you pay to hold it.</li>
+<li><strong>The two legs are not the same asset.</strong> Different indexes, quanto contracts, or a token and a look-alike ticker are not a hedge.</li>
+<li><strong>Operational failure.</strong> One leg fills, the other does not. Withdrawal delays on an L2 or a weekend halt can strand a hedge.</li>
+<li><strong>Expiry and settlement surprises.</strong> Read the contract specs; physical vs cash settlement changes what you must hold.</li>
+</ul>
+
+<h2 id="example">Worked example</h2>
+<p><strong>Example (not a recommendation, and not a live market).</strong> Spot trades at $100. A dated future trades at $104, a 4% premium. A trader buys $10,000 of spot (100 units) and shorts the same 100 units on the future. If both legs are held to a cash settlement at $90, the spot loss is $1,000 and the short future gain is $1,400, for a $400 gross result (4% of $10,000) minus fees and funding or borrow. If, instead, two weeks later the future still trades $8 above a now-$90 spot and the futures account is highly leveraged, maintenance margin can fail before expiry and the short is closed, leaving the long spot unhedged. The 4% figure was never a guaranteed coupon.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li>Basis trades are not risk-free arbitrage. Margin, borrow, venue and settlement risk remain.</li>
+<li>Reported “APY” on a snapshot premium assumes you can hold and unwind as planned.</li>
+<li>This page is education only. It is not a suggestion to run a basis trade or to use any venue.</li>
+</ul>

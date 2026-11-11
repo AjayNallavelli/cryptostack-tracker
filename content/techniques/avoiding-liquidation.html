@@ -1,0 +1,39 @@
+<h2>Contents</h2>
+<ul>
+<li><a href="#how">How it works</a></li>
+<li><a href="#fails">When it fails</a></li>
+<li><a href="#example">Worked example</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+
+<h2 id="how">How it works</h2>
+<p>On a leveraged perpetual or futures venue, liquidation is what happens when account equity can no longer support maintenance margin. The venue’s engine closes or transfers the position, often at a worse price than a stop you had in mind, and fees or a liquidation penalty may apply. Official rulebooks differ. <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/liquidations" rel="nofollow noopener" target="_blank">Hyperliquid’s liquidation docs</a> describe how that venue uses mark price, maintenance margin and a liquidation process on HyperCore (the perp book beside <a href="/chains/hyperevm/">HyperEVM</a>). Centralized exchanges publish their own formulas. Read the venue you would actually use; do not assume one rulebook applies to another.</p>
+<p>Methods that try to stay away from that engine usually combine:</p>
+<ol>
+<li><strong>Lower leverage than the maximum the venue allows</strong>, so ordinary noise does not sit next to the liquidation price. Changing leverage on an open position can move that price; some playbooks treat a leverage change as a new risk decision, not a cosmetic switch.</li>
+<li><strong>A venue-resting stop well inside the liquidation price</strong>, not beyond it. See <a href="/techniques/stop-take-profit-ladders/">stop-loss and take-profit ladders</a>.</li>
+<li><strong>Size from stop distance and equity</strong>, so the planned loss is a small slice of the account, not the whole margin pile. See <a href="/techniques/position-sizing/">position sizing</a>.</li>
+<li><strong>A daily loss brake</strong> and no “revenge” add-ons after a stop. See the <a href="/strategies/daily-loss-brake/">daily loss brake</a>.</li>
+<li><strong>Operational guards</strong> that published desk playbooks often list: margin-ratio alerts, a reduce-only flatten if margin goes through a pre-set line, and a dead-man’s switch if the trading process disconnects (so a stale position is not left unmanaged).</li>
+<li><strong>Isolated vs cross margin awareness.</strong> Cross margin can keep one position alive with equity from another, and can also drag the whole account into one liquidation.</li>
+</ol>
+<p>For hedged books (funding carry or basis), liquidation of one leg is still a failure — the surviving leg is then directional. See <a href="/techniques/funding-rate-carry/">funding-rate carry</a>.</p>
+
+<h2 id="fails">When it fails</h2>
+<ul>
+<li><strong>Gaps and thin marks.</strong> The mark price can jump through both your stop and the liquidation threshold.</li>
+<li><strong>The stop is only in a bot.</strong> If the process dies, the venue will still liquidate you.</li>
+<li><strong>Adding to a loser</strong> or raising leverage to “make room,” which often moves the liquidation price closer.</li>
+<li><strong>Funding, fees and borrow</strong> slowly eat margin even when the chart looks flat.</li>
+<li><strong>Auto-deleveraging or insurance-fund events</strong> on some venues, which can close or haircut winners as well as losers. Check the venue’s own docs.</li>
+</ul>
+
+<h2 id="example">Worked example</h2>
+<p><strong>Example (not a recommendation, and not any venue’s live formula).</strong> A trader has $2,000 equity and opens a long with 10× gross leverage, so the notional is $20,000. If maintenance margin were 2.5% of notional (a round classroom figure, not a quoted venue rate), the position would be in trouble once equity fell near $500, which is a 7.5% adverse move on the asset from entry, before fees and funding. A planned stop 3% below entry, if it actually fills, would lose 3% × $20,000 = $600 (30% of equity) — already a large hit, and still better than handing the tail to the liquidation engine. If the trader had sized a $50 risk (0.25% of a larger account, or 2.5% of this $2,000) against a 3% stop, the notional would have been only about $1,667, which is well under 10× on this equity. The leverage cap and the sizing rule are doing different jobs.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li>Nothing in this page can make leverage safe. Liquidation can still happen faster than you can act.</li>
+<li>Classroom margin percentages are not a substitute for the venue’s current formula.</li>
+<li>This page is education only. It is not a suggestion to use leverage or to trade perps.</li>
+</ul>

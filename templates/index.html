@@ -49,6 +49,9 @@
     <h2>Chains</h2>
     <ul class="links">{% for a in pages.get("chains", []) %}<li><a href="/chains/{{ a.slug }}/">{{ a.name }}</a> <span class="small muted">{{ a.chain_type }}; gas {{ a.gas_token }}</span></li>{% endfor %}</ul>
     <p class="small"><a href="/chains/">Compare all chains →</a></p>
+    <h2>Trading techniques</h2>
+    <ul class="links">{% for a in pages.get("techniques", []) %}<li><a href="/techniques/{{ a.slug }}/">{{ a.name or a.title }}</a></li>{% endfor %}</ul>
+    <p class="small"><a href="/techniques/">All techniques →</a> · <a href="/techniques/by-chain/">Styles by chain →</a></p>
     <h2>Case studies</h2>
     <ul class="links">{% for a in pages["case-studies"] %}<li><a href="/case-studies/{{ a.slug }}/">{{ a.title }}</a> <span class="small muted">{{ a.summary }}</span></li>{% endfor %}</ul>
     <h2>Paper results</h2>

@@ -28,6 +28,7 @@
       <a href="/#tools">Tools</a>
       <a href="/compare/">Compare</a>
       <a href="/chains/">Chains</a>
+      <a href="/techniques/">Techniques</a>
       <a href="/strategies/">Strategies</a>
       <a href="/guides/">Guides</a>
       <a href="/case-studies/">Case studies</a>
@@ -57,7 +58,7 @@
     </div>
     <div>
       <h4>Site</h4>
-      <a href="/guides/">Guides</a><a href="/chains/">Chains</a>{% for a in pages.get("chains", []) %}<a href="/chains/{{ a.slug }}/">{{ a.name }}</a>{% endfor %}<a href="/case-studies/">Case studies</a>{% for a in pages["case-studies"] %}<a href="/case-studies/{{ a.slug }}/">{{ a.title }}</a>{% endfor %}{% for a in pages.standalone %}<a href="/{{ a.slug }}/">{{ a.title }}</a>{% endfor %}<a href="/compare/">Comparisons</a><a href="/changes/">What's new</a><a href="/methodology/">Methodology &amp; disclaimer</a><a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_DAZ2K" rel="sponsored nofollow" target="_blank">Binance <span class="small muted">(Referral link)</span></a><a href="/data/tools.json">Dataset (JSON)</a>
+      <a href="/guides/">Guides</a><a href="/chains/">Chains</a><a href="/techniques/">Techniques</a><a href="/techniques/by-chain/">Styles by chain</a>{% for a in pages.get("chains", []) %}<a href="/chains/{{ a.slug }}/">{{ a.name }}</a>{% endfor %}<a href="/case-studies/">Case studies</a>{% for a in pages["case-studies"] %}<a href="/case-studies/{{ a.slug }}/">{{ a.title }}</a>{% endfor %}{% for a in pages.standalone %}<a href="/{{ a.slug }}/">{{ a.title }}</a>{% endfor %}<a href="/compare/">Comparisons</a><a href="/changes/">What's new</a><a href="/methodology/">Methodology &amp; disclaimer</a><a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_DAZ2K" rel="sponsored nofollow" target="_blank">Binance <span class="small muted">(Referral link)</span></a><a href="/data/tools.json">Dataset (JSON)</a>
     </div>
   </div>
   <div class="wrap small muted copy">© {{ year }} {{ site.name }}. Not affiliated with vendors listed except as disclosed. Some outbound links to <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_DAZ2K" rel="sponsored nofollow" target="_blank">Binance</a> <span class="small muted">(Referral link)</span> are referral links; CryptoStack may earn a commission if you use them. This is not a recommendation to buy or trade anything. No other referral links. Trademarks belong to their owners.</div>

@@ -1082,5 +1082,281 @@
     }
    ]
   }
+ ],
+ "techniques": [
+  {
+   "slug": "by-chain",
+   "name": "Trading styles by chain",
+   "title": "Trading Styles by Chain: What Fits Solana, BNB Chain, Ethereum, HyperEVM, Base and Others (2026)",
+   "summary": "A comparison of which trading styles are a better mechanical fit for each chain CryptoStack covers, based on official fees, block times, venues and a dated DefiLlama volume snapshot. Education only, not advice.",
+   "date_checked": "2026-11-11",
+   "last_reviewed": "2026-11-11",
+   "sources": [
+    {
+     "label": "DefiLlama: DEX volume by chain",
+     "url": "https://defillama.com/dexs/chains"
+    },
+    {
+     "label": "DefiLlama public DEX overview API",
+     "url": "https://api.llama.fi/overview/dexs"
+    },
+    {
+     "label": "Solana docs: Fees",
+     "url": "https://solana.com/docs/core/fees"
+    },
+    {
+     "label": "Solana upgrade notes: Reduced slot times (9 Oct 2026, SIMD-0525)",
+     "url": "https://solana.com/upgrades/reduced-slot-times"
+    },
+    {
+     "label": "Ethereum.org: Gas and fees",
+     "url": "https://ethereum.org/en/developers/docs/gas/"
+    },
+    {
+     "label": "Ethereum.org: Maximal extractable value (MEV)",
+     "url": "https://ethereum.org/en/developers/docs/mev/"
+    },
+    {
+     "label": "BNB Chain docs",
+     "url": "https://docs.bnbchain.org/"
+    },
+    {
+     "label": "Base docs",
+     "url": "https://docs.base.org/"
+    },
+    {
+     "label": "Hyperliquid docs: Funding",
+     "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding"
+    },
+    {
+     "label": "Hyperliquid docs: Liquidations",
+     "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/liquidations"
+    }
+   ]
+  },
+  {
+   "slug": "position-sizing",
+   "name": "Position sizing",
+   "title": "Position Sizing and Risk per Trade (2026)",
+   "summary": "How traders turn a risk limit into an order size from stop distance and equity, when the arithmetic fails, and a worked example. Education only.",
+   "date_checked": "2026-11-11",
+   "last_reviewed": "2026-11-11",
+   "sources": [
+    {
+     "label": "Published trading-desk playbooks (HyperGrok v1.4.2 skills, public GitHub)",
+     "url": "https://github.com/galleonlabs/hypergrok-trading-desk/tree/v1.4.2/skills"
+    },
+    {
+     "label": "CryptoStack: desk rulebook",
+     "url": "/strategies/desk-rulebook/"
+    }
+   ]
+  },
+  {
+   "slug": "stop-take-profit-ladders",
+   "name": "Stop-loss and take-profit ladders",
+   "title": "Stop-Loss and Take-Profit Ladders (2026)",
+   "summary": "How planned exits, brackets and scale-outs work, why stops can be skipped, and a labeled ladder example. Education only.",
+   "date_checked": "2026-11-11",
+   "last_reviewed": "2026-11-11",
+   "sources": [
+    {
+     "label": "Published trading-desk playbooks (HyperGrok v1.4.2 skills, public GitHub)",
+     "url": "https://github.com/galleonlabs/hypergrok-trading-desk/tree/v1.4.2/skills"
+    },
+    {
+     "label": "CryptoStack: exit lines",
+     "url": "/strategies/exit-lines/"
+    },
+    {
+     "label": "CryptoStack: Solana memecoin trading costs (small size)",
+     "url": "/guides/solana-memecoin-trading-costs-small-size/"
+    }
+   ]
+  },
+  {
+   "slug": "dollar-cost-averaging",
+   "name": "Dollar-cost averaging",
+   "title": "Dollar-Cost Averaging (DCA) in Crypto (2026)",
+   "summary": "How a fixed-notional schedule works, when averaging down fails, and a worked example. Education only. Includes a labeled Binance referral where a CEX is a natural venue.",
+   "date_checked": "2026-11-11",
+   "last_reviewed": "2026-11-11",
+   "sources": [
+    {
+     "label": "Binance Academy: A complete guide to dollar-cost averaging (DCA)",
+     "url": "https://www.binance.com/en/academy/articles/a-complete-guide-to-dollar-cost-averaging-dca"
+    }
+   ]
+  },
+  {
+   "slug": "grid-trading",
+   "name": "Grid trading",
+   "title": "Grid Trading: How Range Grids Work and When They Fail (2026)",
+   "summary": "How a grid of buys and sells is supposed to work in a range, why trends break it, and a worked example. Education only. Includes a labeled Binance referral.",
+   "date_checked": "2026-11-11",
+   "last_reviewed": "2026-11-11",
+   "sources": [
+    {
+     "label": "Binance: What is grid trading and how to use it",
+     "url": "https://www.binance.com/en/square/post/322951"
+    }
+   ]
+  },
+  {
+   "slug": "funding-rate-carry",
+   "name": "Funding-rate carry",
+   "title": "Funding-Rate Carry on Perpetual Futures (2026)",
+   "summary": "How hedged funding-rate carry is supposed to work, when the rate flips or a leg is liquidated, and a worked example. Education only.",
+   "date_checked": "2026-11-11",
+   "last_reviewed": "2026-11-11",
+   "sources": [
+    {
+     "label": "Hyperliquid docs: Funding",
+     "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding"
+    },
+    {
+     "label": "Hyperliquid docs: Liquidations",
+     "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/liquidations"
+    }
+   ]
+  },
+  {
+   "slug": "spot-futures-basis",
+   "name": "Spot–futures basis",
+   "title": "Spot–Futures Basis and Cash-and-Carry Style Trades (2026)",
+   "summary": "How a basis or cash-and-carry style hedge works, when the basis widens or a leg is liquidated, and a worked example. Education only.",
+   "date_checked": "2026-11-11",
+   "last_reviewed": "2026-11-11",
+   "sources": [
+    {
+     "label": "Binance Square: cash-and-carry style explanation",
+     "url": "https://www.binance.com/en/square/post/2604092"
+    },
+    {
+     "label": "Hyperliquid docs: Funding",
+     "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding"
+    }
+   ]
+  },
+  {
+   "slug": "twap-execution",
+   "name": "TWAP execution",
+   "title": "TWAP Execution: Slicing a Large Order Over Time (2026)",
+   "summary": "How a time-weighted average-price schedule works, when the window is too slow or too fast, and a worked example. Education only.",
+   "date_checked": "2026-11-11",
+   "last_reviewed": "2026-11-11",
+   "sources": [
+    {
+     "label": "Published trading-desk playbooks (HyperGrok v1.4.2 skills, public GitHub)",
+     "url": "https://github.com/galleonlabs/hypergrok-trading-desk/tree/v1.4.2/skills"
+    }
+   ]
+  },
+  {
+   "slug": "avoiding-liquidation",
+   "name": "Avoiding liquidation",
+   "title": "Avoiding Liquidation on Perpetual Futures (2026)",
+   "summary": "How maintenance margin and venue liquidation engines work, which operational guards people use, and a classroom example. Education only, not a suggestion to use leverage.",
+   "date_checked": "2026-11-11",
+   "last_reviewed": "2026-11-11",
+   "sources": [
+    {
+     "label": "Hyperliquid docs: Liquidations",
+     "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/liquidations"
+    },
+    {
+     "label": "Published trading-desk playbooks (HyperGrok v1.4.2 skills, public GitHub)",
+     "url": "https://github.com/galleonlabs/hypergrok-trading-desk/tree/v1.4.2/skills"
+    }
+   ]
+  },
+  {
+   "slug": "memecoin-risk-checklist",
+   "name": "Memecoin risk checklist",
+   "title": "A Memecoin Risk Checklist: Authorities, Bundles, Liquidity and Fees (2026)",
+   "summary": "A pre-trade filter for short-lived tokens: authorities, honeypots, holder clusters, bundles and fee floors. Passing the list is not a reason to buy. Education only.",
+   "date_checked": "2026-11-11",
+   "last_reviewed": "2026-11-11",
+   "sources": [
+    {
+     "label": "CryptoStack: spotting rugs",
+     "url": "/guides/spotting-rugs/"
+    },
+    {
+     "label": "CryptoStack: how bundles work",
+     "url": "/guides/how-bundles-work/"
+    },
+    {
+     "label": "CryptoStack: Pump.fun bonding curve",
+     "url": "/guides/pump-fun-bonding-curve/"
+    },
+    {
+     "label": "CryptoStack: Solana memecoin trading costs (small size)",
+     "url": "/guides/solana-memecoin-trading-costs-small-size/"
+    }
+   ]
+  },
+  {
+   "slug": "timing-new-token-launches",
+   "name": "Timing new token launches",
+   "title": "Timing New Token Launches: Process, Attention and When It Fails (2026)",
+   "summary": "How a written launch-timing process is supposed to work, why bundles and attention dumps break it, and a labeled example. Education only, not a suggestion to snipe.",
+   "date_checked": "2026-11-11",
+   "last_reviewed": "2026-11-11",
+   "sources": [
+    {
+     "label": "Solana upgrade notes: Reduced slot times (9 Oct 2026, SIMD-0525)",
+     "url": "https://solana.com/upgrades/reduced-slot-times"
+    },
+    {
+     "label": "Solana docs: Fees",
+     "url": "https://solana.com/docs/core/fees"
+    },
+    {
+     "label": "CryptoStack: Pump.fun bonding curve",
+     "url": "/guides/pump-fun-bonding-curve/"
+    },
+    {
+     "label": "Ethereum.org: Maximal extractable value (MEV)",
+     "url": "https://ethereum.org/en/developers/docs/mev/"
+    }
+   ]
+  },
+  {
+   "slug": "post-trade-journal",
+   "name": "Post-trade journaling",
+   "title": "Post-Trade Journaling: Process vs Outcome in R (2026)",
+   "summary": "How to record plan, execution and fee-adjusted results in R, and how a single repeatable finding is more useful than a diary. Education only.",
+   "date_checked": "2026-11-11",
+   "last_reviewed": "2026-11-11",
+   "sources": [
+    {
+     "label": "Published trading-desk playbooks (HyperGrok v1.4.2 post-trade review, public GitHub)",
+     "url": "https://github.com/galleonlabs/hypergrok-trading-desk/blob/v1.4.2/skills/desk-post-trade-review/SKILL.md"
+    }
+   ]
+  },
+  {
+   "slug": "paper-trading",
+   "name": "Paper trading",
+   "title": "Paper Trading and the Gap to Live Fills (2026)",
+   "summary": "How to practice a method with realistic fees and fills, why paper results often fail to transfer, and a worked promotion-test example. Education only.",
+   "date_checked": "2026-11-11",
+   "last_reviewed": "2026-11-11",
+   "sources": [
+    {
+     "label": "Published trading-desk playbooks (HyperGrok v1.4.2 skills, public GitHub)",
+     "url": "https://github.com/galleonlabs/hypergrok-trading-desk/tree/v1.4.2/skills"
+    },
+    {
+     "label": "CryptoStack: paper scoreboard",
+     "url": "/scoreboard/"
+    },
+    {
+     "label": "CryptoStack: paper case studies",
+     "url": "/case-studies/"
+    }
+   ]
+  }
  ]
 }

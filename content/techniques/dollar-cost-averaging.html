@@ -1,0 +1,39 @@
+<h2>Contents</h2>
+<ul>
+<li><a href="#how">How it works</a></li>
+<li><a href="#fails">When it fails</a></li>
+<li><a href="#example">Worked example</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+<p class="small muted"><em>Disclosure:</em> Links to <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_DAZ2K" rel="sponsored nofollow" target="_blank">Binance</a> <span class="small muted">(Referral link)</span> on this page are referral links. CryptoStack may earn a commission if you use them. This is not a recommendation to open an account or to trade.</p>
+
+<h2 id="how">How it works</h2>
+<p>Dollar-cost averaging (DCA) is a schedule: you buy a fixed notional of an asset at regular intervals, regardless of the price that day. The aim is to reduce the impact of picking a single entry date, not to guarantee a profit. Published exchange education pages, including <a href="https://www.binance.com/en/academy/articles/a-complete-guide-to-dollar-cost-averaging-dca" rel="nofollow noopener" target="_blank">Binance Academy’s DCA guide</a>, describe the same idea.</p>
+<p>A careful version of the method usually includes:</p>
+<ol>
+<li>A written asset, interval and notional (for example a fixed quote amount every week). The size is not supposed to change because the last candle looked “cheap” or “expensive.”</li>
+<li>A venue that can actually fill that size, often a centralized exchange for major pairs. <a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en&amp;ref=GRO_28502_DAZ2K" rel="sponsored nofollow" target="_blank">Binance</a> <span class="small muted">(Referral link)</span> is one such venue; it is not the only one, and this is not a reason to open an account.</li>
+<li>A plan for failed or stale limit orders (cancel and replace, or use the venue’s recurring-buy tool if you accept its rules).</li>
+<li>A record of cost basis, fees and the schedule, so you can see the average price you actually paid. See <a href="/techniques/post-trade-journal/">post-trade journaling</a>.</li>
+<li>Paper or a tiny schedule first, so you learn the venue’s recurring-buy behaviour before any larger amount is involved. See <a href="/techniques/paper-trading/">paper trading</a>.</li>
+</ol>
+<p>DCA is a better fit for liquid majors than for a new memecoin. A “schedule” into a token that can go to zero is just a series of buys into a failing asset. For how venue and fee facts differ by network, see <a href="/techniques/by-chain/">trading styles by chain</a>.</p>
+
+<h2 id="fails">When it fails</h2>
+<ul>
+<li><strong>The asset trends to zero or stays in a long decline.</strong> Averaging down does not create a floor. You can finish the schedule with a large unrealized loss, or a total loss.</li>
+<li><strong>The schedule is abandoned at the worst time.</strong> Skipping buys after a drop, or doubling after a rally, is no longer the method being described.</li>
+<li><strong>Fees and spreads dominate a tiny notional.</strong> A $10 recurring buy on a wide spread can be mostly cost.</li>
+<li><strong>The wrong venue or the wrong token.</strong> An illiquid pool, a look-alike ticker, or a wrapped asset you did not intend will not be fixed by “averaging.”</li>
+<li><strong>There is no end or review.</strong> An open-ended schedule can become a larger holding than the account can tolerate.</li>
+</ul>
+
+<h2 id="example">Worked example</h2>
+<p><strong>Example (not a recommendation, and not a forecast).</strong> A trader plans to spend $100 every Monday for 10 weeks, or $1,000 in total, on a liquid major. Suppose the Monday fills (after fees) are $50, $45, $40, $42, $48, $55, $60, $52, $47 and $50. The average fill is the $1,000 spent divided by the units received, not the simple average of those ten prices if each order bought a different amount of the asset. If each order is a fixed $100, you buy more units when the price is lower and fewer when it is higher. If the price then sits at $30, the schedule has a loss; if it sits at $70, it has a gain. The method did not predict either outcome.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li>DCA does not remove market, custody, exchange, or stablecoin risk.</li>
+<li>Recurring buys still require you to fund the account and to keep API or app permissions under your control.</li>
+<li>This page is education only. It is not a suggestion to buy any asset or to use any exchange.</li>
+</ul>

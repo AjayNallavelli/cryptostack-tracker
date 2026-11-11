@@ -1,5 +1,10 @@
 [
  {
+  "date": "2026-11-11",
+  "title": "New: trading techniques and styles by chain",
+  "summary": "Added a Trading Techniques section with explainers of position sizing, stop-loss and take-profit ladders, dollar-cost averaging, grid trading, funding-rate carry, spot–futures basis, TWAP execution, avoiding liquidation, a memecoin risk checklist, timing new token launches, post-trade journaling and paper trading, plus a comparison of which styles are a better mechanical fit for each of the 15 chain pages. Education only; not financial advice. A labeled Binance referral appears where a centralized exchange is a natural venue."
+ },
+ {
   "date": "2026-11-10",
   "title": "New: more chain explainers and chain links",
   "summary": "Added plain-language chain pages for Arbitrum, Avalanche, Blast, HyperEVM, MegaETH, X Layer, Robinhood Chain, Arc and Stable, linked chain names across existing guides and tool pages, and disclosed a Binance referral link (marked “Referral link”) on the BNB Smart Chain page, the footer and the methodology page. Education only."

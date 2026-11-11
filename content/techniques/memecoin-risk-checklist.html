@@ -1,0 +1,41 @@
+<h2>Contents</h2>
+<ul>
+<li><a href="#how">How it works</a></li>
+<li><a href="#fails">When it fails</a></li>
+<li><a href="#example">Worked example</a></li>
+<li><a href="#risks">Risks</a></li>
+</ul>
+
+<h2 id="how">How it works</h2>
+<p>A memecoin risk checklist is a pre-trade filter for short-lived tokens, usually on a launchpad or a new pool. It does not make a token “safe.” It only tries to throw out some of the worst patterns before size is at risk. The items below are methods, not a buy list. Deeper pattern write-ups already live in <a href="/guides/spotting-rugs/">spotting rugs</a>, <a href="/guides/how-bundles-work/">how bundles work</a>, and (for <a href="/chains/solana/">Solana</a> bonding curves) <a href="/guides/pump-fun-bonding-curve/">Pump.fun’s bonding curve</a>.</p>
+<p>Questions a careful checklist usually asks, on the official explorer and on public pool pages:</p>
+<ol>
+<li><strong>Mint and authorities.</strong> Can someone still mint, freeze, blacklist, or change the metadata? An “abandoned” mint that is not actually abandoned is a common failure.</li>
+<li><strong>Honeypot and tax behaviour.</strong> Can a generic wallet sell, or only buy? Unusual buy/sell taxes and blacklist hooks show up after the first victims, not always in a banner.</li>
+<li><strong>Liquidity.</strong> Is liquidity locked or burned, or can a single wallet pull it? Locked liquidity is not a guarantee — locks expire, and other wallets can still dump.</li>
+<li><strong>Holder and funder clusters.</strong> Many “unique” buyers that share a funder, or a tight holder cluster at launch, are a warning. Visualization tools such as <a href="/tools/bubblemaps/">Bubblemaps</a> can show clusters where the chain is covered; they cannot prove intent.</li>
+<li><strong>Bundle and sniper patterns.</strong> Same-block or same-slot buys from related wallets can leave little float for later buyers. See the bundles guide.</li>
+<li><strong>Fees vs the target.</strong> If a realistic round-trip cost is around a few percent, a tiny scalp target may not clear costs. The <a href="/guides/solana-memecoin-trading-costs-small-size/">small-size Solana costs guide</a> works an example of that floor (including a Jupiter Ultra standard-route figure as a cost example, not as a venue pitch).</li>
+<li><strong>Attention already extended.</strong> Chasing a name after a large, already-public move is a different trade from a planned launch process. See <a href="/techniques/timing-new-token-launches/">timing new token launches</a>.</li>
+<li><strong>Size vs the pool.</strong> Position size should be a small slice of equity and a small slice of liquidity. See <a href="/techniques/position-sizing/">position sizing</a> and <a href="/techniques/stop-take-profit-ladders/">ladders</a>.</li>
+</ol>
+<p>The same ideas apply on <a href="/chains/bnb-chain/">BNB Chain</a> launchpads and on EVM pools, but the buttons and the authority model differ. A Solana mint authority is not the same object as an EVM owner or a proxy admin. Use the explorer for the chain you are looking at.</p>
+
+<h2 id="fails">When it fails</h2>
+<ul>
+<li><strong>The checklist is used as a green light.</strong> Passing these tests is not a reason to buy. Most tokens that pass still go to zero.</li>
+<li><strong>Data is delayed or spoofed.</strong> Fake explorers, spoofed socials, and delayed indexers are common.</li>
+<li><strong>The rug is a pattern the list did not cover</strong> — upgradeable contracts, hidden seller wallets after a “renounce,” or off-chain team custody.</li>
+<li><strong>Speed pressure.</strong> Launch chat rooms are designed to skip the list.</li>
+<li><strong>Size too large for the pool</strong>, so even a “clean” chart cannot be exited.</li>
+</ul>
+
+<h2 id="example">Worked example</h2>
+<p><strong>Example (not a recommendation, and not a real token).</strong> A new pool shows 2,000 “unique” buyers in the first minutes and a market-cap screenshot that looks large. A checklist pass might then find that a handful of wallets funded by one source bought in the same slot, that mint authority is still live, and that a 3.5% round-trip cost would already erase a 3% scalp target. The method’s result is “do not size this,” not “short it” and not “buy a different one.” If those red flags are absent, the token can still fail. Absence of evidence is not evidence of absence.</p>
+
+<h2 id="risks">Risks</h2>
+<ul>
+<li>Memecoins are often designed to transfer value from late buyers to earlier ones. A checklist is not due diligence of a business, because there is often no business.</li>
+<li>Tools can be wrong, incomplete, or themselves phishing sites. Bookmark official explorers from the <a href="/chains/">chain pages</a>.</li>
+<li>This page is education only. It is not a suggestion to trade memecoins or any named token. No contract addresses are listed here on purpose.</li>
+</ul>
