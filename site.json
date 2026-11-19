@@ -1,5 +1,11 @@
 {
   "name": "CryptoStack Tracker",
   "tagline": "An education-only field guide to Solana trading terminals, scanners, wallets and safety checkers",
-  "base_url": "https://ajaynallavelli.github.io/cryptostack-tracker/"
+  "base_url": "https://ajaynallavelli.github.io/cryptostack-tracker/",
+  "newsletter": {
+    "provider": "beehiiv",
+    "publication_url": "https://gtmstack.beehiiv.com",
+    "subscribe_url": "https://gtmstack.beehiiv.com/subscribe?utm_source=cryptostack-tracker&utm_medium=site&utm_campaign=signup",
+    "form_id": "20325473-6fa3-406b-98be-6b0a0a52154a"
+  }
 }

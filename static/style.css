@@ -101,3 +101,5 @@ h2.day{font-size:1.05rem;margin:1.4em 0 .2em}
 .referral-box{margin:12px 0 20px}
 .referral-box .btn{margin-right:8px}
 @media (max-width:640px){.calc-grid,.calc-result dl{grid-template-columns:1fr}}
+
+.nl-foot{margin-bottom:22px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}.nl-foot p{margin:0;flex:1 1 420px;font-size:.92rem}.nl-home{margin:18px 0 8px}.nl-embed{margin-top:8px}.nl-button .btn{white-space:nowrap}

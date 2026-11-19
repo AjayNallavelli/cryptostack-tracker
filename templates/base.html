@@ -18,6 +18,7 @@
 <meta name="twitter:image" content="{{ site.base_url }}/static/og.png">
 <link rel="icon" href="/static/logo.png">
 <link rel="stylesheet" href="/static/style.css">
+<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 {% block head %}{% endblock %}
 </head>
 <body>
@@ -43,6 +44,7 @@
 {% block content %}{% endblock %}
 </main>
 <footer class="foot">
+  <div class="wrap"><div class="card accent nl-foot"><p>{% include "_newsletter_copy.html" %}</p>{% include "_newsletter_button.html" %}</div></div>
   <div class="wrap foot-grid">
     <div>
       <a class="logo" href="/"><span class="logo-mark">◆</span> CryptoStack<span class="muted">Tracker</span></a>
